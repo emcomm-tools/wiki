@@ -1,0 +1,23 @@
+# Build output
+output/*.zim
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Downloaded content cache
+.cache/
+
+# Logs
+*.log
