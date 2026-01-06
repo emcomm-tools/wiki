@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pat Winlink - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#software">Software</a> &gt; 
+        Pat Winlink
+    </nav>
+    
+    <article>
+        <h1>Pat Winlink</h1>
+        
+        <section class="summary">
+            <p><strong>Pat</strong> is a cross-platform Winlink client for Linux, macOS, and Windows, developed by Martin Hebnes Pedersen (LA5NTA). It provides email over radio via the Winlink network.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>Pat is the premier Winlink client for Linux users. It supports multiple connection methods including VARA, ARDOP, Packet, Pactor, and Telnet, with both command-line and web-based interfaces.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Multiple modems:</strong> VARA, ARDOP, Packet, Pactor</li>
+            <li><strong>Web interface:</strong> Easy browser-based operation</li>
+            <li><strong>CLI interface:</strong> Scriptable command line</li>
+            <li><strong>Forms support:</strong> ICS and Winlink forms</li>
+            <li><strong>Position reporting:</strong> GPS integration</li>
+            <li><strong>P2P messaging:</strong> Direct station-to-station</li>
+        </ul>
+        
+        <h2>Installation</h2>
+        <p>Pat is pre-installed in EmComm-Tools. To verify:</p>
+        <pre><code>pat version</code></pre>
+        
+        <h2>Initial Configuration</h2>
+        <ol>
+            <li>Run configuration wizard: <code>pat configure</code></li>
+            <li>Or edit config directly: <code>~/.config/pat/config.json</code></li>
+        </ol>
+        
+        <h3>Essential Settings</h3>
+        <pre><code>{
+  "mycall": "VA2OPS",
+  "secure_login_password": "your-winlink-password",
+  "locator": "FN35",
+  "http_addr": "localhost:8080"
+}</code></pre>
+        
+        <h2>Connection Methods</h2>
+        
+        <h3>VARA HF</h3>
+        <pre><code># In config.json, add VARA section:
+"vara": {
+  "host": "localhost",
+  "cmdPort": 8300,
+  "dataPort": 8301
+}
+
+# Connect to gateway
+pat connect vara:///WL2K-GATEWAY</code></pre>
+        
+        <h3>ARDOP</h3>
+        <pre><code># Start ARDOP modem first
+ardopcf 8515 plughw:1,0 plughw:1,0
+
+# Connect
+pat connect ardop:///WL2K-GATEWAY</code></pre>
+        
+        <h3>Packet (via Direwolf)</h3>
+        <pre><code># Start Direwolf first
+# Then connect via AX.25
+pat connect ax25:///WL2K-GATEWAY</code></pre>
+        
+        <h3>Telnet (Internet)</h3>
+        <pre><code># For testing without radio
+pat connect telnet</code></pre>
+        
+        <h2>Web Interface</h2>
+        <ol>
+            <li>Start Pat HTTP server: <code>pat http</code></li>
+            <li>Open browser: <code>http://localhost:8080</code></li>
+            <li>Compose, read, and manage email via web UI</li>
+        </ol>
+        
+        <h2>Command Line Usage</h2>
+        <pre><code># List available gateways
+pat rmslist
+
+# Connect to specific gateway
+pat connect vara:///K4RGN
+
+# Compose new message
+pat compose
+
+# Read inbox
+pat read
+
+# Interactive mode
+pat interactive</code></pre>
+        
+        <h2>Finding Gateways</h2>
+        <pre><code># List HF gateways within range
+pat rmslist -m vara -d 5000
+
+# List VHF gateways nearby  
+pat rmslist -m packet -d 100</code></pre>
+        
+        <h2>Forms Support</h2>
+        <p>Pat supports Winlink standard forms:</p>
+        <ul>
+            <li>ICS-213 General Message</li>
+            <li>Radiogram</li>
+            <li>Red Cross Safe and Well</li>
+            <li>Weather reports</li>
+        </ul>
+        <p>Access forms through the web interface Compose menu.</p>
+        
+        <h2>Position Reporting</h2>
+        <pre><code># Configure GPS in config.json
+"gpsd": {
+  "enable_http": true,
+  "addr": "localhost:2947"
+}
+
+# Or set fixed position
+"locator": "FN35at"</code></pre>
+        
+        <h2>Aliases</h2>
+        <p>Create shortcuts for common gateways:</p>
+        <pre><code># In config.json
+"connect_aliases": {
+  "hf40": "vara:///WL2K@7101500",
+  "local": "packet:///WL2K-VHF"
+}
+
+# Then use
+pat connect hf40</code></pre>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>VARA Connection Failed</h3>
+        <ul>
+            <li>Ensure VARA HF is running</li>
+            <li>Check ports (8300/8301)</li>
+            <li>Verify audio setup in VARA</li>
+        </ul>
+        
+        <h3>Authentication Error</h3>
+        <ul>
+            <li>Verify Winlink password in config</li>
+            <li>Register at winlink.org if needed</li>
+            <li>Check callsign matches registration</li>
+        </ul>
+        
+        <h3>No Gateways Found</h3>
+        <ul>
+            <li>Check internet connection (for list)</li>
+            <li>Verify frequency/band selection</li>
+            <li>Try different distance setting</li>
+        </ul>
+        
+        <h2>EmComm Usage</h2>
+        <p>Pat is essential for emergency communications:</p>
+        <ul>
+            <li>Email when internet is down</li>
+            <li>ICS forms for official traffic</li>
+            <li>Position reports for tracking</li>
+            <li>Works with any Winlink gateway</li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../software/winlink.html">Winlink</a></li>
+            <li><a href="vara.html">VARA Modem</a></li>
+            <li><a href="ardop.html">ARDOP</a></li>
+            <li><a href="direwolf.html">Direwolf</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>Pat by Martin Hebnes Pedersen (LA5NTA) - <a href="https://getpat.io/">getpat.io</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

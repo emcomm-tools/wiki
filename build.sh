@@ -36,7 +36,11 @@ check_dependencies() {
     
     local missing=0
     
+# Remove existing ZIM file
+[[ -f "${OUTPUT_DIR}/${OUTPUT_FILE}" ]] && rm -f "${OUTPUT_DIR}/${OUTPUT_FILE}"
     if ! command -v zimwriterfs &> /dev/null; then
+# Remove existing ZIM file
+[[ -f "${OUTPUT_DIR}/${OUTPUT_FILE}" ]] && rm -f "${OUTPUT_DIR}/${OUTPUT_FILE}"
         log_error "zimwriterfs not found. Install with: apt install zim-tools"
         missing=1
     fi
@@ -179,6 +183,8 @@ build_zim() {
     # Ensure illustration exists
     create_illustration
     
+# Remove existing ZIM file
+[[ -f "${OUTPUT_DIR}/${OUTPUT_FILE}" ]] && rm -f "${OUTPUT_DIR}/${OUTPUT_FILE}"
     zimwriterfs \
         --welcome=index.html \
         --illustration=illustration.png \

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS8Call - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#software">Software</a> &gt; 
+        JS8Call
+    </nav>
+    
+    <article>
+        <h1>JS8Call</h1>
+        
+        <section class="summary">
+            <p><strong>JS8Call</strong> is a weak-signal digital mode for keyboard-to-keyboard messaging, developed by Jordan Sherer (KN4CRD). Based on FT8, it's optimized for conversational QSOs and store-and-forward messaging, making it ideal for emergency communications.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>JS8Call combines FT8's excellent weak-signal performance with the ability to have real conversations. Unlike FT8 which is designed for quick exchanges, JS8Call supports free-form text messaging, automatic relaying, and network-style operations.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Weak signal:</strong> Works at -24 dB SNR</li>
+            <li><strong>Keyboard-to-keyboard:</strong> Type and send any message</li>
+            <li><strong>Store and forward:</strong> Relay messages through other stations</li>
+            <li><strong>Heartbeat network:</strong> See who's on the air</li>
+            <li><strong>APRS gateway:</strong> Send position/messages to APRS</li>
+            <li><strong>Automatic relay:</strong> Extend range via other stations</li>
+            <li><strong>Multiple speeds:</strong> Trade speed for reliability</li>
+        </ul>
+        
+        <h2>Speed Modes</h2>
+        <table>
+            <thead>
+                <tr><th>Mode</th><th>Speed</th><th>Use Case</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Turbo</td><td>~40 WPM</td><td>Strong signals, local</td></tr>
+                <tr><td>Fast</td><td>~24 WPM</td><td>Good conditions</td></tr>
+                <tr><td>Normal</td><td>~16 WPM</td><td>Default, most common</td></tr>
+                <tr><td>Slow</td><td>~8 WPM</td><td>Weak signals, DX</td></tr>
+                <tr><td>Ultra</td><td>~4 WPM</td><td>Extreme weak signal</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>JS8Call Frequencies</h2>
+        <table>
+            <thead>
+                <tr><th>Band</th><th>Dial (USB)</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>160m</td><td>1.842 MHz</td><td>Night only</td></tr>
+                <tr><td>80m</td><td>3.578 MHz</td><td>Night/regional</td></tr>
+                <tr><td>40m</td><td>7.078 MHz</td><td>Primary HF</td></tr>
+                <tr><td>30m</td><td>10.130 MHz</td><td>Good 24-hour</td></tr>
+                <tr><td>20m</td><td>14.078 MHz</td><td>Daytime DX</td></tr>
+                <tr><td>17m</td><td>18.104 MHz</td><td>Daytime</td></tr>
+                <tr><td>15m</td><td>21.078 MHz</td><td>Daytime</td></tr>
+                <tr><td>10m</td><td>28.078 MHz</td><td>Solar max</td></tr>
+                <tr><td>6m</td><td>50.318 MHz</td><td>Sporadic E</td></tr>
+                <tr><td>2m</td><td>144.178 MHz</td><td>Local/tropo</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Configuration</h2>
+        
+        <h3>Station Setup</h3>
+        <ol>
+            <li>Go to <strong>File → Settings → General</strong></li>
+            <li>Enter your callsign</li>
+            <li>Enter your grid square (4 or 6 char)</li>
+            <li>Set station info message (optional)</li>
+        </ol>
+        
+        <h3>Audio Setup</h3>
+        <ol>
+            <li>Go to <strong>File → Settings → Audio</strong></li>
+            <li>Select your sound card interface</li>
+            <li>For Digirig: "USB Audio CODEC"</li>
+        </ol>
+        
+        <h3>Radio/CAT Control</h3>
+        <ol>
+            <li>Go to <strong>File → Settings → Radio</strong></li>
+            <li>Select your rig model</li>
+            <li>Set serial port (/dev/ttyUSB0 or /dev/digirig)</li>
+            <li>Configure baud rate</li>
+            <li>Set PTT method (CAT recommended)</li>
+        </ol>
+        
+        <h2>Common Commands</h2>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>@ALLCALL CQ</code></td><td>Call CQ to all stations</td></tr>
+                <tr><td><code>CALL SNR?</code></td><td>Request signal report</td></tr>
+                <tr><td><code>CALL INFO?</code></td><td>Request station info</td></tr>
+                <tr><td><code>CALL GRID?</code></td><td>Request grid square</td></tr>
+                <tr><td><code>@HB HEARTBEAT</code></td><td>Send heartbeat</td></tr>
+                <tr><td><code>@APRSIS MSG text</code></td><td>Send APRS message</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Making a Contact</h2>
+        <ol>
+            <li>Set audio levels (use Tune button)</li>
+            <li>Select clear offset in waterfall</li>
+            <li>Send <code>@ALLCALL CQ</code></li>
+            <li>Wait for responses in activity window</li>
+            <li>Double-click callsign to reply</li>
+            <li>Type your message, press Enter</li>
+            <li>End with 73 and SK</li>
+        </ol>
+        
+        <h2>EmComm Features</h2>
+        <ul>
+            <li><strong>Store &amp; Forward:</strong> Messages relay through other stations</li>
+            <li><strong>Automatic Relay:</strong> Extend network coverage</li>
+            <li><strong>Heartbeat Network:</strong> Situational awareness</li>
+            <li><strong>APRS Gateway:</strong> Position and message integration</li>
+            <li><strong>Group Calls:</strong> @GROUP for team messaging</li>
+        </ul>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>No Decode</h3>
+        <ul>
+            <li>Check audio input levels (30-50 dB)</li>
+            <li>Verify correct audio device</li>
+            <li>Confirm radio is in USB mode</li>
+        </ul>
+        
+        <h3>No Transmit</h3>
+        <ul>
+            <li>Test CAT control in settings</li>
+            <li>Verify PTT method</li>
+            <li>Check audio output device</li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../digital-modes/ft8.html">FT8</a></li>
+            <li><a href="varac.html">VarAC</a></li>
+            <li><a href="../radios/digirig-setup.html">Digirig Setup</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>JS8Call by Jordan Sherer (KN4CRD) - <a href="http://js8call.com/">js8call.com</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

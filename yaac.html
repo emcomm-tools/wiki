@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAAC - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#software">Software</a> &gt; 
+        YAAC
+    </nav>
+    
+    <article>
+        <h1>YAAC (Yet Another APRS Client)</h1>
+        
+        <section class="summary">
+            <p><strong>YAAC</strong> is a cross-platform APRS client written in Java, developed by Andrew Pavlin (KA2DDO). It provides full APRS mapping, messaging, and tracking capabilities.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>YAAC is a feature-rich APRS application that runs on any platform with Java. It supports multiple TNC connections, online and offline mapping, and comprehensive APRS messaging.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Cross-platform:</strong> Windows, Linux, macOS</li>
+            <li><strong>Multiple TNCs:</strong> Connect to several radios</li>
+            <li><strong>Offline maps:</strong> OpenStreetMap tiles</li>
+            <li><strong>GPS support:</strong> Real-time tracking</li>
+            <li><strong>Messaging:</strong> Full APRS messaging</li>
+            <li><strong>Digipeater:</strong> Fill-in digi support</li>
+            <li><strong>Weather:</strong> WX station support</li>
+        </ul>
+        
+        <h2>Starting YAAC</h2>
+        <pre><code># From command line
+java -jar /opt/yaac/YAAC.jar
+
+# Or use desktop launcher</code></pre>
+        
+        <h2>Initial Configuration</h2>
+        
+        <h3>Station Setup</h3>
+        <ol>
+            <li>File → Configure → Station Identification</li>
+            <li>Enter callsign with SSID (e.g., VA2OPS-9)</li>
+            <li>Set position or enable GPS</li>
+            <li>Choose icon (car, house, etc.)</li>
+        </ol>
+        
+        <h3>TNC/Modem Connection</h3>
+        <p>File → Configure → Add Port:</p>
+        
+        <h4>Direwolf (KISS over TCP)</h4>
+        <table>
+            <tr><td>Type</td><td>KISS-over-TCP</td></tr>
+            <tr><td>Host</td><td>localhost</td></tr>
+            <tr><td>Port</td><td>8001</td></tr>
+        </table>
+        
+        <h4>Hardware TNC</h4>
+        <table>
+            <tr><td>Type</td><td>Serial KISS TNC</td></tr>
+            <tr><td>Port</td><td>/dev/ttyUSB0</td></tr>
+            <tr><td>Baud</td><td>9600</td></tr>
+        </table>
+        
+        <h4>APRS-IS (Internet)</h4>
+        <table>
+            <tr><td>Type</td><td>APRS-IS</td></tr>
+            <tr><td>Server</td><td>noam.aprs2.net</td></tr>
+            <tr><td>Port</td><td>14580</td></tr>
+            <tr><td>Filter</td><td>r/45.5/-73.5/200</td></tr>
+        </table>
+        
+        <h2>Offline Maps</h2>
+        <p>YAAC works with EmComm-Tools offline map tiles:</p>
+        <ol>
+            <li>File → Configure → Maps</li>
+            <li>Add tile source from local mbtiles</li>
+            <li>Or download tiles for your area</li>
+        </ol>
+        
+        <h2>APRS SSID Guide</h2>
+        <table>
+            <thead>
+                <tr><th>SSID</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>-0</td><td>Home station</td></tr>
+                <tr><td>-1 to -4</td><td>Digipeaters</td></tr>
+                <tr><td>-5</td><td>Smartphone</td></tr>
+                <tr><td>-6</td><td>Satellite</td></tr>
+                <tr><td>-7</td><td>Handheld</td></tr>
+                <tr><td>-8</td><td>Boat/Ship</td></tr>
+                <tr><td>-9</td><td>Mobile (car)</td></tr>
+                <tr><td>-10</td><td>Internet gateway</td></tr>
+                <tr><td>-11</td><td>Balloon/Aircraft</td></tr>
+                <tr><td>-12</td><td>Portable</td></tr>
+                <tr><td>-14</td><td>Truck</td></tr>
+                <tr><td>-15</td><td>Weather station</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Sending Messages</h2>
+        <ol>
+            <li>Click on a station on the map</li>
+            <li>Or use Messages → New Message</li>
+            <li>Enter destination callsign</li>
+            <li>Type message (max 67 characters)</li>
+            <li>Click Send</li>
+        </ol>
+        
+        <h2>Beaconing</h2>
+        <p>Configure → Beacon Settings:</p>
+        <ul>
+            <li><strong>Fixed:</strong> Set interval (e.g., 30 min for home)</li>
+            <li><strong>SmartBeaconing:</strong> Speed-based (mobile)</li>
+            <li><strong>Status text:</strong> Shown with your beacon</li>
+        </ul>
+        
+        <h2>Digipeater Setup</h2>
+        <p>For fill-in digipeating:</p>
+        <ol>
+            <li>Configure → Digipeater</li>
+            <li>Enable digipeating</li>
+            <li>Set alias (typically WIDE1-1)</li>
+            <li>Configure duplicate filtering</li>
+        </ol>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>No Stations Visible</h3>
+        <ul>
+            <li>Check TNC connection status</li>
+            <li>Verify frequency (144.390 in NA)</li>
+            <li>Add APRS-IS port for testing</li>
+        </ul>
+        
+        <h3>Map Not Loading</h3>
+        <ul>
+            <li>Check internet for tile download</li>
+            <li>Configure offline tiles</li>
+            <li>Verify map source settings</li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../software/automatic-packet-reporting-system.html">APRS</a></li>
+            <li><a href="direwolf.html">Direwolf</a></li>
+            <li><a href="../digital-modes/packet-radio.html">Packet Radio</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>YAAC by Andrew Pavlin (KA2DDO) - <a href="https://www.ka2ddo.org/ka2ddo/YAAC.html">ka2ddo.org</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

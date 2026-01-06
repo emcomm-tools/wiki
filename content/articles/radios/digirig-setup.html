@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digirig Setup - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#radios">Radios</a> &gt; 
+        Digirig Setup
+    </nav>
+    
+    <article>
+        <h1>Digirig Mobile Setup Guide</h1>
+        
+        <section class="summary">
+            <p>The <strong>Digirig Mobile</strong> is a compact, all-in-one digital mode interface combining sound card, CAT control, and PTT in a single USB device. This guide covers setup in EmComm-Tools.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>The Digirig integrates:</p>
+        <ul>
+            <li><strong>USB Sound Card:</strong> Audio in/out for digital modes</li>
+            <li><strong>Serial Port:</strong> CAT control and PTT</li>
+            <li><strong>Compact Size:</strong> Fits in your palm</li>
+        </ul>
+        
+        <h2>EmComm-Tools PnP Support</h2>
+        <p>EmComm-Tools includes automatic detection:</p>
+        <ul>
+            <li>Digirig appears as <code>/dev/digirig</code></li>
+            <li>Audio device: "USB Audio CODEC"</li>
+            <li>No driver installation needed</li>
+        </ul>
+        
+        <h2>Connections</h2>
+        
+        <h3>To Computer</h3>
+        <ul>
+            <li>USB-C (Digirig side)</li>
+            <li>USB-A or USB-C (computer side)</li>
+        </ul>
+        
+        <h3>To Radio</h3>
+        <p>Digirig uses a 3.5mm TRRS connector:</p>
+        <table>
+            <thead>
+                <tr><th>Ring</th><th>Signal</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Tip</td><td>Audio Out (to radio)</td></tr>
+                <tr><td>Ring 1</td><td>Audio In (from radio)</td></tr>
+                <tr><td>Ring 2</td><td>PTT (ground to key)</td></tr>
+                <tr><td>Sleeve</td><td>Ground</td></tr>
+            </tbody>
+        </table>
+        <p>Use the correct cable for your radio model.</p>
+        
+        <h2>Supported Radios</h2>
+        <p>Digirig offers cables for:</p>
+        <ul>
+            <li><strong>Icom:</strong> IC-705, IC-7300, IC-706 series</li>
+            <li><strong>Yaesu:</strong> FT-891, FT-857, FT-817/818, FT-991</li>
+            <li><strong>Kenwood:</strong> TS-480, TH-D74</li>
+            <li><strong>Elecraft:</strong> KX2, KX3</li>
+            <li><strong>Xiegu:</strong> G90, X6100</li>
+            <li><strong>HTs:</strong> Most via speaker/mic jacks</li>
+        </ul>
+        
+        <h2>Device Identification</h2>
+        <pre><code># Find serial port
+ls -la /dev/ttyUSB*
+ls -la /dev/digirig
+
+# Find audio device
+aplay -l | grep -i usb
+arecord -l | grep -i usb</code></pre>
+        
+        <h2>Application Settings</h2>
+        
+        <h3>JS8Call</h3>
+        <table>
+            <tr><td>Audio Input</td><td>USB Audio CODEC</td></tr>
+            <tr><td>Audio Output</td><td>USB Audio CODEC</td></tr>
+            <tr><td>Serial Port</td><td>/dev/digirig</td></tr>
+            <tr><td>PTT Method</td><td>CAT or RTS</td></tr>
+        </table>
+        
+        <h3>WSJT-X / FT8</h3>
+        <table>
+            <tr><td>Audio Input</td><td>USB Audio CODEC</td></tr>
+            <tr><td>Audio Output</td><td>USB Audio CODEC</td></tr>
+            <tr><td>Rig</td><td>Your radio model</td></tr>
+            <tr><td>Serial Port</td><td>/dev/digirig</td></tr>
+            <tr><td>PTT</td><td>CAT</td></tr>
+        </table>
+        
+        <h3>Fldigi</h3>
+        <table>
+            <tr><td>Sound Card</td><td>PortAudio, USB Audio CODEC</td></tr>
+            <tr><td>Rig Control</td><td>Hamlib, your model</td></tr>
+            <tr><td>Device</td><td>/dev/digirig</td></tr>
+        </table>
+        
+        <h3>Direwolf</h3>
+        <pre><code>ADEVICE plughw:X,0
+PTT /dev/digirig RTS</code></pre>
+        
+        <h2>Audio Level Adjustment</h2>
+        
+        <h3>Transmit Level</h3>
+        <ol>
+            <li>Open <code>alsamixer</code></li>
+            <li>Press F6, select USB Audio CODEC</li>
+            <li>Adjust playback to ~70%</li>
+            <li>Key transmitter, adjust until ALC barely moves</li>
+        </ol>
+        
+        <h3>Receive Level</h3>
+        <ol>
+            <li>In application waterfall, signals should peak 30-50 dB</li>
+            <li>Adjust radio AF/volume if too high or low</li>
+            <li>Or adjust capture in alsamixer</li>
+        </ol>
+        
+        <h2>Radio Settings</h2>
+        <p>Typical settings for digital modes:</p>
+        <table>
+            <thead>
+                <tr><th>Setting</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Mode</td><td>USB (or DATA-USB)</td></tr>
+                <tr><td>Bandwidth</td><td>2.4-3.0 kHz</td></tr>
+                <tr><td>RF Power</td><td>Start at 50%</td></tr>
+                <tr><td>AGC</td><td>Slow or Off</td></tr>
+                <tr><td>NB/NR</td><td>Off</td></tr>
+                <tr><td>Compression</td><td>Off</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Testing</h2>
+        
+        <h3>Test Audio Path</h3>
+        <pre><code># Record 5 seconds
+arecord -D plughw:X,0 -d 5 -f cd test.wav
+
+# Play back
+aplay test.wav</code></pre>
+        
+        <h3>Test CAT Control</h3>
+        <pre><code># Using rigctl
+rigctl -m 3085 -r /dev/digirig -s 9600 f</code></pre>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>Device Not Detected</h3>
+        <ul>
+            <li>Try different USB port</li>
+            <li>Check <code>dmesg | tail -20</code></li>
+            <li>Use data-capable USB cable</li>
+        </ul>
+        
+        <h3>No Audio</h3>
+        <ul>
+            <li>Verify cable fully seated</li>
+            <li>Check radio mode (USB/DATA)</li>
+            <li>Test with alsamixer</li>
+        </ul>
+        
+        <h3>PTT Not Working</h3>
+        <ul>
+            <li>Verify CAT settings match radio</li>
+            <li>Try RTS instead of CAT</li>
+            <li>Check serial permissions</li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="signalink-setup.html">Signalink Setup</a></li>
+            <li><a href="ic-7300-digital.html">IC-7300 Digital Setup</a></li>
+            <li><a href="ft-891-digital.html">FT-891 Digital Setup</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>Digirig by Denis Grisak (K0TX) - <a href="https://digirig.net/">digirig.net</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

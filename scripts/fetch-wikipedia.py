@@ -99,7 +99,7 @@ def fetch_article(title, output_file, images_dir):
             local_file = download_image(img_url, images_dir)
             if local_file:
                 # Replace URL in content with local path
-                content = content.replace(f'src="{img_url}"', f'src="images/{local_file}"')
+                content = content.replace(f'src="{img_url}"', f'src="../images/{local_file}"')
                 downloaded += 1
                 time.sleep(0.1)  # Small delay between images
         

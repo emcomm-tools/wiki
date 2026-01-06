@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direwolf - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#software">Software</a> &gt; 
+        Direwolf
+    </nav>
+    
+    <article>
+        <h1>Direwolf</h1>
+        
+        <section class="summary">
+            <p><strong>Direwolf</strong> is a software "soundcard" Terminal Node Controller (TNC) and APRS encoder/decoder, developed by John Langner (WB2OSZ). It turns any computer with a sound card into a packet radio modem.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>Direwolf decodes and encodes AX.25 packet radio, APRS, and other digital modes using your computer's sound card. It replaces hardware TNCs and provides superior performance with modern error correction.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Software TNC:</strong> No hardware TNC needed</li>
+            <li><strong>APRS decode/encode:</strong> Full APRS support</li>
+            <li><strong>KISS interface:</strong> Works with packet applications</li>
+            <li><strong>AGW interface:</strong> Compatible with Windows apps</li>
+            <li><strong>iGate capability:</strong> APRS-IS gateway</li>
+            <li><strong>Digipeater:</strong> Packet relay station</li>
+            <li><strong>Multiple modems:</strong> 1200 and 9600 baud</li>
+        </ul>
+        
+        <h2>Supported Modes</h2>
+        <table>
+            <thead>
+                <tr><th>Mode</th><th>Speed</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>AFSK 1200</td><td>1200 baud</td><td>VHF APRS, packet</td></tr>
+                <tr><td>GFSK 9600</td><td>9600 baud</td><td>High-speed packet</td></tr>
+                <tr><td>HF Packet</td><td>300 baud</td><td>HF packet radio</td></tr>
+                <tr><td>FX.25</td><td>Various</td><td>Forward error correction</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Configuration</h2>
+        <p>Direwolf uses a configuration file, typically <code>direwolf.conf</code>:</p>
+        
+        <h3>Basic Configuration</h3>
+        <pre><code># Audio device
+ADEVICE plughw:1,0
+
+# Your callsign
+MYCALL VA2OPS-1
+
+# Channel 0 settings (1200 baud VHF)
+CHANNEL 0
+MODEM 1200
+
+# PTT control
+PTT /dev/ttyUSB0 RTS</code></pre>
+        
+        <h3>APRS iGate Configuration</h3>
+        <pre><code># Enable iGate
+IGSERVER noam.aprs2.net
+IGLOGIN YOURCALL-10 12345
+
+# Filter (receive only within 100km)
+IGFILTER r/45.50/-73.50/100</code></pre>
+        
+        <h3>Digipeater Configuration</h3>
+        <pre><code># Enable digipeater
+DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE</code></pre>
+        
+        <h2>Audio Interface Setup</h2>
+        <p>Find your audio device:</p>
+        <pre><code>arecord -l   # List recording devices
+aplay -l     # List playback devices</code></pre>
+        
+        <p>Example devices:</p>
+        <ul>
+            <li><code>plughw:1,0</code> - USB sound card</li>
+            <li><code>plughw:CARD=Device,DEV=0</code> - By name</li>
+        </ul>
+        
+        <h2>PTT Configuration</h2>
+        <table>
+            <thead>
+                <tr><th>Method</th><th>Config</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Serial RTS</td><td><code>PTT /dev/ttyUSB0 RTS</code></td><td>Most common</td></tr>
+                <tr><td>Serial DTR</td><td><code>PTT /dev/ttyUSB0 DTR</code></td><td>Alternative</td></tr>
+                <tr><td>GPIO</td><td><code>PTT GPIO 25</code></td><td>Raspberry Pi</td></tr>
+                <tr><td>hamlib</td><td><code>PTT RIG 2 /dev/ttyUSB0</code></td><td>CAT control</td></tr>
+                <tr><td>VOX</td><td>(none)</td><td>Audio-triggered</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Running Direwolf</h2>
+        <pre><code># Basic start
+direwolf
+
+# With specific config
+direwolf -c /path/to/direwolf.conf
+
+# With KISS port for other apps
+direwolf -p</code></pre>
+        
+        <h2>KISS Interface</h2>
+        <p>Direwolf provides a KISS TCP port for other applications:</p>
+        <ul>
+            <li><strong>Default port:</strong> 8001</li>
+            <li><strong>Use with:</strong> YAAC, Xastir, Pat, linBPQ</li>
+        </ul>
+        
+        <h3>Example: Connect YAAC</h3>
+        <ol>
+            <li>Start Direwolf with <code>-p</code> flag</li>
+            <li>In YAAC: Add port → KISS-over-TCP</li>
+            <li>Host: localhost, Port: 8001</li>
+        </ol>
+        
+        <h2>AGW Interface</h2>
+        <p>For Windows applications via Wine:</p>
+        <ul>
+            <li><strong>Default port:</strong> 8000</li>
+            <li><strong>Compatible with:</strong> UI-View, APRSISCE</li>
+        </ul>
+        
+        <h2>APRS Frequencies</h2>
+        <table>
+            <thead>
+                <tr><th>Region</th><th>Frequency</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>North America</td><td>144.390 MHz</td></tr>
+                <tr><td>Europe</td><td>144.800 MHz</td></tr>
+                <tr><td>Australia</td><td>145.175 MHz</td></tr>
+                <tr><td>Japan</td><td>144.640 MHz</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>No Audio</h3>
+        <ul>
+            <li>Check ADEVICE setting matches your hardware</li>
+            <li>Run <code>alsamixer</code> to check levels</li>
+            <li>Test with <code>arecord</code> and <code>aplay</code></li>
+        </ul>
+        
+        <h3>No Decode</h3>
+        <ul>
+            <li>Check audio levels (not clipping)</li>
+            <li>Verify frequency is correct</li>
+            <li>Try adjusting squelch on radio</li>
+        </ul>
+        
+        <h3>PTT Not Working</h3>
+        <ul>
+            <li>Check serial port permissions</li>
+            <li>Verify RTS/DTR setting</li>
+            <li>Test with <code>stty</code></li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../software/automatic-packet-reporting-system.html">APRS</a></li>
+            <li><a href="../digital-modes/packet-radio.html">Packet Radio</a></li>
+            <li><a href="../digital-modes/ax25.html">AX.25</a></li>
+            <li><a href="yaac.html">YAAC</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>Direwolf by John Langner (WB2OSZ) - <a href="https://github.com/wb2osz/direwolf">GitHub</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

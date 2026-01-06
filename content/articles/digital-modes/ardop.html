@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARDOP - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital-modes">Digital Modes</a> &gt; 
+        ARDOP
+    </nav>
+    
+    <article>
+        <h1>ARDOP (Amateur Radio Digital Open Protocol)</h1>
+        
+        <section class="summary">
+            <p><strong>ARDOP</strong> is an open-source sound card modem for amateur radio, providing reliable HF data communications. It's commonly used with Winlink and is fully free/open source.</p>
+        </section>
+        
+        <h2>Overview</h2>
+        <p>ARDOP provides ARQ (Automatic Repeat reQuest) data transfer over HF radio. While slower than VARA, it's completely free and open source, making it an important option for amateur radio data communications.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Open source:</strong> Free to use, modify, study</li>
+            <li><strong>ARQ protocol:</strong> Guaranteed delivery</li>
+            <li><strong>Adaptive:</strong> Adjusts to conditions</li>
+            <li><strong>Cross-platform:</strong> Linux, Windows, Raspberry Pi</li>
+        </ul>
+        
+        <h2>Specifications</h2>
+        <table>
+            <thead>
+                <tr><th>Parameter</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Bandwidth</td><td>200, 500, 1000, 2000 Hz</td></tr>
+                <tr><td>Speed Range</td><td>~25 - 2000+ bps</td></tr>
+                <tr><td>Modulation</td><td>PSK, QAM variants</td></tr>
+                <tr><td>Error Correction</td><td>ARQ with FEC</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>ardopcf (Linux Version)</h2>
+        <p>EmComm-Tools includes <code>ardopcf</code>, an improved fork:</p>
+        <ul>
+            <li>Better performance than original ARDOP</li>
+            <li>Native Linux support</li>
+            <li>Active development</li>
+        </ul>
+        
+        <h2>Running ARDOP</h2>
+        <pre><code># Basic start
+ardopcf 8515 plughw:1,0 plughw:1,0
+
+# Arguments:
+# 8515 = TCP port for client connections
+# plughw:1,0 = capture device
+# plughw:1,0 = playback device</code></pre>
+        
+        <h3>With PTT</h3>
+        <pre><code># Using serial RTS for PTT
+ardopcf 8515 plughw:1,0 plughw:1,0 -p /dev/ttyUSB0
+
+# Using hamlib
+ardopcf 8515 plughw:1,0 plughw:1,0 -c 1</code></pre>
+        
+        <h2>Pat Winlink Configuration</h2>
+        <p>In Pat's config.json:</p>
+        <pre><code>"ardop": {
+    "addr": "localhost:8515",
+    "arq_bandwidth": {
+        "Forced": false,
+        "Max": 2000
+    },
+    "rig": "",
+    "ptt_ctrl": true
+}</code></pre>
+        
+        <p>Connect to gateway:</p>
+        <pre><code>pat connect ardop:///WL2K-GATEWAY</code></pre>
+        
+        <h2>Finding Your Audio Device</h2>
+        <pre><code># List capture devices
+arecord -l
+
+# List playback devices  
+aplay -l
+
+# Example output:
+# card 1: Device [USB Audio Device], device 0: USB Audio
+# Use: plughw:1,0</code></pre>
+        
+        <h2>ARDOP vs VARA</h2>
+        <table>
+            <thead>
+                <tr><th>Feature</th><th>ARDOP</th><th>VARA</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Cost</td><td>Free</td><td>$69 license</td></tr>
+                <tr><td>Speed</td><td>~2 kbps max</td><td>~8.5 kbps max</td></tr>
+                <tr><td>Source</td><td>Open</td><td>Closed</td></tr>
+                <tr><td>Platform</td><td>Native Linux</td><td>Wine required</td></tr>
+                <tr><td>Development</td><td>Community</td><td>EA5HVK</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Troubleshooting</h2>
+        
+        <h3>No Audio</h3>
+        <ul>
+            <li>Verify device names with arecord/aplay</li>
+            <li>Check alsamixer levels</li>
+            <li>Test audio path first</li>
+        </ul>
+        
+        <h3>Connection Fails</h3>
+        <ul>
+            <li>Check frequency/gateway</li>
+            <li>Verify PTT is working</li>
+            <li>Ensure adequate signal strength</li>
+        </ul>
+        
+        <h3>Slow Speeds</h3>
+        <ul>
+            <li>ARDOP adapts to conditions</li>
+            <li>Try wider bandwidth setting</li>
+            <li>Propagation affects speed</li>
+        </ul>
+        
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="vara.html">VARA Modem</a></li>
+            <li><a href="pat-winlink.html">Pat Winlink</a></li>
+            <li><a href="../software/winlink.html">Winlink</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>ARDOP is open source amateur radio software.</p>
+            <p>ardopcf maintained by pflarue - <a href="https://github.com/pflarue/ardop">GitHub</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
