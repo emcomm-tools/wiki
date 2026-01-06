@@ -6,35 +6,51 @@ A comprehensive offline Ham Radio encyclopedia in ZIM format for use with EmComm
 
 This project builds a searchable, offline reference library for amateur radio operators. The resulting ZIM file can be viewed with Kiwix (included in EmComm-Tools) and provides critical reference material when internet connectivity is unavailable during emergencies.
 
+**Current Build:** 64+ articles, ~7 MB with images
+
 ## Content Categories
 
 - **Band Plans** - ITU regions, country allocations, mode segments
-- **Digital Modes** - FT8, JS8Call, VARA, Winlink, RTTY, PSK31
-- **Software Guides** - Quick-start guides for EmComm-Tools applications
-- **Radio Profiles** - Digital mode settings for popular transceivers
+- **Digital Modes** - FT8, JS8Call, VARA, VarAC, ARDOP, Winlink, RTTY, PSK31
+- **Software Guides** - Fldigi, Direwolf, Pat, YAAC, JS8Call quick-starts
+- **Radio Profiles** - Digital mode settings, Digirig setup
 - **Antennas** - Construction guides, formulas, wire lengths
 - **Electronics** - Fundamentals for ham radio operators
 - **EmComm Procedures** - ICS forms, ARES/RACES, net operations
 - **Propagation** - HF characteristics, NVIS, solar indices
 - **Quick Reference** - Q-codes, phonetics, frequencies, pinouts
 
-## Requirements
+## Quick Start (Use Pre-built)
 
-- `zimwriterfs` (included in EmComm-Tools via zim-tools package)
-- `curl` or `wget` for fetching Wikipedia content
-- `python3` for content processing scripts
+Download the latest ZIM from [Releases](https://github.com/emcomm-tools/wiki/releases) and copy to your wikipedia folder:
 
-## Building the ZIM File
+```bash
+cp emcomm-ham-wiki_*.zim ~/wikipedia/
+kiwix-desktop ~/wikipedia/emcomm-ham-wiki_*.zim
+```
+
+## Building from Source
+
+### Requirements
+
+- `zimwriterfs` (from zim-tools package)
+- `curl` for fetching Wikipedia content
+- `python3` for content processing
+
+### Build Steps
 
 ```bash
 # Clone the repository
 git clone https://github.com/emcomm-tools/wiki.git
 cd wiki
 
+# Fetch Wikipedia articles (optional - content included)
+python3 scripts/fetch-wikipedia.py
+
 # Build the ZIM file
 ./build.sh
 
-# Output will be in: output/emcomm-ham-wiki_YYYYMMDD.zim
+# Output: output/emcomm-ham-wiki_YYYYMMDD.zim
 ```
 
 ## Project Structure
@@ -43,81 +59,103 @@ cd wiki
 emcomm-tools-wiki/
 ├── README.md
 ├── LICENSE
-├── build.sh              # Main build script
-├── config.sh             # Configuration variables
+├── build.sh                    # Main build script
+├── config.sh                   # Configuration variables
 ├── scripts/
-│   ├── fetch-wikipedia.sh    # Extract ham radio articles from Wikipedia
-│   ├── generate-index.sh     # Build main index page
-│   └── validate-content.sh   # Check for broken links
+│   ├── fetch-wikipedia.py      # Fetch articles from Wikipedia
+│   ├── generate-index.sh       # Build main index page
+│   └── validate-content.sh     # Check for broken links
 ├── content/
-│   ├── articles/         # HTML article files
-│   │   ├── index.html    # Main landing page
-│   │   ├── bandplans/
-│   │   ├── digital-modes/
-│   │   ├── software/
-│   │   ├── radios/
-│   │   ├── antennas/
-│   │   ├── electronics/
-│   │   ├── emcomm/
-│   │   ├── propagation/
-│   │   └── reference/
-│   ├── images/           # Icons, diagrams, schematics
-│   └── css/
-│       └── style.css     # Wiki styling
+│   └── articles/
+│       ├── index.html          # Main landing page
+│       ├── css/
+│       │   └── style.css       # Wiki styling
+│       ├── images/             # Downloaded Wikipedia images
+│       ├── bandplans/
+│       ├── digital-modes/
+│       ├── software/
+│       ├── radios/
+│       ├── antennas/
+│       ├── electronics/
+│       ├── emcomm/
+│       ├── propagation/
+│       └── reference/
 ├── templates/
-│   ├── article.html      # Article template
-│   └── category.html     # Category listing template
-└── output/               # Built ZIM files
+│   └── article.html            # Template for new articles
+└── output/                     # Built ZIM files
 ```
 
 ## Adding Content
 
-### Manual Articles
+### Custom Articles
 
-Create HTML files in the appropriate `content/articles/` subdirectory using the article template:
-
-```bash
-cp templates/article.html content/articles/antennas/dipole.html
-# Edit the file with your content
-```
-
-### Wikipedia Extraction
-
-The `scripts/fetch-wikipedia.sh` script can pull relevant articles from Wikipedia (CC BY-SA licensed):
+Create HTML files in the appropriate `content/articles/` subdirectory:
 
 ```bash
-./scripts/fetch-wikipedia.sh "Amateur_radio"
+cp templates/article.html content/articles/software/my-guide.html
+# Edit with your content
+./scripts/generate-index.sh   # Update index
+./build.sh                    # Rebuild ZIM
 ```
 
-## Installation
+### Fetch More Wikipedia Articles
 
-Copy the built ZIM file to your EmComm-Tools wikipedia directory:
+Edit `scripts/fetch-wikipedia.py` to add articles to the `ARTICLES` list, then:
+
+```bash
+python3 scripts/fetch-wikipedia.py Article_Name
+```
+
+## Installation in EmComm-Tools
+
+The ZIM file is included in EmComm-Tools at `~/wikipedia/`. To update manually:
 
 ```bash
 cp output/emcomm-ham-wiki_*.zim ~/wikipedia/
 ```
 
-Then open Kiwix and add the library.
+View with Kiwix (desktop app) or kiwix-serve (web):
+
+```bash
+kiwix-serve -p 8888 ~/wikipedia/emcomm-ham-wiki_*.zim
+# Open http://localhost:8888
+```
 
 ## Contributing
 
 Contributions welcome! Please ensure:
-- Content is accurate and well-sourced
-- Respect copyright - use CC-licensed or original content only
-- Follow the existing article structure
-- Test that the ZIM builds successfully
+
+1. Content is accurate and well-sourced
+2. Use CC-licensed or original content only (respect copyright)
+3. Follow existing article structure and CSS
+4. Test that the ZIM builds successfully
+5. Images go in `content/articles/images/`
+
+### Submitting Changes
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b add-new-article`)
+3. Commit your changes (`git commit -m 'Add IC-705 setup guide'`)
+4. Push to the branch (`git push origin add-new-article`)
+5. Open a Pull Request
 
 ## License
 
 - **Code/Scripts**: MIT License
-- **Content**: CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike)
+- **Original Content**: CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike)
+- **Wikipedia Content**: CC BY-SA 4.0 (attributed to Wikipedia contributors)
 
 ## Credits
 
-- EmComm-Tools Project: https://emcomm-tools.ca
-- Kiwix: https://kiwix.org
-- OpenZIM: https://openzim.org
+- [EmComm-Tools Project](https://emcomm-tools.ca)
+- [Kiwix](https://kiwix.org) - Offline content viewer
+- [OpenZIM](https://openzim.org) - ZIM file format
+- Wikipedia contributors for source articles
 
 ## Author
 
 Sylvain Deguire (VA2OPS)
+
+---
+
+*Part of the [EmComm-Tools](https://github.com/emcomm-tools) project - Ham Radio Emergency Communications for Linux*
