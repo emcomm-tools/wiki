@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impedance matching - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; Impedance matching
+    </nav>
+    <article>
+        <h1>Impedance matching</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Adjusting input/output impedances of an electrical circuit for some purpose</div>
+<style data-mw-deduplicate="TemplateStyles:r1320445320">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div role="note" class="hatnote navigation-not-searchable">"Impedance mismatch" redirects here. For the computer science concept, see <a href="Object-relational_impedance_mismatch" class="mw-redirect" title="Object-relational impedance mismatch">object-relational impedance mismatch</a>.</div>
+<style data-mw-deduplicate="TemplateStyles:r1305433154">.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+link+.ambox,.mw-parser-output .ambox+link+style+.ambox,.mw-parser-output .ambox+link+link+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+style+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+link+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style><table class="box-No&#95;footnotes plainlinks metadata ambox ambox-style ambox-No&#95;footnotes" role="presentation"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/40px-Text_document_with_red_question_mark.svg.png" decoding="async" width="40" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/60px-Text_document_with_red_question_mark.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/120px-Text_document_with_red_question_mark.svg.png 2x" data-file-width="48" data-file-height="48" /></span></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article includes a <a href="Wikipedia:Citing_sources" title="Wikipedia:Citing sources">list of references</a>, <a href="Wikipedia:Further_reading" title="Wikipedia:Further reading">related reading</a>, or <a href="Wikipedia:External_links" title="Wikipedia:External links">external links</a>, <b>but its sources remain unclear because it lacks <a href="Wikipedia:Citing_sources#Inline_citations" title="Wikipedia:Citing sources">inline citations</a></b>.<span class="hide-when-compact"> Please help <a href="Wikipedia:WikiProject_Fact_and_Reference_Check" class="mw-redirect" title="Wikipedia:WikiProject Fact and Reference Check">improve</a> this article by <a href="Wikipedia:When_to_cite" title="Wikipedia:When to cite">introducing</a> more precise citations.</span>  <span class="date-container"><i>(<span class="date">October 2023</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Source_and_load_circuit_Z_(2).svg" class="mw-file-description"><img alt="Schematic diagram of source and load impedance circuit" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Source_and_load_circuit_Z_%282%29.svg/250px-Source_and_load_circuit_Z_%282%29.svg.png" decoding="async" width="250" height="174" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Source_and_load_circuit_Z_%282%29.svg/500px-Source_and_load_circuit_Z_%282%29.svg.png 1.5x" data-file-width="1164" data-file-height="808" /></a><figcaption><a href="Voltage_source" title="Voltage source">Source</a> and <a href="Electrical_load" title="Electrical load">load</a> impedance circuit</figcaption></figure>
+<p>In <a href="Electrical_engineering" title="Electrical engineering">electrical engineering</a>, <b>impedance matching</b> is the practice of designing or adjusting the <a href="Input_impedance" title="Input impedance">input impedance</a> or <a href="Output_impedance" title="Output impedance">output impedance</a> of an electrical device for a desired value.  Often, the desired value is selected to maximize <a href="Electric_power" title="Electric power">power</a> transfer or minimize <a href="Signal_reflection" title="Signal reflection">signal reflection</a>. For example, impedance matching typically is used to improve power transfer from a <a href="Radio_transmitter" class="mw-redirect" title="Radio transmitter">radio transmitter</a> via the interconnecting <a href="Transmission_line" title="Transmission line">transmission line</a> to the <a href="Antenna_(radio)" title="Antenna (radio)">antenna</a>. <a href="Signal" title="Signal">Signals</a> on a transmission line will be transmitted without reflections if the transmission line is <a href="Electrical_termination" title="Electrical termination">terminated</a> with a matching impedance. 
+</p><p>Techniques of impedance matching include <a href="Transformer" title="Transformer">transformers</a>, adjustable networks of lumped <a href="Electrical_resistance_and_conductance" title="Electrical resistance and conductance">resistance</a>, <a href="Capacitance" title="Capacitance">capacitance</a> and <a href="Inductance" title="Inductance">inductance</a>, or properly proportioned transmission lines. Practical impedance-matching devices will generally provide best results over a specified <a href="Frequency_band" class="mw-redirect" title="Frequency band">frequency band</a>. 
+</p><p>The concept of impedance matching is widespread in electrical engineering, but is relevant in other applications in which a form of <a href="Energy" title="Energy">energy</a>, not necessarily <a href="Electrical_energy" title="Electrical energy">electrical</a>, is transferred between a source and a load, such as in <a href="Acoustics" title="Acoustics">acoustics</a> or <a href="Optics" title="Optics">optics</a>. 
+</p>
+<style data-mw-deduplicate="TemplateStyles:r886046785">.mw-parser-output .toclimit-2 .toclevel-1 ul,.mw-parser-output .toclimit-3 .toclevel-2 ul,.mw-parser-output .toclimit-4 .toclevel-3 ul,.mw-parser-output .toclimit-5 .toclevel-4 ul,.mw-parser-output .toclimit-6 .toclevel-5 ul,.mw-parser-output .toclimit-7 .toclevel-6 ul{display:none}</style><div class="toclimit-3"></div>
+<div class="mw-heading mw-heading2"><h2 id="Theory"><span class="anchor" id="Explanation"></span>Theory</h2></div>
+<p>Impedance characterizes the ratio of energy components in a given domain. For constant signals, this impedance can also be constant. For varying signals, it usually changes with frequency. The energy involved can be <a href="Electrical_impedance" title="Electrical impedance">electrical</a>, <a href="Mechanical_impedance" title="Mechanical impedance">mechanical</a>, <a href="Acoustic_impedance" title="Acoustic impedance">acoustic</a>, <a href="Magnetic_impedance" class="mw-redirect" title="Magnetic impedance">magnetic</a>, <a href="Wave_impedance" title="Wave impedance">electromagnetic</a>, or <a href="Thermal_impedance" class="mw-redirect" title="Thermal impedance">thermal</a>. The concept of electrical impedance is perhaps the most commonly known. Electrical impedance, like electrical resistance, is measured in <a href="Ohm_(unit)" class="mw-redirect" title="Ohm (unit)">ohms</a>. In general, impedance (symbol: <i>Z</i>) has a <a href="Complex_number" title="Complex number">complex</a> value; this means that loads generally have a <a href="Electrical_resistance" class="mw-redirect" title="Electrical resistance">resistance</a> component (symbol: <i>R</i>) which forms the <a href="Real_number" title="Real number">real</a> part and a <a href="Electrical_reactance" title="Electrical reactance">reactance</a> component (symbol: <i>X</i>) which forms the <a href="Imaginary_number" title="Imaginary number">imaginary</a> part. This impedance characterizes the ratio between the voltage and current components in the medium.
+</p><p>In simple cases (such as low-frequency or <a href="Direct_current" title="Direct current">direct current</a> power transmission) the <a href="Electrical_reactance" title="Electrical reactance">reactance</a> may be negligible or zero; the impedance can be considered a pure resistance, expressed as a real number. In the following summary we will consider the general case when resistance and reactance are both significant, and the special case in which the reactance is negligible.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Maximum_power_transfer_matching">Maximum power transfer matching</h3></div>
+<p>Complex conjugate matching is used when <a href="Maximum_power_transfer_theorem" title="Maximum power transfer theorem"> maximum power transfer</a> is required, namely
+<span class="mwe-math-element mwe-math-element-block"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{\text{load}}=Z_{\text{source}}^{*},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>load</mtext>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>source</mtext>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2217;<!-- ∗ --></mo>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{\text{load}}=Z_{\text{source}}^{*},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5e584077b8c380a0043e50b7a8f758e2b6c77120" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:14.889ex; height:2.509ex;" alt="{\displaystyle Z_{\text{load}}=Z_{\text{source}}^{*},}" /></span>
+where a superscript * indicates the <a href="Complex_conjugate" title="Complex conjugate">complex conjugate</a>. A conjugate match is different from a reflection-less match when either the source or load has a reactive component.
+</p><p>If the source has a reactive component, but the <a href="Electrical_load" title="Electrical load">load</a> is purely resistive, then matching can be achieved by adding a reactance of the same magnitude but opposite sign to the load. This simple matching network, consisting of a single <a href="Electrical_element" title="Electrical element">element</a>, will usually achieve a perfect match at only a single frequency. This is because the added element will either be a capacitor or an inductor, whose impedance in both cases is frequency dependent, and will not, in general, follow the frequency dependence of the source impedance. For wide <a href="Bandwidth_(signal_processing)" title="Bandwidth (signal processing)">bandwidth</a> applications, a more complex network must be designed.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="Phase-shifting_matching_network">Phase-shifting matching network</h4></div>
+<p>If a lossless reciprocal two-port network matches a load impedance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{L}=R_{L}+jX_{L}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mi>j</mi>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{L}=R_{L}+jX_{L}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ea6fd1bb67f3391adb2754e17be9f4504cfac68d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:16.227ex; height:2.509ex;" alt="{\displaystyle Z_{L}=R_{L}+jX_{L}}" /></span> to a source impedance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{S}=R_{S}+jX_{S}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mi>j</mi>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{S}=R_{S}+jX_{S}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d9244ad5c015da77ee629ab15b6dda181166aaed" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:16.05ex; height:2.509ex;" alt="{\displaystyle Z_{S}=R_{S}+jX_{S}}" /></span> with transmission phase shift <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3c6;<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }" /></span> (i.e., <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \{Z_{S}\xrightarrow {\varphi } Z_{L}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>&#x2192;</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <mi>&#x3c6;<!-- φ --></mi>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{Z_{S}\xrightarrow {\varphi } Z_{L}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b22418d9d01410d8490af1a4d279de6a79cb2507" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; margin-top: -0.405ex; width:11.758ex; height:4.009ex;" alt="{\displaystyle \{Z_{S}\xrightarrow {\varphi } Z_{L}\}}" /></span>), then the transmission matrix of the matching network can be expressed as<sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup>
+<span class="mwe-math-element mwe-math-element-block"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}A&amp;B\\C&amp;D\end{bmatrix}}={\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\frac {1}{\sqrt {R_{S}R_{L}}}}{\begin{bmatrix}\Re ({\bar {Z_{S}}}e^{j\varphi })&amp;j\Im ({\bar {Z_{S}}}{\bar {Z_{L}}}e^{j\varphi })\\j\Im (e^{j\varphi })&amp;\Re ({\bar {Z_{L}}}e^{j\varphi })\end{bmatrix}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi>A</mi>
+                </mtd>
+                <mtd>
+                  <mi>B</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>C</mi>
+                </mtd>
+                <mtd>
+                  <mi>D</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>b</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msqrt>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>S</mi>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+            </msqrt>
+          </mfrac>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi mathvariant="normal">&#x211c;<!-- ℜ --></mi>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <msub>
+                          <mi>Z</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">&#xaf;<!-- ¯ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <msup>
+                    <mi>e</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>j</mi>
+                      <mi>&#x3c6;<!-- φ --></mi>
+                    </mrow>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <mi mathvariant="normal">&#x2111;<!-- ℑ --></mi>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <msub>
+                          <mi>Z</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">&#xaf;<!-- ¯ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <msub>
+                          <mi>Z</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">&#xaf;<!-- ¯ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <msup>
+                    <mi>e</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>j</mi>
+                      <mi>&#x3c6;<!-- φ --></mi>
+                    </mrow>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mi mathvariant="normal">&#x2111;<!-- ℑ --></mi>
+                  <mo stretchy="false">(</mo>
+                  <msup>
+                    <mi>e</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>j</mi>
+                      <mi>&#x3c6;<!-- φ --></mi>
+                    </mrow>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+                <mtd>
+                  <mi mathvariant="normal">&#x211c;<!-- ℜ --></mi>
+                  <mo stretchy="false">(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <msub>
+                          <mi>Z</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">&#xaf;<!-- ¯ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <msup>
+                    <mi>e</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>j</mi>
+                      <mi>&#x3c6;<!-- φ --></mi>
+                    </mrow>
+                  </msup>
+                  <mo stretchy="false">)</mo>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}A&amp;B\\C&amp;D\end{bmatrix}}={\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\frac {1}{\sqrt {R_{S}R_{L}}}}{\begin{bmatrix}\Re ({\bar {Z_{S}}}e^{j\varphi })&amp;j\Im ({\bar {Z_{S}}}{\bar {Z_{L}}}e^{j\varphi })\\j\Im (e^{j\varphi })&amp;\Re ({\bar {Z_{L}}}e^{j\varphi })\end{bmatrix}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d2fbd4b8b1b1c7a95c3e9ac071b7e7b270a7e60" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.171ex; width:62.997ex; height:7.009ex;" alt="{\displaystyle {\begin{bmatrix}A&amp;B\\C&amp;D\end{bmatrix}}={\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\frac {1}{\sqrt {R_{S}R_{L}}}}{\begin{bmatrix}\Re ({\bar {Z_{S}}}e^{j\varphi })&amp;j\Im ({\bar {Z_{S}}}{\bar {Z_{L}}}e^{j\varphi })\\j\Im (e^{j\varphi })&amp;\Re ({\bar {Z_{L}}}e^{j\varphi })\end{bmatrix}},}" /></span>
+where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Re (Z)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x211c;<!-- ℜ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>Z</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Re (Z)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b805a54aed46f74c3189edf9b4cb79962205c47" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.414ex; height:2.843ex;" alt="{\displaystyle \Re (Z)}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Im (Z)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x2111;<!-- ℑ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>Z</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Im (Z)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/afbf11ec3357e8f5b211cacb10f5af460fbd80fc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:4.778ex; height:2.843ex;" alt="{\displaystyle \Im (Z)}" /></span> are real and imaginary part of complex number <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Z</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cc6b75e09a8aa3f04d8584b11db534f88fb56bd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.68ex; height:2.176ex;" alt="{\displaystyle Z}" /></span>. <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\bar {Z}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>Z</mi>
+              <mo stretchy="false">&#xaf;<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\bar {Z}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/38929dbd5f952d0ffb37e9413d28035b7fa918a7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.68ex; height:2.509ex;" alt="{\displaystyle {\bar {Z}}}" /></span> is the complex conjugate of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Z</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1cc6b75e09a8aa3f04d8584b11db534f88fb56bd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.68ex; height:2.176ex;" alt="{\displaystyle Z}" /></span>. 
+</p><p>If a lossless reciprocal two-port network matches a resistive load impedance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{L}=R_{L}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{L}=R_{L}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef22f47e074af30a08d869985000d6253aadeca0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.153ex; height:2.509ex;" alt="{\displaystyle Z_{L}=R_{L}}" /></span> to a resistive source impedance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{S}=R_{S}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{S}=R_{S}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6dd71bd5c86d4459cc20d547c9519e4c4cdc677" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.035ex; height:2.509ex;" alt="{\displaystyle Z_{S}=R_{S}}" /></span> with a transmission phase shift of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \varphi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3c6;<!-- φ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ee699558d09cf9d653f6351f9fda0b2f4aaa3e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.52ex; height:2.176ex;" alt="{\displaystyle \varphi }" /></span> (i.e., <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \{R_{S}\xrightarrow {\varphi } R_{L}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mover>
+          <mo>&#x2192;</mo>
+          <mpadded width="+0.611em" lspace="0.278em" voffset=".15em">
+            <mi>&#x3c6;<!-- φ --></mi>
+          </mpadded>
+        </mover>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{R_{S}\xrightarrow {\varphi } R_{L}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f30a5fdb0bb786ea7becc8de62dfc65f50a1ebbf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; margin-top: -0.405ex; width:12.111ex; height:4.009ex;" alt="{\displaystyle \{R_{S}\xrightarrow {\varphi } R_{L}\}}" /></span>), then the transmission matrix (ABCD matrix) of the matching network can be expressed as 
+<span class="mwe-math-element mwe-math-element-block"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}{\sqrt {\frac {R_{S}}{R_{L}}}}\cos \varphi &amp;j{\sqrt {{R_{S}}{R_{L}}}}\sin {\varphi }\\j{\frac {1}{\sqrt {R_{S}R_{L}}}}\sin \varphi &amp;{\sqrt {\frac {R_{L}}{R_{S}}}}\cos \varphi \end{bmatrix}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>b</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <msqrt>
+                      <mfrac>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                      </mfrac>
+                    </msqrt>
+                  </mrow>
+                  <mi>cos</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <msqrt>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                    </msqrt>
+                  </mrow>
+                  <mi>sin</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>&#x3c6;<!-- φ --></mi>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mfrac>
+                      <mn>1</mn>
+                      <msqrt>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                      </msqrt>
+                    </mfrac>
+                  </mrow>
+                  <mi>sin</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <msqrt>
+                      <mfrac>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>L</mi>
+                          </mrow>
+                        </msub>
+                        <msub>
+                          <mi>R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>S</mi>
+                          </mrow>
+                        </msub>
+                      </mfrac>
+                    </msqrt>
+                  </mrow>
+                  <mi>cos</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}{\sqrt {\frac {R_{S}}{R_{L}}}}\cos \varphi &amp;j{\sqrt {{R_{S}}{R_{L}}}}\sin {\varphi }\\j{\frac {1}{\sqrt {R_{S}R_{L}}}}\sin \varphi &amp;{\sqrt {\frac {R_{L}}{R_{S}}}}\cos \varphi \end{bmatrix}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01c8d54d814a3bd2f96278d6188f6bd12af341e4" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -5.838ex; width:47.153ex; height:12.843ex;" alt="{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}{\sqrt {\frac {R_{S}}{R_{L}}}}\cos \varphi &amp;j{\sqrt {{R_{S}}{R_{L}}}}\sin {\varphi }\\j{\frac {1}{\sqrt {R_{S}R_{L}}}}\sin \varphi &amp;{\sqrt {\frac {R_{L}}{R_{S}}}}\cos \varphi \end{bmatrix}}.}" /></span> 
+</p><p>If both source and load are equal resistive impedance (i.e., <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle R_{S}=R_{L}=R_{0}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{S}=R_{L}=R_{0}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2502263550a2f663500182385f36f94c555c721f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:15.187ex; height:2.509ex;" alt="{\displaystyle R_{S}=R_{L}=R_{0}}" /></span>), then the ABCD parameters can be written as  
+<span class="mwe-math-element mwe-math-element-block"><span class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}\cos \varphi &amp;jR_{0}\sin {\varphi }\\j{\frac {1}{R_{0}}}\sin \varphi &amp;\cos \varphi \end{bmatrix}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>b</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>[</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mi>cos</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+                <mtd>
+                  <mi>j</mi>
+                  <msub>
+                    <mi>R</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>0</mn>
+                    </mrow>
+                  </msub>
+                  <mi>sin</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>&#x3c6;<!-- φ --></mi>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>j</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mfrac>
+                      <mn>1</mn>
+                      <msub>
+                        <mi>R</mi>
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mn>0</mn>
+                        </mrow>
+                      </msub>
+                    </mfrac>
+                  </mrow>
+                  <mi>sin</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+                <mtd>
+                  <mi>cos</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>&#x3c6;<!-- φ --></mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>]</mo>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}\cos \varphi &amp;jR_{0}\sin {\varphi }\\j{\frac {1}{R_{0}}}\sin \varphi &amp;\cos \varphi \end{bmatrix}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af93ffc90fdcd89043c5356bc8b0ed19b9b6dac9" class="mwe-math-fallback-image-display mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.171ex; width:36.929ex; height:7.509ex;" alt="{\displaystyle {\begin{bmatrix}a&amp;jb\\jc&amp;d\end{bmatrix}}={\begin{bmatrix}\cos \varphi &amp;jR_{0}\sin {\varphi }\\j{\frac {1}{R_{0}}}\sin \varphi &amp;\cos \varphi \end{bmatrix}},}" /></span> 
+which is a <a href="Transmission_line" title="Transmission line">transmission line</a> with characteristic impedance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle R_{0}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{0}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b8916196f182fcbaaca54f931176a4a4f5769cc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.818ex; height:2.509ex;" alt="{\displaystyle R_{0}}" /></span> and electrical length <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \theta =\beta l=\varphi .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b8;<!-- θ --></mi>
+        <mo>=</mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <mi>l</mi>
+        <mo>=</mo>
+        <mi>&#x3c6;<!-- φ --></mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \theta =\beta l=\varphi .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/666db22880dc3a5af77f112bdf664b284aeff233" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:11.48ex; height:2.676ex;" alt="{\displaystyle \theta =\beta l=\varphi .}" /></span>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Power_transfer">Power transfer</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="Maximum_power_theorem" class="mw-redirect" title="Maximum power theorem">Maximum power theorem</a></div>
+<p>Whenever a source of power <i>with a fixed output impedance</i> such as an electric signal source, a <a href="Radio" title="Radio">radio</a> <a href="Transmitter" title="Transmitter">transmitter</a> or a mechanical sound (e.g., a <a href="Loudspeaker" title="Loudspeaker">loudspeaker</a>) operates into a <a href="External_electric_load" class="mw-redirect" title="External electric load">load</a>, the maximum possible <a href="Power_(physics)" title="Power (physics)">power</a> is delivered to the load when the impedance of the load (<a href="Load_impedance" class="mw-redirect" title="Load impedance">load impedance</a> or <a href="Input_impedance" title="Input impedance">input impedance</a>) is equal to the <i><a href="Complex_conjugate" title="Complex conjugate">complex conjugate</a></i> of the impedance of the source (that is, its <a href="Internal_impedance" class="mw-redirect" title="Internal impedance">internal impedance</a> or <a href="Output_impedance" title="Output impedance">output impedance</a>).  For two impedances to be complex conjugates their resistances must be equal, and their reactances must be equal in magnitude but of opposite signs. In low-frequency or DC systems (or systems with purely resistive sources and loads) the reactances are zero, or small enough to be ignored.  In this case, maximum power transfer occurs when the resistance of the load is equal to the resistance of the source (see <a href="Maximum_power_theorem" class="mw-redirect" title="Maximum power theorem">maximum power theorem</a> for a mathematical proof).
+</p><p>Impedance matching is not always necessary. For example, if delivering a high voltage (to reduce signal degradation or to reduce power consumption) is more important than maximizing power transfer, then <i><a href="Impedance_bridging" title="Impedance bridging">impedance bridging</a></i> or <i>voltage bridging</i> is often used.
+</p><p>In older audio systems (reliant on transformers and passive filter networks, and based on the <a href="Telephone" title="Telephone">telephone</a> system), the source and load resistances were matched at 600 ohms. One reason for this was to maximize power transfer, as there were no amplifiers available that could restore lost signal. Another reason was to ensure correct operation of the <a href="Hybrid_coil" class="mw-redirect" title="Hybrid coil">hybrid transformers</a> used at central exchange equipment to separate outgoing from incoming speech, so these could be amplified or fed to a <a href="Four-wire_circuit" title="Four-wire circuit">four-wire circuit</a>. Most modern audio circuits, on the other hand, use active amplification and filtering and can use voltage-bridging connections for greatest accuracy. Strictly speaking, impedance matching only applies when both source and load devices are <a href="Linearity" title="Linearity">linear</a>; however, matching may be obtained between nonlinear devices within certain operating ranges.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Impedance-matching_devices"><span class="anchor" id="Impedance&#95;matching&#95;devices"></span>Impedance-matching devices</h2></div>
+<p>Adjusting the source impedance or the load impedance, in general, is called "impedance matching". There are three ways to improve an impedance mismatch, all of which are called "impedance matching":
+</p>
+<ul><li>Devices intended to present an apparent load to the source of <i>Z</i><sub>load</sub>&#160;=&#160;<i>Z</i><sub>source</sub>* (complex conjugate matching). Given a source with a fixed voltage and fixed source impedance, the <a href="Maximum_power_theorem" class="mw-redirect" title="Maximum power theorem">maximum power theorem</a> says this is the only way to extract the maximum power from the source.</li>
+<li>Devices intended to present an apparent load of <i>Z</i><sub>load</sub>&#160;=&#160;<i>Z</i><sub>line</sub> (complex impedance matching), to avoid echoes. Given a transmission line source with a fixed source impedance, this "reflectionless impedance matching" at the end of the transmission line is the only way to avoid reflecting echoes back to the transmission line.</li>
+<li>Devices intended to present an apparent source resistance as close to zero as possible, or presenting an apparent source voltage as high as possible. This is the only way to maximize <a href="Electrical_efficiency" title="Electrical efficiency">energy efficiency</a>, and so it is used at the beginning of electrical power lines. Such an <a href="Impedance_bridging" title="Impedance bridging">impedance bridging</a> connection also minimizes <a href="Distortion" title="Distortion">distortion</a> and <a href="Electromagnetic_interference" title="Electromagnetic interference">electromagnetic interference</a>; it is also used in modern audio amplifiers and signal-processing devices.</li></ul>
+<p>There are a variety of devices used between a source of energy and a load that perform "impedance matching". To match electrical impedances, engineers use combinations of <a href="Transformer" title="Transformer">transformers</a>, <a href="Resistor" title="Resistor">resistors</a>, <a href="Inductor" title="Inductor">inductors</a>, <a href="Capacitor" title="Capacitor">capacitors</a> and <a href="Transmission_lines" class="mw-redirect" title="Transmission lines">transmission lines</a>. These passive (and active) impedance-matching devices are optimized for different applications and include <a href="Balun" title="Balun">baluns</a>, <a href="Antenna_tuner" title="Antenna tuner">antenna tuners</a> (sometimes called ATUs or roller-coasters, because of their appearance), acoustic horns, matching networks, and <a href="Electrical_termination" title="Electrical termination">terminators</a>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Transformers">Transformers</h3></div>
+<p><a href="Transformer" title="Transformer">Transformers</a> are sometimes used to match the impedances of circuits. A transformer converts <a href="Alternating_current" title="Alternating current">alternating current</a> at one <a href="Voltage" title="Voltage">voltage</a> to the same waveform at another voltage. The power input to the transformer and output from the transformer is the same (except for conversion losses). The side with the lower voltage is at low impedance (because this has the lower number of turns), and the side with the higher voltage is at a higher impedance (as it has more turns in its coil).
+</p><p>One example of this method involves a television <a href="Balun" title="Balun">balun</a> transformer. This transformer allows interfacing a balanced line (300-ohm <a href="Twin-lead" title="Twin-lead">twin-lead</a>) and an unbalanced line (75-ohm coaxial cable such as <a href="RG-6" title="RG-6">RG-6</a>). To match the impedances, both cables must be connected to a matching transformer with a turns ratio of 2:1. In this example, the 300-ohm line is connected to the transformer side with more turns; the 75-ohm cable is connected to the transformer side with fewer turns. The formula for calculating the transformer turns ratio for this example is:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\text{turns ratio}}={\sqrt {\frac {\text{source resistance}}{\text{load resistance}}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>turns ratio</mtext>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mfrac>
+              <mtext>source resistance</mtext>
+              <mtext>load resistance</mtext>
+            </mfrac>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{turns ratio}}={\sqrt {\frac {\text{source resistance}}{\text{load resistance}}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b3e338a319607ecabfe792b346802d6daf99bf19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:33.721ex; height:6.176ex;" alt="{\displaystyle {\text{turns ratio}}={\sqrt {\frac {\text{source resistance}}{\text{load resistance}}}}}" /></span></dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Resistive_network">Resistive network</h3></div>
+<p>Resistive impedance matches are easiest to design and can be achieved with a simple <a href="L_pad#Impedance_matching" title="L pad">L pad</a> consisting of two resistors. Power loss is an unavoidable consequence of using resistive networks, and they are only (usually) used to transfer <a href="Line_level" title="Line level">line level</a> signals.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Stepped_transmission_line">Stepped transmission line</h3></div>
+<p>Most <a href="Lumped_element_model" class="mw-redirect" title="Lumped element model">lumped-element</a> devices can match a specific range of load impedances.  For example, in order to match an inductive load into a real impedance, a capacitor needs to be used. If the load impedance becomes capacitive, the matching element must be replaced by an inductor.  In many cases, there is a need to use the same circuit to match a broad range of load impedance and thus simplify the circuit design.  This issue was addressed by the stepped transmission line,<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup> where multiple, serially placed, quarter-wave dielectric slugs are used to vary a transmission line's characteristic impedance.  By controlling the position of each element, a broad range of load impedances can be matched without having to reconnect the circuit.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Filters">Filters</h3></div>
+<p><a href="Electronic_filter" title="Electronic filter">Filters</a> are frequently used to achieve impedance matching in telecommunications and radio engineering.  In general, it is not theoretically possible to achieve perfect impedance matching at all <a href="Frequency" title="Frequency">frequencies</a> with a network of discrete components.  Impedance matching networks are designed with a definite bandwidth, take the form of a filter, and use filter theory in their design.
+</p><p>Applications requiring only a narrow bandwidth, such as radio tuners and transmitters, might use a simple tuned <a href="Electronic_filter" title="Electronic filter">filter</a> such as a <a href="Stub_(electronics)" title="Stub (electronics)">stub</a>.  This would provide a perfect match at one specific frequency only.  Wide bandwidth matching requires filters with multiple sections.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="L-section">L-section</h4></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Matching_L_Pad.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Matching_L_Pad.png/250px-Matching_L_Pad.png" decoding="async" width="250" height="131" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Matching_L_Pad.png/500px-Matching_L_Pad.png 1.5x" data-file-width="1575" data-file-height="825" /></a><figcaption>Basic schematic for matching R<sub>1</sub> to R<sub>2</sub> with an L pad.  R<sub>1</sub> &gt; R<sub>2</sub>, however, either R<sub>1</sub> or R<sub>2</sub> may be the source and the other the load. One of X<sub>1</sub> or X<sub>2</sub> must be an inductor and the other must be a capacitor.</figcaption></figure>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:LMatchingNetworks.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/LMatchingNetworks.svg/250px-LMatchingNetworks.svg.png" decoding="async" width="250" height="138" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/LMatchingNetworks.svg/500px-LMatchingNetworks.svg.png 1.5x" data-file-width="542" data-file-height="300" /></a><figcaption>L networks for narrowband matching a source or load impedance <i>Z</i> to a transmission line with characteristic impedance <i>Z<sub>0</sub></i>. <i>X</i> and <i>B</i> may each be either positive (inductor) or negative (capacitor). If <i>Z</i>/<i>Z<sub>0</sub></i> is inside the 1+jx circle on the <a href="Smith_chart" title="Smith chart">Smith chart</a> (i.e. if <span class="nowrap">Re(<i>Z</i>/<i>Z<sub>0</sub></i>)&gt;1),</span> network (a) can be used; otherwise network (b) can be used.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup></figcaption></figure>
+<p>A simple electrical impedance-matching network requires one capacitor and one inductor. In the figure to the right, R<sub>1</sub> &gt; R<sub>2</sub>, however, either R<sub>1</sub> or R<sub>2</sub> may be the source and the other the load. One of X<sub>1</sub> or X<sub>2</sub> must be an inductor and the other must be a capacitor.  One reactance is in parallel with the source (or load), and the other is in series with the load (or source). If a reactance is in parallel <i>with the source</i>, the effective network matches from high to low impedance. 
+</p><p>The analysis is as follows.<sup id="cite&#95;ref-Hayward&#95;6-0" class="reference"><a href="#cite_note-Hayward-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup>  Consider a real source impedance of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle R_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1d63c96f59d98589d923c4f0b04222feaa7283e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.818ex; height:2.509ex;" alt="{\displaystyle R_{1}}" /></span> and real load impedance of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle R_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/35f571121c264178676d1df8ab899f238a39bc2c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.818ex; height:2.509ex;" alt="{\displaystyle R_{2}}" /></span>. If a reactance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle X_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f70b2694445a5901b24338a2e7a7e58f02a72a32" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.979ex; height:2.509ex;" alt="{\displaystyle X_{1}}" /></span> is in parallel with the source impedance, the combined impedance can be written as:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\frac {jR_{1}X_{1}}{R_{1}+jX_{1}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>j</mi>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>X</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <mi>j</mi>
+              <msub>
+                <mi>X</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {jR_{1}X_{1}}{R_{1}+jX_{1}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/83306836c76ab951a9264d73d0e7d0a85c220446" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:10.431ex; height:5.843ex;" alt="{\displaystyle {\frac {jR_{1}X_{1}}{R_{1}+jX_{1}}}}" /></span></dd></dl>
+<p>If the imaginary part of the above impedance is canceled by the series reactance, the real part is
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle R_{2}={\frac {R_{1}X_{1}^{2}}{R_{1}^{2}+X_{1}^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msubsup>
+                <mi>X</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msubsup>
+            </mrow>
+            <mrow>
+              <msubsup>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msubsup>
+              <mo>+</mo>
+              <msubsup>
+                <mi>X</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msubsup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{2}={\frac {R_{1}X_{1}^{2}}{R_{1}^{2}+X_{1}^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f8b018e0ff3ae1c760a3a29c499ae3f5f1aefbf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.838ex; width:15.463ex; height:6.843ex;" alt="{\displaystyle R_{2}={\frac {R_{1}X_{1}^{2}}{R_{1}^{2}+X_{1}^{2}}}}" /></span></dd></dl>
+<p>Solving for <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle X_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f70b2694445a5901b24338a2e7a7e58f02a72a32" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.979ex; height:2.509ex;" alt="{\displaystyle X_{1}}" /></span>
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \left\vert X_{1}\right\vert ={\frac {R_{1}}{Q}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>|</mo>
+          <msub>
+            <mi>X</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>1</mn>
+            </mrow>
+          </msub>
+          <mo>|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>R</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mi>Q</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\vert X_{1}\right\vert ={\frac {R_{1}}{Q}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/83c80adb868ca971278f2adc29b71d8a26ee1301" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:11.025ex; height:5.676ex;" alt="{\displaystyle \left\vert X_{1}\right\vert ={\frac {R_{1}}{Q}}}" /></span>.</dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \left\vert X_{2}\right\vert =QR_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>|</mo>
+          <msub>
+            <mi>X</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>2</mn>
+            </mrow>
+          </msub>
+          <mo>|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mi>Q</mi>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\vert X_{2}\right\vert =QR_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24036b3a029ea1d3ed6e0eebe2e7cad89674bd98" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.027ex; height:2.843ex;" alt="{\displaystyle \left\vert X_{2}\right\vert =QR_{2}}" /></span>.</dd>
+<dd>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Q={\sqrt {\frac {R_{1}-R_{2}}{R_{2}}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi>R</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>&#x2212;<!-- − --></mo>
+                <msub>
+                  <mi>R</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mfrac>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q={\sqrt {\frac {R_{1}-R_{2}}{R_{2}}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1561ecf7ae05420ae2b352d98a9ecb7278726c4d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.171ex; width:16.574ex; height:7.509ex;" alt="{\displaystyle Q={\sqrt {\frac {R_{1}-R_{2}}{R_{2}}}}}" /></span>.</dd></dl>
+<p>Note, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle X_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f70b2694445a5901b24338a2e7a7e58f02a72a32" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.979ex; height:2.509ex;" alt="{\displaystyle X_{1}}" /></span>, the reactance in parallel, has a negative reactance because it is typically a capacitor. This gives the L-network the additional feature of harmonic suppression since it is a low pass filter too.
+</p><p>The inverse connection (impedance step-up) is simply the reverse—for example, reactance in series with the source. The magnitude of the impedance ratio is limited by reactance losses such as the <a href="Q_factor" title="Q factor">Q</a> of the inductor. Multiple L-sections can be wired in cascade to achieve higher impedance ratios or greater bandwidth. <a href="Transmission_line" title="Transmission line">Transmission line</a> matching networks can be modeled as infinitely many L-sections wired in cascade. Optimal matching circuits can be designed for a particular system using <a href="Smith_chart" title="Smith chart">Smith charts</a>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Power_factor_correction">Power factor correction</h2></div>
+<p><a href="Power_factor_correction" class="mw-redirect" title="Power factor correction">Power factor correction</a> devices are intended to cancel the reactive and nonlinear characteristics of a load at the end of a power line. This causes the load seen by the power line to be purely resistive. For a given true power required by a load this minimizes the true current supplied through the power lines, and minimizes power wasted in the resistance of those power lines. For example, a <a href="Maximum_power_point_tracker" class="mw-redirect" title="Maximum power point tracker">maximum power point tracker</a> is used to extract the maximum power from a solar panel and efficiently transfer it to batteries, the power grid or other loads.
+The maximum power theorem applies to its "upstream" connection to the solar panel, so it emulates a load resistance equal to the solar panel source resistance.  However, the maximum power theorem does not apply to its "downstream" connection. That connection is an <a href="Impedance_bridging" title="Impedance bridging">impedance bridging</a> connection; it emulates a high-voltage, low-resistance source to maximize efficiency.
+</p><p>On the <a href="Power_grid" class="mw-redirect" title="Power grid">power grid</a> the overall load is usually <a href="Inductance" title="Inductance">inductive</a>.  Consequently, power factor correction is most commonly achieved with banks of <a href="Capacitor" title="Capacitor">capacitors</a>.  It is only necessary for correction to be achieved at one single frequency, the frequency of the supply.  Complex networks are only required when a band of frequencies must be matched and this is the reason why simple capacitors are all that is usually required for power factor correction.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Transmission_lines">Transmission lines</h2></div>
+<figure typeof="mw:File/Thumb"><a href="File:Coaxial_transmission_line_wih_one_source_and_one_load.svg" class="mw-file-description"><img alt="Schematic diagram of coaxial cable" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Coaxial_transmission_line_wih_one_source_and_one_load.svg/500px-Coaxial_transmission_line_wih_one_source_and_one_load.svg.png" decoding="async" width="500" height="234" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Coaxial_transmission_line_wih_one_source_and_one_load.svg/960px-Coaxial_transmission_line_wih_one_source_and_one_load.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Coaxial_transmission_line_wih_one_source_and_one_load.svg/1000px-Coaxial_transmission_line_wih_one_source_and_one_load.svg.png 2x" data-file-width="531" data-file-height="248" /></a><figcaption>Coaxial transmission line with one source and one load</figcaption></figure>
+<p>In RF connections, impedance matching is desirable, because otherwise reflections may be created at the end of the mismatched transmission line.  The reflection may cause frequency-dependent loss.
+</p><p>In electrical systems involving <a href="Transmission_line" title="Transmission line">transmission lines</a> (such as radio and <a href="Fiber_optics" class="mw-redirect" title="Fiber optics">fiber optics</a>)—where the length of the line is long compared to the wavelength of the signal (the signal changes rapidly compared to the time it takes to travel from source to load)— the impedances at each end of the line may be matched to the transmission line's <a href="Characteristic_impedance" title="Characteristic impedance">characteristic impedance</a> (<span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55a143e5e31a61379597eabe309fcadf8fe88d4c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.532ex; height:2.509ex;" alt="{\displaystyle Z_{c}}" /></span>) to prevent reflections of the signal at the ends of the line.  In radio-frequency (RF) systems, a common value for source and load impedances is 50 <a href="Ohm_(unit)" class="mw-redirect" title="Ohm (unit)">ohms</a>. A typical RF load is a quarter-wave ground plane <a href="Antenna_(radio)" title="Antenna (radio)">antenna</a> (37 ohms with an ideal ground plane).
+</p><p>The general form of the voltage <a href="Reflection_coefficient" title="Reflection coefficient">reflection coefficient</a> for a wave moving from medium 1 to medium 2 is given by
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{12}={Z_{2}-Z_{1} \over Z_{2}+Z_{1}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{12}={Z_{2}-Z_{1} \over Z_{2}+Z_{1}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/940542d61b33384aeef2b28aefa0ee41f58d770b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:15.387ex; height:5.509ex;" alt="{\displaystyle \Gamma _{12}={Z_{2}-Z_{1} \over Z_{2}+Z_{1}}}" /></span></dd></dl>
+<p>while the voltage reflection coefficient for a wave moving from medium 2 to medium 1 is
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{21}={Z_{1}-Z_{2} \over Z_{1}+Z_{2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>21</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{21}={Z_{1}-Z_{2} \over Z_{1}+Z_{2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a9229faa51aa8ff0921d5f31afb54f8e3777ca0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:15.387ex; height:5.509ex;" alt="{\displaystyle \Gamma _{21}={Z_{1}-Z_{2} \over Z_{1}+Z_{2}}}" /></span></dd></dl>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{21}=-\Gamma _{12}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>21</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{21}=-\Gamma _{12}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/976a3b13e0d948eb77262fbc255d1b05af5b973c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:11.952ex; height:2.509ex;" alt="{\displaystyle \Gamma _{21}=-\Gamma _{12}\,}" /></span></dd></dl>
+<p>so the reflection coefficient is the same (except for sign), no matter from which direction the wave approaches the boundary.
+</p><p>There is also a current reflection coefficient, which is the negative of the voltage reflection coefficient. If the wave encounters an open at the load end, positive voltage and negative current pulses are transmitted back toward the source (negative current means the current is going the opposite direction). Thus, at each boundary there are four reflection coefficients (voltage and current on one side, and voltage and current on the other side).  All four are the same, except that two are positive and two are negative. The voltage reflection coefficient and current reflection coefficient on the same side have opposite signs.  Voltage reflection coefficients on opposite sides of the boundary have opposite signs.
+</p><p>Because they are all the same except for sign it is traditional to interpret the reflection coefficient as the voltage reflection coefficient (unless otherwise indicated).  Either end (or both ends) of a transmission line can be a source or a load (or both), so there is no inherent preference for which side of the boundary is medium 1 and which side is medium 2. With a single transmission line it is customary to define the voltage reflection coefficient for a wave incident on the boundary from the transmission line side, regardless of whether a source or load is connected on the other side.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Single-source_transmission_line_driving_a_load"><span class="anchor" id="Transmission&#95;line&#95;with&#95;single&#95;source&#95;driving&#95;a&#95;load"></span>Single-source transmission line driving a load</h3></div>
+<div class="mw-heading mw-heading4"><h4 id="Load-end_conditions"><span class="anchor" id="Conditions&#95;at&#95;the&#95;load&#95;end"></span>Load-end conditions</h4></div>
+<p>In a transmission line, a wave travels from the source along the line. Suppose the wave hits a boundary (an abrupt change in impedance).  Some of the wave is reflected back, while some keeps moving onwards.  (Assume there is only one boundary, at the load.)
+</p><p>Let
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a42418904caded973f87dc8cfafbdabd237001f2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.542ex; height:2.509ex;" alt="{\displaystyle V_{i}\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f76b8f4e699099cea298dd565b7d42228bc62c9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.21ex; height:2.509ex;" alt="{\displaystyle I_{i}\,}" /></span>  be the voltage and current that is incident on the boundary from the source side.</dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{t}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{t}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/39679578c9ef3a56ac0a8f022938f0315fd4972a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.568ex; height:2.509ex;" alt="{\displaystyle V_{t}\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{t}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{t}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d43b8b32da0835e669fa72051ed6789833c39400" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.236ex; height:2.509ex;" alt="{\displaystyle I_{t}\,}" /></span>  be the voltage and current that is transmitted to the load.</dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cf8781893e84039b3ae04a585303cd7d7b9220c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.716ex; height:2.509ex;" alt="{\displaystyle V_{r}\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/342c806f7f9231075a85133bd486b3b38b9114c5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.384ex; height:2.509ex;" alt="{\displaystyle I_{r}\,}" /></span>  be the voltage and current that is reflected back toward the source.</dd></dl>
+<p>On the line side of the boundary <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{i}=Z_{c}I_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}=Z_{c}I_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/391b56eb06fd588f92652615ac78300da043a1cf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.995ex; height:2.509ex;" alt="{\displaystyle V_{i}=Z_{c}I_{i}\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{r}=-Z_{c}I_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{r}=-Z_{c}I_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59f8104b260281f62657e35e872c686e60d7d311" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.151ex; height:2.509ex;" alt="{\displaystyle V_{r}=-Z_{c}I_{r}\,}" /></span>  and on the load side <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{t}=Z_{L}I_{t}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{t}=Z_{L}I_{t}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5aa32b651d67ca228ea2b29dac651bc372bf83c1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:10.455ex; height:2.509ex;" alt="{\displaystyle V_{t}=Z_{L}I_{t}\,}" /></span> where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a42418904caded973f87dc8cfafbdabd237001f2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.542ex; height:2.509ex;" alt="{\displaystyle V_{i}\,}" /></span>, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cf8781893e84039b3ae04a585303cd7d7b9220c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.716ex; height:2.509ex;" alt="{\displaystyle V_{r}\,}" /></span>, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{t}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{t}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/39679578c9ef3a56ac0a8f022938f0315fd4972a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.568ex; height:2.509ex;" alt="{\displaystyle V_{t}\,}" /></span>,  <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f76b8f4e699099cea298dd565b7d42228bc62c9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.21ex; height:2.509ex;" alt="{\displaystyle I_{i}\,}" /></span>, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/342c806f7f9231075a85133bd486b3b38b9114c5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.384ex; height:2.509ex;" alt="{\displaystyle I_{r}\,}" /></span>, and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{t}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{t}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d43b8b32da0835e669fa72051ed6789833c39400" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.236ex; height:2.509ex;" alt="{\displaystyle I_{t}\,}" /></span> are <a href="Phasor" title="Phasor">phasors</a>.
+</p><p>At a boundary, voltage and current must be continuous, therefore
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{t}=V_{i}+V_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{t}=V_{i}+V_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dee969a75fe3fb5ba1a37a0f6bbd495d8845e912" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.991ex; height:2.509ex;" alt="{\displaystyle V_{t}=V_{i}+V_{r}\,}" /></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{t}=I_{i}+I_{r}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{t}=I_{i}+I_{r}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/52c39d3a5c68eea9073702d52de8c10353e10cc0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:11.995ex; height:2.509ex;" alt="{\displaystyle I_{t}=I_{i}+I_{r}\,}" /></span></dd></dl>
+<p>All these conditions are satisfied by
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{r}=\Gamma _{TL}V_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{r}=\Gamma _{TL}V_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/427cb1170917527f4b9e53c8f51688f990565523" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:11.931ex; height:2.509ex;" alt="{\displaystyle V_{r}=\Gamma _{TL}V_{i}\,}" /></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{r}=-\Gamma _{TL}I_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{r}=-\Gamma _{TL}I_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/90a39018971a26c21fadad5ec1960de95a01f28f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:13.075ex; height:2.509ex;" alt="{\displaystyle I_{r}=-\Gamma _{TL}I_{i}\,}" /></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{t}=(1+\Gamma _{TL})V_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{t}=(1+\Gamma _{TL})V_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a662a9de746d071ad203ea8b8f0d69310de1bbcd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.595ex; height:2.843ex;" alt="{\displaystyle V_{t}=(1+\Gamma _{TL})V_{i}\,}" /></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle I_{t}=(1-\Gamma _{TL})I_{i}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{t}=(1-\Gamma _{TL})I_{i}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/22f1a5ce5b8460bcbeb337e493e31727e3d4b4a7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:16.931ex; height:2.843ex;" alt="{\displaystyle I_{t}=(1-\Gamma _{TL})I_{i}\,}" /></span></dd></dl>
+<p>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{TL}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{TL}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ce898a2b2a385ea868828cc4cffca7c87fb9739c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:4.348ex; height:2.509ex;" alt="{\displaystyle \Gamma _{TL}\,}" /></span> is the <a href="Reflection_coefficient" title="Reflection coefficient">reflection coefficient</a> going from the transmission line to the load.
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{TL}={Z_{L}-Z_{c} \over Z_{L}+Z_{c}}=\Gamma _{L}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{TL}={Z_{L}-Z_{c} \over Z_{L}+Z_{c}}=\Gamma _{L}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/73aff137c43e1c2d47bd2abcd9d38f766913e2d1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:22.497ex; height:5.676ex;" alt="{\displaystyle \Gamma _{TL}={Z_{L}-Z_{c} \over Z_{L}+Z_{c}}=\Gamma _{L}\,}" /></span><sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup></dd></dl>
+<div class="mw-heading mw-heading4"><h4 id="Source-end_conditions"><span class="anchor" id="Conditions&#95;at&#95;the&#95;source&#95;end"></span>Source-end conditions</h4></div>
+<p>At the source end of the transmission line, there may be waves incident both from the source and from the line; a reflection coefficient for each direction may be computed with 
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle -\Gamma _{ST}=\Gamma _{TS}={Z_{s}-Z_{c} \over Z_{s}+Z_{c}}=\Gamma _{S}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+            <mi>T</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>s</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>s</mi>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle -\Gamma _{ST}=\Gamma _{TS}={Z_{s}-Z_{c} \over Z_{s}+Z_{c}}=\Gamma _{S}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a7b309711dc1e9082b947010189e80142ea8fcd" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:30.839ex; height:5.676ex;" alt="{\displaystyle -\Gamma _{ST}=\Gamma _{TS}={Z_{s}-Z_{c} \over Z_{s}+Z_{c}}=\Gamma _{S}\,}" /></span>,</dd></dl>
+<p>where <i>Zs</i> is the source impedance.  The source of waves incident from the line are the reflections from the load end.  If the source impedance matches the line, reflections from the load end will be absorbed at the source end.  If the transmission line is not matched at both ends reflections from the load will be re-reflected at the source and re-re-reflected at the load end <i>ad infinitum</i>, losing energy on each transit of the transmission line.  This can cause a resonance condition and strongly frequency-dependent behavior.  In a narrow-band system this can be desirable for matching, but is generally undesirable in a wide-band system.
+</p>
+<div class="mw-heading mw-heading5"><h5 id="Source-end_impedance"><span class="anchor" id="Impedance&#95;at&#95;the&#95;source&#95;end"></span>Source-end impedance</h5></div>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{in}=Z_{c}{\frac {(1+T^{2}\Gamma _{L})}{(1-T^{2}\Gamma _{L})}}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>+</mo>
+              <msup>
+                <mi>T</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <msup>
+                <mi>T</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{in}=Z_{c}{\frac {(1+T^{2}\Gamma _{L})}{(1-T^{2}\Gamma _{L})}}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/463766da16751ccc6929f47b6d6f4663daef56f9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:21.617ex; height:6.676ex;" alt="{\displaystyle Z_{in}=Z_{c}{\frac {(1+T^{2}\Gamma _{L})}{(1-T^{2}\Gamma _{L})}}\,}" /></span> <sup id="cite&#95;ref-Karakash52-57&#95;10-0" class="reference"><a href="#cite_note-Karakash52-57-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup></dd></dl>
+<p>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle T\ ,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+        <mtext>&#xa0;</mtext>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T\ ,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6c8888e3dde1659728f8d1429a84b755888bfb32" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.864ex; height:2.509ex;" alt="{\displaystyle T\ ,}" /></span> is the one-way transfer function (from either end to the other) when the transmission line is exactly matched at source and load.  <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle T\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/476a8389064c06ab89963a2467aef525838da0cf" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.023ex; height:2.176ex;" alt="{\displaystyle T\,}" /></span> accounts for everything that happens to the signal in transit (including delay, attenuation and dispersion).  If there is a perfect match at the load, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{L}=0\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{L}=0\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bcae6e52e8c3bfbe31da7a6d5e4943928ddc4f05" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.452ex; height:2.509ex;" alt="{\displaystyle \Gamma _{L}=0\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Z_{in}=Z_{c}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{in}=Z_{c}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f61b14da03f6135043c18ae5c8fcabc878c1e0c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:9.391ex; height:2.509ex;" alt="{\displaystyle Z_{in}=Z_{c}\,}" /></span>
+</p>
+<div class="mw-heading mw-heading5"><h5 id="Transfer_function"><span class="anchor" id="Overall&#95;transfer&#95;function"></span>Transfer function</h5></div>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{L}=V_{S}{\frac {T(1-\Gamma _{S})(1+\Gamma _{L})}{2(1-T^{2}\Gamma _{S}\Gamma _{L})}}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>T</mi>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>S</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>+</mo>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mn>2</mn>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <msup>
+                <mi>T</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>S</mi>
+                </mrow>
+              </msub>
+              <msub>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{L}=V_{S}{\frac {T(1-\Gamma _{S})(1+\Gamma _{L})}{2(1-T^{2}\Gamma _{S}\Gamma _{L})}}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3b60f213e08ea0bdd0b3a69ff0d93b6a1b4a5da9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:28.486ex; height:6.509ex;" alt="{\displaystyle V_{L}=V_{S}{\frac {T(1-\Gamma _{S})(1+\Gamma _{L})}{2(1-T^{2}\Gamma _{S}\Gamma _{L})}}\,}" /></span></dd></dl>
+<p>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{S}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{S}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/78b94cc17740bf0b82791326b651773322c23467" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.035ex; height:2.509ex;" alt="{\displaystyle V_{S}\,}" /></span> is the open circuit (or unloaded) output voltage from the source.
+</p><p>Note that if there is a perfect match at both ends 
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{L}=0\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{L}=0\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bcae6e52e8c3bfbe31da7a6d5e4943928ddc4f05" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.452ex; height:2.509ex;" alt="{\displaystyle \Gamma _{L}=0\,}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma _{S}=0\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma _{S}=0\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2faae44ea9d7f4257c456a9b0aeb6771ce7e3996" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.393ex; height:2.509ex;" alt="{\displaystyle \Gamma _{S}=0\,}" /></span></dd></dl>
+<p>and then 
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{L}=V_{S}{\frac {T}{2}}\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>T</mi>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{L}=V_{S}{\frac {T}{2}}\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f304da284ac720e59828885762e4c4460caae355" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.838ex; width:11.312ex; height:5.176ex;" alt="{\displaystyle V_{L}=V_{S}{\frac {T}{2}}\,}" /></span>.</dd></dl>
+<div class="mw-heading mw-heading2"><h2 id="Electrical_examples">Electrical examples</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Telephone_systems">Telephone systems</h3></div>
+<p><a href="Telephone" title="Telephone">Telephone</a> systems also use matched impedances to minimise echo on long-distance lines. This is related to transmission-line theory. Matching also enables the telephone <i><a href="Hybrid_coil" class="mw-redirect" title="Hybrid coil">hybrid coil</a></i> (2- to 4-wire conversion) to operate correctly. As the signals are sent and received on the same <a href="Two-wire_circuit" title="Two-wire circuit">two-wire circuit</a> to the central office (or exchange), cancellation is necessary at the telephone earpiece so excessive <a href="Sidetone" title="Sidetone">sidetone</a> is not heard.  All devices used in telephone signal paths are generally dependent on matched cable, source and load impedances. In the local loop, the impedance chosen is 600 ohms (nominal). Terminating networks are installed at the exchange to offer the best match to their subscriber lines. Each country has its own standard for these networks, but they are all designed to approximate about 600 ohms over the <a href="Voice_frequency" title="Voice frequency">voice frequency</a> band.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Loudspeaker_amplifiers">Loudspeaker amplifiers</h3></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Tube_push_pull_poweramplifier.PNG" class="mw-file-description"><img alt="Schematic diagram of amplifier and speaker, with two tubes and an impedance-matching transformer" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tube_push_pull_poweramplifier.PNG/250px-Tube_push_pull_poweramplifier.PNG" decoding="async" width="250" height="188" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tube_push_pull_poweramplifier.PNG/440px-Tube_push_pull_poweramplifier.PNG 1.5x, //upload.wikimedia.org/wikipedia/commons/3/3e/Tube_push_pull_poweramplifier.PNG 2x" data-file-width="440" data-file-height="330" /></a><figcaption>Typical push–pull audio tube power amplifier, matched to loudspeaker with an impedance-matching transformer</figcaption></figure>
+<p><a href="Audio_amplifier" class="mw-redirect" title="Audio amplifier">Audio amplifiers</a> typically do not match impedances, but provide an output impedance that is lower than the load impedance (such as &lt;&#160;0.1 ohm in typical <a href="Semiconductor" title="Semiconductor">semiconductor</a> amplifiers), for improved speaker <a href="Damping_factor" title="Damping factor">damping</a>.  For <a href="Vacuum_tube" title="Vacuum tube">vacuum tube</a> amplifiers, impedance-changing transformers are often used to get a low output impedance, and to better match the amplifier's performance to the load impedance.  Some tube amplifiers have output transformer taps to adapt the amplifier output to typical loudspeaker impedances.
+</p><p>The output <a href="Transformer" title="Transformer">transformer</a> in <a href="Vacuum-tube" class="mw-redirect" title="Vacuum-tube">vacuum-tube</a>-based amplifiers has two basic functions:
+</p>
+<ul><li>Separation of the <a href="Alternating_current" title="Alternating current">AC</a> component (which contains the audio signals) from the <a href="Direct_current" title="Direct current">DC</a> component (supplied by the <a href="Power_supply" title="Power supply">power supply</a>) in the anode circuit of a vacuum-tube-based power stage. A loudspeaker should not be subjected to DC current.</li>
+<li>Reducing the output impedance of power <a href="Pentode" title="Pentode">pentodes</a> (such as the <a href="EL34" title="EL34">EL34</a>) in a <a href="Common-cathode" class="mw-redirect" title="Common-cathode">common-cathode</a> configuration.</li></ul>
+<p>The impedance of the loudspeaker on the secondary coil of the transformer will be transformed to a higher impedance on the primary coil in the circuit of the power pentodes by the square of the <a href="Transformer#Induction_law" title="Transformer">turns ratio</a>, which forms the <i>impedance scaling factor</i>.
+</p><p>The output stage in <a href="Common-drain" class="mw-redirect" title="Common-drain">common-drain</a> or <a href="Common-collector" class="mw-redirect" title="Common-collector">common-collector</a> semiconductor-based end stages with <a href="MOSFET" title="MOSFET">MOSFETs</a>  or <a href="Transistor" title="Transistor">power transistors</a> has a very low output impedance. If they are properly balanced, there is no need for a transformer or a large <a href="Electrolytic_capacitor" title="Electrolytic capacitor">electrolytic capacitor</a> to separate AC from DC current.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Non-electrical_examples">Non-electrical examples</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Acoustics">Acoustics</h3></div>
+<p>Similar to electrical transmission lines, an impedance matching problem exists when transferring sound energy from one medium to another. If the <a href="Acoustic_impedance" title="Acoustic impedance">acoustic impedance</a> of the two media are very different most sound energy will be reflected (or absorbed), rather than transferred across the border. The gel used in <a href="Medical_ultrasonography" class="mw-redirect" title="Medical ultrasonography">medical ultrasonography</a> helps transfer acoustic energy from the transducer to the body and back again. Without the gel, the impedance mismatch in the transducer-to-air and the air-to-body discontinuity reflects almost all the energy, leaving very little to go into the body.
+</p><p>The bones in the <a href="Middle_ear" title="Middle ear">middle ear</a> function as a series of levers, which matches mechanical impedance between the eardrum (which is acted upon by vibrations in air) and the fluid-filled inner ear.
+</p><p><a href="Horn_(acoustic)" title="Horn (acoustic)">Horns</a> in loudspeaker systems are used like transformers in electrical circuits to match the impedance of the transducer to the impedance of the air. This principle is used in both <a href="Horn_loudspeaker" title="Horn loudspeaker">horn loudspeakers</a> and musical instruments. Because most driver impedances are poorly matched to the impedance of free air at low frequencies, loudspeaker enclosures are designed to both match impedance and minimize destructive phase cancellations between output from the front and rear of a speaker cone. The loudness of sound produced in air from a <a href="Loudspeaker" title="Loudspeaker">loudspeaker</a> is directly related to the ratio of the diameter of the speaker to the wavelength of the sound being produced: larger speakers can produce lower frequencies at a higher level than smaller speakers. <a href="Ellipse" title="Ellipse">Elliptical</a> speakers are a complex case, acting like large speakers lengthwise and small speakers crosswise. Acoustic impedance matching (or the lack of it) affects the operation of a <a href="Megaphone" title="Megaphone">megaphone</a>, an <a href="Echo_(phenomenon)" class="mw-redirect" title="Echo (phenomenon)">echo</a> and <a href="Soundproofing" title="Soundproofing">soundproofing</a>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Optics">Optics</h3></div>
+<p>A similar effect occurs when <a href="Light" title="Light">light</a> (or any electromagnetic wave) hits the interface between two media with different <a href="Refractive_index" title="Refractive index">refractive indices</a>. For non-magnetic materials, the refractive index is inversely proportional to the material's characteristic impedance.  An <i>optical</i> or <i>wave impedance</i> (that depends on the propagation direction) can be calculated for each medium, and may be used in the transmission-line reflection equation
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle r={Z_{2}-Z_{1} \over Z_{1}+Z_{2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r={Z_{2}-Z_{1} \over Z_{1}+Z_{2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9678ad6c70b73df9377ff1bbb343f6c379c032e0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:13.107ex; height:5.509ex;" alt="{\displaystyle r={Z_{2}-Z_{1} \over Z_{1}+Z_{2}}}" /></span></dd></dl>
+<p>to calculate reflection and transmission coefficients for the interface.  For non-magnetic dielectrics, this equation is equivalent to the <a href="Fresnel_equations" title="Fresnel equations">Fresnel equations</a>.  Unwanted reflections can be reduced by the use of an anti-reflection <a href="Optical_coating" title="Optical coating">optical coating</a>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Mechanics">Mechanics</h3></div>
+<p>If a body of mass <i>m</i> collides elastically with a second body, maximum energy transfer to the second body will occur when the second body has the same mass <i>m</i>. In a head-on collision of equal masses, the energy of the first body will be completely transferred to the second body (as in <a href="Newton%27s_cradle" title="Newton&#39;s cradle">Newton's cradle</a> for example). In this case, the masses act as "mechanical impedances",<sup class="noprint Inline-Template" style="white-space:nowrap;">&#91;<i><a href="Wikipedia:Accuracy_dispute#Disputed_statement" title="Wikipedia:Accuracy dispute"><span title="mechanical impedances consist of more than just mass and this result probably only holds if the elasticities are equal as well as mass (July 2012)">dubious</span></a>&#32;&#8211; <a href="Talk:Impedance_matching#Dubious" title="Talk:Impedance matching">discuss</a></i>&#93;</sup> which must be matched to maximize energy transfer.
+</p><p>If <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle m_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31aafa60e48d39ccce922404c0b80340b2cc777a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.095ex; height:2.009ex;" alt="{\displaystyle m_{1}}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle m_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ecebe334d5cadc3ffcf245eb02919034d7a2ec8" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.095ex; height:2.009ex;" alt="{\displaystyle m_{2}}" /></span> are the masses of the moving and stationary bodies, and <i>P</i> is the momentum of the system (which remains constant throughout the collision), the energy of the second body after the collision will be <i>E</i><sub>2</sub>:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle E_{2}={\frac {2P^{2}m_{2}}{(m_{1}+m_{2})^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>2</mn>
+              <msup>
+                <mi>P</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+              <msub>
+                <mi>m</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>m</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>m</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle E_{2}={\frac {2P^{2}m_{2}}{(m_{1}+m_{2})^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c50818f637671d33b6982d9489fa66b626a93f60" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:18.597ex; height:6.509ex;" alt="{\displaystyle E_{2}={\frac {2P^{2}m_{2}}{(m_{1}+m_{2})^{2}}}}" /></span></dd></dl>
+<p>which is analogous to the power-transfer equation.
+</p>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:MiddleEar_Amplification.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3d/MiddleEar_Amplification.jpg/250px-MiddleEar_Amplification.jpg" decoding="async" width="250" height="72" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3d/MiddleEar_Amplification.jpg/500px-MiddleEar_Amplification.jpg 1.5x" data-file-width="771" data-file-height="221" /></a><figcaption>The middle ear matches mechanical impedance, like a lever.</figcaption></figure>
+<p>If we cannot change the masses of bodies, then we can match their impedance with a lever. Imagine a large ball dropping to the ground, and a small ball lying on the ground. The large ball hits the short end of a lever, and the small ball is launched from the long end of the lever. If the lever arm lengths satisfy <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle l_{1}m_{1}=l_{2}m_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>l</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>l</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle l_{1}m_{1}=l_{2}m_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ad01da53537671b77e06d3f549c6ff4274d1bbc0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.783ex; height:2.509ex;" alt="{\displaystyle l_{1}m_{1}=l_{2}m_{2}}" /></span>, then all energy would be transferred to the small ball if collisions are elastic. This is roughly how the middle ear works (see above).
+</p><p>These principles are useful in the application of highly energetic materials (explosives). If an explosive charge is placed on a target, the sudden release of energy causes compression waves to propagate through the target radially from the point-charge contact. When the compression waves reach areas of high acoustic impedance mismatch (such as the opposite side of the target), tension waves reflect back and create <a href="Spall" title="Spall">spalling</a>. The greater the mismatch, the greater the effect of creasing and spalling will be. A charge initiated against a wall with air behind it will do more damage to the wall than a charge initiated against a wall with soil behind it.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<ul><li><a href="Ringing_(signal)" title="Ringing (signal)">Ringing (signal)</a></li>
+<li><a href="Standing_wave_ratio" title="Standing wave ratio">Standing wave ratio</a></li>
+<li><a href="Line_isolation_transformer" title="Line isolation transformer">Line isolation transformer</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Notes">Notes</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div class="mw-references-wrap mw-references-columns reflist-columns-2"><ol class="references">
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFSinha2022" class="citation journal cs1">Sinha, Rakesh (December 2022). <span class="id-lock-subscription" title="Paid subscription required"><a rel="nofollow" class="external text" href="https://ieeexplore.ieee.org/document/9865126/">"Computer-Aided Design of Multisection Matching Networks With Desired Phase-Shift"</a></span>. <i>IEEE Transactions on Circuits and Systems II: Express Briefs</i>. <b>69</b> (12): <span class="nowrap">5074–</span>5078. <a href="Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTCSII.2022.3201114">10.1109/TCSII.2022.3201114</a>. <a href="ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="https://search.worldcat.org/issn/1558-3791">1558-3791</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Circuits+and+Systems+II%3A+Express+Briefs&amp;rft.atitle=Computer-Aided+Design+of+Multisection+Matching+Networks+With+Desired+Phase-Shift&amp;rft.volume=69&amp;rft.issue=12&amp;rft.pages=5074-5078&amp;rft.date=2022-12&amp;rft&#95;id=info%3Adoi%2F10.1109%2FTCSII.2022.3201114&amp;rft.issn=1558-3791&amp;rft.aulast=Sinha&amp;rft.aufirst=Rakesh&amp;rft&#95;id=https%3A%2F%2Fieeexplore.ieee.org%2Fdocument%2F9865126%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSinhaDe2016" class="citation journal cs1">Sinha, Rakesh; De, Arijit (June 2016). <span class="id-lock-subscription" title="Paid subscription required"><a rel="nofollow" class="external text" href="https://ieeexplore.ieee.org/document/7473936/">"Theory on Matching Network in Viewpoint of Transmission Phase Shift"</a></span>. <i>IEEE Transactions on Microwave Theory and Techniques</i>. <b>64</b> (6): <span class="nowrap">1704–</span>1716. <a href="Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTMTT.2016.2558645">10.1109/TMTT.2016.2558645</a>. <a href="ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="https://search.worldcat.org/issn/1557-9670">1557-9670</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Microwave+Theory+and+Techniques&amp;rft.atitle=Theory+on+Matching+Network+in+Viewpoint+of+Transmission+Phase+Shift&amp;rft.volume=64&amp;rft.issue=6&amp;rft.pages=1704-1716&amp;rft.date=2016-06&amp;rft&#95;id=info%3Adoi%2F10.1109%2FTMTT.2016.2558645&amp;rft.issn=1557-9670&amp;rft.aulast=Sinha&amp;rft.aufirst=Rakesh&amp;rft.au=De%2C+Arijit&amp;rft&#95;id=https%3A%2F%2Fieeexplore.ieee.org%2Fdocument%2F7473936%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSinhaDe2017" class="citation journal cs1">Sinha, Rakesh; De, Arijit (December 2017). <span class="id-lock-subscription" title="Paid subscription required"><a rel="nofollow" class="external text" href="https://ieeexplore.ieee.org/document/7956279/">"Corrections to "Theory on Matching Network in Viewpoint of Transmission Phase Shift &#91;Jun 16 1704-1716&#93;"</a></span>. <i>IEEE Transactions on Microwave Theory and Techniques</i>. <b>65</b> (12): <span class="nowrap">5077–</span>5077. <a href="Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTMTT.2017.2715332">10.1109/TMTT.2017.2715332</a>. <a href="ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="https://search.worldcat.org/issn/1557-9670">1557-9670</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Microwave+Theory+and+Techniques&amp;rft.atitle=Corrections+to+%E2%80%9CTheory+on+Matching+Network+in+Viewpoint+of+Transmission+Phase+Shift+%5BJun+16+1704-1716%5D&amp;rft.volume=65&amp;rft.issue=12&amp;rft.pages=5077-5077&amp;rft.date=2017-12&amp;rft&#95;id=info%3Adoi%2F10.1109%2FTMTT.2017.2715332&amp;rft.issn=1557-9670&amp;rft.aulast=Sinha&amp;rft.aufirst=Rakesh&amp;rft.au=De%2C+Arijit&amp;rft&#95;id=https%3A%2F%2Fieeexplore.ieee.org%2Fdocument%2F7956279%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFQianBrey2009" class="citation journal cs1">Qian, Chunqui; Brey, William W. (July 2009). "Impedance matching with an adjustable segmented transmission line". <i>Journal of Magnetic Resonance</i>. <b>199</b> (1): <span class="nowrap">104–</span>110. <a href="Bibcode_(identifier)" class="mw-redirect" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2009JMagR.199..104Q">2009JMagR.199..104Q</a>. <a href="Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.jmr.2009.04.005">10.1016/j.jmr.2009.04.005</a>. <a href="PMID_(identifier)" class="mw-redirect" title="PMID (identifier)">PMID</a>&#160;<a rel="nofollow" class="external text" href="https://pubmed.ncbi.nlm.nih.gov/19406676">19406676</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Magnetic+Resonance&amp;rft.atitle=Impedance+matching+with+an+adjustable+segmented+transmission+line&amp;rft.volume=199&amp;rft.issue=1&amp;rft.pages=104-110&amp;rft.date=2009-07&amp;rft&#95;id=info%3Apmid%2F19406676&amp;rft&#95;id=info%3Adoi%2F10.1016%2Fj.jmr.2009.04.005&amp;rft&#95;id=info%3Abibcode%2F2009JMagR.199..104Q&amp;rft.aulast=Qian&amp;rft.aufirst=Chunqui&amp;rft.au=Brey%2C+William+W.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFPozar" class="citation book cs1"><a href="David_M._Pozar" title="David M. Pozar">Pozar, David</a>. <i>Microwave Engineering</i> (3rd&#160;ed.). p.&#160;223.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Microwave+Engineering&amp;rft.pages=223&amp;rft.edition=3rd&amp;rft.aulast=Pozar&amp;rft.aufirst=David&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Hayward-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-Hayward_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFHayward1994" class="citation book cs1">Hayward, Wes (1994). <a rel="nofollow" class="external text" href="https://archive.org/details/isbn_9780872594920/page/138"><i>Introduction to Radio Frequency Design</i></a>. ARRL. p.&#160;<a rel="nofollow" class="external text" href="https://archive.org/details/isbn_9780872594920/page/138">138</a>. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-87259-492-0" title="Special:BookSources/0-87259-492-0"><bdi>0-87259-492-0</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Radio+Frequency+Design&amp;rft.pages=138&amp;rft.pub=ARRL&amp;rft.date=1994&amp;rft.isbn=0-87259-492-0&amp;rft.aulast=Hayward&amp;rft.aufirst=Wes&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Fisbn&#95;9780872594920%2Fpage%2F138&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><a href="#CITEREFKraus1984">Kraus (1984</a>, p.&#160;407)</span>
+</li>
+<li id="cite&#95;note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><a href="#CITEREFSadiku1989">Sadiku (1989</a>, pp.&#160;505–507)</span>
+</li>
+<li id="cite&#95;note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><a href="#CITEREFHayt1989">Hayt (1989</a>, pp.&#160;398–401)</span>
+</li>
+<li id="cite&#95;note-Karakash52-57-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-Karakash52-57_10-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFKarakash1950">Karakash (1950</a>, pp.&#160;52–57)</span>
+</li>
+</ol></div>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1239549316">.mw-parser-output .refbegin{margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}@media screen{.mw-parser-output .refbegin{font-size:90%}}</style><div class="refbegin refbegin-columns references-column-width" style="column-width: 30em">
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFFloyd1997" class="citation cs2">Floyd, Thomas (1997), <i>Principles of Electric Circuits</i> (5th&#160;ed.), Prentice Hall, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-13-232224-2" title="Special:BookSources/0-13-232224-2"><bdi>0-13-232224-2</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Electric+Circuits&amp;rft.edition=5th&amp;rft.pub=Prentice+Hall&amp;rft.date=1997&amp;rft.isbn=0-13-232224-2&amp;rft.aulast=Floyd&amp;rft.aufirst=Thomas&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFHayt1989" class="citation cs2">Hayt, William (1989), <a rel="nofollow" class="external text" href="https://archive.org/details/engineeringelect5thhayt"><i>Engineering Electromagnetics</i></a> (5th&#160;ed.), McGraw-Hill, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-07-027406-1" title="Special:BookSources/0-07-027406-1"><bdi>0-07-027406-1</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Engineering+Electromagnetics&amp;rft.edition=5th&amp;rft.pub=McGraw-Hill&amp;rft.date=1989&amp;rft.isbn=0-07-027406-1&amp;rft.aulast=Hayt&amp;rft.aufirst=William&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Fengineeringelect5thhayt&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFKarakash1950" class="citation cs2">Karakash, John J. (1950), <i>Transmission Lines and Filter Networks</i> (1st&#160;ed.), Macmillan</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Transmission+Lines+and+Filter+Networks&amp;rft.edition=1st&amp;rft.pub=Macmillan&amp;rft.date=1950&amp;rft.aulast=Karakash&amp;rft.aufirst=John+J.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFKraus1984" class="citation cs2">Kraus, John D. (1984), <a rel="nofollow" class="external text" href="https://archive.org/details/electromagnetics00krau"><i>Electromagnetics</i></a> (3rd&#160;ed.), McGraw-Hill, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-07-035423-5" title="Special:BookSources/0-07-035423-5"><bdi>0-07-035423-5</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Electromagnetics&amp;rft.edition=3rd&amp;rft.pub=McGraw-Hill&amp;rft.date=1984&amp;rft.isbn=0-07-035423-5&amp;rft.aulast=Kraus&amp;rft.aufirst=John+D.&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Felectromagnetics00krau&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSadiku1989" class="citation cs2">Sadiku, Matthew N. O. (1989), <i>Elements of Electromagnetics</i> (1st&#160;ed.), Saunders College Publishing, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0030134846" title="Special:BookSources/0030134846"><bdi>0030134846</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Elements+of+Electromagnetics&amp;rft.edition=1st&amp;rft.pub=Saunders+College+Publishing&amp;rft.date=1989&amp;rft.isbn=0030134846&amp;rft.aulast=Sadiku&amp;rft.aufirst=Matthew+N.+O.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFStutzmanThiele2012" class="citation cs2">Stutzman, Warren L.; Thiele, Gary (2012), <i>Antenna Theory and Design</i>, John Wiley &amp; Sons, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-0470576649" title="Special:BookSources/978-0470576649"><bdi>978-0470576649</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Antenna+Theory+and+Design&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=2012&amp;rft.isbn=978-0470576649&amp;rft.aulast=Stutzman&amp;rft.aufirst=Warren+L.&amp;rft.au=Thiele%2C+Gary&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFYoung1988" class="citation cs2">Young, E. C. (1988), "maximum power theorem", <a rel="nofollow" class="external text" href="https://archive.org/details/penguindictionar00youn"><i>The Penguin Dictionary of Electronics</i></a>, Penguin, <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-14-051187-3" title="Special:BookSources/0-14-051187-3"><bdi>0-14-051187-3</bdi></a></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=maximum+power+theorem&amp;rft.btitle=The+Penguin+Dictionary+of+Electronics&amp;rft.pub=Penguin&amp;rft.date=1988&amp;rft.isbn=0-14-051187-3&amp;rft.aulast=Young&amp;rft.aufirst=E.+C.&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Fpenguindictionar00youn&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span></li></ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Further_reading">Further reading</h2></div>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFThomas" class="citation book cs1">Thomas, Robert L. <a rel="nofollow" class="external text" href="https://picture.iczhiku.com/resource/eetop/shkgQUqJkAUQZBXx.pdf"><i>A Practical Introduction to Impedance Matching</i></a> <span class="cs1-format">(PDF)</span>. Radiating Systems Design / Avionics Engineering, <a href="Douglas_Aircraft_Company" title="Douglas Aircraft Company">Douglas Aircraft Company</a>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20230723133535/https://picture.iczhiku.com/resource/eetop/shkgQUqJkAUQZBXx.pdf">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2023-07-23<span class="reference-accessdate">. Retrieved <span class="nowrap">2023-07-23</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+Practical+Introduction+to+Impedance+Matching&amp;rft.pub=Radiating+Systems+Design+%2F+Avionics+Engineering%2C+Douglas+Aircraft+Company&amp;rft.aulast=Thomas&amp;rft.aufirst=Robert+L.&amp;rft&#95;id=https%3A%2F%2Fpicture.iczhiku.com%2Fresource%2Feetop%2FshkgQUqJkAUQZBXx.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AImpedance+matching" class="Z3988"></span> (175 pages)</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<ul><li><a rel="nofollow" class="external text" href="http://www.antenna-theory.com/tutorial/smith/chart.php">Impedance Matching</a> Impedance Matching with the Smith Chart</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.canary‐75959f845‐flbsr
+Cached time: 20260106005403
+Cache expiry: 83172
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.599 seconds
+Real time usage: 0.824 seconds
+Preprocessor visited node count: 1959/1000000
+Revision size: 36292/2097152 bytes
+Post‐expand include size: 35705/2097152 bytes
+Template argument size: 1798/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 6/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 48980/5000000 bytes
+Lua time usage: 0.337/10.000 seconds
+Lua memory usage: 8086811/52428800 bytes
+Number of Wikibase entities loaded: 0/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  544.425      1 -total
+ 44.73%  243.501      1 Template:Reflist
+ 27.63%  150.411      4 Template:Cite_journal
+ 17.31%   94.243      1 Template:Short_description
+ 11.24%   61.190      2 Template:Pagetype
+ 10.15%   55.235      4 Template:Harvtxt
+  9.39%   51.111      1 Template:No_inline_citations
+  8.36%   45.495      7 Template:Citation
+  7.73%   42.096      1 Template:Ambox
+  5.34%   29.058      3 Template:Cite_book
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:320733:|#|:idhash:canonical and timestamp 20260106005403 and revision id 1315846186. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/Impedance_matching">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Packet Reporting System - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; Automatic Packet Reporting System
+    </nav>
+    <article>
+        <h1>Automatic Packet Reporting System</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Amateur radio telemetry forwarding protocol</div>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:Byonics_AIO.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Byonics_AIO.jpg/250px-Byonics_AIO.jpg" decoding="async" width="200" height="267" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Byonics_AIO.jpg/330px-Byonics_AIO.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Byonics_AIO.jpg/500px-Byonics_AIO.jpg 2x" data-file-width="1200" data-file-height="1600" /></a><figcaption>APRS beacon transmitter with GPS receiver.</figcaption></figure>
+<p><b>Automatic Packet Reporting System</b> (<b>APRS</b>) is an <a href="Amateur_radio" title="Amateur radio">amateur radio</a>-based system for real time digital communications of information of immediate value in the local area.<sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>  Data can include object <a href="Global_Positioning_System" title="Global Positioning System">Global Positioning System</a> (GPS) <a href="Coordinates_(geographic)" class="mw-redirect" title="Coordinates (geographic)">coordinates</a>, <a href="Non-directional_beacon" title="Non-directional beacon">non-directional beacon</a>, <a href="Weather_station" title="Weather station">weather station</a> telemetry, text messages, announcements, queries, and other <a href="Telemetry" title="Telemetry">telemetry</a>. APRS data can be displayed on a map, which can show stations, objects, tracks of moving objects, weather stations, search and rescue data, and direction finding data.
+</p><p>APRS data is typically transmitted on a single shared frequency (depending on country) to be repeated locally by area relay stations (digipeaters) for widespread local consumption. In addition, all such data are typically ingested into the APRS Internet System (APRS-IS) via an Internet-connected receiver (IGate) and distributed globally for ubiquitous and immediate access.<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>  Data shared via radio or Internet are collected by all users and can be combined with external map data to build a shared live view.
+</p><p>APRS was developed from the late 1980s forward by Bob Bruninga, <a href="Call_sign" title="Call sign">call sign</a> WB4APR, a senior research engineer at the <a href="United_States_Naval_Academy" title="United States Naval Academy">United States Naval Academy</a>. He maintained the main APRS Web site until his death in 2022.<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup> The <a href="Initialism" class="mw-redirect" title="Initialism">initialism</a> "APRS" was derived from his call sign.
+</p><p>In March of 2022 The APRS Foundation, was formed as a not-for-profit "Dedicated to the preservation and advancement of the Automatic Packet Reporting System* (APRS) digital communications protocol."<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+
+<div style="clear:both;" class=""></div>
+<div class="mw-heading mw-heading2"><h2 id="History">History</h2></div>
+<p>Bob Bruninga, a senior research engineer at the United States Naval Academy, implemented the earliest ancestor of APRS on an <a href="Apple_II" title="Apple II">Apple II</a> computer in 1982.<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup> This early version was used to map <a href="High_frequency" title="High frequency">high frequency</a> Navy position reports. The first use of APRS was in 1984, when Bruninga developed a more advanced version on a <a href="VIC-20" title="VIC-20">VIC-20</a> for reporting the position and status of horses in a 100-mile (160&#160;km) endurance run.<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>During the next two years, Bruninga continued to develop the system, which he then called the Connectionless Emergency Traffic System (CETS). Following a series of <a href="Federal_Emergency_Management_Agency" title="Federal Emergency Management Agency">Federal Emergency Management Agency</a> (FEMA) exercises using CETS, the system was ported to the <a href="IBM_Personal_Computer" title="IBM Personal Computer">IBM Personal Computer</a>. During the early 1990s, CETS (then known as the Automatic Position Reporting System) continued to evolve into its current form.
+</p><p>As GPS technology became more widely available, "Position" was replaced with "Packet" to better describe the more generic capabilities of the system and to emphasize its uses beyond mere position reporting.
+</p><p>Bruninga has also stated that APRS was not meant to be a vehicle position tracking system, and can be interpreted rather as "Automatic Presence Reporting System".<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Network_overview">Network overview<span class="anchor" id="Network&#95;Overview"></span></h2></div>
+<p>APRS (Automatic Packet Reporting System), is a digital communications protocol for exchanging information among a large number of stations covering a large (local) area, often referred to as "<a href="Internet_Protocol" title="Internet Protocol">IP</a>-ers". As a multi-user data network, it is quite different from conventional <a href="Packet_radio" title="Packet radio">packet radio</a>. Rather than using connected data streams where stations connect to each other and packets are acknowledged and retransmitted if lost, APRS operates entirely in an unconnected broadcast fashion, using unnumbered <a href="AX.25" title="AX.25">AX.25</a> frames.<sup id="cite&#95;ref-ARRL2006&#95;9-0" class="reference"><a href="#cite_note-ARRL2006-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>APRS packets are transmitted for all other stations to hear and use. Packet <a href="Repeater" title="Repeater">repeaters</a>, called digipeaters, form the backbone of the APRS system, and use <a href="Store_and_forward" title="Store and forward">store and forward</a> technology to retransmit packets. All stations operate on the same radio channel, and packets move through the network from digipeater to digipeater, propagating outward from their point of origin. All stations within radio range of each digipeater receive the packet. At each digipeater, the packet path is changed. The packet will be repeated through only a certain number of digipeaters&#160;— or hops&#160;— depending upon the all-important "PATH" setting.
+</p><p>Digipeaters keep track of the packets they forward for a period of time, thus preventing duplicate packets from being retransmitted. This keeps packets from circulating in endless loops inside the ad hoc network. Eventually, most packets are heard by an APRS Internet Gateway, called an IGate, and the packets are routed on to the Internet APRS backbone (where duplicate packets heard by other IGates are discarded) for display or analysis by other users connected to an APRS-IS server, or on a Website designed for the purpose.
+</p><p>While it would seem that using unconnected and unnumbered packets without acknowledgment and retransmission on a shared and sometimes congested channel would result in poor reliability due to a packet being lost, this is not the case, because the packets are transmitted (broadcast) to everyone and multiplied many times over by each digipeater. This means that all digipeaters and stations in range get a copy, and then proceed to broadcast it to all other digipeaters and stations within their range. The result is that packets are multiplied more than they are lost. Therefore, packets can sometimes be heard some distance from the originating station. Packets can be digitally repeated tens or even hundreds of kilometers, depending on the height and range of the digipeaters in the area.
+</p><p>When a packet is transmitted, it is duplicated many times as it radiates out, taking all available paths simultaneously, until the number of "hops" allowed by the path setting is consumed.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Positions/objects/items"><span id="Positions.2Fobjects.2Fitems"></span>Positions/objects/items</h2></div>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:Xastir-screenshot.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/6/69/Xastir-screenshot.png/250px-Xastir-screenshot.png" decoding="async" width="200" height="126" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/69/Xastir-screenshot.png/330px-Xastir-screenshot.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/69/Xastir-screenshot.png/500px-Xastir-screenshot.png 2x" data-file-width="897" data-file-height="564" /></a><figcaption>Screenshot of an APRS display in XASTIR, an APRS software system for Linux/Unix. Station positions, objects and items are displayed on a map overlaying counties around New York City. Raw APRS messages are displayed in the terminal window on the lower right.</figcaption></figure>
+<p>APRS contains a number of packet types, including position/object/item, status, messages, queries, weather reports and telemetry. The position/object/item packets contain the latitude and longitude, and a symbol to be displayed on the map, and have many optional fields for altitude, course, speed, <a href="Effective_radiated_power" title="Effective radiated power">radiated power</a>, <a href="Antenna_height_above_average_terrain" class="mw-redirect" title="Antenna height above average terrain">antenna height above average terrain</a>, <a href="Antenna_gain" class="mw-redirect" title="Antenna gain">antenna gain</a>, and voice operating frequency. Positions of fixed stations are configured in the APRS software. Moving stations (portable or mobile) automatically derive their position information from a GPS receiver connected to the APRS equipment.<sup id="cite&#95;ref-ARRL2006&#95;9-1" class="reference"><a href="#cite_note-ARRL2006-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The map display uses these fields to plot communication range of all participants and facilitate the ability to contact users during both routine and <a href="Amateur_radio_emergency_communications" title="Amateur radio emergency communications">emergency situations</a>. Each position/object/item packet can use any of several hundred different symbols. Position/objects/items can also contain weather information or can be any number of dozens of standardised weather symbols. Each symbol on an APRS map can display many attributes, discriminated either by colour or other technique. These attributes are:
+</p>
+<ul><li>Moving or fixed</li>
+<li><a href="Dead_reckoning" title="Dead reckoning">Dead-reckoned</a> or old</li>
+<li>Message capable or not</li>
+<li>Station, object or item</li>
+<li>Own object or other station object/item</li>
+<li>Emergency, priority, or special</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Status/messages"><span id="Status.2Fmessages"></span>Status/messages</h2></div>
+<p>The Status packet is free-field format that lets each station announce its current mission or application or contact information or any other information or data of immediate use to surrounding activities. The message packet can be used for point-to-point messages, bulletins, announcements or even email. Bulletins and Announcements are treated specially and displayed on a single "community Bulletin board". This community bulletin board is fixed size and all bulletins from all posters are sorted onto this display. The intent of this display is to be consistent and identical for all viewers so that all participants are seeing the same information at the same time. Since lines are sorted onto the display, then individual posters can edit, update, or delete individual lines of their bulletins at any time to keep the bulletin board up-to-date to all viewers.
+</p><p>All APRS messages are delivered live in real-time to online recipients. Messages are not stored and forwarded, but retried until timed out. The delivery of these messages is global, since the APRS-IS distributes all packets to all other IGates in the world and those that are messages will actually go back to RF via any IGate that is near the intended recipient.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Email">Email</h3></div>
+<p>A special case message can be sent to EMAIL where these messages are pulled off the real-time APRS-IS and wrapped into a standard email message type, and forwarded into regular Internet email. This was done by the WU2Z email engine until 2019 , when it was replaced by the javAPRSSrvr <a href="Message_transfer_agent" title="Message transfer agent">email gateway</a>.<sup id="cite&#95;ref-10" class="reference"><a href="#cite_note-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Capabilities">Capabilities</h2></div>
+<p>In its simplest implementation, APRS is used to transmit real-time data, information and, optionally, reports of the exact location of a person or object via a data signal sent over amateur radio frequencies. In addition to real-time position reporting capabilities using attached GPS receivers, APRS is also capable of transmitting a wide variety of data, including <a href="Weather" title="Weather">weather</a> reports, short text messages, <a href="Direction_finding" title="Direction finding">radio direction finding</a> bearings, <a href="Telemetry" title="Telemetry">telemetry</a> data, short e-mail messages (send only) and storm forecasts. Once transmitted, these reports can be combined with a computer and mapping software to show the transmitted data superimposed with great precision upon a map display.
+</p><p>While the map plotting is the most visible feature of APRS, the text messaging capabilities and local information distribution capabilities, combined with the robust network, should not be overlooked; the New Jersey Office of Emergency Management has an extensive network of APRS stations to allow text messaging between all of the county Emergency Operating Centers in the event of the failure of conventional communications.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Technical_information">Technical information<span class="anchor" id="Technical&#95;Information"></span></h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1314755338">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1290232777">.mw-parser-output .listen .side-box-text{line-height:1.1em}.mw-parser-output .listen-plain{border:none;background:transparent}.mw-parser-output .listen-embedded{width:100%;margin:0;border-width:1px 0 0 0;background:transparent}.mw-parser-output .listen-header{padding:2px}.mw-parser-output .listen-embedded .listen-header{padding:2px 0}.mw-parser-output .listen-file-header{padding:4px 0}.mw-parser-output .listen .description{padding-top:2px}.mw-parser-output .listen .mw-tmh-player{max-width:100%}@media(max-width:719px){.mw-parser-output .listen{clear:both}}@media(min-width:720px){.mw-parser-output .listen:not(.listen-noimage){width:320px}.mw-parser-output .listen-left{overflow:visible;float:left}.mw-parser-output .listen-center{float:none;margin-left:auto;margin-right:auto}}</style><div class="side-box side-box-right listen noprint"><style data-mw-deduplicate="TemplateStyles:r1126788409">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>
+<div class="side-box-flex">
+<div class="side-box-image"><figure class="mw-halign-center" typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/60px-Gnome-mime-sound-openclipart.svg.png" decoding="async" width="50" height="50" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/120px-Gnome-mime-sound-openclipart.svg.png 1.5x" data-file-width="160" data-file-height="160" /></span><figcaption></figcaption></figure></div>
+<div class="side-box-text plainlist"><div class="haudio">
+<div class="listen-file-header"><a href="File:AFSK_1200_baud.ogg" title="File:AFSK 1200 baud.ogg">1200 baud APRS signal</a></div>
+<div><span typeof="mw:File"><span><audio id="mwe_player_0" controls="" preload="none" data-mw-tmh="" class="mw-file-element" width="232" style="width:232px;" data-durationhint="1" data-mwtitle="AFSK_1200_baud.ogg" data-mwprovider="wikimediacommons"><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/2/27/AFSK_1200_baud.ogg/AFSK_1200_baud.ogg.mp3" type="audio/mpeg" data-transcodekey="mp3" data-width="0" data-height="0" /><source src="//upload.wikimedia.org/wikipedia/commons/2/27/AFSK_1200_baud.ogg" type="audio/ogg; codecs=&quot;vorbis&quot;" data-width="0" data-height="0" /><track src="https://commons.wikimedia.org/w/api.php?action=timedtext&amp;title=File%3AAFSK_1200_baud.ogg&amp;lang=en&amp;trackformat=vtt&amp;origin=%2A" kind="subtitles" type="text/vtt" srclang="en" label="English ‪(en)‬" data-dir="ltr" /></audio></span></span></div>
+<div class="description">Example of a 1,200-baud AFSK modulated APRS signal.</div></div></div></div>
+<div class="side-box-abovebelow"><hr /><i class="selfreference">Problems playing this file? See <a href="Help:Media" title="Help:Media">media help</a>.</i></div>
+</div>
+<p>In its most widely used form, APRS is transported over the <a href="AX.25" title="AX.25">AX.25</a> protocol using 1,200-bit/s <a href="Bell_202_modem" class="mw-redirect" title="Bell 202 modem">Bell 202</a> <a href="Frequency-shift_keying" title="Frequency-shift keying">AFSK</a> on <a href="Frequency" title="Frequency">frequencies</a> located within the <a href="2-meter_band" title="2-meter band">2-meter amateur band</a>.
+</p>
+<dl><dt>Sample APRS VHF frequencies</dt></dl>
+<ul><li>144.39&#160;MHz&#160;: <a href="North_America" title="North America">North America</a>, <a href="Argentina" title="Argentina">Argentina</a>, <a href="Colombia" title="Colombia">Colombia</a>, <a href="Chile" title="Chile">Chile</a>, <a href="Indonesia" title="Indonesia">Indonesia</a>, <a href="Malaysia" title="Malaysia">Malaysia</a>, <a href="Singapore" title="Singapore">Singapore</a>, <a href="Thailand" title="Thailand">Thailand</a></li>
+<li>144.575&#160;MHz&#160;: <a href="New_Zealand" title="New Zealand">New Zealand</a><sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-12" class="reference"><a href="#cite_note-12"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup></li>
+<li>144.64&#160;MHz&#160;: <a href="China" title="China">China</a>,<sup id="cite&#95;ref-13" class="reference"><a href="#cite_note-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup> <a href="Taiwan" title="Taiwan">Taiwan</a></li>
+<li>144.66&#160;MHz&#160;: <a href="Japan" title="Japan">Japan</a></li>
+<li>144.8&#160;MHz&#160;: <a href="South_Africa" title="South Africa">South Africa</a>, <a href="Europe" title="Europe">Europe</a>,<sup id="cite&#95;ref-14" class="reference"><a href="#cite_note-14"><span class="cite-bracket">&#91;</span>14<span class="cite-bracket">&#93;</span></a></sup> <a href="Russia" title="Russia">Russia</a></li>
+<li>144.93&#160;MHz&#160;: <a href="Uruguay" title="Uruguay">Uruguay</a>, <a href="Panama" title="Panama">Panama</a></li>
+<li>145.175&#160;MHz&#160;: <a href="Australia" title="Australia">Australia</a></li>
+<li>145.57&#160;MHz&#160;: <a href="Brazil" title="Brazil">Brazil</a></li>
+<li>145.825&#160;MHz&#160;: <a href="International_Space_Station" title="International Space Station">International Space Station</a><sup id="cite&#95;ref-15" class="reference"><a href="#cite_note-15"><span class="cite-bracket">&#91;</span>15<span class="cite-bracket">&#93;</span></a></sup> and other satellites</li></ul>
+<p>An extensive digital repeater, or "digipeater" network provides transport for APRS packets on these frequencies. <a href="Internet" title="Internet">Internet</a> gateway stations (IGates) connect the on-air APRS network to the APRS Internet System (APRS-IS), which serves as a worldwide, high-bandwidth backbone for APRS data. Stations can tap into this stream directly, and a number of databases connected to the APRS-IS allow Web-based access to the data as well as more advanced data-mining capabilities. A number of <a href="Low_Earth_orbit" title="Low Earth orbit">low-Earth orbiting</a> <a href="Satellite" title="Satellite">satellites</a>, including the <a href="International_Space_Station" title="International Space Station">International Space Station</a>, are capable of relaying APRS data.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Equipment_settings">Equipment settings<span class="anchor" id="Equipment&#95;Settings"></span></h2></div>
+<p>An APRS infrastructure comprises a variety of <a href="Terminal_node_controller" title="Terminal node controller">Terminal Node Controller</a> (TNC) equipment put in place by individual amateur radio operators. This includes sound cards interfacing a radio to a computer, simple TNCs, and "smart" TNCs. The "smart" TNCs are capable of determining what has already happened with the packet and can prevent redundant packet repeating within the network.
+</p><p>Reporting stations use a method of routing called a "path" to broadcast the information through a network. In a typical packet network, a station would use a path of known stations such as "via n8xxx,n8ary."  This causes the packet to be repeated through the two stations before it stops. In APRS, generic call signs are assigned to repeater stations to allow a more automatic operation.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Recommended_path">Recommended path</h3></div>
+<p>Throughout North America (and in many other regions) the recommended path for mobiles or portable stations is now WIDE1-1,WIDE2-1.<sup id="cite&#95;ref-16" class="reference"><a href="#cite_note-16"><span class="cite-bracket">&#91;</span>16<span class="cite-bracket">&#93;</span></a></sup> Fixed Stations (homes, etc.) should not normally use a path routing if they do not need to be digitally repeated outside of their local area, otherwise a path of WIDE2-2 or less should be used as requirements dictate. The path parameter<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="which one? (August 2017)">clarification needed</span></a></i>&#93;</sup> reflects the routing of packets via the radio component of APRS, and fixed stations should carefully consider their choice of path routing. Any path selection for stations that do not require it contributes to congestion of the APRS frequency and may hinder other stations' reporting. Aircraft and balloon APRS stations should avoid beaconing with any path at altitude since digipeating may not be necessary due to their antenna height and likelihood of reaching multiple wide-ranging digipeaters and IGates. Mobile stations in congested areas or more populated areas may consider using only 1 hop (WIDE1-1), as there are usually enough Internet gateways nearby that no path routing is needed. One solution to the path selection is proportional pathing<sup id="cite&#95;ref-17" class="reference"><a href="#cite_note-17"><span class="cite-bracket">&#91;</span>17<span class="cite-bracket">&#93;</span></a></sup> if the user's equipment is capable.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Old_path">Old path</h3></div>
+<p>Early on, the widely accepted method of configuring stations was to enable the short-range stations to repeat packets requesting a path of "RELAY" and long-range stations were configured to repeat both "RELAY" and "WIDE" packets. This was accomplished by setting the station's MYALIAS setting to RELAY or WIDE as needed. This resulted in a path of RELAY,WIDE for reporting stations. However, there was no duplicate packet checking or alias substitution. This sometimes caused beacons to "ping pong" back and forth instead of propagating outwards from the source. This caused much interference. With no alias substitution, one could not tell which digipeaters a beacon had used.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="New_path">New path</h3></div>
+<p>With the advent of the new "smart" TNCs, the stations that used to be "WIDE" became "WIDEn-N." This means a packet with a path of WIDE2-2 would be repeated through the first station as WIDE2-2, but the path will be modified (decremented) to WIDE2-1 for the next station to repeat. The packet stops being repeated when the "-N" portion of the path reaches "-0." This new protocol has caused the old RELAY and WIDE paths to become obsolete. Digi operators are being asked to re-configure fill-in "RELAY" stations to instead respond to WIDE1-1. This results in a new, more efficient path of WIDE1-1,WIDE2-1.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Amateur_Radio_High_Altitude_Balloons">Amateur Radio High Altitude Balloons</h3></div>
+<p>Testing radio range is often a large component of these hobbies. Amateur radio is often used with packet radio to communicate at 1200 baud, using the Automatic Packet Reporting System back to the ground station. Smaller packages called micro or pico trackers are also built and run under smaller balloons. These smaller trackers have used Morse code, <a href="Hellschreiber" title="Hellschreiber">Feld Hell</a>, and RTTY to transmit their locations and other data.<sup id="cite&#95;ref-18" class="reference"><a href="#cite_note-18"><span class="cite-bracket">&#91;</span>18<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Related_systems">Related systems</h2></div>
+<p>The APRS protocol has been adapted and extended to support projects not directly related to its original purpose. The most notable of these are the FireNet and PropNET projects.
+</p>
+<ul><li><b>APRS FireNet</b> is an Internet-based system using the APRS protocol and much of the same client software to provide fire fighting, earthquake, and weather information in much higher volume and detail than the traditional APRS system is capable of carrying.</li>
+<li><b>PropNET</b> uses the APRS protocol over AX.25 and <a href="PSK31" title="PSK31">PSK31</a> to study radio frequency propagation. PropNET "probes" transmit position reports, along with information on transmitter power, elevation, and antenna gain, at various frequencies to allow monitoring stations to detect changes in propagation conditions.<sup id="cite&#95;ref-19" class="reference"><a href="#cite_note-19"><span class="cite-bracket">&#91;</span>19<span class="cite-bracket">&#93;</span></a></sup> It is based on ACDS, a special client program running under Microsoft Windows.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<ul><li><a href="APRS_Calling" title="APRS Calling">APRS Calling</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/wb2osz/aprsspec">APRS Documentation Project - includes latest protocol specification</a></li>
+<li><a href="Automatic_identification_system" title="Automatic identification system">Automatic identification system</a>—position reporting system used for marine traffic</li>
+<li><a href="Spartan_Packet_Radio_Experiment" title="Spartan Packet Radio Experiment">Spartan Packet Radio Experiment</a>—an experiment intended to test the tracking of satellites via amateur packet radio, flown on <a href="Space_Shuttle" title="Space Shuttle">Space Shuttle</a> mission <a href="STS-72" title="STS-72">STS-72</a>.</li>
+<li><a href="Traffic_collision_avoidance_system" title="Traffic collision avoidance system">Traffic collision avoidance system</a> (TCAS)</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFIan&#95;Wade2000" class="citation web cs1">Ian Wade, ed. (August 29, 2000). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20210227223020/ftp://ftp.tapr.org/aprssig/aprsspec/spec/aprs101/APRS101.pdf">"APRS Protocol Reference"</a> <span class="cs1-format">(PDF)</span>. <a href="Tucson_Amateur_Packet_Radio" title="Tucson Amateur Packet Radio">Tucson Amateur Packet Radio</a>. Archived from <a rel="nofollow" class="external text" href="ftp://ftp.tapr.org/aprssig/aprsspec/spec/aprs101/APRS101.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2021-02-27<span class="reference-accessdate">. Retrieved <span class="nowrap">May 19,</span> 2012</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=APRS+Protocol+Reference&amp;rft.pub=Tucson+Amateur+Packet+Radio&amp;rft.date=2000-08-29&amp;rft&#95;id=ftp%3A%2F%2Fftp.tapr.org%2Faprssig%2Faprsspec%2Fspec%2Faprs101%2FAPRS101.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.aprs-is.net/Specification.aspx">"APRS-IS Specifications"</a>. <i>Aprs-is.net</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2016-10-02</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Aprs-is.net&amp;rft.atitle=APRS-IS+Specifications&amp;rft&#95;id=http%3A%2F%2Fwww.aprs-is.net%2FSpecification.aspx&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://twitter.com/Pat_Kilroy/status/1491204945030565888">"SAD NEWS Bob Bruninga, WB4APR, SK: Bob's daughter said he passed away peacefully yesterday following a two-year struggle with cancer, and Covid to top it off"</a>. <i>Twitter.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2022-02-14</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Twitter.com&amp;rft.atitle=SAD+NEWS+Bob+Bruninga%2C+WB4APR%2C+SK%3A+Bob%27s+daughter+said+he+passed+away+peacefully+yesterday+following+a+two-year+struggle+with+cancer%2C+and+Covid+to+top+it+off.&amp;rft&#95;id=https%3A%2F%2Ftwitter.com%2FPat&#95;Kilroy%2Fstatus%2F1491204945030565888&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://annapolisfriends.org/celebration-of-the-life-of-bob-bruninga/">"Celebration of the Life of Bob Bruninga - Annapolis Friends Meeting"</a>. July 16, 2022.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Celebration+of+the+Life+of+Bob+Bruninga+-+Annapolis+Friends+Meeting&amp;rft.date=2022-07-16&amp;rft&#95;id=https%3A%2F%2Fannapolisfriends.org%2Fcelebration-of-the-life-of-bob-bruninga%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.aprsfoundation.org/">https://www.aprsfoundation.org/</a></span>
+</li>
+<li id="cite&#95;note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.arrl.org/news/aprs-developer-bob-bruninga-wb4apr-sk">"APRS Developer Bob Bruninga, WB4APR, SK"</a>. <i>Arrl.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2022-02-11</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Arrl.org&amp;rft.atitle=APRS+Developer+Bob+Bruninga%2C+WB4APR%2C+SK&amp;rft&#95;id=http%3A%2F%2Fwww.arrl.org%2Fnews%2Faprs-developer-bob-bruninga-wb4apr-sk&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFBruninga" class="citation web cs1">Bruninga, Bob. <a rel="nofollow" class="external text" href="http://www.aprs.org/APRS-docs/ARTICLES.TXT">"APRS history"</a>. <i>Aprs.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">October 2,</span> 2016</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Aprs.org&amp;rft.atitle=APRS+history&amp;rft.aulast=Bruninga&amp;rft.aufirst=Bob&amp;rft&#95;id=http%3A%2F%2Fwww.aprs.org%2FAPRS-docs%2FARTICLES.TXT&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=TfArEGYgw6I&amp;t=11m0s">"2011 DCC - Sunday Seminar Part 1 - WB4APR and APRS"</a>. <i>Youtube</i>. 2011<span class="reference-accessdate">. Retrieved <span class="nowrap">13 April</span> 2020</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Youtube&amp;rft.atitle=2011+DCC+-+Sunday+Seminar+Part+1+-+WB4APR+and+APRS&amp;rft.date=2011&amp;rft&#95;id=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTfArEGYgw6I%26t%3D11m0s&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-ARRL2006-9"><span class="mw-cite-backlink">^ <a href="#cite_ref-ARRL2006_9-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ARRL2006_9-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFR.&#95;Dean&#95;Straw2006" class="citation book cs1">R. Dean Straw, ed. (2006). <i>The ARRL handbook for radio communications</i>. Newington, CT: American Radio Relay League. p.&#160;9.22. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-0-87259-948-2" title="Special:BookSources/978-0-87259-948-2"><bdi>978-0-87259-948-2</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+ARRL+handbook+for+radio+communications&amp;rft.place=Newington%2C+CT&amp;rft.pages=9.22&amp;rft.pub=American+Radio+Relay+League&amp;rft.date=2006&amp;rft.isbn=978-0-87259-948-2&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.aprs-is.net/Email.aspx">"Email Services"</a>. <i>Aprs-is.net</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2020-05-24</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Aprs-is.net&amp;rft.atitle=Email+Services&amp;rft&#95;id=http%3A%2F%2Fwww.aprs-is.net%2FEmail.aspx&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20100926014321/http://nzart.org.nz/maps/2010/d1-ni.pdf">"Archived copy"</a> <span class="cs1-format">(PDF)</span>. Archived from <a rel="nofollow" class="external text" href="http://www.nzart.org.nz/maps/2010/d1-ni.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2010-09-26<span class="reference-accessdate">. Retrieved <span class="nowrap">2010-09-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Archived+copy&amp;rft&#95;id=http%3A%2F%2Fwww.nzart.org.nz%2Fmaps%2F2010%2Fd1-ni.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: archived copy as title (<a href="Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20100926033414/http://nzart.org.nz/maps/2010/d1-si.pdf">"Archived copy"</a> <span class="cs1-format">(PDF)</span>. Archived from <a rel="nofollow" class="external text" href="http://www.nzart.org.nz/maps/2010/d1-si.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2010-09-26<span class="reference-accessdate">. Retrieved <span class="nowrap">2010-09-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Archived+copy&amp;rft&#95;id=http%3A%2F%2Fwww.nzart.org.nz%2Fmaps%2F2010%2Fd1-si.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: archived copy as title (<a href="Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.iaru.org/wp-content/uploads/2020/01/R3-004-IARU-Region-3-Bandplan-rev.2.pdf">"IARU Region 3 Interim Band Plan"</a> <span class="cs1-format">(PDF)</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=IARU+Region+3+Interim+Band+Plan&amp;rft&#95;id=https%3A%2F%2Fwww.iaru.org%2Fwp-content%2Fuploads%2F2020%2F01%2FR3-004-IARU-Region-3-Bandplan-rev.2.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://dididahdahdidit.com/eurofreq.php">"APRS Frequencies World-Wide"</a>. <i>Dididahdahdidit.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">14 February</span> 2022</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Dididahdahdidit.com&amp;rft.atitle=APRS+Frequencies+World-Wide&amp;rft&#95;id=http%3A%2F%2Fdididahdahdidit.com%2Feurofreq.php&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.ariss.org/current-status-of-iss-stations.html">"Current Status of ISS Stations"</a>. <i>Amateur Radio on the International Space Station (ARISS)</i>. April 17, 2017<span class="reference-accessdate">. Retrieved <span class="nowrap">November 16,</span> 2017</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Amateur+Radio+on+the+International+Space+Station+%28ARISS%29&amp;rft.atitle=Current+Status+of+ISS+Stations&amp;rft.date=2017-04-17&amp;rft&#95;id=http%3A%2F%2Fwww.ariss.org%2Fcurrent-status-of-iss-stations.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://aprs.org/fix14439.html">"FIXING DIGIPEATERS"</a>. <i>Aprs.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">14 February</span> 2022</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Aprs.org&amp;rft.atitle=FIXING+DIGIPEATERS&amp;rft&#95;id=http%3A%2F%2Faprs.org%2Ffix14439.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.aprs.org/newN/ProportionalPathing.txt">"Proportional Pathing and Decayed Beaconing"</a> <span class="cs1-format">(TXT)</span>. <i>Aprs.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2022-02-14</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Aprs.org&amp;rft.atitle=Proportional+Pathing+and+Decayed+Beaconing&amp;rft&#95;id=http%3A%2F%2Fwww.aprs.org%2FnewN%2FProportionalPathing.txt&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text">url=<a rel="nofollow" class="external free" href="https://arawr.ca/?page=payloadtitle=%7Cdate=26">https://arawr.ca/?page=payloadtitle=%7Cdate=26</a> April 2024</span>
+</li>
+<li id="cite&#95;note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.propnet.org/">"The PropNET Project"</a>. <i>Propnet.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">14 February</span> 2022</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Propnet.org&amp;rft.atitle=The+PropNET+Project&amp;rft&#95;id=http%3A%2F%2Fwww.propnet.org%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<div class="mw-heading mw-heading2"><h2 id="Further_reading">Further reading</h2></div>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFStan&#95;Horzepa1999" class="citation book cs1">Stan Horzepa (1999). <i>APRS Tracks, Maps and Mobiles</i>. <a href="American_Radio_Relay_League" title="American Radio Relay League">American Radio Relay League </a>. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-0-87259-774-7" title="Special:BookSources/978-0-87259-774-7"><bdi>978-0-87259-774-7</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=APRS+Tracks%2C+Maps+and+Mobiles&amp;rft.pub=American+Radio+Relay+League&amp;rft.date=1999&amp;rft.isbn=978-0-87259-774-7&amp;rft.au=Stan+Horzepa&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AAutomatic+Packet+Reporting+System" class="Z3988"></span></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<ul><li><a rel="nofollow" class="external text" href="http://www.aprs.org/">Automatic Packet Reporting System site</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.findu.com">findU</a> is a database archiving weather, position, telemetry, and message data.</li>
+<li><a rel="nofollow" class="external text" href="http://aprs.fi/">aprs.fi</a>—<a href="OpenStreetMap" title="OpenStreetMap">OpenStreetMap</a> map-based tracking/mapping</li>
+<li><a rel="nofollow" class="external text" href="http://www.pinpointaprs.com/">www.pinpointaprs.com</a>—A free Windows-based desktop APRS client with built-in mapping.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/wb2osz/direwolf">Dire Wolf</a> is a free open source software replacement for the 1980s technology TNC</li></ul>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox" aria-labelledby="Packet&#95;radio502" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2" style="background:lightsteelblue;"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1239400231">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Packet_radio" title="Template:Packet radio"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Packet_radio" title="Template talk:Packet radio"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Packet_radio" title="Special:EditPage/Template:Packet radio"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Packet&#95;radio502" style="font-size:114%;margin:0 4em"><a href="Packet_radio" title="Packet radio">Packet radio</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lightsteelblue;">Traditional</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ALOHAnet" title="ALOHAnet">ALOHAnet</a></li>
+<li><a href="PRNET" title="PRNET">PRNET</a></li>
+<li><a href="AX.25" title="AX.25">AX.25</a></li>
+<li><a href="Terminal_node_controller" title="Terminal node controller">Terminal node controller</a></li>
+<li><a href="FBB_(F6FBB)" class="mw-redirect" title="FBB (F6FBB)">FBB (F6FBB)</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lightsteelblue;"><a class="mw-selflink selflink">APRS</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">APRS</a></li>
+<li><a href="APRS_Calling" title="APRS Calling">APRS Calling</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lightsteelblue;">TCP/IP packet radio</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="AMPRNet" title="AMPRNet">AMPRNet</a></li>
+<li><a href="KISS_(TNC)" class="mw-redirect" title="KISS (TNC)">KISS (TNC)</a></li>
+<li><a href="KA9Q" title="KA9Q">KA9Q</a></li>
+<li><a href="Phil_Karn" title="Phil Karn">Phil Karn</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lightsteelblue;">Specialized</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Spartan_Packet_Radio_Experiment" title="Spartan Packet Radio Experiment">Spartan</a></li>
+<li><a href="FX.25_Forward_Error_Correction" title="FX.25 Forward Error Correction">FX.25 FEC</a></li>
+<li><a href="Encoder_receiver_transmitter" title="Encoder receiver transmitter">Encoder receiver transmitter</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Amateur&#95;radio10724" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Amateur_radio_topics" title="Template:Amateur radio topics"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Amateur_radio_topics" title="Template talk:Amateur radio topics"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Amateur_radio_topics" title="Special:EditPage/Template:Amateur radio topics"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Amateur&#95;radio10724" style="font-size:114%;margin:0 4em"><a href="Amateur_radio" title="Amateur radio">Amateur radio</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">General</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_radio_operator" title="Amateur radio operator">Operator</a></li>
+<li><a href="Amateur_radio_station" title="Amateur radio station">Station</a></li>
+<li><a href="Glossary_of_amateur_radio" title="Glossary of amateur radio">Glossary</a></li></ul>
+</div></td><td class="noviewer navbox-image" rowspan="12" style="width:1px;padding:0 0 0 2px"><div><span typeof="mw:File"><a href="File:International_amateur_radio_symbol.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/120px-International_amateur_radio_symbol.svg.png" decoding="async" width="80" height="160" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/250px-International_amateur_radio_symbol.svg.png 2x" data-file-width="320" data-file-height="640" /></a></span></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Activities</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="High-speed_telegraphy" title="High-speed telegraphy">High-speed telegraphy</a></li>
+<li><a href="Parks_On_The_Air" title="Parks On The Air">POTA</a></li>
+<li><a href="Summits_On_The_Air" title="Summits On The Air">SOTA</a></li>
+<li><a href="Islands_On_The_Air" title="Islands On The Air">IOTA</a></li>
+<li><a href="Jamboree_on_the_Air" title="Jamboree on the Air">JOTA</a></li>
+<li><a href="Guides_on_the_Air" title="Guides on the Air">GOTA</a></li>
+<li><a href="Portable_operation_(amateur_radio)" title="Portable operation (amateur radio)">Portable operation</a></li>
+<li><a href="Amateur_radio_homebrew" title="Amateur radio homebrew">Homebrew</a></li>
+<li><a href="Chinese_Radio_Sports_Association" title="Chinese Radio Sports Association">CRSA</a></li>
+<li><a href="ARRL_Radiogram" title="ARRL Radiogram">ARRL Radiogram</a></li>
+<li><a href="Ham_net" class="mw-redirect" title="Ham net">Ham net</a></li>
+<li><a href="National_Traffic_System" title="National Traffic System">NTS</a></li>
+<li><a href="Logbook_of_The_World" title="Logbook of The World">LoWT</a></li>
+<li><a href="Pirate_radio#Piracy_in_amateur_and_two-way_radio" title="Pirate radio">Piracy</a></li></ul>
+</div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Radiosport1210" scope="row" class="navbox-group" style="width:1%"><a href="Radiosport" title="Radiosport">Radiosport</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_direction_finding" title="Amateur radio direction finding">ARDF</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Fox_Oring" title="Fox Oring">Fox Oring</a></li>
+<li><a href="Radio_Orienteering_in_a_Compact_Area" title="Radio Orienteering in a Compact Area">ROCA</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="DXing" title="DXing">DXing</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="MW_DX" title="MW DX">MW DX</a></li>
+<li><a href="Shortwave_listening" title="Shortwave listening">Shortwave DX</a></li>
+<li><a href="TV_and_FM_DX" title="TV and FM DX">TV and FM DX</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Contesting" title="Contesting">Contesting</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Field_Day_(amateur_radio)" title="Field Day (amateur radio)">Field Day</a></li>
+<li><a href="Single_operator_two_radios" title="Single operator two radios">SO2R</a></li>
+<li><a href="World_Radiosport_Team_Championship" title="World Radiosport Team Championship">WRTC</a></li>
+<li><a href="Contest_logging_software" title="Contest logging software">Logging software</a></li>
+<li><a href="Contesting_technology" title="Contesting technology">technology</a></li>
+<li><a href="Contesting_controversies" title="Contesting controversies">Controversies</a></li>
+<li><a href="HamSphere" title="HamSphere">HamSphere</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Culture</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="History_of_amateur_radio" title="History of amateur radio">History</a></li>
+<li><a href="Etymology_of_ham_radio" title="Etymology of ham radio">Ham etymology</a></li>
+<li><a href="Amateur_radio_operating_award" title="Amateur radio operating award">Awards</a></li>
+<li><a href="DX-pedition" title="DX-pedition">DX-pedition</a></li>
+<li><a href="Hamfest" title="Hamfest">Hamfest</a></li>
+<li><a href="QSL_card" title="QSL card">QSL card</a></li>
+<li><a href="Q_code" title="Q code">Q code</a></li>
+<li><a href="Vintage_amateur_radio" title="Vintage amateur radio">Vintage amateur radio</a></li>
+<li><a href="List_of_amateur_radio_magazines" title="List of amateur radio magazines">Magazines</a></li>
+<li><a href="Captain_Midnight_broadcast_signal_intrusion" title="Captain Midnight broadcast signal intrusion">Captain Midnight</a></li>
+<li><a href="W1AW" title="W1AW">W1AW</a></li>
+<li><a href="Women_in_early_radio#Women_as_radio_amateurs" title="Women in early radio">Women</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Governance</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ITU_prefix_(amateur_stations)" class="mw-redirect" title="ITU prefix (amateur stations)">ITU prefixes</a></li>
+<li><a href="Maritime_mobile_amateur_radio" title="Maritime mobile amateur radio">Maritime mobile</a></li>
+<li><a href="Amateur_radio_international_operation" title="Amateur radio international operation">International operation</a></li></ul>
+</div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_organizations" title="List of amateur radio organizations">Organizations</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="International_Amateur_Radio_Union" title="International Amateur Radio Union">IARU</a></li>
+<li><a href="International_Telecommunication_Union" title="International Telecommunication Union">ITU</a></li>
+<li><a href="State_Radio_Regulation_of_China" title="State Radio Regulation of China">SRRC</a></li>
+<li><a href="American_Radio_Relay_League" title="American Radio Relay League">ARRL</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio#Licensing" title="Amateur radio">Licensing</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_radio_call_signs" title="Amateur radio call signs">Call signs</a></li>
+<li><a href="Amateur_radio_licensing_in_the_United_States" title="Amateur radio licensing in the United States">USA</a></li>
+<li><a href="Amateur_radio_in_India" title="Amateur radio in India">India</a>
+<ul><li><a href="List_of_amateur_radio_frequency_bands_in_India" title="List of amateur radio frequency bands in India">Frequencies</a></li>
+<li><a href="Amateur_radio_licence_categories_in_India" title="Amateur radio licence categories in India">Licence categories</a></li></ul></li>
+<li><a href="Amateur_radio_licensing_in_Australia" title="Amateur radio licensing in Australia">Australia</a></li>
+<li><a href="Amateur_radio_licensing_in_China" title="Amateur radio licensing in China">China</a></li>
+<li><a href="Call_signs_in_the_United_Kingdom" title="Call signs in the United Kingdom">UK</a></li>
+<li><a href="Call_signs_in_Japan" title="Call signs in Japan">Japan</a></li>
+<li><a href="Call_signs_in_Europe" title="Call signs in Europe">Europe</a></li>
+<li><a href="Amateur_radio_call_signs_in_Africa" title="Amateur radio call signs in Africa">Africa</a></li>
+<li><a href="Call_signs_in_Korea" title="Call signs in Korea">Korea</a></li>
+<li><a href="Call_signs_in_Russia" title="Call signs in Russia">Russia</a></li>
+<li><a href="Call_signs_in_Mexico#Amateur_radio" title="Call signs in Mexico">Mexico</a></li>
+<li><a href="Call_signs_in_Canada#Amateur_radio" title="Call signs in Canada">Canada</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_modes" title="List of amateur radio modes">Modes</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">Voice</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amplitude_modulation" title="Amplitude modulation">AM</a></li>
+<li><a href="Sideband" title="Sideband">DSB-SC</a></li>
+<li><a href="Independent_sideband" class="mw-redirect" title="Independent sideband">ISB</a></li>
+<li><a href="Single-sideband_modulation" title="Single-sideband modulation">SSB</a></li>
+<li><a href="Amplitude_modulation_equivalent" class="mw-redirect" title="Amplitude modulation equivalent">AME</a></li>
+<li><a href="Frequency_modulation" title="Frequency modulation">FM</a></li>
+<li><a href="Phase_modulation" title="Phase modulation">PM</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Television</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_television" title="Amateur television">ATV</a></li>
+<li><a href="Slow-scan_television" title="Slow-scan television">SSTV</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data/Digital</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Continuous_wave" title="Continuous wave">CW</a></li>
+<li><a href="Automatic_link_establishment" title="Automatic link establishment">ALE</a></li>
+<li><a href="AMTOR" title="AMTOR">AMTOR</a></li>
+<li><a href="D-STAR" title="D-STAR">D-STAR</a></li>
+<li><a href="DAPNET" title="DAPNET">DAPNET</a></li>
+<li><a href="EchoLink" title="EchoLink">EchoLink</a></li>
+<li><a href="FT8" title="FT8">FT8</a></li>
+<li><a href="Hellschreiber" title="Hellschreiber">Hellschreiber</a></li>
+<li><a href="Discrete_multi-tone_modulation" class="mw-redirect" title="Discrete multi-tone modulation">DMT</a></li>
+<li><a href="Frequency-shift_keying" title="Frequency-shift keying">FSK</a></li>
+<li><a href="Multiple_frequency-shift_keying" title="Multiple frequency-shift keying">MFSK</a></li>
+<li><a href="M17_(amateur_radio)" title="M17 (amateur radio)">M17</a></li>
+<li><a href="Packet_radio" title="Packet radio">Packet radio</a>
+<ul><li><a class="mw-selflink selflink">APRS</a></li>
+<li><a href="AMPRNet" title="AMPRNet">AMPRNet</a></li>
+<li><a href="KA9Q" title="KA9Q">KA9Q</a></li></ul></li>
+<li><a href="PACTOR" title="PACTOR">PACTOR</a></li>
+<li><a href="Phase-shift_keying" title="Phase-shift keying">PSK</a></li>
+<li><a href="Radioteletype" title="Radioteletype">RTTY</a></li>
+<li><a href="Spread_spectrum" title="Spread spectrum">Spread spectrum</a></li>
+<li><a href="Wide-coverage_Internet_Repeater_Enhancement_System" title="Wide-coverage Internet Repeater Enhancement System">WIRES-X</a></li>
+<li><a href="Digital_mobile_radio" title="Digital mobile radio">DMR</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Technologies</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Radio-frequency_engineering" title="Radio-frequency engineering">RF engineering</a></li>
+<li><a href="List_of_amateur_radio_software" title="List of amateur radio software">Software</a></li>
+<li><a href="Internet_Radio_Linking_Project" title="Internet Radio Linking Project">IRLP</a></li>
+<li><a href="QRP_operation" title="QRP operation">QRP</a></li>
+<li><a href="Software-defined_radio" title="Software-defined radio">SDR</a>
+<ul><li><a href="List_of_software-defined_radios" title="List of software-defined radios">List of radios</a></li></ul></li>
+<li><a href="Two-way_radio" title="Two-way radio">Two-way radio</a></li>
+<li><a href="List_of_amateur_radio_transceivers" title="List of amateur radio transceivers">Transceivers</a></li>
+<li><a href="Shortwave_radio" title="Shortwave radio">Shortwave radio</a></li>
+<li><a href="Amateur_radio_propagation_beacon" title="Amateur radio propagation beacon">Beacons</a></li>
+<li><a href="Winlink" title="Winlink">Winlink</a></li>
+<li><a href="International_Beacon_Project" title="International Beacon Project">IBP</a></li>
+<li><a href="Automatic_link_establishment#Use_in_amateur_radio" title="Automatic link establishment">ALE</a></li>
+<li><a href="LM386" title="LM386">LM386</a></li>
+<li><a href="Spark-gap_transmitter" title="Spark-gap transmitter">Spark-gap transmitter</a></li>
+<li><a href="DX_cluster" title="DX cluster">DX cluster</a></li>
+<li><a href="Tropospheric_scatter" title="Tropospheric scatter">Tropospheric scatter</a></li>
+<li><a href="Internet_Radio_Linking_Project" title="Internet Radio Linking Project">IRLP</a></li>
+<li><a href="Radio_over_IP#eQSO" title="Radio over IP">eQSO</a></li>
+<li><a href="Parallel_Logic_Radio_Interface" title="Parallel Logic Radio Interface">PLRI</a></li>
+<li><a href="Wide-coverage_Internet_Repeater_Enhancement_System" title="Wide-coverage Internet Repeater Enhancement System">WIRES</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_emergency_communications" title="Amateur radio emergency communications">Emergency</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Field_Day_(amateur_radio)" title="Field Day (amateur radio)">Field Day</a></li>
+<li><a href="Radio_Amateur_Civil_Emergency_Service" title="Radio Amateur Civil Emergency Service">RACES</a></li>
+<li><a href="Amateur_Radio_Emergency_Service" title="Amateur Radio Emergency Service">ARES</a></li>
+<li><a href="Radio_Amateurs_Emergency_Network" title="Radio Amateurs Emergency Network">RAYNET</a></li>
+<li><a href="Military_Auxiliary_Radio_System" title="Military Auxiliary Radio System">MARS</a></li>
+<li><a href="Wireless_Institute_Civil_Emergency_Network" title="Wireless Institute Civil Emergency Network">WICEN</a></li>
+<li><a href="ARRL_International_Humanitarian_Award" title="ARRL International Humanitarian Award">ARRL International Humanitarian Award</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Space &amp; stratosphere</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Balloon_Experiments_with_Amateur_Radio" title="Balloon Experiments with Amateur Radio">BEAR</a></li>
+<li><a href="Shuttle_Amateur_Radio_Experiment" title="Shuttle Amateur Radio Experiment">Space Shuttle</a></li>
+<li><a href="Amateur_Radio_on_the_International_Space_Station" title="Amateur Radio on the International Space Station">ISS</a></li>
+<li><a href="Amateur_radio_satellite" title="Amateur radio satellite">Satellite</a>
+<ul><li><a href="OSCAR_1" title="OSCAR 1">OSCAR 1</a>, <a href="OSCAR_2" title="OSCAR 2">2</a>, <a href="OSCAR_3" title="OSCAR 3">3</a>, <a href="OSCAR_4" title="OSCAR 4">4</a>, <a href="Australis-OSCAR_5" title="Australis-OSCAR 5">5</a>, <a href="AMSAT-OSCAR_6" title="AMSAT-OSCAR 6">6</a>, <a href="AMSAT-OSCAR_7" title="AMSAT-OSCAR 7">7</a>, <a href="OSCAR_8" title="OSCAR 8">8</a>, <a href="UoSAT-1" title="UoSAT-1">9</a>, <a href="AMSAT-OSCAR_10" title="AMSAT-OSCAR 10">10</a>, <a href="AMSAT-OSCAR_16" title="AMSAT-OSCAR 16">16</a>, <a href="Dove-OSCAR_17" title="Dove-OSCAR 17">17</a>, <a href="Weber-OSCAR_18" title="Weber-OSCAR 18">18</a>, <a href="UoSAT-5" title="UoSAT-5">22</a>, <a href="Orbiting_Picosat_Automatic_Launcher" title="Orbiting Picosat Automatic Launcher">38</a>, <a href="OSCAR_40" title="OSCAR 40">40</a>, <a href="OSCAR_44" title="OSCAR 44">44</a>, <a href="SAPPHIRE" title="SAPPHIRE">45</a>, <a href="Saudi-OSCAR_50" title="Saudi-OSCAR 50">50</a>, <a href="AMSAT-OSCAR_51" title="AMSAT-OSCAR 51">51</a>, <a href="SSETI_Express_(satellite)" title="SSETI Express (satellite)">53</a>, <a href="CUTE-1.7_%2B_APD" title="CUTE-1.7 + APD">56</a>, <a href="Radar_Fence_Transponder" title="Radar Fence Transponder">60</a>, <a href="Atmospheric_Neutral_Density_Experiment" title="Atmospheric Neutral Density Experiment">61</a>, <a href="Atmospheric_Neutral_Density_Experiment" title="Atmospheric Neutral Density Experiment">62</a>, <a href="Pehuensat-1" title="Pehuensat-1">63</a>, <a href="CUTE-1.7_%2B_APD_II" title="CUTE-1.7 + APD II">65</a>, <a href="SEEDS-2" title="SEEDS-2">66</a>, <a href="SumbandilaSat" title="SumbandilaSat">67</a>, <a href="FASTRAC" title="FASTRAC">69</a>, <a href="AubieSat-1" title="AubieSat-1">71</a>, <a href="FUNcube-1" title="FUNcube-1">73</a>, <a href="CAPE-2" title="CAPE-2">75</a>, <a href="$50SAT" title="$50SAT">76</a>, <a href="INVADER" title="INVADER">77</a>, <a href="LituanicaSAT-1" title="LituanicaSAT-1">78</a>, <a href="BRICSat-P" title="BRICSat-P">83</a>, <a href="ParkinsonSAT" title="ParkinsonSAT">84</a>, <a href="Fox-1A" title="Fox-1A">85</a>, <a href="%C3%91uSat" title="ÑuSat">87</a>, <a href="Fox-1B" title="Fox-1B">91</a>, <a href="Fox-1D" title="Fox-1D">92</a>, <a href="Fox-1Cliff" title="Fox-1Cliff">95</a>, <a href="Es%27hail_2" title="Es&#39;hail 2">100</a>, <a href="Diwata-2" title="Diwata-2">101</a>, <a href="BRICSat-2" title="BRICSat-2">103</a>, <a href="PSAT-2" title="PSAT-2">104</a>, <a href="HuskySat-1" title="HuskySat-1">107</a>, <a href="Fox-1E" title="Fox-1E">109</a>, <a href="HADES_(satellite)" title="HADES (satellite)">115</a>, <a href="Nepal_PQ-1" title="Nepal PQ-1">116</a>, <a href="MESAT_1" title="MESAT 1">122</a></li>
+<li><a href="ANUSAT" title="ANUSAT">ANUSAT</a></li>
+<li><a href="ASUSat" title="ASUSat">ASUSat</a></li>
+<li><a href="BugSat_1" title="BugSat 1">BugSat 1</a></li>
+<li><a href="CAPE-1" title="CAPE-1">CAPE-1</a></li>
+<li><a href="CAPE-2" title="CAPE-2">CAPE-2</a></li>
+<li><a href="Delfi-C3" title="Delfi-C3">Delfi-C3</a></li>
+<li><a href="Eyesat-1" title="Eyesat-1">Eyesat-1</a></li>
+<li><a href="FalconSAT" title="FalconSAT">FalconSAT</a></li>
+<li><a href="Niwaka" title="Niwaka">FITSAT-1</a></li>
+<li><a href="HAMSAT" title="HAMSAT">HAMSAT</a></li>
+<li><a href="INVADER" title="INVADER">INVADER</a></li>
+<li><a href="ITF-1" title="ITF-1">ITF-1</a></li>
+<li><a href="JAWSAT" title="JAWSAT">JAWSAT</a></li>
+<li><a href="Kedr" title="Kedr">Kedr</a></li>
+<li><a href="KITSAT-1" title="KITSAT-1">KITSAT-1</a></li>
+<li><a href="KITSAT-2" title="KITSAT-2">KITSAT-2</a></li>
+<li><a href="KITSAT-3" title="KITSAT-3">KITSAT-3</a></li>
+<li><a href="KiwiSAT" class="mw-redirect" title="KiwiSAT">KiwiSAT</a></li>
+<li><a href="OSSI-1" title="OSSI-1">OSSI-1</a></li>
+<li><a href="PANSAT" title="PANSAT">PANSAT</a></li>
+<li><a href="Passive_Inspection_CubeSat" title="Passive Inspection CubeSat">PICS</a></li>
+<li><a href="PCSat2" title="PCSat2">PCSat2</a></li>
+<li><a href="PoSAT-1" title="PoSAT-1">PoSAT-1</a></li>
+<li><a href="SEDSAT-1" title="SEDSAT-1">SEDSAT-1</a></li>
+<li><a href="SRMSAT" title="SRMSAT">SRMSAT</a></li>
+<li><a href="STARSHINE_(satellite)" title="STARSHINE (satellite)">STARSHINE</a></li>
+<li><a href="Starshine_3" title="Starshine 3">Starshine 3</a></li>
+<li><a href="SuitSat" title="SuitSat">SuitSat</a></li>
+<li><a href="SUNSAT" title="SUNSAT">SUNSAT</a></li>
+<li><a href="TiungSAT-1" title="TiungSAT-1">TiungSAT-1</a></li>
+<li><a href="UoSAT-2" title="UoSAT-2">UoSAT-2</a></li>
+<li><a href="UoSAT-3" title="UoSAT-3">UoSAT-3</a></li>
+<li><a href="UoSAT-4" title="UoSAT-4">UoSAT-4</a></li>
+<li><a href="UoSAT-12" title="UoSAT-12">UoSAT-12</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_frequency_allocations" title="Amateur radio frequency allocations">Ham bands</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Submillimeter_amateur_radio" title="Submillimeter amateur radio">Submillimeter</a></li>
+<li><a href="1-millimeter_band" title="1-millimeter band">1 mm</a></li>
+<li><a href="2-millimeter_band" title="2-millimeter band">2 mm</a></li>
+<li><a href="2.5-millimeter_band" title="2.5-millimeter band">2.5 mm</a></li>
+<li><a href="4-millimeter_band" title="4-millimeter band">4 mm</a></li>
+<li><a href="6-millimeter_band" title="6-millimeter band">6 mm</a></li>
+<li><a href="1.2-centimeter_band" title="1.2-centimeter band">1.2 cm</a></li>
+<li><a href="3-centimeter_band" title="3-centimeter band">3 cm</a></li>
+<li><a href="5-centimeter_band" title="5-centimeter band">5 cm</a></li>
+<li><a href="9-centimeter_band" title="9-centimeter band">9 cm</a></li>
+<li><a href="13-centimeter_band" title="13-centimeter band">13 cm</a></li>
+<li><a href="23-centimeter_band" title="23-centimeter band">23 cm</a></li>
+<li><a href="33-centimeter_band" title="33-centimeter band">33 cm</a></li>
+<li><a href="70-centimeter_band" title="70-centimeter band">70 cm</a></li>
+<li><a href="1.25-meter_band" title="1.25-meter band">1.25 m</a></li>
+<li><a href="2-meter_band" title="2-meter band">2 m</a></li>
+<li><a href="4-metre_band" title="4-metre band">4 m</a></li>
+<li><a href="5-meter_band" title="5-meter band">5 m</a></li>
+<li><a href="6-meter_band" title="6-meter band">6 m</a></li>
+<li><a href="8-meter_band" title="8-meter band">8 m</a></li>
+<li><a href="10-meter_band" title="10-meter band">10 m</a></li>
+<li><a href="WARC_bands#12-meter_band_plan" title="WARC bands">12 m (WARC)</a></li>
+<li><a href="15-meter_band" title="15-meter band">15 m</a></li>
+<li><a href="WARC_bands#17-meter_band_plan" title="WARC bands">17 m (WARC)</a></li>
+<li><a href="20-meter_band" title="20-meter band">20 m</a></li>
+<li><a href="30-meter_band" class="mw-redirect" title="30-meter band">30 m (WARC)</a></li>
+<li><a href="40-meter_band" title="40-meter band">40 m</a></li>
+<li><a href="60-meter_band" title="60-meter band">60 m</a></li>
+<li><a href="80-meter_band" title="80-meter band">80 m</a></li>
+<li><a href="160-meter_band" title="160-meter band">160 m</a></li>
+<li><a href="630-meter_band" title="630-meter band">630 m</a></li>
+<li><a href="2200-meter_band" title="2200-meter band">2200 m</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_magazines" title="List of amateur radio magazines">Magazines</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="73_(magazine)" title="73 (magazine)">73</a></li>
+<li><a href="The_Canadian_Amateur" title="The Canadian Amateur">The Canadian Amateur</a></li>
+<li><a href="CQ_Amateur_Radio" title="CQ Amateur Radio">CQ Amateur Radio</a></li>
+<li><a href="CQ_ham_radio" title="CQ ham radio">CQ ham radio</a></li>
+<li><a href="CQ_VHF_Magazine" title="CQ VHF Magazine">CQ VHF Magazine</a></li>
+<li><a href="CQ_DL" title="CQ DL">CQ DL</a></li>
+<li><a href="Electronics_Australia" title="Electronics Australia">Electronics Australia</a></li>
+<li><a href="Electronics_Illustrated" title="Electronics Illustrated">Electronics Illustrated</a></li>
+<li><a href="Five_Nine" title="Five Nine">Five Nine</a></li>
+<li><a href="Funkamateur" title="Funkamateur">Funkamateur</a></li>
+<li><a href="Ham_Radio_(magazine)" title="Ham Radio (magazine)">Ham Radio</a></li>
+<li><a href="K9YA_Telegraph" title="K9YA Telegraph">K9YA Telegraph</a></li>
+<li><a href="Modern_Electrics" title="Modern Electrics">Modern Electrics</a></li>
+<li><a href="National_Communications_Magazine" title="National Communications Magazine">National Communications Magazine</a></li>
+<li><a href="National_Contest_Journal" title="National Contest Journal">National Contest Journal</a></li>
+<li><a href="Old_Man_(magazine)" title="Old Man (magazine)">Old Man</a></li>
+<li><a href="Popular_Communications" title="Popular Communications">Popular Communications</a></li>
+<li><a href="Practical_Wireless" title="Practical Wireless">Practical Wireless</a></li>
+<li><a href="QEX" title="QEX">QEX</a></li>
+<li><a href="QST" title="QST">QST</a></li>
+<li><a href="RadCom" title="RadCom">RadCom</a></li>
+<li><a href="Radio_(Belgium)" title="Radio (Belgium)">Radio (Belgium)</a></li>
+<li><a href="Radio_News" title="Radio News">Radio News</a></li>
+<li><a href="Radio_ZS" class="mw-redirect" title="Radio ZS">Radio ZS</a></li>
+<li><a href="Wireless_Weekly" title="Wireless Weekly">Wireless Weekly</a></li>
+<li><a href="WorldRadio" title="WorldRadio">WorldRadio</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Category:Films_about_amateur_radio" title="Category:Films about amateur radio">Films</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Contact_(1997_American_film)" title="Contact (1997 American film)">Contact</a></li>
+<li><a href="Frequency_(2000_film)" title="Frequency (2000 film)">Frequency</a></li>
+<li><a href="If_All_the_Guys_in_the_World" title="If All the Guys in the World">If All the Guys in the World</a></li>
+<li><a href="Sergio_and_Sergei" title="Sergio and Sergei">Sergio and Sergei</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_operator#Notable_amateur_radio_operators" title="Amateur radio operator">People</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Guglielmo_Marconi" title="Guglielmo Marconi">Guglielmo Marconi</a></li>
+<li><a href="Hidetsugu_Yagi" title="Hidetsugu Yagi">Hidetsugu Yagi</a></li>
+<li><a href="Judica-Cordiglia_brothers" title="Judica-Cordiglia brothers">Judica-Cordiglia brothers</a></li>
+<li><a href="William_I._Orr" title="William I. Orr">William I. Orr</a></li>
+<li><a href="Shintaro_Uda" title="Shintaro Uda">Shintaro Uda</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox authority-control" aria-label="Navbox505" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Help:Authority_control" title="Help:Authority control">Authority control databases</a>: National <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless"><a href="https://www.wikidata.org/wiki/Q787194#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" class="mw-file-element" data-file-width="20" data-file-height="20" /></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="nofollow" class="external text" href="https://id.loc.gov/authorities/sh00004790">United States</a></span></li><li><span class="uid"><a rel="nofollow" class="external text" href="https://www.nli.org.il/en/authorities/987007290953005171">Israel</a></span></li></ul></div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.codfw.canary‐586c5c5476‐trpr8
+Cached time: 20260106004639
+Cache expiry: 83608
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.380 seconds
+Real time usage: 0.468 seconds
+Preprocessor visited node count: 1507/1000000
+Revision size: 21738/2097152 bytes
+Post‐expand include size: 92252/2097152 bytes
+Template argument size: 944/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 84125/5000000 bytes
+Lua time usage: 0.221/10.000 seconds
+Lua memory usage: 8541633/52428800 bytes
+Number of Wikibase entities loaded: 1/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  355.415      1 -total
+ 36.03%  128.052      1 Template:Reflist
+ 28.64%  101.806     16 Template:Cite_web
+ 21.37%   75.962      6 Template:Navbox
+ 17.63%   62.655      1 Template:Packet_radio
+ 14.85%   52.789      1 Template:Short_description
+  9.02%   32.055      2 Template:Pagetype
+  6.67%   23.714      1 Template:Clarify
+  6.59%   23.425      1 Template:Listen
+  5.91%   20.996      1 Template:Fix-span
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:489450:|#|:idhash:canonical and timestamp 20260106004639 and revision id 1326899429. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

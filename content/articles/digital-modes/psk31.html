@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSK31 - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; PSK31
+    </nav>
+    <article>
+        <h1>PSK31</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Type of radioteletype mode</div>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:PSK_matrix.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/PSK_matrix.jpg/250px-PSK_matrix.jpg" decoding="async" width="200" height="297" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/PSK_matrix.jpg/330px-PSK_matrix.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/28/PSK_matrix.jpg/500px-PSK_matrix.jpg 2x" data-file-width="973" data-file-height="1443" /></a><figcaption>A <a href="Spectrogram" title="Spectrogram">waterfall display</a> depicting several PSK31 transmissions at around 14.07 MHz. The green lines indicate a station that is transmitting.</figcaption></figure>
+<p><b>PSK31</b> or "<a href="Phase-shift_keying" title="Phase-shift keying">Phase Shift Keying</a>, 31 <a href="Baud" title="Baud">Baud</a>", also <b>BPSK31</b> and <b>QPSK31</b>, is a popular <a href="Computer" title="Computer">computer</a>-<a href="Sound_card" title="Sound card">sound card</a>-generated <a href="Radioteletype" title="Radioteletype">radioteletype</a> mode, used primarily by <a href="Amateur_radio_operator" title="Amateur radio operator">amateur radio operators</a> to conduct real-time keyboard-to-keyboard <a href="Synchronous_conferencing" class="mw-redirect" title="Synchronous conferencing">chat</a>, most often using frequencies in the <a href="High_frequency" title="High frequency">high frequency</a> <a href="Amateur_radio_bands" class="mw-redirect" title="Amateur radio bands">amateur radio bands</a> (<a href="Shortwave" class="mw-redirect" title="Shortwave">shortwave</a>).  PSK31 is distinguished from other digital modes in that it is specifically tuned to have a data rate close to typing speed, and has an extremely narrow bandwidth, allowing many conversations in the same bandwidth as a single voice channel. This narrow <a href="Bandwidth_(signal_processing)" title="Bandwidth (signal processing)">bandwidth</a> makes better use of the <a href="Radio_frequency" title="Radio frequency">RF</a> energy in a very narrow space thus allowing relatively low-power equipment (5 <a href="Watt" title="Watt">watts</a>) to communicate globally using the same <a href="Skywave" title="Skywave">skywave</a> <a href="Radio_propagation" title="Radio propagation">propagation</a> used by <a href="Shortwave_listening" title="Shortwave listening">shortwave radio stations</a>.
+</p>
+
+<div class="mw-heading mw-heading2"><h2 id="History">History</h2></div>
+<p>PSK31 was developed and named by English amateur radio operator Peter Martinez (<a href="Amateur_radio#Call_signs" title="Amateur radio">call sign</a> G3PLX) and introduced to the wider amateur radio community in December 1998.<sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-spec&#95;2-0" class="reference"><a href="#cite_note-spec-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The 31 baud BPSK modulation system used in PSK31 was introduced by Pawel Jalocha (SP9VRC) in his SLOWBPSK program written for Motorola's EVM radio. Instead of the traditional frequency-shift keying, the information is transmitted by patterns of polarity-reversals (sometimes called 180-degree phase shifts). PSK31 was enthusiastically received, and its usage spread rapidly worldwide, lending a new popularity and tone to the on-air conduct of digital communications.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (July 2013)">citation needed</span></a></i>&#93;</sup>  Due to the efficiency of the mode, it became, and still remains, especially popular with operators whose circumstances do not permit the installation of large antenna systems, the use of high power, or both.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Use_and_implementation">Use and implementation</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1314755338">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1290232777">.mw-parser-output .listen .side-box-text{line-height:1.1em}.mw-parser-output .listen-plain{border:none;background:transparent}.mw-parser-output .listen-embedded{width:100%;margin:0;border-width:1px 0 0 0;background:transparent}.mw-parser-output .listen-header{padding:2px}.mw-parser-output .listen-embedded .listen-header{padding:2px 0}.mw-parser-output .listen-file-header{padding:4px 0}.mw-parser-output .listen .description{padding-top:2px}.mw-parser-output .listen .mw-tmh-player{max-width:100%}@media(max-width:719px){.mw-parser-output .listen{clear:both}}@media(min-width:720px){.mw-parser-output .listen:not(.listen-noimage){width:320px}.mw-parser-output .listen-left{overflow:visible;float:left}.mw-parser-output .listen-center{float:none;margin-left:auto;margin-right:auto}}</style><div class="side-box side-box-right listen noprint"><style data-mw-deduplicate="TemplateStyles:r1126788409">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>
+<div class="side-box-flex">
+<div class="side-box-image"><figure class="mw-halign-center" typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/60px-Gnome-mime-sound-openclipart.svg.png" decoding="async" width="50" height="50" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/120px-Gnome-mime-sound-openclipart.svg.png 1.5x" data-file-width="160" data-file-height="160" /></span><figcaption></figcaption></figure></div>
+<div class="side-box-text plainlist"><div class="haudio">
+<div class="listen-file-header"><a href="File:Qpsk31wiki.wav" title="File:Qpsk31wiki.wav">A sample PSK31 transmission</a></div>
+<div><span typeof="mw:File"><span><audio id="mwe_player_0" controls="" preload="none" data-mw-tmh="" class="mw-file-element" width="232" style="width:232px;" data-durationhint="17" data-mwtitle="Qpsk31wiki.wav" data-mwprovider="wikimediacommons"><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/7/76/Qpsk31wiki.wav/Qpsk31wiki.wav.ogg" type="audio/ogg; codecs=&quot;vorbis&quot;" data-transcodekey="ogg" data-width="0" data-height="0" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/7/76/Qpsk31wiki.wav/Qpsk31wiki.wav.mp3" type="audio/mpeg" data-transcodekey="mp3" data-width="0" data-height="0" /><source src="//upload.wikimedia.org/wikipedia/commons/7/76/Qpsk31wiki.wav" type="audio/wav" data-width="0" data-height="0" /></audio></span></span></div>
+<div class="description">sent as PSK31 (QPSK).</div></div></div></div>
+<div class="side-box-abovebelow"><hr /><i class="selfreference">Problems playing this file? See <a href="Help:Media" title="Help:Media">media help</a>.</i></div>
+</div>
+<p>A PSK31 operator typically uses a <a href="Single-sideband_modulation" title="Single-sideband modulation">single-sideband</a> (SSB) transceiver connected to the sound card of a computer running PSK31 software. When the operator enters a message for transmission, the software produces an audio tone that sounds, to the human ear, like a continuous whistle with a slight warble. This sound is then fed through either a microphone jack (using an intermediate resistive attenuator to reduce the sound card's output power to microphone levels) or an auxiliary connection into the transceiver, from which it is transmitted.
+<sup id="cite&#95;ref-psk31-guide&#95;3-0" class="reference"><a href="#cite_note-psk31-guide-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>From the perspective of the transmitter, the sound amounts to little more than somebody whistling into the microphone. However, the software rapidly shifts the phase of the audio signal between two states (hence the name "phase-shift keying"), forming the character codes. These phase shifts serve the same function as the two tones used in traditional <a href="RTTY" class="mw-redirect" title="RTTY">RTTY</a> and similar systems.
+</p><p>To decode PSK31, the audio whistle received from the transceiver's headphone output is fed into a computer sound card's audio input, and software decodes it. The software displays the decoded text.<sup id="cite&#95;ref-psk31-guide&#95;3-1" class="reference"><a href="#cite_note-psk31-guide-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Because PSK31 was developed for use through a computer's sound card, many programs have since been created to use the same technology for other modes, such as <a href="RTTY" class="mw-redirect" title="RTTY">RTTY</a>, <a href="Hellschreiber" title="Hellschreiber">Hellschreiber</a>, and <a href="Olivia_MFSK" title="Olivia MFSK">Olivia MFSK</a>.  So, once it has been set up to run PSK31, a computer can be used for a variety of digital message transmission modes.
+</p><p>Aside from a standard radio transceiver and a computer with a sound card, very little equipment is required to use PSK31.  Normally, an older computer and a few cables will suffice, and many PSK31 software applications are <a href="Free_and_open_source" class="mw-redirect" title="Free and open source">free and open source</a>. Many operators now use a commercially available interface/modem device (or "nomic" <sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (March 2022)">citation needed</span></a></i>&#93;</sup>) between their computers and radios. These devices incorporate the necessary impedance matching and sound level adjustment to permit the sound card output to be injected into the microphone input, send the radio's audio output to the sound card input, and handle the radio's transmit-receive switching. Sound card to radio interfaces typically use isolation transformers on both the send and receive audio paths
+to eliminate hum caused by ground-loops. Many interfaces also incorporate their own sound card and can be powered and run from the computer via a single USB connection. Some modern transceivers have these interfaces built in, requiring only a USB connection from the computer to the radio.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Resistance_to_interference">Resistance to interference</h2></div>
+<p>Like <a href="List_of_amateur_radio_modes#Text_and_data" title="List of amateur radio modes">other narrow band digital modes</a>, PSK31 can often overcome interference and poor <a href="Radio_propagation" title="Radio propagation">propagation</a> conditions in situations where voice or other methods of communication fail. However, PSK31 was designed only for leisure use by amateurs, and due to its relatively slow speed and limited <a href="Error_control" class="mw-redirect" title="Error control">error control</a>, is not suitable for transmitting large blocks of data or text, or critical data requiring high immunity from errors.
+</p><p>PSK31 works well over propagation paths that preserve phase, and resists fading (<a href="Q_code#Amateur_radio" title="Q code">QSB</a>) well.  However, it can be adversely affected by propagation modes—such as transpolar paths—where auroral "flutter" or <a href="Multipath_propagation" title="Multipath propagation">multipathing</a> can disrupt the signal phase continuity. In such cases the use of QPSK (see below) is often beneficial.
+</p><p>Some software supports PSK10 and PSK05 variants, running at 10 baud and 5 baud, respectively. These slower speeds sacrifice <a href="Throughput" class="mw-redirect" title="Throughput">throughput</a> to provide greater resistance to noise and other interference.  Conversely, <a href="PSK63" title="PSK63">PSK63</a> is increasingly used for faster exchanges, especially during <a href="Amateur_radio_contest" class="mw-redirect" title="Amateur radio contest">amateur radio contest</a> operating.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Technical_information">Technical information</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Bpsk31bits.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bpsk31bits.png/250px-Bpsk31bits.png" decoding="async" width="250" height="93" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bpsk31bits.png/500px-Bpsk31bits.png 1.5x" data-file-width="812" data-file-height="301" /></a><figcaption>Example of PSK31 modulation</figcaption></figure>
+<p>PSK31 is typically created by software that generates an amplitude- and phase-modulated waveform that is converted to an audio frequency analog signal by a sound card. In the most-commonly-used variant, BPSK31, binary information is transmitted by either imparting a 180-degree phase shift (a binary "zero") or no phase shift (a binary "one") in each 32ms symbol interval. The 180-degree phase shift for a "zero" bit code occurs at a null amplitude.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>As shown in the figure, a <a href="Raised-cosine_filter" title="Raised-cosine filter">cosine filter</a> is used to smooth the rise and fall times of the audio waveform and eliminate <a href="Key_click" class="mw-redirect" title="Key click">key clicks</a>.  All subsequent amplification of the signal must be linear to preserve the modulation waveform and ensure minimum occupied bandwidth. In practice, this means limiting the transmit audio volume to below the level where the transmitter generates <a href="Peak_envelope_power#PEP_Level_Control" title="Peak envelope power">Automatic Level Control (ALC)</a> feedback and disabling any audio compression or speech processing.
+</p><p>The Varicode is a kind of <a href="Fibonacci_code" class="mw-redirect" title="Fibonacci code">Fibonacci code</a> where the boundaries between character codes are marked by two or more consecutive zeros. Like all Fibonacci codes, since no character code contains more than one consecutive zero, the software can easily identify the spaces between characters, regardless of the length of the character. The idle sequence, sent when an operator is not typing, is a continuous sequence of phase-shifts, which do not print on the screen.<sup id="cite&#95;ref-spec&#95;2-1" class="reference"><a href="#cite_note-spec-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> Martinez arranged the character alphabet so that, as in <a href="Morse_code" title="Morse code">Morse code</a>, the more frequently occurring characters have the shortest encodings, while rarer characters use longer encodings.  He named this encoding scheme "<a href="Varicode" title="Varicode">varicode</a>".
+</p><p>PSK31's <a href="Symbol_rate" title="Symbol rate">symbol rate</a> of 31.25&#160;Hz was chosen because a normal <a href="Typing_speed" class="mw-redirect" title="Typing speed">typing speed</a> of about 50 words per minute requires a bit rate of about 32 bits per second, and specifically because 31.25&#160;Hz could easily be derived from the 8&#160;kHz sample rate used in many <a href="Digital_signal_processing" title="Digital signal processing">DSP</a> systems, including those used in the computer sound cards commonly used for PSK31 operation (31.25&#160;Hz is 8&#160;kHz divided by 256, and so can be derived from 8&#160;kHz by halving the frequency eight times in succession).
+</p>
+<div class="mw-heading mw-heading2"><h2 id="BPSK31_and_QPSK31_variants">BPSK31 and QPSK31 variants</h2></div>
+<p><a href="Colloquial" class="mw-redirect" title="Colloquial">Colloquial</a> usage of the term 'PSK31' in <a href="Amateur_radio" title="Amateur radio">amateur radio</a> usually implies the use of the most commonly used variant of PSK31: <a href="Binary_phase-shift_keying" class="mw-redirect" title="Binary phase-shift keying">binary phase shift keying</a> (BPSK).  The BPSK variant of PSK31 uses no <a href="Error_control" class="mw-redirect" title="Error control">error control</a>. QPSK31, the variant based on <a href="Quadrature_phase-shift_keying" class="mw-redirect" title="Quadrature phase-shift keying">quadrature phase shift keying (QPSK)</a>, uses four phases instead of two. It is simple to switch from BPSK to QPSK if difficulties arise during a contact; QPSK31 has the same number of symbols per second, and hence the same bandwidth as the BPSK variant. In a coherent receiver, the <a href="Phase-shift_keying#Quadrature_phase-shift_keying_(QPSK)" title="Phase-shift keying">bit error probability of QPSK</a> is the same as for BPSK operating at the same power, making QPSK31 the generally preferable mode for the purpose of robustness, and thus reach.
+</p><p>Using four instead of two constellation points provides twice the physical layer bit rate, which allows addition of redundant information to provide a degree of <a href="Forward_error_correction" class="mw-redirect" title="Forward error correction">forward error correction</a>.  When QPSK is used, after encoding into <a href="Varicode" title="Varicode">varicode</a>, the bits of the binary data signal is subject to a rate-1/2 channel code, which means that for every information bit, two code bits are calculated and transmitted. For that, a <a href="Convolutional_code" title="Convolutional code">convolutional code</a> with constraint length 5 (i.e. the last five bits from the input are incorporated to select two output bits per input bit) is used.
+</p><p>The resulting bits are mapped to a <a href="Quaternary_numeral_system" title="Quaternary numeral system">quaternary</a> set of phases. At the receiver, a decoder for the convolutional code needs to be used, typically the <a href="Viterbi_Algorithm" class="mw-redirect" title="Viterbi Algorithm">Viterbi Algorithm</a>, which is able to reconstruct the most likely sent sequence, even if multiple symbols were received incorrectly. Optimal decoding must take into account the same constraint length of information bits as encoding, yielding a 5-symbol decoding delay, which corresponds to 160 ms of delay.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Spectrum_efficiency_compared_to_other_modes">Spectrum efficiency compared to other modes</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Splatter_Q9.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/76/Splatter_Q9.jpg/250px-Splatter_Q9.jpg" decoding="async" width="250" height="89" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/76/Splatter_Q9.jpg/500px-Splatter_Q9.jpg 1.5x" data-file-width="5422" data-file-height="1925" /></a><figcaption>Frequency spectrum of an ideal non-splattering PSK31 signal</figcaption></figure>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Splatter_Q1.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Splatter_Q1.jpg/250px-Splatter_Q1.jpg" decoding="async" width="250" height="59" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Splatter_Q1.jpg/500px-Splatter_Q1.jpg 1.5x" data-file-width="5427" data-file-height="1275" /></a><figcaption>Frequency spectrum of a splattering PSK31 signal</figcaption></figure>
+<p>PSK31's efficiency and narrow bandwidth make it highly suitable for <a href="QRP_operation" title="QRP operation">low-power</a> and crowded-band operation. PSK31 contacts can be conducted at less than 100&#160;Hz separation, so with disciplined operation at least twenty simultaneous PSK31 contacts can be carried out side-by-side in the 2.5&#160;kHz bandwidth required for just one SSB voice contact.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Common_frequencies">Common frequencies</h2></div>
+<p>The following <a href="Amateur_radio" title="Amateur radio">amateur radio</a> frequencies are commonly used for transmitting and receiving PSK31 signals. They normally occupy the lower edge of each band's digital modes section. PSK31 operators generally use upper sideband (USB), even on frequencies below 10&#160;MHz where the convention normally calls for lower sideband. This is because (a) signals then spread upwards into the digimode section from the "base" frequency, and (b) using QPSK requires both stations to use the same sideband.
+</p>
+<table class="wikitable" style="vertical-align:top;">
+<caption>PSK31 Frequencies<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup>
+</caption>
+<tbody><tr>
+<th><a href="Frequency" title="Frequency">Frequency</a>
+</th>
+<th><a href="Amateur_radio_frequency_allocations" title="Amateur radio frequency allocations">Amateur Band</a>
+</th></tr>
+<tr>
+<td>1.838&#160;MHz
+</td>
+<td><a href="160_meter" class="mw-redirect" title="160 meter">160 meter</a>
+</td></tr>
+<tr>
+<td>3.580&#160;MHz
+</td>
+<td><a href="80_meter" class="mw-redirect" title="80 meter">80 meter</a>
+</td></tr>
+<tr>
+<td>7.035&#160;MHz*
+</td>
+<td><a href="40_meter" class="mw-redirect" title="40 meter">40 meter</a> <i>(<a href="International_Amateur_Radio_Union#Regional_organisation" title="International Amateur Radio Union">region</a> <a href="International_Amateur_Radio_Union#IARU_Region_3" title="International Amateur Radio Union">3</a>)</i>
+</td></tr>
+<tr>
+<td>7.040&#160;MHz*
+</td>
+<td><a href="40_meter" class="mw-redirect" title="40 meter">40 meter</a> <i>(<a href="International_Amateur_Radio_Union#Regional_organisation" title="International Amateur Radio Union">regions</a> <a href="International_Amateur_Radio_Union#IARU_Regions_1" title="International Amateur Radio Union">1</a>)</i>
+</td></tr>
+<tr>
+<td>7.070&#160;MHz*
+</td>
+<td><a href="40_meter" class="mw-redirect" title="40 meter">40 meter</a> <i>(<a href="International_Amateur_Radio_Union#Regional_organisation" title="International Amateur Radio Union">regions</a> <a href="International_Amateur_Radio_Union#IARU_Regions_2" title="International Amateur Radio Union">2</a>)</i>
+</td></tr>
+<tr>
+<td>10.142&#160;MHz
+</td>
+<td><a href="30_meter" class="mw-redirect" title="30 meter">30 meter</a>
+</td></tr>
+<tr>
+<td>14.070&#160;MHz
+</td>
+<td><a href="20_meter" class="mw-redirect" title="20 meter">20 meter</a>
+</td></tr>
+<tr>
+<td>18.097&#160;MHz**
+</td>
+<td><a href="17-meter_band" class="mw-redirect" title="17-meter band">17 meter</a>
+</td></tr>
+<tr>
+<td>21.080&#160;MHz*
+</td>
+<td><a href="15_meter" class="mw-redirect" title="15 meter">15 meter</a>
+</td></tr>
+<tr>
+<td>24.920&#160;MHz
+</td>
+<td><a href="12_meter_band" class="mw-redirect" title="12 meter band">12 meter</a>
+</td></tr>
+<tr>
+<td>28.120&#160;MHz
+</td>
+<td><a href="10_meter" class="mw-redirect" title="10 meter">10 meter</a>
+</td></tr>
+<tr>
+<td>50.290&#160;MHz
+</td>
+<td><a href="6-meter_band" title="6-meter band">6 meter</a>
+</td></tr>
+<tr>
+<td>144.144&#160;MHz
+</td>
+<td><a href="2_meter" class="mw-redirect" title="2 meter">2 meter</a>
+</td></tr>
+<tr>
+<td>222.07&#160;MHz
+</td>
+<td><a href="1.25_meter" class="mw-redirect" title="1.25 meter">1.25 meter</a>
+</td></tr>
+<tr>
+<td>432.2&#160;MHz
+</td>
+<td><a href="70_centimeter" class="mw-redirect" title="70 centimeter">70 centimeter</a>
+</td></tr>
+<tr>
+<td>909&#160;MHz
+</td>
+<td><a href="33_centimeter" class="mw-redirect" title="33 centimeter">33 centimeter</a>
+</td></tr></tbody></table>
+<p>* Current usage as of 2010, based on observation, is centered on 7,070.15 and 21,070.15. 7,035.15 is commonly used in Region 2 as of 2012. There is no authoritative list, as the frequencies are determined by common convention.
+</p><p>** PSK has moved from 18.100 to 18.097 due to FT8 use of the 18.100 frequency as of November, 2019.
+</p><p>The IARU Region 1 Bandplan was revised in March 2009 to reflect the expanded 40 meter band. The CW-only section within Europe, Africa, the Middle East and the former USSR is now 7.000 to 7.040. Region 2 - The Americas - followed in September 2013.  Region 3 - South Asia and Australasia - has not yet synchronised its bandplan with Regions 1 and 2.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">The ARRL Handbook for Radio Communications. 84th Ed. (2007):9-13.</span>
+</li>
+<li id="cite&#95;note-spec-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-spec_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-spec_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFSteven&#95;L&#95;Karty,&#95;N5SK" class="citation web cs1">Steven L Karty, N5SK. <a rel="nofollow" class="external text" href="http://www.arrl.org/psk31-spec">"PSK31 Spec"</a>. ARRL Website<span class="reference-accessdate">. Retrieved <span class="nowrap">18 Dec</span> 2010</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=PSK31+Spec&amp;rft.pub=ARRL+Website&amp;rft.au=Steven+L+Karty%2C+N5SK&amp;rft&#95;id=http%3A%2F%2Fwww.arrl.org%2Fpsk31-spec&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: numeric names: authors list (<a href="Category:CS1_maint:_numeric_names:_authors_list" title="Category:CS1 maint: numeric names: authors list">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-psk31-guide-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-psk31-guide_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-psk31-guide_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFJacob&#95;Gillespie,&#95;KD5TEN" class="citation web cs1">Jacob Gillespie, KD5TEN. <a rel="nofollow" class="external text" href="http://bpsk31.com/operation/">"PSK31 guide"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2016-06-12</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=PSK31+guide&amp;rft.au=Jacob+Gillespie%2C+KD5TEN&amp;rft&#95;id=http%3A%2F%2Fbpsk31.com%2Foperation%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: numeric names: authors list (<a href="Category:CS1_maint:_numeric_names:_authors_list" title="Category:CS1 maint: numeric names: authors list">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFMcDermott1998" class="citation book cs1">McDermott, Tom (1998). <span class="id-lock-limited" title="Free access subject to limited trial, subscription normally required"><a rel="nofollow" class="external text" href="https://archive.org/details/wirelessdigitalc00mcde_523"><i>Wireless Digital Communications: Design and Theory</i></a></span>. Tucson Amateur Packet Radio Corporation. p.&#160;<a rel="nofollow" class="external text" href="https://archive.org/details/wirelessdigitalc00mcde_523/page/n62">50</a>. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-9644707-2-1" title="Special:BookSources/0-9644707-2-1"><bdi>0-9644707-2-1</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Wireless+Digital+Communications%3A+Design+and+Theory&amp;rft.pages=50&amp;rft.pub=Tucson+Amateur+Packet+Radio+Corporation&amp;rft.date=1998&amp;rft.isbn=0-9644707-2-1&amp;rft.aulast=McDermott&amp;rft.aufirst=Tom&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Fwirelessdigitalc00mcde&#95;523&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://aintel.bi.ehu.es/psk31.html">"The Official PSK31 WWW Homepage"</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=The+Official+PSK31+WWW+Homepage&amp;rft&#95;id=http%3A%2F%2Faintel.bi.ehu.es%2Fpsk31.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://rsgb.org/main/get-started-in-amateur-radio/operating-your-new-station/psk31-work-the-world-with-low-power/">"PSK31 – work the world with low power - Radio Society of Great Britain - Main Site&#160;: Radio Society of Great Britain – Main Site"</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=PSK31+%E2%80%93+work+the+world+with+low+power+-+Radio+Society+of+Great+Britain+-+Main+Site+%3A+Radio+Society+of+Great+Britain+%E2%80%93+Main+Site&amp;rft&#95;id=https%3A%2F%2Frsgb.org%2Fmain%2Fget-started-in-amateur-radio%2Foperating-your-new-station%2Fpsk31-work-the-world-with-low-power%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<div class="mw-heading mw-heading2"><h2 id="Further_reading">Further reading</h2></div>
+<ul><li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20100621115142/http://det.bi.ehu.es/~jtpjatae/pdf/p31g3plx.pdf">Martinez, Peter. PSK31: A new radio-teletype mode with a traditional philosophy (PDF)</a> (November 1998).</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSteve&#95;Ford,&#95;WB8IMY2001" class="citation book cs1">Steve Ford, WB8IMY (2001). "Chapter 4 - PSK31". <i>ARRL's HF digital handbook</i>. Newington, CT: The <a href="American_Radio_Relay_League" title="American Radio Relay League">American Radio Relay League</a>. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-87259-823-3" title="Special:BookSources/0-87259-823-3"><bdi>0-87259-823-3</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+4+-+PSK31&amp;rft.btitle=ARRL%27s+HF+digital+handbook&amp;rft.place=Newington%2C+CT&amp;rft.pub=The+American+Radio+Relay+League&amp;rft.date=2001&amp;rft.isbn=0-87259-823-3&amp;rft.au=Steve+Ford%2C+WB8IMY&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3APSK31" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>:  CS1 maint: numeric names: authors list (<a href="Category:CS1_maint:_numeric_names:_authors_list" title="Category:CS1 maint: numeric names: authors list">link</a>)</span></li>
+<li><cite id="qst">Meltz, Steve <a rel="nofollow" class="external text" href="http://www.arrl.org/files/file/Technology/tis/info/pdf/49950.pdf">"The New HF Digital Modes - PSK31"</a>, <i>QST</i>, April, 1999, pp. 50-51 </cite></li>
+<li><cite id="radcom">Martinez, Peter. <a rel="nofollow" class="external autonumber" href="http://www.arrl.org/tis/info/pdf/x9907003.pdf">[1]</a> "PSK31: A New Radio-Teletype Mode". <i>RadCom</i>, December 1998, updated February 1999</cite></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314755338" /><style data-mw-deduplicate="TemplateStyles:r1311551236">@media print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}</style><div class="side-box side-box-right plainlinks sistersitebox"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1126788409" />
+<div class="side-box-flex">
+<div class="side-box-image"><span class="noviewer" typeof="mw:File"><a href="File:Commons-logo.svg" class="mw-file-description"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/40px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/60px-Commons-logo.svg.png 1.5x" data-file-width="1024" data-file-height="1376" /></a></span></div>
+<div class="side-box-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:PSK" class="extiw" title="commons:Category:PSK">PSK</a></span>.</div></div>
+</div>
+<ul><li><a rel="nofollow" class="external text" href="http://aintel.bi.ehu.es/psk31.html">The "Official" PSK31 Page</a></li>
+<li><a rel="nofollow" class="external text" href="http://bpsk31.com">PSK31 Setup and Operation | a PSK31 guide</a></li>
+<li><a rel="nofollow" class="external text" href="https://groups.google.com/group/bpsk31">PSK31 email discussion list with contests, app reviews, and more</a></li></ul>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox" aria-labelledby="Amateur&#95;radio&#95;digital&#95;modes1099" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1239400231">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Digital_modes" title="Template:Digital modes"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Digital_modes" title="Template talk:Digital modes"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Digital_modes" title="Special:EditPage/Template:Digital modes"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Amateur&#95;radio&#95;digital&#95;modes1099" style="font-size:114%;margin:0 4em"><a href="Amateur_radio" title="Amateur radio">Amateur radio</a> digital modes</div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Frequency-shift_keying" title="Frequency-shift keying">Frequency-shift keying (FSK)</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Radioteletype" title="Radioteletype">RTTY</a></li>
+<li><a href="AMTOR" title="AMTOR">AMTOR</a> / <a href="SITOR" title="SITOR">SITOR</a></li>
+<li><a href="PACTOR" title="PACTOR">PACTOR</a></li>
+<li><a href="CLOVER2000" title="CLOVER2000">CLOVER2000</a></li>
+<li><a href="Packet_radio" title="Packet radio">Packet radio</a> (<a href="Bell_103" title="Bell 103">Bell 103</a></li>
+<li><a href="Bell_202" title="Bell 202">Bell 202</a>)</li>
+<li><a href="M17_(amateur_radio)" title="M17 (amateur radio)">M17</a></li></ul>
+</div></td><td class="noviewer navbox-image" rowspan="5" style="width:1px;padding:0 0 0 2px"><div><span typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/60px-International_amateur_radio_symbol.svg.png" decoding="async" width="50" height="100" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/120px-International_amateur_radio_symbol.svg.png 1.5x" data-file-width="320" data-file-height="640" /></span></span></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Multiple_frequency-shift_keying" title="Multiple frequency-shift keying">Multiple frequency-shift keying (MFSK)</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Olivia_MFSK" title="Olivia MFSK">Olivia MFSK</a></li>
+<li><a href="Contestia" class="mw-redirect" title="Contestia">Contestia</a></li>
+<li><a href="WSJT_(amateur_radio_software)#JT65" title="WSJT (amateur radio software)">JT65</a></li>
+<li><a href="WSJT_(amateur_radio_software)#FSK441" title="WSJT (amateur radio software)">FSK441</a></li>
+<li><a href="WSJT_(amateur_radio_software)#JT6M" title="WSJT (amateur radio software)">JT6M</a></li>
+<li><a href="WSPR_(amateur_radio_software)" title="WSPR (amateur radio software)">WSPR</a></li>
+<li><a href="FT8" title="FT8">FT8</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Phase-shift_keying" title="Phase-shift keying">Phase-shift keying (PSK)</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">PSK31</a></li>
+<li><a href="PSK63" title="PSK63">PSK63</a></li>
+<li><a href="Q15X25" title="Q15X25">Q15X25</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="COFDM" class="mw-redirect" title="COFDM">COFDM</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="MT63" title="MT63">MT63</a> (based on PSK)</li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Non-traditional digital modes</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Hellschreiber" title="Hellschreiber">Hellschreiber (Feld-Hell)</a></li>
+<li><a href="On%E2%80%93off_keying" title="On–off keying">On–off keying</a></li>
+<li><a href="Continuous_wave" title="Continuous wave">Continuous wave</a></li>
+<li><a href="Modulated_continuous_wave" title="Modulated continuous wave">Modulated continuous wave</a></li>
+<li><a href="Pulse_modulation" class="mw-redirect" title="Pulse modulation">Pulse modulation</a></li>
+<li><a href="Frequency-hopping_spread_spectrum" title="Frequency-hopping spread spectrum">Frequency-hopping spread spectrum (FHSS)</a></li>
+<li><a href="Direct-sequence_spread_spectrum" title="Direct-sequence spread spectrum">Direct-sequence spread spectrum (DSSS)</a></li>
+<li><a href="AMPRNet" title="AMPRNet">AMPRNet</a></li>
+<li><a href="DAPNET" title="DAPNET">DAPNET</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.main‐857f68949b‐wgm48
+Cached time: 20260106012607
+Cache expiry: 81242
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.312 seconds
+Real time usage: 0.426 seconds
+Preprocessor visited node count: 1208/1000000
+Revision size: 15815/2097152 bytes
+Post‐expand include size: 28457/2097152 bytes
+Template argument size: 1754/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 33577/5000000 bytes
+Lua time usage: 0.197/10.000 seconds
+Lua memory usage: 5515668/52428800 bytes
+Number of Wikibase entities loaded: 0/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  356.999      1 -total
+ 28.42%  101.447      1 Template:Reflist
+ 22.42%   80.054      4 Template:Cite_web
+ 19.36%   69.101      1 Template:Digital_modes
+ 18.76%   66.969      1 Template:Navbox
+ 17.23%   61.501      1 Template:Short_description
+ 13.88%   49.551      1 Template:Commonscat
+ 13.08%   46.688      1 Template:Sister_project
+ 12.69%   45.291      1 Template:Side_box
+ 10.36%   36.989      2 Template:Citation_needed
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:278017:|#|:idhash:canonical and timestamp 20260106012607 and revision id 1297648641. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/PSK31">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

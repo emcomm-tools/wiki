@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FT8 - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; FT8
+    </nav>
+    <article>
+        <h1>FT8</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Frequency shift keying digital mode</div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:FT8%2BJT65.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/FT8%2BJT65.png/250px-FT8%2BJT65.png" decoding="async" width="250" height="156" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/FT8%2BJT65.png/500px-FT8%2BJT65.png 1.5x" data-file-width="1276" data-file-height="794" /></a><figcaption>A <a href="Waterfall_plot" title="Waterfall plot">waterfall display</a> showing FT8 in use on the <a href="40-meter_band" title="40-meter band">40-meter band</a>.</figcaption></figure>
+<p><b>FT8</b> (short for Franke–Taylor design, 8-FSK modulation) is a <a href="Frequency-shift_keying" title="Frequency-shift keying">frequency shift keying</a> digital <a href="List_of_amateur_radio_modes" title="List of amateur radio modes">mode of radio communication</a> used by <a href="Amateur_radio" title="Amateur radio">amateur radio</a> operators worldwide. It was released on June 29, 2017, by its creators <a href="Joseph_Hooton_Taylor_Jr." title="Joseph Hooton Taylor Jr.">Joe Taylor, K1JT</a> and Steve Franke, K9AN, as part of the <a href="WSJT_(amateur_radio_software)" title="WSJT (amateur radio software)">WSJT</a> software package.<sup id="cite&#95;ref-:0&#95;1-0" class="reference"><a href="#cite_note-:0-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>FT8 was adopted quickly, becoming the most widely used digital mode reported by automatic spotting networks such as <a href="PSK_Reporter" title="PSK Reporter">PSK Reporter</a><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> within two years.
+</p>
+
+<div class="mw-heading mw-heading2"><h2 id="Introduction">Introduction</h2></div>
+<p>FT8 is a popular form of digital weak signal communication used primarily by amateur radio operators to communicate on <a href="Amateur_radio_bands" class="mw-redirect" title="Amateur radio bands">amateur radio bands</a> with a majority of traffic occurring on the <a href="High_frequency" title="High frequency">HF</a> amateur bands.<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> The mode offers operators the ability to communicate despite unfavorable conditions such as those seen during low <a href="Solar_cycle" title="Solar cycle">solar activity</a>, high RF noise, or with <a href="QRP_operation" title="QRP operation">low transmitter power</a>.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>  With advances in signal processing technology, software can decode FT8 signals with a signal-to-noise ratio as low as −20&#160;dB in a 2500&#160;Hz bandwidth, which is significantly lower than conventional <a href="Continuous_wave" title="Continuous wave">CW</a> or <a href="Sideband" title="Sideband">SSB</a> transmissions.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Operation">Operation</h2></div>
+<p>FT8 involves 77-bit message blocks transmitted in regular 15-second periods, consisting of 12.64&#160;seconds of transmission time and 2.36&#160;seconds of decode time, giving a digital data rate of 6.09&#160;bits/sec. Source encoding gives an effective message throughput equivalent to about 5 words per minute. The required signal-to-noise ratio in a 2500&#160;Hz bandwidth is &#8722;21&#160;dB, so the corresponding <a href="Eb/N0" title="Eb/N0"><i>E</i><sub><i>b</i></sub>/<i>N</i><sub>0</sub></a> is 10 log<sub>10</sub>(2500/6.09) = 26.1&#160;dB greater, or &#8722;21&#160;dB + 26.1 = 5.1&#160;dB.<sup id="cite&#95;ref-:0&#95;1-1" class="reference"><a href="#cite_note-:0-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Although FT8 transmissions occur within fixed time windows, the software can cope with discrepancies between sending and receiving systems of up to a second or two. Provided that they are manually set to the correct time every so often (for example, by using <a href="WWV_(radio_station)" title="WWV (radio station)">WWV</a>  or other time standard broadcasters), conventional computer Real Time Clocks are usually adequate.  However, most FT8 users take advantage of online time servers using <a href="Network_Time_Protocol" title="Network Time Protocol">NTP</a> or time signals from the <a href="Global_Positioning_System" title="Global Positioning System">GPS</a> to achieve and maintain better time accuracy, automatically.
+</p><p><a href="Forward_Error_Correction" class="mw-redirect" title="Forward Error Correction">Forward error correction</a> helps achieve reliable communication despite common RF issues such as fading and interference, and weak/noisy signals due to marginal propagation paths, low power operation, and inefficient antennas (e.g., in restricted and overcrowded urban locations).  If anticipated messages are missed or not acknowledged, the software can re-send them in the next time slot.
+</p><p>Each 77-bit message can carry up to 13 text characters. A compact encoding method allows standard FT8 exchanges, such as callsigns, signal reports, and grid locators, to fit efficiently within that limit. The protocol uses hashing to handle long or unusual callsigns, but these can still lead to occasional decoding errors or collisions that produce false or corrupted callsigns. Such errors are rare but can be mistaken for genuine or exotic stations, sometimes causing brief confusion or excitement among operators.<sup id="cite&#95;ref-:0&#95;1-2" class="reference"><a href="#cite_note-:0-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>
+Applications</p><figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:20_meter_FT8.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/20_meter_FT8.jpg/250px-20_meter_FT8.jpg" decoding="async" width="250" height="431" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/20_meter_FT8.jpg/376px-20_meter_FT8.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/3/37/20_meter_FT8.jpg 2x" data-file-width="376" data-file-height="648" /></a><figcaption>FT8 blocks on 20 meters</figcaption></figure>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><span><video id="mwe_player_0" poster="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/FT8_Video.ogg/250px--FT8_Video.ogg.jpg" controls="" preload="none" data-mw-tmh="" class="mw-file-element" width="250" height="141" data-durationhint="16" data-mwtitle="FT8_Video.ogg" data-mwprovider="wikimediacommons" resource="/wiki/File:FT8_Video.ogg"><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.480p.vp9.webm" type="video/webm; codecs=&quot;vp9, opus&quot;" data-transcodekey="480p.vp9.webm" data-width="854" data-height="480" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.720p.vp9.webm" type="video/webm; codecs=&quot;vp9, opus&quot;" data-transcodekey="720p.vp9.webm" data-width="1280" data-height="720" /><source src="//upload.wikimedia.org/wikipedia/commons/b/ba/FT8_Video.ogg" type="video/ogg; codecs=&quot;theora, vorbis&quot;" data-width="1920" data-height="1080" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.1080p.vp9.webm" type="video/webm; codecs=&quot;vp9, opus&quot;" data-transcodekey="1080p.vp9.webm" data-width="1920" data-height="1080" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.144p.mjpeg.mov" type="video/quicktime" data-transcodekey="144p.mjpeg.mov" data-width="256" data-height="144" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.240p.vp9.webm" type="video/webm; codecs=&quot;vp9, opus&quot;" data-transcodekey="240p.vp9.webm" data-width="426" data-height="240" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.360p.vp9.webm" type="video/webm; codecs=&quot;vp9, opus&quot;" data-transcodekey="360p.vp9.webm" data-width="640" data-height="360" /><source src="//upload.wikimedia.org/wikipedia/commons/transcoded/b/ba/FT8_Video.ogg/FT8_Video.ogg.360p.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;" data-transcodekey="360p.webm" data-width="640" data-height="360" /></video></span><figcaption>Recording of FT8 transmissions on 20 meters</figcaption></figure>
+<p>There are multiple uses for FT8 including contesting,<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup> testing antennas,<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup> and for scientific research.<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Applications_in_Amateur_Radio">Applications in Amateur Radio</h2></div>
+<p>In amateur radio, FT8 is a mainstream digital modulation mode. It operates on a 15-second cycle,<sup id="cite&#95;ref-:1&#95;10-0" class="reference"><a href="#cite_note-:1-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup> usually completing a QSO in about 90 seconds. It’s commonly used for short-wave QSOs, DX, and long-distance contacts.<sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Most amateur radio hobbyists monitor FT8 frequencies on the HF bands. During meteor scatter or sporadic-E propagation, FT8 signals can sometimes be received from over 1000&#160;km away.
+</p><p>To avoid interference and maintain reliable operation, hams have designated specific FT8 frequencies in each amateur band. Common short-wave frequencies include 7.074&#160;MHz (40 m), 14.074&#160;MHz (20 m), 21.074&#160;MHz (15 m), and 28.074&#160;MHz (10 m).<sup id="cite&#95;ref-12" class="reference"><a href="#cite_note-12"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="The_Format_and_Requirements_of_FT8">The Format and Requirements of FT8</h3></div>
+<p>FT8 communication requires strict time accuracy. Each transmission must begin exactly at 00, 15, 30, 45, or 60 seconds. If the station clock is not properly synchronized, messages will likely fail to decode.<sup id="cite&#95;ref-13" class="reference"><a href="#cite_note-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>FT8 has 6 stages, usually like this.<sup id="cite&#95;ref-:1&#95;10-1" class="reference"><a href="#cite_note-:1-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<table class="wikitable">
+<caption>
+</caption>
+<tbody><tr>
+<th colspan="3">The format of the FT8 contact in different stages
+</th></tr>
+<tr>
+<td>Tick
+</td>
+<td>Format
+</td>
+<td>Example
+</td></tr>
+<tr>
+<td>00tick(6th message)
+</td>
+<td>CQ &lt;Callsign TX&gt; &lt;QTH TX&gt;
+</td>
+<td>CQ BH8GIS OM20
+</td></tr>
+<tr>
+<td>15tick(1st message)
+</td>
+<td>&lt;Callsign TX&gt; &lt;Callsign RX&gt; &lt;QTH RX&gt;
+</td>
+<td>BH8GIS JA3KWJ PM85
+</td></tr>
+<tr>
+<td>30tick(2nd message)
+</td>
+<td>&lt;Callsign RX&gt; &lt;Callsign TX&gt; &lt;QSA&gt;
+</td>
+<td>JA3KWJ BH8GIS -2
+</td></tr>
+<tr>
+<td>45tick(3rd message)
+</td>
+<td>&lt;Callsign TX&gt; &lt;Callsign RX&gt; &lt;R-QSA&gt;
+</td>
+<td>BH8GIS JA3KWJ R-12
+</td></tr>
+<tr>
+<td>60tick(4th message)
+</td>
+<td>&lt;Callsign RX&gt; &lt;Callsign TX&gt; RR73
+</td>
+<td>JA3KWJ BH8GIS RR73
+</td></tr>
+<tr>
+<td>75tick(5tick message)
+</td>
+<td>&lt;Callsign TX&gt; &lt;Callsign RX&gt; 73
+</td>
+<td>BH8GIS JA3KWJ 73
+</td></tr></tbody></table>
+<div class="mw-heading mw-heading2"><h2 id="Further_information">Further information</h2></div>
+<p><a rel="nofollow" class="external text" href="https://ft8dmc.eu/">FT8DMC</a> is a popular club dedicated to this digital mode.
+</p><p>The <a rel="nofollow" class="external text" href="https://www.g4ifb.com/FT8_Hinson_tips_for_HF_DXers.pdf">FT8 Operating Guide</a> gives pragmatic advice on using FT8 for HF communications.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite&#95;note-:0-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-:0_1-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFBurmester2019" class="citation web cs1">Burmester, Dale (March 12, 2019). <a rel="nofollow" class="external text" href="https://site.ieee.org/msn/files/2019/04/FT8-KA9SWE.pdf">"Amateur Radio Digital Communications Mode FT8"</a> <span class="cs1-format">(PDF)</span><span class="reference-accessdate">. Retrieved <span class="nowrap">2024-11-11</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Amateur+Radio+Digital+Communications+Mode+FT8&amp;rft.date=2019-03-12&amp;rft.aulast=Burmester&amp;rft.aufirst=Dale&amp;rft&#95;id=https%3A%2F%2Fsite.ieee.org%2Fmsn%2Ffiles%2F2019%2F04%2FFT8-KA9SWE.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFBarron2020" class="citation web cs1">Barron, Robert (2020-02-08). <a rel="nofollow" class="external text" href="http://www.ka5wss.com/posts/psk-reporter/">"PSK Reporter"</a>. <i>KA5WSS</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20221006195106/http://www.ka5wss.com/posts/psk-reporter/">Archived</a> from the original on 2022-10-06<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-10-06</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=KA5WSS&amp;rft.atitle=PSK+Reporter&amp;rft.date=2020-02-08&amp;rft.aulast=Barron&amp;rft.aufirst=Robert&amp;rft&#95;id=http%3A%2F%2Fwww.ka5wss.com%2Fposts%2Fpsk-reporter%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFLuscre2019" class="citation web cs1">Luscre, Anthony (2019-10-11). <a rel="nofollow" class="external text" href="https://www.onallbands.com/ft8-what-is-it-and-how-can-i-get-started/">"FT8—What Is It and How Can I Get Started?"</a>. <i>OnAllBands</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20221001035847/https://www.onallbands.com/ft8-what-is-it-and-how-can-i-get-started/">Archived</a> from the original on 2022-10-01<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=OnAllBands&amp;rft.atitle=FT8%E2%80%94What+Is+It+and+How+Can+I+Get+Started%3F&amp;rft.date=2019-10-11&amp;rft.aulast=Luscre&amp;rft.aufirst=Anthony&amp;rft&#95;id=https%3A%2F%2Fwww.onallbands.com%2Fft8-what-is-it-and-how-can-i-get-started%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.sigidwiki.com/wiki/FT8">"FT8 – Signal Identification Wiki"</a>. <i>www.sigidwiki.com</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220817030846/https://www.sigidwiki.com/wiki/FT8">Archived</a> from the original on 2022-08-17<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.sigidwiki.com&amp;rft.atitle=FT8+%E2%80%93+Signal+Identification+Wiki&amp;rft&#95;id=https%3A%2F%2Fwww.sigidwiki.com%2Fwiki%2FFT8&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.arrl.org/news/ft8-mode-is-latest-bright-shiny-object-in-amateur-radio-digital-world">"FT8 Mode is Latest Bright Shiny Object in Amateur Radio Digital World"</a>. <i>www.arrl.org</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220528155358/http://www.arrl.org/news/ft8-mode-is-latest-bright-shiny-object-in-amateur-radio-digital-world">Archived</a> from the original on 2022-05-28<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.arrl.org&amp;rft.atitle=FT8+Mode+is+Latest+Bright+Shiny+Object+in+Amateur+Radio+Digital+World&amp;rft&#95;id=http%3A%2F%2Fwww.arrl.org%2Fnews%2Fft8-mode-is-latest-bright-shiny-object-in-amateur-radio-digital-world&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://va7st.ca/2020/10/ft8-ft4-from-a-contesters-perspective/">"FT8/FT4 from a contester's perspective – VA7ST.ca"</a>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220817030847/https://va7st.ca/2020/10/ft8-ft4-from-a-contesters-perspective/">Archived</a> from the original on 2022-08-17<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=FT8%2FFT4+from+a+contester%27s+perspective+%E2%80%93+VA7ST.ca&amp;rft&#95;id=https%3A%2F%2Fva7st.ca%2F2020%2F10%2Fft8-ft4-from-a-contesters-perspective%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.arrl.org/news/arrl-surveying-field-day-participants">"ARRL Surveying Field Day Participants"</a>. <i>www.arrl.org</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220817075953/http://www.arrl.org/news/arrl-surveying-field-day-participants">Archived</a> from the original on 2022-08-17<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.arrl.org&amp;rft.atitle=ARRL+Surveying+Field+Day+Participants&amp;rft&#95;id=http%3A%2F%2Fwww.arrl.org%2Fnews%2Farrl-surveying-field-day-participants&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.rtl-sdr.com/tag/ft8/">"FT8"</a>. <i>www.rtl-sdr.com</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220930170306/https://www.rtl-sdr.com/tag/ft8/">Archived</a> from the original on 2022-09-30<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.rtl-sdr.com&amp;rft.atitle=FT8&amp;rft&#95;id=https%3A%2F%2Fwww.rtl-sdr.com%2Ftag%2Fft8%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFEricksonLilesMillerMiller2020" class="citation web cs1">Erickson, P.; Liles, W.; Miller, E.; Miller, E. (2020). <a rel="nofollow" class="external text" href="https://hamsci.org/publications/amateur-digital-mode-based-remote-sensing-ft8-use-radar-signal-opportunity-ionospheric">"Amateur digital mode based remote sensing: FT8 use as a radar signal of opportunity for ionospheric characterization"</a>. <i>hamsci.org</i>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20220817030846/https://hamsci.org/publications/amateur-digital-mode-based-remote-sensing-ft8-use-radar-signal-opportunity-ionospheric">Archived</a> from the original on 2022-08-17<span class="reference-accessdate">. Retrieved <span class="nowrap">2022-08-17</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=hamsci.org&amp;rft.atitle=Amateur+digital+mode+based+remote+sensing%3A+FT8+use+as+a+radar+signal+of+opportunity+for+ionospheric+characterization&amp;rft.date=2020&amp;rft.aulast=Erickson&amp;rft.aufirst=P.&amp;rft.au=Liles%2C+W.&amp;rft.au=Miller%2C+E.&amp;rft.au=Miller%2C+E.&amp;rft&#95;id=https%3A%2F%2Fhamsci.org%2Fpublications%2Famateur-digital-mode-based-remote-sensing-ft8-use-radar-signal-opportunity-ionospheric&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-:1-10"><span class="mw-cite-backlink">^ <a href="#cite_ref-:1_10-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:1_10-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://main.rivalsa.net/d/blog/29">"The first impression of using FT8 (Chinese)"</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=The+first+impression+of+using+FT8+%28Chinese%29&amp;rft&#95;id=https%3A%2F%2Fmain.rivalsa.net%2Fd%2Fblog%2F29&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://blog.csdn.net/weixin_33015139/article/details/112241438">"125W Short-wave long-distance contact in VHF (2m, 6m) (Chinese)"</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=125W+Short-wave+long-distance+contact+in+VHF+%282m%2C+6m%29+%28Chinese%29&amp;rft&#95;id=https%3A%2F%2Fblog.csdn.net%2Fweixin&#95;33015139%2Farticle%2Fdetails%2F112241438&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://forum.hamcq.cn/d/6651">"Commonly used band of FT8 Contact (Chinese)"</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Commonly+used+band+of+FT8+Contact+%28Chinese%29&amp;rft&#95;id=https%3A%2F%2Fforum.hamcq.cn%2Fd%2F6651&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AFT8" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://dd.94jpop.info:8886/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B%E8%AF%B4%E6%98%8E%E4%B9%A6%E4%B8%8E%E6%96%87%E6%A1%A3/FT8%E9%80%9A%E8%81%94%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%8A%80%E5%B7%A720181106.pdf">FT8通联操作及技巧20181106.pdf</a></span>
+</li>
+</ol></div></div>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox" aria-labelledby="Amateur&#95;radio&#95;digital&#95;modes1099" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1239400231">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Digital_modes" title="Template:Digital modes"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Digital_modes" title="Template talk:Digital modes"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Digital_modes" title="Special:EditPage/Template:Digital modes"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Amateur&#95;radio&#95;digital&#95;modes1099" style="font-size:114%;margin:0 4em"><a href="Amateur_radio" title="Amateur radio">Amateur radio</a> digital modes</div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Frequency-shift_keying" title="Frequency-shift keying">Frequency-shift keying (FSK)</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Radioteletype" title="Radioteletype">RTTY</a></li>
+<li><a href="AMTOR" title="AMTOR">AMTOR</a> / <a href="SITOR" title="SITOR">SITOR</a></li>
+<li><a href="PACTOR" title="PACTOR">PACTOR</a></li>
+<li><a href="CLOVER2000" title="CLOVER2000">CLOVER2000</a></li>
+<li><a href="Packet_radio" title="Packet radio">Packet radio</a> (<a href="Bell_103" title="Bell 103">Bell 103</a></li>
+<li><a href="Bell_202" title="Bell 202">Bell 202</a>)</li>
+<li><a href="M17_(amateur_radio)" title="M17 (amateur radio)">M17</a></li></ul>
+</div></td><td class="noviewer navbox-image" rowspan="5" style="width:1px;padding:0 0 0 2px"><div><span typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/60px-International_amateur_radio_symbol.svg.png" decoding="async" width="50" height="100" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/120px-International_amateur_radio_symbol.svg.png 1.5x" data-file-width="320" data-file-height="640" /></span></span></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Multiple_frequency-shift_keying" title="Multiple frequency-shift keying">Multiple frequency-shift keying (MFSK)</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Olivia_MFSK" title="Olivia MFSK">Olivia MFSK</a></li>
+<li><a href="Contestia" class="mw-redirect" title="Contestia">Contestia</a></li>
+<li><a href="WSJT_(amateur_radio_software)#JT65" title="WSJT (amateur radio software)">JT65</a></li>
+<li><a href="WSJT_(amateur_radio_software)#FSK441" title="WSJT (amateur radio software)">FSK441</a></li>
+<li><a href="WSJT_(amateur_radio_software)#JT6M" title="WSJT (amateur radio software)">JT6M</a></li>
+<li><a href="WSPR_(amateur_radio_software)" title="WSPR (amateur radio software)">WSPR</a></li>
+<li><a class="mw-selflink selflink">FT8</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Phase-shift_keying" title="Phase-shift keying">Phase-shift keying (PSK)</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="PSK31" title="PSK31">PSK31</a></li>
+<li><a href="PSK63" title="PSK63">PSK63</a></li>
+<li><a href="Q15X25" title="Q15X25">Q15X25</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="COFDM" class="mw-redirect" title="COFDM">COFDM</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="MT63" title="MT63">MT63</a> (based on PSK)</li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Non-traditional digital modes</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Hellschreiber" title="Hellschreiber">Hellschreiber (Feld-Hell)</a></li>
+<li><a href="On%E2%80%93off_keying" title="On–off keying">On–off keying</a></li>
+<li><a href="Continuous_wave" title="Continuous wave">Continuous wave</a></li>
+<li><a href="Modulated_continuous_wave" title="Modulated continuous wave">Modulated continuous wave</a></li>
+<li><a href="Pulse_modulation" class="mw-redirect" title="Pulse modulation">Pulse modulation</a></li>
+<li><a href="Frequency-hopping_spread_spectrum" title="Frequency-hopping spread spectrum">Frequency-hopping spread spectrum (FHSS)</a></li>
+<li><a href="Direct-sequence_spread_spectrum" title="Direct-sequence spread spectrum">Direct-sequence spread spectrum (DSSS)</a></li>
+<li><a href="AMPRNet" title="AMPRNet">AMPRNet</a></li>
+<li><a href="DAPNET" title="DAPNET">DAPNET</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Two-way&#95;radio1844" style="padding:3px"><table class="nowraplinks mw-collapsible mw-collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Two-way_radio" title="Template:Two-way radio"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Two-way_radio" title="Template talk:Two-way radio"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Two-way_radio" title="Special:EditPage/Template:Two-way radio"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Two-way&#95;radio1844" style="font-size:114%;margin:0 4em"><a href="Two-way_radio" title="Two-way radio">Two-way radio</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Amateur and hobbyist</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_radio" title="Amateur radio">Amateur radio</a></li>
+<li><a href="Amateur_radio_repeater" title="Amateur radio repeater">Amateur radio repeater</a></li>
+<li><a href="Citizens_band_radio" title="Citizens band radio">Citizens band radio</a></li>
+<li><a href="Family_Radio_Service" title="Family Radio Service">Family Radio Service</a></li>
+<li><a href="Public_Radio_Service" title="Public Radio Service">Public Radio Service</a></li>
+<li><a href="General_Mobile_Radio_Service" title="General Mobile Radio Service">General Mobile Radio Service</a></li>
+<li><a href="KDR_444" title="KDR 444">KDR 444</a></li>
+<li><a href="LPD433" title="LPD433">LPD433</a></li>
+<li><a href="Amateur_radio_station#Mobile_stations" title="Amateur radio station">Mobile rig</a></li>
+<li><a href="Multi-Use_Radio_Service" title="Multi-Use Radio Service">Multi-Use Radio Service</a></li>
+<li><a href="PMR446" title="PMR446">PMR446</a></li>
+<li><a href="UHF_CB" title="UHF CB">UHF CB (Australia)</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Aviation <br /> (aeronautical mobile)</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Air_traffic_control" title="Air traffic control">Air traffic control</a></li>
+<li><a href="Aircraft_emergency_frequency" title="Aircraft emergency frequency">Aircraft emergency frequency</a></li>
+<li><a href="Airband" title="Airband">Airband</a></li>
+<li><a href="Common_traffic_advisory_frequency" title="Common traffic advisory frequency">Common traffic advisory frequency</a></li>
+<li><a href="Mandatory_frequency_airport" title="Mandatory frequency airport">Mandatory frequency airport</a></li>
+<li><a href="MULTICOM" title="MULTICOM">MULTICOM</a></li>
+<li><a href="Single_frequency_approach" title="Single frequency approach">Single Frequency Approach</a></li>
+<li><a href="UNICOM" title="UNICOM">UNICOM</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Land-based commercial <br /> and government mobile</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Base_station" title="Base station">Base station</a></li>
+<li><a href="Business_band" title="Business band">Business band</a></li>
+<li><a href="Mobile_radio" title="Mobile radio">Mobile radio</a></li>
+<li><a href="Professional_mobile_radio" title="Professional mobile radio">Professional mobile radio</a></li>
+<li><a href="Radio_repeater" title="Radio repeater">Radio repeater</a></li>
+<li><a href="Specialized_Mobile_Radio" class="mw-redirect" title="Specialized Mobile Radio">Specialized Mobile Radio</a></li>
+<li><a href="Trunked_radio_system" title="Trunked radio system">Trunked radio system</a></li>
+<li><a href="Walkie-talkie" title="Walkie-talkie">Walkie-talkie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Marine (shipboard)</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="2182_kHz" title="2182 kHz">2182 kHz</a></li>
+<li><a href="500_kHz" title="500 kHz">500 kHz</a></li>
+<li><a href="Coast_radio_station" title="Coast radio station">Coast radio station</a></li>
+<li><a href="Marine_VHF_radio" title="Marine VHF radio">Marine VHF radio</a></li>
+<li><a href="Maritime_mobile_amateur_radio" title="Maritime mobile amateur radio">Maritime mobile amateur radio</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Selective_calling" title="Selective calling">Signaling / <br /> Selective calling</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Continuous_Tone-Coded_Squelch_System" title="Continuous Tone-Coded Squelch System">CTCSS</a></li>
+<li><a href="D-STAR" title="D-STAR">D-STAR</a></li>
+<li><a href="Dual-tone_multi-frequency_signaling" class="mw-redirect" title="Dual-tone multi-frequency signaling">Dual-tone multi-frequency</a></li>
+<li><a href="MDC-1200" title="MDC-1200">MDC-1200</a></li>
+<li><a href="Push-to-talk" title="Push-to-talk">Push-to-talk</a></li>
+<li><a href="Selective_calling#Quik-Call_I" title="Selective calling">Quik-Call I</a></li>
+<li><a href="Selective_calling#Two-tone_sequential" title="Selective calling">Quik-Call II</a></li>
+<li><a href="Selcall" title="Selcall">Selcall</a></li>
+<li><a href="SELCAL" title="SELCAL">SELCAL</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">System elements <br /> and principles</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Antenna_(radio)" title="Antenna (radio)">Antenna</a></li>
+<li><a href="Automatic_Packet_Reporting_System" title="Automatic Packet Reporting System">APRS</a></li>
+<li><a href="Automatic_vehicle_location" title="Automatic vehicle location">Automatic vehicle location</a></li>
+<li><a href="Call_sign" title="Call sign">Call sign</a></li>
+<li><a href="Computer-aided_dispatch" title="Computer-aided dispatch">CAD</a></li>
+<li><a href="Current_loop#Two-way_radio_use" title="Current loop">DC remote</a></li>
+<li><a href="Dispatch_(logistics)" title="Dispatch (logistics)">Dispatch</a></li>
+<li><a href="Dynamic_range_compression" title="Dynamic range compression">Dynamic range compression</a></li>
+<li><a href="Fade_margin" title="Fade margin">Fade margin</a></li>
+<li><a href="Link_budget" title="Link budget">Link budget</a></li>
+<li><a href="Rayleigh_fading" title="Rayleigh fading">Rayleigh fading</a></li>
+<li><a href="Tone_remote" title="Tone remote">Tone remote</a></li>
+<li><a href="Radiotelephony_procedure" title="Radiotelephony procedure">Radiotelephony procedure</a></li>
+<li><a href="Diversity_combining" title="Diversity combining">Voting (diversity combining)</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Amateur&#95;radio10733" style="padding:3px"><table class="nowraplinks mw-collapsible mw-collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Amateur_radio_topics" title="Template:Amateur radio topics"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Amateur_radio_topics" title="Template talk:Amateur radio topics"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Amateur_radio_topics" title="Special:EditPage/Template:Amateur radio topics"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Amateur&#95;radio10733" style="font-size:114%;margin:0 4em"><a href="Amateur_radio" title="Amateur radio">Amateur radio</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">General</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_radio_operator" title="Amateur radio operator">Operator</a></li>
+<li><a href="Amateur_radio_station" title="Amateur radio station">Station</a></li>
+<li><a href="Glossary_of_amateur_radio" title="Glossary of amateur radio">Glossary</a></li></ul>
+</div></td><td class="noviewer navbox-image" rowspan="12" style="width:1px;padding:0 0 0 2px"><div><span typeof="mw:File"><a href="File:International_amateur_radio_symbol.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/120px-International_amateur_radio_symbol.svg.png" decoding="async" width="80" height="160" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/International_amateur_radio_symbol.svg/250px-International_amateur_radio_symbol.svg.png 2x" data-file-width="320" data-file-height="640" /></a></span></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Activities</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="High-speed_telegraphy" title="High-speed telegraphy">High-speed telegraphy</a></li>
+<li><a href="Parks_On_The_Air" title="Parks On The Air">POTA</a></li>
+<li><a href="Summits_On_The_Air" title="Summits On The Air">SOTA</a></li>
+<li><a href="Islands_On_The_Air" title="Islands On The Air">IOTA</a></li>
+<li><a href="Jamboree_on_the_Air" title="Jamboree on the Air">JOTA</a></li>
+<li><a href="Guides_on_the_Air" title="Guides on the Air">GOTA</a></li>
+<li><a href="Portable_operation_(amateur_radio)" title="Portable operation (amateur radio)">Portable operation</a></li>
+<li><a href="Amateur_radio_homebrew" title="Amateur radio homebrew">Homebrew</a></li>
+<li><a href="Chinese_Radio_Sports_Association" title="Chinese Radio Sports Association">CRSA</a></li>
+<li><a href="ARRL_Radiogram" title="ARRL Radiogram">ARRL Radiogram</a></li>
+<li><a href="Ham_net" class="mw-redirect" title="Ham net">Ham net</a></li>
+<li><a href="National_Traffic_System" title="National Traffic System">NTS</a></li>
+<li><a href="Logbook_of_The_World" title="Logbook of The World">LoWT</a></li>
+<li><a href="Pirate_radio#Piracy_in_amateur_and_two-way_radio" title="Pirate radio">Piracy</a></li></ul>
+</div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Radiosport1210" scope="row" class="navbox-group" style="width:1%"><a href="Radiosport" title="Radiosport">Radiosport</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_direction_finding" title="Amateur radio direction finding">ARDF</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Fox_Oring" title="Fox Oring">Fox Oring</a></li>
+<li><a href="Radio_Orienteering_in_a_Compact_Area" title="Radio Orienteering in a Compact Area">ROCA</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="DXing" title="DXing">DXing</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="MW_DX" title="MW DX">MW DX</a></li>
+<li><a href="Shortwave_listening" title="Shortwave listening">Shortwave DX</a></li>
+<li><a href="TV_and_FM_DX" title="TV and FM DX">TV and FM DX</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Contesting" title="Contesting">Contesting</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Field_Day_(amateur_radio)" title="Field Day (amateur radio)">Field Day</a></li>
+<li><a href="Single_operator_two_radios" title="Single operator two radios">SO2R</a></li>
+<li><a href="World_Radiosport_Team_Championship" title="World Radiosport Team Championship">WRTC</a></li>
+<li><a href="Contest_logging_software" title="Contest logging software">Logging software</a></li>
+<li><a href="Contesting_technology" title="Contesting technology">technology</a></li>
+<li><a href="Contesting_controversies" title="Contesting controversies">Controversies</a></li>
+<li><a href="HamSphere" title="HamSphere">HamSphere</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Culture</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="History_of_amateur_radio" title="History of amateur radio">History</a></li>
+<li><a href="Etymology_of_ham_radio" title="Etymology of ham radio">Ham etymology</a></li>
+<li><a href="Amateur_radio_operating_award" title="Amateur radio operating award">Awards</a></li>
+<li><a href="DX-pedition" title="DX-pedition">DX-pedition</a></li>
+<li><a href="Hamfest" title="Hamfest">Hamfest</a></li>
+<li><a href="QSL_card" title="QSL card">QSL card</a></li>
+<li><a href="Q_code" title="Q code">Q code</a></li>
+<li><a href="Vintage_amateur_radio" title="Vintage amateur radio">Vintage amateur radio</a></li>
+<li><a href="List_of_amateur_radio_magazines" title="List of amateur radio magazines">Magazines</a></li>
+<li><a href="Captain_Midnight_broadcast_signal_intrusion" title="Captain Midnight broadcast signal intrusion">Captain Midnight</a></li>
+<li><a href="W1AW" title="W1AW">W1AW</a></li>
+<li><a href="Women_in_early_radio#Women_as_radio_amateurs" title="Women in early radio">Women</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Governance</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ITU_prefix_(amateur_stations)" class="mw-redirect" title="ITU prefix (amateur stations)">ITU prefixes</a></li>
+<li><a href="Maritime_mobile_amateur_radio" title="Maritime mobile amateur radio">Maritime mobile</a></li>
+<li><a href="Amateur_radio_international_operation" title="Amateur radio international operation">International operation</a></li></ul>
+</div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_organizations" title="List of amateur radio organizations">Organizations</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="International_Amateur_Radio_Union" title="International Amateur Radio Union">IARU</a></li>
+<li><a href="International_Telecommunication_Union" title="International Telecommunication Union">ITU</a></li>
+<li><a href="State_Radio_Regulation_of_China" title="State Radio Regulation of China">SRRC</a></li>
+<li><a href="American_Radio_Relay_League" title="American Radio Relay League">ARRL</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio#Licensing" title="Amateur radio">Licensing</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_radio_call_signs" title="Amateur radio call signs">Call signs</a></li>
+<li><a href="Amateur_radio_licensing_in_the_United_States" title="Amateur radio licensing in the United States">USA</a></li>
+<li><a href="Amateur_radio_in_India" title="Amateur radio in India">India</a>
+<ul><li><a href="List_of_amateur_radio_frequency_bands_in_India" title="List of amateur radio frequency bands in India">Frequencies</a></li>
+<li><a href="Amateur_radio_licence_categories_in_India" title="Amateur radio licence categories in India">Licence categories</a></li></ul></li>
+<li><a href="Amateur_radio_licensing_in_Australia" title="Amateur radio licensing in Australia">Australia</a></li>
+<li><a href="Amateur_radio_licensing_in_China" title="Amateur radio licensing in China">China</a></li>
+<li><a href="Call_signs_in_the_United_Kingdom" title="Call signs in the United Kingdom">UK</a></li>
+<li><a href="Call_signs_in_Japan" title="Call signs in Japan">Japan</a></li>
+<li><a href="Call_signs_in_Europe" title="Call signs in Europe">Europe</a></li>
+<li><a href="Amateur_radio_call_signs_in_Africa" title="Amateur radio call signs in Africa">Africa</a></li>
+<li><a href="Call_signs_in_Korea" title="Call signs in Korea">Korea</a></li>
+<li><a href="Call_signs_in_Russia" title="Call signs in Russia">Russia</a></li>
+<li><a href="Call_signs_in_Mexico#Amateur_radio" title="Call signs in Mexico">Mexico</a></li>
+<li><a href="Call_signs_in_Canada#Amateur_radio" title="Call signs in Canada">Canada</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_modes" title="List of amateur radio modes">Modes</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">Voice</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amplitude_modulation" title="Amplitude modulation">AM</a></li>
+<li><a href="Sideband" title="Sideband">DSB-SC</a></li>
+<li><a href="Independent_sideband" class="mw-redirect" title="Independent sideband">ISB</a></li>
+<li><a href="Single-sideband_modulation" title="Single-sideband modulation">SSB</a></li>
+<li><a href="Amplitude_modulation_equivalent" class="mw-redirect" title="Amplitude modulation equivalent">AME</a></li>
+<li><a href="Frequency_modulation" title="Frequency modulation">FM</a></li>
+<li><a href="Phase_modulation" title="Phase modulation">PM</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Television</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amateur_television" title="Amateur television">ATV</a></li>
+<li><a href="Slow-scan_television" title="Slow-scan television">SSTV</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data/Digital</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Continuous_wave" title="Continuous wave">CW</a></li>
+<li><a href="Automatic_link_establishment" title="Automatic link establishment">ALE</a></li>
+<li><a href="AMTOR" title="AMTOR">AMTOR</a></li>
+<li><a href="D-STAR" title="D-STAR">D-STAR</a></li>
+<li><a href="DAPNET" title="DAPNET">DAPNET</a></li>
+<li><a href="EchoLink" title="EchoLink">EchoLink</a></li>
+<li><a class="mw-selflink selflink">FT8</a></li>
+<li><a href="Hellschreiber" title="Hellschreiber">Hellschreiber</a></li>
+<li><a href="Discrete_multi-tone_modulation" class="mw-redirect" title="Discrete multi-tone modulation">DMT</a></li>
+<li><a href="Frequency-shift_keying" title="Frequency-shift keying">FSK</a></li>
+<li><a href="Multiple_frequency-shift_keying" title="Multiple frequency-shift keying">MFSK</a></li>
+<li><a href="M17_(amateur_radio)" title="M17 (amateur radio)">M17</a></li>
+<li><a href="Packet_radio" title="Packet radio">Packet radio</a>
+<ul><li><a href="Automatic_Packet_Reporting_System" title="Automatic Packet Reporting System">APRS</a></li>
+<li><a href="AMPRNet" title="AMPRNet">AMPRNet</a></li>
+<li><a href="KA9Q" title="KA9Q">KA9Q</a></li></ul></li>
+<li><a href="PACTOR" title="PACTOR">PACTOR</a></li>
+<li><a href="Phase-shift_keying" title="Phase-shift keying">PSK</a></li>
+<li><a href="Radioteletype" title="Radioteletype">RTTY</a></li>
+<li><a href="Spread_spectrum" title="Spread spectrum">Spread spectrum</a></li>
+<li><a href="Wide-coverage_Internet_Repeater_Enhancement_System" title="Wide-coverage Internet Repeater Enhancement System">WIRES-X</a></li>
+<li><a href="Digital_mobile_radio" title="Digital mobile radio">DMR</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Technologies</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Radio-frequency_engineering" title="Radio-frequency engineering">RF engineering</a></li>
+<li><a href="List_of_amateur_radio_software" title="List of amateur radio software">Software</a></li>
+<li><a href="Internet_Radio_Linking_Project" title="Internet Radio Linking Project">IRLP</a></li>
+<li><a href="QRP_operation" title="QRP operation">QRP</a></li>
+<li><a href="Software-defined_radio" title="Software-defined radio">SDR</a>
+<ul><li><a href="List_of_software-defined_radios" title="List of software-defined radios">List of radios</a></li></ul></li>
+<li><a href="Two-way_radio" title="Two-way radio">Two-way radio</a></li>
+<li><a href="List_of_amateur_radio_transceivers" title="List of amateur radio transceivers">Transceivers</a></li>
+<li><a href="Shortwave_radio" title="Shortwave radio">Shortwave radio</a></li>
+<li><a href="Amateur_radio_propagation_beacon" title="Amateur radio propagation beacon">Beacons</a></li>
+<li><a href="Winlink" title="Winlink">Winlink</a></li>
+<li><a href="International_Beacon_Project" title="International Beacon Project">IBP</a></li>
+<li><a href="Automatic_link_establishment#Use_in_amateur_radio" title="Automatic link establishment">ALE</a></li>
+<li><a href="LM386" title="LM386">LM386</a></li>
+<li><a href="Spark-gap_transmitter" title="Spark-gap transmitter">Spark-gap transmitter</a></li>
+<li><a href="DX_cluster" title="DX cluster">DX cluster</a></li>
+<li><a href="Tropospheric_scatter" title="Tropospheric scatter">Tropospheric scatter</a></li>
+<li><a href="Internet_Radio_Linking_Project" title="Internet Radio Linking Project">IRLP</a></li>
+<li><a href="Radio_over_IP#eQSO" title="Radio over IP">eQSO</a></li>
+<li><a href="Parallel_Logic_Radio_Interface" title="Parallel Logic Radio Interface">PLRI</a></li>
+<li><a href="Wide-coverage_Internet_Repeater_Enhancement_System" title="Wide-coverage Internet Repeater Enhancement System">WIRES</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_emergency_communications" title="Amateur radio emergency communications">Emergency</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Field_Day_(amateur_radio)" title="Field Day (amateur radio)">Field Day</a></li>
+<li><a href="Radio_Amateur_Civil_Emergency_Service" title="Radio Amateur Civil Emergency Service">RACES</a></li>
+<li><a href="Amateur_Radio_Emergency_Service" title="Amateur Radio Emergency Service">ARES</a></li>
+<li><a href="Radio_Amateurs_Emergency_Network" title="Radio Amateurs Emergency Network">RAYNET</a></li>
+<li><a href="Military_Auxiliary_Radio_System" title="Military Auxiliary Radio System">MARS</a></li>
+<li><a href="Wireless_Institute_Civil_Emergency_Network" title="Wireless Institute Civil Emergency Network">WICEN</a></li>
+<li><a href="ARRL_International_Humanitarian_Award" title="ARRL International Humanitarian Award">ARRL International Humanitarian Award</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Space &amp; stratosphere</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Balloon_Experiments_with_Amateur_Radio" title="Balloon Experiments with Amateur Radio">BEAR</a></li>
+<li><a href="Shuttle_Amateur_Radio_Experiment" title="Shuttle Amateur Radio Experiment">Space Shuttle</a></li>
+<li><a href="Amateur_Radio_on_the_International_Space_Station" title="Amateur Radio on the International Space Station">ISS</a></li>
+<li><a href="Amateur_radio_satellite" title="Amateur radio satellite">Satellite</a>
+<ul><li><a href="OSCAR_1" title="OSCAR 1">OSCAR 1</a>, <a href="OSCAR_2" title="OSCAR 2">2</a>, <a href="OSCAR_3" title="OSCAR 3">3</a>, <a href="OSCAR_4" title="OSCAR 4">4</a>, <a href="Australis-OSCAR_5" title="Australis-OSCAR 5">5</a>, <a href="AMSAT-OSCAR_6" title="AMSAT-OSCAR 6">6</a>, <a href="AMSAT-OSCAR_7" title="AMSAT-OSCAR 7">7</a>, <a href="OSCAR_8" title="OSCAR 8">8</a>, <a href="UoSAT-1" title="UoSAT-1">9</a>, <a href="AMSAT-OSCAR_10" title="AMSAT-OSCAR 10">10</a>, <a href="AMSAT-OSCAR_16" title="AMSAT-OSCAR 16">16</a>, <a href="Dove-OSCAR_17" title="Dove-OSCAR 17">17</a>, <a href="Weber-OSCAR_18" title="Weber-OSCAR 18">18</a>, <a href="UoSAT-5" title="UoSAT-5">22</a>, <a href="Orbiting_Picosat_Automatic_Launcher" title="Orbiting Picosat Automatic Launcher">38</a>, <a href="OSCAR_40" title="OSCAR 40">40</a>, <a href="OSCAR_44" title="OSCAR 44">44</a>, <a href="SAPPHIRE" title="SAPPHIRE">45</a>, <a href="Saudi-OSCAR_50" title="Saudi-OSCAR 50">50</a>, <a href="AMSAT-OSCAR_51" title="AMSAT-OSCAR 51">51</a>, <a href="SSETI_Express_(satellite)" title="SSETI Express (satellite)">53</a>, <a href="CUTE-1.7_%2B_APD" title="CUTE-1.7 + APD">56</a>, <a href="Radar_Fence_Transponder" title="Radar Fence Transponder">60</a>, <a href="Atmospheric_Neutral_Density_Experiment" title="Atmospheric Neutral Density Experiment">61</a>, <a href="Atmospheric_Neutral_Density_Experiment" title="Atmospheric Neutral Density Experiment">62</a>, <a href="Pehuensat-1" title="Pehuensat-1">63</a>, <a href="CUTE-1.7_%2B_APD_II" title="CUTE-1.7 + APD II">65</a>, <a href="SEEDS-2" title="SEEDS-2">66</a>, <a href="SumbandilaSat" title="SumbandilaSat">67</a>, <a href="FASTRAC" title="FASTRAC">69</a>, <a href="AubieSat-1" title="AubieSat-1">71</a>, <a href="FUNcube-1" title="FUNcube-1">73</a>, <a href="CAPE-2" title="CAPE-2">75</a>, <a href="$50SAT" title="$50SAT">76</a>, <a href="INVADER" title="INVADER">77</a>, <a href="LituanicaSAT-1" title="LituanicaSAT-1">78</a>, <a href="BRICSat-P" title="BRICSat-P">83</a>, <a href="ParkinsonSAT" title="ParkinsonSAT">84</a>, <a href="Fox-1A" title="Fox-1A">85</a>, <a href="%C3%91uSat" title="ÑuSat">87</a>, <a href="Fox-1B" title="Fox-1B">91</a>, <a href="Fox-1D" title="Fox-1D">92</a>, <a href="Fox-1Cliff" title="Fox-1Cliff">95</a>, <a href="Es%27hail_2" title="Es&#39;hail 2">100</a>, <a href="Diwata-2" title="Diwata-2">101</a>, <a href="BRICSat-2" title="BRICSat-2">103</a>, <a href="PSAT-2" title="PSAT-2">104</a>, <a href="HuskySat-1" title="HuskySat-1">107</a>, <a href="Fox-1E" title="Fox-1E">109</a>, <a href="HADES_(satellite)" title="HADES (satellite)">115</a>, <a href="Nepal_PQ-1" title="Nepal PQ-1">116</a>, <a href="MESAT_1" title="MESAT 1">122</a></li>
+<li><a href="ANUSAT" title="ANUSAT">ANUSAT</a></li>
+<li><a href="ASUSat" title="ASUSat">ASUSat</a></li>
+<li><a href="BugSat_1" title="BugSat 1">BugSat 1</a></li>
+<li><a href="CAPE-1" title="CAPE-1">CAPE-1</a></li>
+<li><a href="CAPE-2" title="CAPE-2">CAPE-2</a></li>
+<li><a href="Delfi-C3" title="Delfi-C3">Delfi-C3</a></li>
+<li><a href="Eyesat-1" title="Eyesat-1">Eyesat-1</a></li>
+<li><a href="FalconSAT" title="FalconSAT">FalconSAT</a></li>
+<li><a href="Niwaka" title="Niwaka">FITSAT-1</a></li>
+<li><a href="HAMSAT" title="HAMSAT">HAMSAT</a></li>
+<li><a href="INVADER" title="INVADER">INVADER</a></li>
+<li><a href="ITF-1" title="ITF-1">ITF-1</a></li>
+<li><a href="JAWSAT" title="JAWSAT">JAWSAT</a></li>
+<li><a href="Kedr" title="Kedr">Kedr</a></li>
+<li><a href="KITSAT-1" title="KITSAT-1">KITSAT-1</a></li>
+<li><a href="KITSAT-2" title="KITSAT-2">KITSAT-2</a></li>
+<li><a href="KITSAT-3" title="KITSAT-3">KITSAT-3</a></li>
+<li><a href="KiwiSAT" class="mw-redirect" title="KiwiSAT">KiwiSAT</a></li>
+<li><a href="OSSI-1" title="OSSI-1">OSSI-1</a></li>
+<li><a href="PANSAT" title="PANSAT">PANSAT</a></li>
+<li><a href="Passive_Inspection_CubeSat" title="Passive Inspection CubeSat">PICS</a></li>
+<li><a href="PCSat2" title="PCSat2">PCSat2</a></li>
+<li><a href="PoSAT-1" title="PoSAT-1">PoSAT-1</a></li>
+<li><a href="SEDSAT-1" title="SEDSAT-1">SEDSAT-1</a></li>
+<li><a href="SRMSAT" title="SRMSAT">SRMSAT</a></li>
+<li><a href="STARSHINE_(satellite)" title="STARSHINE (satellite)">STARSHINE</a></li>
+<li><a href="Starshine_3" title="Starshine 3">Starshine 3</a></li>
+<li><a href="SuitSat" title="SuitSat">SuitSat</a></li>
+<li><a href="SUNSAT" title="SUNSAT">SUNSAT</a></li>
+<li><a href="TiungSAT-1" title="TiungSAT-1">TiungSAT-1</a></li>
+<li><a href="UoSAT-2" title="UoSAT-2">UoSAT-2</a></li>
+<li><a href="UoSAT-3" title="UoSAT-3">UoSAT-3</a></li>
+<li><a href="UoSAT-4" title="UoSAT-4">UoSAT-4</a></li>
+<li><a href="UoSAT-12" title="UoSAT-12">UoSAT-12</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_frequency_allocations" title="Amateur radio frequency allocations">Ham bands</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Submillimeter_amateur_radio" title="Submillimeter amateur radio">Submillimeter</a></li>
+<li><a href="1-millimeter_band" title="1-millimeter band">1 mm</a></li>
+<li><a href="2-millimeter_band" title="2-millimeter band">2 mm</a></li>
+<li><a href="2.5-millimeter_band" title="2.5-millimeter band">2.5 mm</a></li>
+<li><a href="4-millimeter_band" title="4-millimeter band">4 mm</a></li>
+<li><a href="6-millimeter_band" title="6-millimeter band">6 mm</a></li>
+<li><a href="1.2-centimeter_band" title="1.2-centimeter band">1.2 cm</a></li>
+<li><a href="3-centimeter_band" title="3-centimeter band">3 cm</a></li>
+<li><a href="5-centimeter_band" title="5-centimeter band">5 cm</a></li>
+<li><a href="9-centimeter_band" title="9-centimeter band">9 cm</a></li>
+<li><a href="13-centimeter_band" title="13-centimeter band">13 cm</a></li>
+<li><a href="23-centimeter_band" title="23-centimeter band">23 cm</a></li>
+<li><a href="33-centimeter_band" title="33-centimeter band">33 cm</a></li>
+<li><a href="70-centimeter_band" title="70-centimeter band">70 cm</a></li>
+<li><a href="1.25-meter_band" title="1.25-meter band">1.25 m</a></li>
+<li><a href="2-meter_band" title="2-meter band">2 m</a></li>
+<li><a href="4-metre_band" title="4-metre band">4 m</a></li>
+<li><a href="5-meter_band" title="5-meter band">5 m</a></li>
+<li><a href="6-meter_band" title="6-meter band">6 m</a></li>
+<li><a href="8-meter_band" title="8-meter band">8 m</a></li>
+<li><a href="10-meter_band" title="10-meter band">10 m</a></li>
+<li><a href="WARC_bands#12-meter_band_plan" title="WARC bands">12 m (WARC)</a></li>
+<li><a href="15-meter_band" title="15-meter band">15 m</a></li>
+<li><a href="WARC_bands#17-meter_band_plan" title="WARC bands">17 m (WARC)</a></li>
+<li><a href="20-meter_band" title="20-meter band">20 m</a></li>
+<li><a href="30-meter_band" class="mw-redirect" title="30-meter band">30 m (WARC)</a></li>
+<li><a href="40-meter_band" title="40-meter band">40 m</a></li>
+<li><a href="60-meter_band" title="60-meter band">60 m</a></li>
+<li><a href="80-meter_band" title="80-meter band">80 m</a></li>
+<li><a href="160-meter_band" title="160-meter band">160 m</a></li>
+<li><a href="630-meter_band" title="630-meter band">630 m</a></li>
+<li><a href="2200-meter_band" title="2200-meter band">2200 m</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="List_of_amateur_radio_magazines" title="List of amateur radio magazines">Magazines</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="73_(magazine)" title="73 (magazine)">73</a></li>
+<li><a href="The_Canadian_Amateur" title="The Canadian Amateur">The Canadian Amateur</a></li>
+<li><a href="CQ_Amateur_Radio" title="CQ Amateur Radio">CQ Amateur Radio</a></li>
+<li><a href="CQ_ham_radio" title="CQ ham radio">CQ ham radio</a></li>
+<li><a href="CQ_VHF_Magazine" title="CQ VHF Magazine">CQ VHF Magazine</a></li>
+<li><a href="CQ_DL" title="CQ DL">CQ DL</a></li>
+<li><a href="Electronics_Australia" title="Electronics Australia">Electronics Australia</a></li>
+<li><a href="Electronics_Illustrated" title="Electronics Illustrated">Electronics Illustrated</a></li>
+<li><a href="Five_Nine" title="Five Nine">Five Nine</a></li>
+<li><a href="Funkamateur" title="Funkamateur">Funkamateur</a></li>
+<li><a href="Ham_Radio_(magazine)" title="Ham Radio (magazine)">Ham Radio</a></li>
+<li><a href="K9YA_Telegraph" title="K9YA Telegraph">K9YA Telegraph</a></li>
+<li><a href="Modern_Electrics" title="Modern Electrics">Modern Electrics</a></li>
+<li><a href="National_Communications_Magazine" title="National Communications Magazine">National Communications Magazine</a></li>
+<li><a href="National_Contest_Journal" title="National Contest Journal">National Contest Journal</a></li>
+<li><a href="Old_Man_(magazine)" title="Old Man (magazine)">Old Man</a></li>
+<li><a href="Popular_Communications" title="Popular Communications">Popular Communications</a></li>
+<li><a href="Practical_Wireless" title="Practical Wireless">Practical Wireless</a></li>
+<li><a href="QEX" title="QEX">QEX</a></li>
+<li><a href="QST" title="QST">QST</a></li>
+<li><a href="RadCom" title="RadCom">RadCom</a></li>
+<li><a href="Radio_(Belgium)" title="Radio (Belgium)">Radio (Belgium)</a></li>
+<li><a href="Radio_News" title="Radio News">Radio News</a></li>
+<li><a href="Radio_ZS" class="mw-redirect" title="Radio ZS">Radio ZS</a></li>
+<li><a href="Wireless_Weekly" title="Wireless Weekly">Wireless Weekly</a></li>
+<li><a href="WorldRadio" title="WorldRadio">WorldRadio</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Category:Films_about_amateur_radio" title="Category:Films about amateur radio">Films</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Contact_(1997_American_film)" title="Contact (1997 American film)">Contact</a></li>
+<li><a href="Frequency_(2000_film)" title="Frequency (2000 film)">Frequency</a></li>
+<li><a href="If_All_the_Guys_in_the_World" title="If All the Guys in the World">If All the Guys in the World</a></li>
+<li><a href="Sergio_and_Sergei" title="Sergio and Sergei">Sergio and Sergei</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Amateur_radio_operator#Notable_amateur_radio_operators" title="Amateur radio operator">People</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Guglielmo_Marconi" title="Guglielmo Marconi">Guglielmo Marconi</a></li>
+<li><a href="Hidetsugu_Yagi" title="Hidetsugu Yagi">Hidetsugu Yagi</a></li>
+<li><a href="Judica-Cordiglia_brothers" title="Judica-Cordiglia brothers">Judica-Cordiglia brothers</a></li>
+<li><a href="William_I._Orr" title="William I. Orr">William I. Orr</a></li>
+<li><a href="Shintaro_Uda" title="Shintaro Uda">Shintaro Uda</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Telecommunications6232" style="padding:3px"><table class="nowraplinks hlist mw-collapsible mw-collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Telecommunications" title="Template:Telecommunications"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Telecommunications" title="Template talk:Telecommunications"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Telecommunications" title="Special:EditPage/Template:Telecommunications"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Telecommunications6232" style="font-size:114%;margin:0 4em"><a href="Telecommunications" title="Telecommunications">Telecommunications</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="History_of_telecommunication" title="History of telecommunication">History</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Beacon#For_defensive_communications" title="Beacon">Beacon</a></li>
+<li><a href="History_of_broadcasting" title="History of broadcasting">Broadcasting</a></li>
+<li><a href="Cable_protection_system" title="Cable protection system">Cable protection system</a></li>
+<li><a href="Cable_television" title="Cable television">Cable TV</a></li>
+<li><a href="Communications_satellite#History" title="Communications satellite">Communications satellite</a></li>
+<li><a href="Computer_network#History" title="Computer network">Computer network</a></li>
+<li><a href="Data_compression" title="Data compression">Data compression</a>
+<ul><li><a href="Audio_coding_format" title="Audio coding format">audio</a></li>
+<li><a href="Discrete_cosine_transform" title="Discrete cosine transform">DCT</a></li>
+<li><a href="Image_compression" title="Image compression">image</a></li>
+<li><a href="Video_coding_format" title="Video coding format">video</a></li></ul></li>
+<li><a href="Digital_media" title="Digital media">Digital media</a>
+<ul><li><a href="Internet_video" title="Internet video">Internet video</a></li>
+<li><a href="Online_video_platform" title="Online video platform">online video platform</a></li>
+<li><a href="Social_media" title="Social media">social media</a></li>
+<li><a href="Streaming_media" title="Streaming media">streaming</a></li></ul></li>
+<li><a href="Drums_in_communication" title="Drums in communication">Drums</a></li>
+<li><a href="Edholm%27s_law" title="Edholm&#39;s law">Edholm's law</a></li>
+<li><a href="Electrical_telegraph#History" title="Electrical telegraph">Electrical telegraph</a></li>
+<li><a href="Fax#History" title="Fax">Fax</a></li>
+<li><a href="Heliograph#History" title="Heliograph">Heliographs</a></li>
+<li><a href="Hydraulic_telegraph#Greek_hydraulic_semaphore_system" title="Hydraulic telegraph">Hydraulic telegraph</a></li>
+<li><a href="Information_Age" title="Information Age">Information Age</a></li>
+<li><a href="Information_revolution" class="mw-redirect" title="Information revolution">Information revolution</a></li>
+<li><a href="History_of_the_Internet" title="History of the Internet">Internet</a></li>
+<li><a href="Mass_media#History" title="Mass media">Mass media</a></li>
+<li><a href="History_of_mobile_phones" title="History of mobile phones">Mobile phone</a>
+<ul><li><a href="Smartphone" title="Smartphone">Smartphone</a></li></ul></li>
+<li><a href="Optical_communication" title="Optical communication">Optical telecommunication</a></li>
+<li><a href="Optical_telegraph" title="Optical telegraph">Optical telegraphy</a></li>
+<li><a href="Pager" title="Pager">Pager</a></li>
+<li><a href="Photophone" title="Photophone">Photophone</a></li>
+<li><a href="History_of_prepaid_mobile_phones" title="History of prepaid mobile phones">Prepaid mobile phone</a></li>
+<li><a href="History_of_radio" title="History of radio">Radio</a></li>
+<li><a href="Radiotelephone" title="Radiotelephone">Radiotelephone</a></li>
+<li><a href="Communications_satellite" title="Communications satellite">Satellite communications</a></li>
+<li><a href="Semaphore" title="Semaphore">Semaphore</a>
+<ul><li><a href="Phryctoria" title="Phryctoria">Phryctoria</a></li></ul></li>
+<li><a href="Semiconductor" title="Semiconductor">Semiconductor</a>
+<ul><li><a href="Semiconductor_device" title="Semiconductor device">device</a></li>
+<li><a href="MOSFET" title="MOSFET">MOSFET</a></li>
+<li><a href="History_of_the_transistor" title="History of the transistor">transistor</a></li></ul></li>
+<li><a href="Smoke_signal" title="Smoke signal">Smoke signals</a></li>
+<li><a href="History_of_telecommunication" title="History of telecommunication">Telecommunications history</a></li>
+<li><a href="Telautograph" title="Telautograph">Telautograph</a></li>
+<li><a href="Telegraphy" title="Telegraphy">Telegraphy</a></li>
+<li><a href="Teleprinter" title="Teleprinter">Teleprinter</a> (teletype)</li>
+<li><a href="History_of_the_telephone" title="History of the telephone">Telephone</a></li>
+<li><i><a href="The_Telephone_Cases" title="The Telephone Cases">The Telephone Cases</a></i></li>
+<li><a href="History_of_television" title="History of television">Television</a>
+<ul><li><a href="Digital_television" title="Digital television">digital</a></li>
+<li><a href="Streaming_television" title="Streaming television">streaming</a></li></ul></li>
+<li><a href="Submarine_communications_cable#Early_history:_telegraph_and_coaxial_cables" title="Submarine communications cable">Undersea telegraph line</a></li>
+<li><a href="History_of_videotelephony" title="History of videotelephony">Videotelephony</a></li>
+<li><a href="Whistled_language" title="Whistled language">Whistled language</a></li>
+<li><a href="Wireless_revolution" class="mw-redirect" title="Wireless revolution">Wireless revolution</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Pioneers</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Nasir_Ahmed_(engineer)" title="Nasir Ahmed (engineer)">Nasir Ahmed</a></li>
+<li><a href="Edwin_Howard_Armstrong" title="Edwin Howard Armstrong">Edwin Howard Armstrong</a></li>
+<li><a href="Mohamed_M._Atalla" title="Mohamed M. Atalla">Mohamed M. Atalla</a></li>
+<li><a href="John_Logie_Baird" title="John Logie Baird">John Logie Baird</a></li>
+<li><a href="Paul_Baran" title="Paul Baran">Paul Baran</a></li>
+<li><a href="John_Bardeen" title="John Bardeen">John Bardeen</a></li>
+<li><a href="Alexander_Graham_Bell" title="Alexander Graham Bell">Alexander Graham Bell</a></li>
+<li><a href="Emile_Berliner" title="Emile Berliner">Emile Berliner</a></li>
+<li><a href="Tim_Berners-Lee" title="Tim Berners-Lee">Tim Berners-Lee</a></li>
+<li><a href="Francis_Blake_(inventor)" title="Francis Blake (inventor)">Francis Blake</a></li>
+<li><a href="Jagadish_Chandra_Bose" title="Jagadish Chandra Bose">Jagadish Chandra Bose</a></li>
+<li><a href="Charles_Bourseul" title="Charles Bourseul">Charles Bourseul</a></li>
+<li><a href="Walter_Houser_Brattain" class="mw-redirect" title="Walter Houser Brattain">Walter Houser Brattain</a></li>
+<li><a href="Vint_Cerf" title="Vint Cerf">Vint Cerf</a></li>
+<li><a href="Claude_Chappe" title="Claude Chappe">Claude Chappe</a></li>
+<li><a href="Yogen_Dalal" class="mw-redirect" title="Yogen Dalal">Yogen Dalal</a></li>
+<li><a href="Donald_Davies" title="Donald Davies">Donald Davies</a></li>
+<li><a href="Daniel_Davis_Jr." title="Daniel Davis Jr.">Daniel Davis Jr.</a></li>
+<li><a href="Amos_Dolbear" title="Amos Dolbear">Amos Dolbear</a></li>
+<li><a href="Thomas_Edison" title="Thomas Edison">Thomas Edison</a></li>
+<li><a href="Philo_Farnsworth" title="Philo Farnsworth">Philo Farnsworth</a></li>
+<li><a href="Reginald_Fessenden" title="Reginald Fessenden">Reginald Fessenden</a></li>
+<li><a href="Lee_de_Forest" title="Lee de Forest">Lee de Forest</a></li>
+<li><a href="Elisha_Gray" title="Elisha Gray">Elisha Gray</a></li>
+<li><a href="Oliver_Heaviside" title="Oliver Heaviside">Oliver Heaviside</a></li>
+<li><a href="Robert_Hooke" title="Robert Hooke">Robert Hooke</a></li>
+<li><a href="Erna_Schneider_Hoover" title="Erna Schneider Hoover">Erna Schneider Hoover</a></li>
+<li><a href="Harold_Hopkins_(physicist)" title="Harold Hopkins (physicist)">Harold Hopkins</a></li>
+<li><a href="Gardiner_Greene_Hubbard" title="Gardiner Greene Hubbard">Gardiner Greene Hubbard</a></li>
+<li><a href="Bob_Kahn" class="mw-redirect" title="Bob Kahn">Bob Kahn</a></li>
+<li><a href="Dawon_Kahng" title="Dawon Kahng">Dawon Kahng</a></li>
+<li><a href="Charles_K._Kao" title="Charles K. Kao">Charles K. Kao</a></li>
+<li><a href="Narinder_Singh_Kapany" title="Narinder Singh Kapany">Narinder Singh Kapany</a></li>
+<li><a href="Hedy_Lamarr" title="Hedy Lamarr">Hedy Lamarr</a></li>
+<li><a href="Roberto_Landell_de_Moura" title="Roberto Landell de Moura">Roberto Landell</a></li>
+<li><a href="Innocenzo_Manzetti" title="Innocenzo Manzetti">Innocenzo Manzetti</a></li>
+<li><a href="Guglielmo_Marconi" title="Guglielmo Marconi">Guglielmo Marconi</a></li>
+<li><a href="Robert_Metcalfe" title="Robert Metcalfe">Robert Metcalfe</a></li>
+<li><a href="Antonio_Meucci" title="Antonio Meucci">Antonio Meucci</a></li>
+<li><a href="Samuel_Morse" title="Samuel Morse">Samuel Morse</a></li>
+<li><a href="Jun-ichi_Nishizawa" title="Jun-ichi Nishizawa">Jun-ichi Nishizawa</a></li>
+<li><a href="Charles_Grafton_Page" title="Charles Grafton Page">Charles Grafton Page</a></li>
+<li><a href="Radia_Perlman" title="Radia Perlman">Radia Perlman</a></li>
+<li><a href="Alexander_Stepanovich_Popov" class="mw-redirect" title="Alexander Stepanovich Popov">Alexander Stepanovich Popov</a></li>
+<li><a href="Tivadar_Pusk%C3%A1s" title="Tivadar Puskás">Tivadar Puskás</a></li>
+<li><a href="Johann_Philipp_Reis" title="Johann Philipp Reis">Johann Philipp Reis</a></li>
+<li><a href="Claude_Shannon" title="Claude Shannon">Claude Shannon</a></li>
+<li><a href="Almon_Brown_Strowger" title="Almon Brown Strowger">Almon Brown Strowger</a></li>
+<li><a href="Henry_Sutton_(inventor)" title="Henry Sutton (inventor)">Henry Sutton</a></li>
+<li><a href="Charles_Sumner_Tainter" title="Charles Sumner Tainter">Charles Sumner Tainter</a></li>
+<li><a href="Nikola_Tesla" title="Nikola Tesla">Nikola Tesla</a></li>
+<li><a href="Camille_Tissot" title="Camille Tissot">Camille Tissot</a></li>
+<li><a href="Alfred_Vail" title="Alfred Vail">Alfred Vail</a></li>
+<li><a href="Thomas_A._Watson" title="Thomas A. Watson">Thomas A. Watson</a></li>
+<li><a href="Charles_Wheatstone" title="Charles Wheatstone">Charles Wheatstone</a></li>
+<li><a href="Vladimir_K._Zworykin" title="Vladimir K. Zworykin">Vladimir K. Zworykin</a></li>
+<li><i><a href="List_of_Internet_pioneers" title="List of Internet pioneers">Internet pioneers</a></i></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Transmission_medium" title="Transmission medium">Transmission<br />media</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Coaxial_cable" title="Coaxial cable">Coaxial cable</a></li>
+<li><a href="Fiber-optic_communication" title="Fiber-optic communication">Fiber-optic communication</a>
+<ul><li><a href="Optical_fiber" title="Optical fiber">optical fiber</a></li></ul></li>
+<li><a href="Free-space_optical_communication" title="Free-space optical communication">Free-space optical communication</a></li>
+<li><a href="Molecular_communication" title="Molecular communication">Molecular communication</a></li>
+<li><a href="Radio_wave" title="Radio wave">Radio waves</a>
+<ul><li><a href="Wireless" title="Wireless">wireless</a></li></ul></li>
+<li><a href="Transmission_line" title="Transmission line">Transmission line</a>
+<ul><li><a href="Telecommunication_circuit" title="Telecommunication circuit">telecommunication circuit</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Network_topology" title="Network topology">Network topology</a><br />and switching</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Bandwidth_(computing)" title="Bandwidth (computing)">Bandwidth</a></li>
+<li><a href="Telecommunications_link" title="Telecommunications link">Links</a></li>
+<li><a href="Network_switch" title="Network switch">Network switching</a>
+<ul><li><a href="Circuit_switching" title="Circuit switching">circuit</a></li>
+<li><a href="Packet_switching" title="Packet switching">packet</a></li></ul></li>
+<li><a href="Node_(networking)" title="Node (networking)">Nodes</a>
+<ul><li><a href="Terminal_(telecommunication)" title="Terminal (telecommunication)">terminal</a></li></ul></li>
+<li><a href="Telephone_exchange" title="Telephone exchange">Telephone exchange</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Multiplexing" title="Multiplexing">Multiplexing</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Space-division_multiple_access" title="Space-division multiple access">Space-division</a></li>
+<li><a href="Frequency-division_multiplexing" title="Frequency-division multiplexing">Frequency-division</a></li>
+<li><a href="Time-division_multiplexing" title="Time-division multiplexing">Time-division</a></li>
+<li><a href="Polarization-division_multiplexing" title="Polarization-division multiplexing">Polarization-division</a></li>
+<li><a href="Orbital_angular_momentum_multiplexing" title="Orbital angular momentum multiplexing">Orbital angular-momentum</a></li>
+<li><a href="Code-division_multiple_access" title="Code-division multiple access">Code-division</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concepts</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Communication_protocol" title="Communication protocol">Communication protocol</a></li>
+<li><a href="Computer_network" title="Computer network">Computer network</a></li>
+<li><a href="Data_communication" title="Data communication">Data transmission</a></li>
+<li><a href="Store_and_forward" title="Store and forward">Store and forward</a></li>
+<li><a href="Telecommunications_equipment" title="Telecommunications equipment">Telecommunications equipment</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Telecommunications_network" title="Telecommunications network">Types of network</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Cellular_network" title="Cellular network">Cellular network</a></li>
+<li><a href="Ethernet" title="Ethernet">Ethernet</a></li>
+<li><a href="Integrated_Services_Digital_Network" class="mw-redirect" title="Integrated Services Digital Network">ISDN</a></li>
+<li><a href="Local_area_network" title="Local area network">LAN</a></li>
+<li><a href="Mobile_telephony" title="Mobile telephony">Mobile</a></li>
+<li><a href="Next-generation_network" title="Next-generation network">NGN</a></li>
+<li><a href="Public_switched_telephone_network" title="Public switched telephone network">Public Switched Telephone</a></li>
+<li><a href="Radio_network" title="Radio network">Radio</a></li>
+<li><a href="Television_broadcasting" class="mw-redirect" title="Television broadcasting">Television</a></li>
+<li><a href="Telex" title="Telex">Telex</a></li>
+<li><a href="UUCP" title="UUCP">UUCP</a></li>
+<li><a href="Wide_area_network" title="Wide area network">WAN</a></li>
+<li><a href="Wireless_network" title="Wireless network">Wireless network</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Telecommunications_network" title="Telecommunications network">Notable networks</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ARPANET" title="ARPANET">ARPANET</a></li>
+<li><a href="BITNET" title="BITNET">BITNET</a></li>
+<li><a href="CYCLADES" title="CYCLADES">CYCLADES</a></li>
+<li><a href="FidoNet" title="FidoNet">FidoNet</a></li>
+<li><a href="Internet" title="Internet">Internet</a></li>
+<li><a href="Internet2" title="Internet2">Internet2</a></li>
+<li><a href="JANET" title="JANET">JANET</a></li>
+<li><a href="NPL_network" title="NPL network">NPL network</a></li>
+<li><a href="TANet" title="TANet">TANet</a></li>
+<li><a href="Toasternet" title="Toasternet">Toasternet</a></li>
+<li><a href="Usenet" title="Usenet">Usenet</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Locations</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Category:Telecommunications_in_Africa" title="Category:Telecommunications in Africa">Africa</a></li>
+<li>Americas
+<ul><li><a href="Category:Telecommunications_in_North_America" title="Category:Telecommunications in North America">North</a></li>
+<li><a href="Category:Telecommunications_in_South_America" title="Category:Telecommunications in South America">South</a></li></ul></li>
+<li><a href="Category:Communications_in_Antarctica" title="Category:Communications in Antarctica">Antarctica</a></li>
+<li><a href="Category:Telecommunications_in_Asia" title="Category:Telecommunications in Asia">Asia</a></li>
+<li><a href="Category:Telecommunications_in_Europe" title="Category:Telecommunications in Europe">Europe</a></li>
+<li><a href="Category:Telecommunications_in_Oceania" title="Category:Telecommunications in Oceania">Oceania</a></li>
+<li><i><a href="List_of_telecommunications_regulatory_bodies" title="List of telecommunications regulatory bodies">Global telecommunications regulation bodies</a></i></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><span class="nowrap"><span class="noviewer" typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Telecom-icon.svg/20px-Telecom-icon.svg.png" decoding="async" width="15" height="15" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Telecom-icon.svg/40px-Telecom-icon.svg.png 1.5x" data-file-width="500" data-file-height="500" /></span></span> </span><a href="Portal:Telecommunication" title="Portal:Telecommunication">Telecommunication&#32;portal</a></li>
+<li><span class="noviewer" typeof="mw:File"><span title="Category"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/20px-Symbol_category_class.svg.png" decoding="async" width="16" height="16" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/40px-Symbol_category_class.svg.png 1.5x" data-file-width="180" data-file-height="185" /></span></span> <a href="Category:Telecommunications" title="Category:Telecommunications">Category</a></li>
+<li><span class="noviewer" typeof="mw:File"><span title="List-Class article"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/20px-Symbol_list_class.svg.png" decoding="async" width="16" height="16" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/40px-Symbol_list_class.svg.png 1.5x" data-file-width="180" data-file-height="185" /></span></span> <a href="Outline_of_telecommunication" title="Outline of telecommunication">Outline</a></li>
+<li><span class="noviewer" typeof="mw:File"><a href="File:Commons-logo.svg" class="mw-file-description" title="Commons page"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/20px-Commons-logo.svg.png" decoding="async" width="12" height="16" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/40px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></a></span> <a href="https://commons.wikimedia.org/wiki/Category:Telecommunications" class="extiw" title="commons:Category:Telecommunications">Commons</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.codfw.main‐79c9f68895‐ht4d5
+Cached time: 20260106025305
+Cache expiry: 76026
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.450 seconds
+Real time usage: 0.553 seconds
+Preprocessor visited node count: 1266/1000000
+Revision size: 10212/2097152 bytes
+Post‐expand include size: 121879/2097152 bytes
+Template argument size: 499/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 76500/5000000 bytes
+Lua time usage: 0.265/10.000 seconds
+Lua memory usage: 5013748/52428800 bytes
+Number of Wikibase entities loaded: 0/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  390.753      1 -total
+ 43.30%  169.194      1 Template:Reflist
+ 37.97%  148.385     12 Template:Cite_web
+ 37.86%  147.937      8 Template:Navbox
+ 26.10%  101.995      1 Template:Digital_modes
+ 17.46%   68.240      1 Template:Short_description
+ 10.46%   40.888      2 Template:Pagetype
+  6.77%   26.437      1 Template:Telecommunications
+  3.65%   14.248      3 Template:Main_other
+  3.63%   14.173      1 Template:Amateur_radio_topics
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:55681284:|#|:idhash:canonical and timestamp 20260106025305 and revision id 1322456739. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/FT8">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

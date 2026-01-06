@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low-pass filter - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; Low-pass filter
+    </nav>
+    <article>
+        <h1>Low-pass filter</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Type of signal filter</div>
+<style data-mw-deduplicate="TemplateStyles:r1305433154">.mw-parser-output .ambox{border:1px solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output .ambox+link+.ambox,.mw-parser-output .ambox+link+style+.ambox,.mw-parser-output .ambox+link+link+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+style+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+link+.ambox{margin-top:-1px}html body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px 0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em 0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px 0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px 0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ambox .mbox-image-div{width:52px}@media(min-width:720px){.mw-parser-output .ambox{margin:0 10%}}@media print{body.ns-0 .mw-parser-output .ambox{display:none!important}}</style><table class="box-More&#95;citations&#95;needed plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><a href="File:Question_book-new.svg" class="mw-file-description"><img alt="icon" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/60px-Question_book-new.svg.png" decoding="async" width="50" height="39" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/120px-Question_book-new.svg.png 1.5x" data-file-width="512" data-file-height="399" /></a></span></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>needs additional citations for <a href="Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>.<span class="hide-when-compact"> Please help <a href="Special:EditPage/Low-pass_filter" title="Special:EditPage/Low-pass filter">improve this article</a> by <a href="Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.<br /><small><span class="plainlinks"><i>Find sources:</i>&#160;<a rel="nofollow" class="external text" href="https://www.google.com/search?as_eq=wikipedia&amp;q=%22Low-pass+filter%22">"Low-pass filter"</a>&#160;–&#160;<a rel="nofollow" class="external text" href="https://www.google.com/search?tbm=nws&amp;q=%22Low-pass+filter%22+-wikipedia&amp;tbs=ar:1">news</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.google.com/search?&amp;q=%22Low-pass+filter%22&amp;tbs=bkt:s&amp;tbm=bks">newspapers</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.google.com/search?tbs=bks:1&amp;q=%22Low-pass+filter%22+-wikipedia">books</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://scholar.google.com/scholar?q=%22Low-pass+filter%22">scholar</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.jstor.org/action/doBasicSearch?Query=%22Low-pass+filter%22&amp;acc=on&amp;wc=on">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">May 2023</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>A <b>low-pass filter</b> is a <a href="Filter_(signal_processing)" title="Filter (signal processing)">filter</a> that passes <a href="Signal_(electrical_engineering)" class="mw-redirect" title="Signal (electrical engineering)">signals</a> with a <a href="Frequency" title="Frequency">frequency</a> lower than a selected <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> and <a href="Attenuate" class="mw-redirect" title="Attenuate">attenuates</a> signals with frequencies higher than the cutoff frequency. The exact <a href="Frequency_response" title="Frequency response">frequency response</a> of the filter depends on the <a href="Filter_design" title="Filter design">filter design</a>. The filter is sometimes called a <b>high-cut filter</b>, or <b>treble-cut filter</b> in audio applications. A low-pass filter is the complement of a <a href="High-pass_filter" title="High-pass filter">high-pass filter</a>.
+</p><p>In optics, <b>high-pass</b> and <b>low-pass</b> may have different meanings, depending on whether referring to the frequency or wavelength of light, since these variables are inversely related. High-pass frequency filters would act as low-pass wavelength filters, and vice versa.  For this reason, it is a good practice to refer to wavelength filters as <i>short-pass</i> and <i>long-pass</i> to avoid confusion, which would correspond to <i>high-pass</i> and <i>low-pass</i> frequencies.<sup id="cite&#95;ref-globalspec.com&#95;1-0" class="reference"><a href="#cite_note-globalspec.com-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Low-pass filters exist in many different forms, including electronic circuits such as a <i><a href="Hiss_filter" class="mw-redirect" title="Hiss filter">hiss filter</a></i> used in <a href="Sound_recording" class="mw-redirect" title="Sound recording">audio</a>, <a href="Anti-aliasing_filter" title="Anti-aliasing filter">anti-aliasing filters</a> for conditioning signals before <a href="Analog-to-digital_conversion" class="mw-redirect" title="Analog-to-digital conversion">analog-to-digital conversion</a>, <a href="Digital_filter" title="Digital filter">digital filters</a> for smoothing sets of data, acoustic barriers, <a href="Gaussian_blur" title="Gaussian blur">blurring</a> of images, and so on. The <a href="Moving_average_(finance)" class="mw-redirect" title="Moving average (finance)">moving average</a> operation used in fields such as finance is a particular kind of low-pass filter and can be analyzed with the same <a href="Signal_processing" title="Signal processing">signal processing</a> techniques as are used for other low-pass filters.  Low-pass filters provide a smoother form of a signal, removing the short-term fluctuations and leaving the longer-term trend.
+</p><p>Filter designers will often use the low-pass form as a <a href="Prototype_filter" title="Prototype filter">prototype filter</a>.  That is a filter with unity bandwidth and impedance.  The desired filter is obtained from the prototype by scaling for the desired bandwidth and impedance and transforming into the desired bandform (that is, low-pass, high-pass, <a href="Band-pass_filter" title="Band-pass filter">band-pass</a> or <a href="Band-stop_filter" title="Band-stop filter">band-stop</a>).
+</p>
+
+<div class="mw-heading mw-heading2"><h2 id="Examples">Examples</h2></div>
+<p>Examples of low-pass filters occur in <a href="Acoustics" title="Acoustics">acoustics</a>, <a href="Optics" title="Optics">optics</a> and <a href="Electronics" title="Electronics">electronics</a>.
+</p><p>A stiff physical barrier tends to reflect higher sound frequencies, acting as an acoustic low-pass filter for transmitting sound. When music is playing in another room, the low notes are easily heard, while the high notes are attenuated.
+</p><p>An <a href="Optical_filter" title="Optical filter">optical filter</a> with the same function can correctly be called a low-pass filter, but conventionally is called a <i>longpass</i> filter (low frequency is long wavelength), to avoid confusion.<sup id="cite&#95;ref-globalspec.com&#95;1-1" class="reference"><a href="#cite_note-globalspec.com-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>In an electronic low-pass <a href="RC_filter" class="mw-redirect" title="RC filter">RC filter</a> for voltage signals, high frequencies in the input signal are attenuated, but the filter has little attenuation below the <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> determined by its <a href="RC_time_constant" title="RC time constant">RC time constant</a>. For current signals, a similar circuit, using a resistor and capacitor in <a href="Parallel_circuits#Parallel_circuits" class="mw-redirect" title="Parallel circuits">parallel</a>, works in a similar manner.  (See <a href="Current_divider" title="Current divider">current divider</a> discussed in more detail <a href="#Electronic_low-pass_filters">below</a>.)
+</p><p>Electronic low-pass filters are used on inputs to <a href="Subwoofer" title="Subwoofer">subwoofers</a> and other types of <a href="Loudspeaker" title="Loudspeaker">loudspeakers</a>, to block high pitches that they cannot efficiently reproduce. Radio transmitters use low-pass filters to block <a href="Harmonic" title="Harmonic">harmonic</a> emissions that might interfere with other communications. The tone knob on many <a href="Electric_guitar" title="Electric guitar">electric guitars</a> is a low-pass filter used to reduce the amount of treble in the sound. An <a href="Integrator" title="Integrator">integrator</a> is another <a href="Time_constant#Time_constants_in_electrical_circuits" title="Time constant">time constant</a> low-pass filter.<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Telephone lines fitted with <a href="DSL_splitter" class="mw-redirect" title="DSL splitter">DSL splitters</a> use low-pass filters to separate <a href="Digital_subscriber_line" title="Digital subscriber line">DSL</a> from <a href="Plain_old_telephone_service" title="Plain old telephone service">POTS</a> signals (and <a href="High-pass_filter" title="High-pass filter">high-pass</a> vice versa), which share the same <a href="Twisted_pair" title="Twisted pair">pair</a> of wires (<i>transmission channel</i>).<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Low-pass filters also play a significant role in the sculpting of sound created by analogue and virtual analogue <a href="Synthesiser" class="mw-redirect" title="Synthesiser">synthesisers</a>. <i>See <a href="Subtractive_synthesis" title="Subtractive synthesis">subtractive synthesis</a>.</i>
+</p><p>A low-pass filter is used as an <a href="Anti-aliasing_filter" title="Anti-aliasing filter">anti-aliasing filter</a> before <a href="Sampling_(signal_processing)" title="Sampling (signal processing)">sampling</a> and for <a href="Reconstruction_filter" title="Reconstruction filter">reconstruction</a> in <a href="Digital-to-analog_conversion" class="mw-redirect" title="Digital-to-analog conversion">digital-to-analog conversion</a>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Ideal_and_real_filters">Ideal and real filters</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:Sinc_function_(normalized).svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sinc_function_%28normalized%29.svg/250px-Sinc_function_%28normalized%29.svg.png" decoding="async" width="250" height="172" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sinc_function_%28normalized%29.svg/500px-Sinc_function_%28normalized%29.svg.png 1.5x" data-file-width="908" data-file-height="623" /></a><figcaption>The <a href="Sinc_function" title="Sinc function">sinc function</a>, the time-domain <a href="Impulse_response" title="Impulse response">impulse response</a> of an ideal low-pass filter. The ripples of a true sinc extend infinitely to the left and right while getting smaller and smaller, but this particular graph is truncated.</figcaption></figure>
+<figure typeof="mw:File/Thumb"><a href="File:Butterworth_response.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Butterworth_response.svg/500px-Butterworth_response.svg.png" decoding="async" width="350" height="263" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Butterworth_response.svg/960px-Butterworth_response.svg.png 1.5x" data-file-width="512" data-file-height="384" /></a><figcaption>The gain-magnitude frequency response of a first-order (one-pole) low-pass filter. <i>Power gain</i> is shown in decibels (i.e., a 3 <a href="Decibel" title="Decibel">dB</a> decline reflects an additional <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle 1/{\sqrt {2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mn>2</mn>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle 1/{\sqrt {2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a0f7c1739a99eaa4efd2a588d6d0d088a6d172f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.423ex; height:3.176ex;" alt="{\textstyle 1/{\sqrt {2}}}" /></span> attenuation). <a href="Angular_frequency" title="Angular frequency">Angular frequency</a> is shown on a logarithmic scale in units of radians per second.</figcaption></figure>
+<p>An <a href="Sinc_filter" title="Sinc filter">ideal low-pass filter</a> completely eliminates all frequencies above the <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> while passing those below unchanged; its <a href="Frequency_response" title="Frequency response">frequency response</a> is a <a href="Rectangular_function" title="Rectangular function">rectangular function</a> and is a <a href="Brick-wall_filter" class="mw-redirect" title="Brick-wall filter">brick-wall filter</a>.  The transition region present in practical filters does not exist in an ideal filter.  An ideal low-pass filter can be realized mathematically (theoretically) by multiplying a signal by the rectangular function in the frequency domain or, equivalently, <a href="Convolution" title="Convolution">convolution</a> with its <a href="Impulse_response" title="Impulse response">impulse response</a>, a <a href="Sinc_function" title="Sinc function">sinc function</a>, in the time domain.
+</p><p>However, the ideal filter is impossible to realize without also having signals of infinite extent in time, and so generally needs to be approximated for real ongoing signals, because the sinc function's support region extends to all past and future times.  The filter would therefore need to have infinite delay, or knowledge of the infinite future and past, to perform the convolution.  It is effectively realizable for pre-recorded digital signals by assuming extensions of zero into the past and future, or, more typically, by making the signal repetitive and using Fourier analysis.
+</p><p>Real filters for <a href="Real-time_computing" title="Real-time computing">real-time</a> applications approximate the ideal filter by truncating and <a href="Window_function" title="Window function">windowing</a> the infinite impulse response to make a <a href="Finite_impulse_response" title="Finite impulse response">finite impulse response</a>; applying that filter requires delaying the signal for a moderate period of time, allowing the computation to "see" a little bit into the future.  This delay is manifested as <a href="Phase_(waves)" title="Phase (waves)">phase shift</a>.  Greater accuracy in approximation requires a longer delay.
+</p><p>Truncating an ideal low-pass filter result in <a href="Ringing_artifacts" title="Ringing artifacts">ringing artifacts</a> via the <a href="Gibbs_phenomenon" title="Gibbs phenomenon">Gibbs phenomenon</a>, which can be reduced or worsened by the choice of windowing function. <a href="Window_function#Filter_design" title="Window function">Design and choice of real filters</a> involves understanding and minimizing these artifacts. For example, simple truncation of the sinc function will create severe ringing artifacts, which can be reduced using window functions that drop off more smoothly at the edges.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The <a href="Whittaker%E2%80%93Shannon_interpolation_formula" title="Whittaker–Shannon interpolation formula">Whittaker–Shannon interpolation formula</a> describes how to use a perfect low-pass filter to reconstruct a <a href="Continuous_signal" class="mw-redirect" title="Continuous signal">continuous signal</a> from a sampled <a href="Digital_signal_(signal_processing)" title="Digital signal (signal processing)">digital signal</a>.  Real <a href="Digital-to-analog_converter" title="Digital-to-analog converter">digital-to-analog converters</a> uses real filter approximations.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Time_response">Time response</h2></div>
+<p>The time response of a low-pass filter is found by solving the response to the simple low-pass RC filter.
+</p>
+<figure class="mw-halign-right" typeof="mw:File/Frame"><a href="File:1st_Order_Lowpass_Filter_RC.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/250px-1st_Order_Lowpass_Filter_RC.svg.png" decoding="async" width="250" height="140" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/500px-1st_Order_Lowpass_Filter_RC.svg.png 1.5x" data-file-width="250" data-file-height="140" /></a><figcaption>A simple low-pass <a href="RC_circuit" title="RC circuit">RC filter</a></figcaption></figure><p>Using <a href="Kirchhoff%27s_circuit_laws" title="Kirchhoff&#39;s circuit laws">Kirchhoff's Laws</a> we arrive at the differential equation<sup id="cite&#95;ref-:0&#95;6-0" class="reference"><a href="#cite_note-:0-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup>
+</p><dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{out}}(t)=v_{\text{in}}(t)-RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>R</mi>
+        <mi>C</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <msub>
+                <mi>v</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>out</mtext>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>t</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{out}}(t)=v_{\text{in}}(t)-RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/49ee39d713c437846224c0c45e18c279dedd11f7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:27.485ex; height:5.509ex;" alt="{\displaystyle v_{\text{out}}(t)=v_{\text{in}}(t)-RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}" /></span></dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Step_input_response_example">Step input response example</h3></div>
+<p>If we let <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{in}}(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{in}}(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/308208adf7eee114ea423d42557b63ac72747a72" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.38ex; height:2.843ex;" alt="{\displaystyle v_{\text{in}}(t)}" /></span> be a step function of magnitude <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f300b83673e961a9d48f3862216b167f94e5668c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.155ex; height:2.509ex;" alt="{\displaystyle V_{i}}" /></span> then the differential equation has the solution<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t}),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t}),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81925fbfd312592479ade2c075f755b16692bac7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.139ex; height:3.009ex;" alt="{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t}),}" /></span></dd></dl>
+<p>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \omega _{0}={1 \over RC}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x3c9;<!-- ω --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mi>R</mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{0}={1 \over RC}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/858919f4e9ed3e142e6fe993cc23b7edd49a2f49" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:9.965ex; height:5.343ex;" alt="{\displaystyle \omega _{0}={1 \over RC}}" /></span> is the cutoff frequency of the filter.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Frequency_response">Frequency response</h2></div>
+<p>The most common way to characterize the frequency response of a circuit is to find its Laplace transform<sup id="cite&#95;ref-:0&#95;6-1" class="reference"><a href="#cite_note-:0-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup> transfer function, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">o</mi>
+                    <mi mathvariant="normal">u</mi>
+                    <mi mathvariant="normal">t</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>s</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">n</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>s</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cb3cff0e1d91e804ff041f9f2068e88868b74284" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:15.761ex; height:6.509ex;" alt="{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}}" /></span>. Taking the Laplace transform of our differential equation and solving for <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H(s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f1b91390324fc9c33ec00fe57e3924ad7118cc1e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:4.963ex; height:2.843ex;" alt="{\displaystyle H(s)}" /></span> we get
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}={\omega _{0} \over s+\omega _{0}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">o</mi>
+                    <mi mathvariant="normal">u</mi>
+                    <mi mathvariant="normal">t</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>s</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">n</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>s</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <mi>s</mi>
+              <mo>+</mo>
+              <msub>
+                <mi>&#x3c9;<!-- ω --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>0</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}={\omega _{0} \over s+\omega _{0}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33ff239addc7cb86bc1b4d1a6ef6eaed40769bec" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:26.126ex; height:6.509ex;" alt="{\displaystyle H(s)={V_{\rm {out}}(s) \over V_{\rm {in}}(s)}={\omega _{0} \over s+\omega _{0}}}" /></span></dd></dl>
+<div class="mw-heading mw-heading2"><h2 id="Difference_equation_through_discrete_time_sampling">Difference equation through discrete time sampling</h2></div>
+<p>A discrete <a href="Linear_difference_equation" class="mw-redirect" title="Linear difference equation">difference equation</a> is easily obtained by sampling the step input response above at regular intervals of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle nT}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nT}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/85a4bf4927fc82e66d517050af38955cf701357f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:3.031ex; height:2.176ex;" alt="{\displaystyle nT}" /></span> where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle n=0,1,...}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n=0,1,...}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0a6655fb86f119c24c95febd812e57568288053" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:11.601ex; height:2.509ex;" alt="{\displaystyle n=0,1,...}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="{\displaystyle T}" /></span> is the time between samples. Taking the difference between two consecutive samples we have
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\rm {out}}(nT)-v_{\rm {out}}((n-1)T)=V_{i}(1-e^{-\omega _{0}nT})-V_{i}(1-e^{-\omega _{0}((n-1)T)})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mi>n</mi>
+            <mi>T</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mo stretchy="false">(</mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+            <mi>T</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\rm {out}}(nT)-v_{\rm {out}}((n-1)T)=V_{i}(1-e^{-\omega _{0}nT})-V_{i}(1-e^{-\omega _{0}((n-1)T)})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/39a0acb85de5e583028236b58ab88e8b50c75307" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:65.519ex; height:3.343ex;" alt="{\displaystyle v_{\rm {out}}(nT)-v_{\rm {out}}((n-1)T)=V_{i}(1-e^{-\omega _{0}nT})-V_{i}(1-e^{-\omega _{0}((n-1)T)})}" /></span></dd></dl>
+<p>Solving for <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\rm {out}}(nT)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\rm {out}}(nT)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e08b4178e2a5a05f812e2d4fb31811721a451ff2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:8.576ex; height:2.843ex;" alt="{\displaystyle v_{\rm {out}}(nT)}" /></span> we get
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\rm {out}}(nT)=\beta v_{\rm {out}}((n-1)T)+(1-\beta )V_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\rm {out}}(nT)=\beta v_{\rm {out}}((n-1)T)+(1-\beta )V_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bee94b2a1e3d17d7de9ff22d2f8a3a2519d0c126" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:39.534ex; height:2.843ex;" alt="{\displaystyle v_{\rm {out}}(nT)=\beta v_{\rm {out}}((n-1)T)+(1-\beta )V_{i}}" /></span></dd></dl>
+<p>Where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \beta =e^{-\omega _{0}T}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b2;<!-- β --></mi>
+        <mo>=</mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mi>T</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \beta =e^{-\omega _{0}T}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d891264b4f02300f95165223492a554c427bd032" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:10.036ex; height:3.009ex;" alt="{\displaystyle \beta =e^{-\omega _{0}T}}" /></span>
+</p><p>Using the notation <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{n}=v_{\rm {out}}(nT)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{n}=v_{\rm {out}}(nT)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/69c7cedfb9afae0bcbc8319c4dd29e4bc2cd71a8" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:14.248ex; height:2.843ex;" alt="{\displaystyle V_{n}=v_{\rm {out}}(nT)}" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{n}=v_{\rm {in}}(nT)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{n}=v_{\rm {in}}(nT)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0a072dfcebd84e1d517b8ec69633bf058181e92" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.016ex; height:2.843ex;" alt="{\displaystyle v_{n}=v_{\rm {in}}(nT)}" /></span>, and substituting our sampled value, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{n}=V_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{n}=V_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b2b8a73ae26af56de6c73c74341e0a0b6fc204e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:7.599ex; height:2.509ex;" alt="{\displaystyle v_{n}=V_{i}}" /></span>, we get the difference equation
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7e8abcf30dbe3b806dc1855578b14c284eec29ad" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:24.009ex; height:2.843ex;" alt="{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}" /></span></dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Error_analysis">Error analysis</h3></div>
+<p>Comparing the reconstructed output signal from the difference equation, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x3b2;<!-- β --></mi>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7e8abcf30dbe3b806dc1855578b14c284eec29ad" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:24.009ex; height:2.843ex;" alt="{\displaystyle V_{n}=\beta V_{n-1}+(1-\beta )v_{n}}" /></span>, to the step input response, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>&#x3c9;<!-- ω --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6083ef1a14dd8bbc3cb0d83e241fdee47ccbf086" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:22.492ex; height:3.009ex;" alt="{\displaystyle v_{\text{out}}(t)=V_{i}(1-e^{-\omega _{0}t})}" /></span>, we find that there is an exact reconstruction (0% error). This is the reconstructed output for a time-invariant input. However, if the input is <i>time variant</i>, such as <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{in}}(t)=V_{i}\sin(\omega t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mi>sin</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>&#x3c9;<!-- ω --></mi>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{in}}(t)=V_{i}\sin(\omega t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8ba10eafc3d1d6ca29a06c724672f1e27b709252" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.971ex; height:2.843ex;" alt="{\displaystyle v_{\text{in}}(t)=V_{i}\sin(\omega t)}" /></span>, this model approximates the input signal as a series of step functions with duration <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="{\displaystyle T}" /></span> producing an error in the reconstructed output signal. The error produced from <i>time variant</i> inputs is difficult to quantify<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2020)">citation needed</span></a></i>&#93;</sup> but decreases as <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle T\rightarrow 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T\rightarrow 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/672ff7796eff3b90693dcc15901f1e7d9ab810d9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.413ex; height:2.176ex;" alt="{\displaystyle T\rightarrow 0}" /></span>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Discrete-time_realization">Discrete-time realization</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1320445320">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div role="note" class="hatnote navigation-not-searchable">For another method of conversion from continuous- to discrete-time, see <a href="Bilinear_transform" title="Bilinear transform">Bilinear transform</a>.</div>
+<p>Many <a href="Digital_filter" title="Digital filter">digital filters</a> are designed to give low-pass characteristics. Both <a href="Infinite_impulse_response" title="Infinite impulse response">infinite impulse response</a> and <a href="Finite_impulse_response" title="Finite impulse response">finite impulse response</a> low pass filters, as well as filters using <a href="Fourier_transform" title="Fourier transform">Fourier transforms</a>, are widely used.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Simple_infinite_impulse_response_filter">Simple infinite impulse response filter</h3></div>
+<p>The effect of an infinite impulse response low-pass filter can be simulated on a computer by analyzing an RC filter's behavior in the time domain, and then <a href="Discrete_signal" class="mw-redirect" title="Discrete signal">discretizing</a> the model.
+</p>
+<figure class="mw-halign-right" typeof="mw:File/Frame"><a href="File:1st_Order_Lowpass_Filter_RC.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/250px-1st_Order_Lowpass_Filter_RC.svg.png" decoding="async" width="250" height="140" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/500px-1st_Order_Lowpass_Filter_RC.svg.png 1.5x" data-file-width="250" data-file-height="140" /></a><figcaption>A simple low-pass <a href="RC_circuit" title="RC circuit">RC filter</a></figcaption></figure>
+<p>From the circuit diagram to the right, according to <a href="Kirchhoff%27s_circuit_laws" title="Kirchhoff&#39;s circuit laws">Kirchhoff's Laws</a> and the definition of <a href="Capacitance" title="Capacitance">capacitance</a>:
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1266403038">.mw-parser-output table.numblk{border-collapse:collapse;border:none;margin-top:0;margin-right:0;margin-bottom:0}.mw-parser-output table.numblk>tbody>tr>td{vertical-align:middle;padding:0}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2){width:99%}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table{border-collapse:collapse;margin:0;border:none;width:100%}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:first-child>td:first-child,.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:first-child>td:last-child{padding:0 0.4ex}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:first-child>td:nth-child(2){width:100%;padding:0}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:last-child>td{padding:0}.mw-parser-output table.numblk>tbody>tr>td:last-child{font-weight:bold}.mw-parser-output table.numblk.numblk-raw-n>tbody>tr>td:last-child{font-weight:unset}.mw-parser-output table.numblk>tbody>tr>td:last-child::before{content:"("}.mw-parser-output table.numblk>tbody>tr>td:last-child::after{content:")"}.mw-parser-output table.numblk.numblk-raw-n>tbody>tr>td:last-child::before,.mw-parser-output table.numblk.numblk-raw-n>tbody>tr>td:last-child::after{content:none}.mw-parser-output table.numblk>tbody>tr>td{border:none}.mw-parser-output table.numblk.numblk-border>tbody>tr>td{border:thin solid}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:first-child>td{border:none}.mw-parser-output table.numblk.numblk-border>tbody>tr>td:nth-child(2)>table>tbody>tr:first-child>td{border:thin solid}.mw-parser-output table.numblk>tbody>tr>td:nth-child(2)>table>tbody>tr:last-child>td{border-left:none;border-right:none;border-bottom:none}.mw-parser-output table.numblk.numblk-border>tbody>tr>td:nth-child(2)>table>tbody>tr:last-child>td{border-left:thin solid;border-right:thin solid;border-bottom:thin solid}.mw-parser-output table.numblk:target{color:var(--color-base,#202122);background-color:#cfe8fd}@media screen{html.skin-theme-clientpref-night .mw-parser-output table.numblk:target{color:var(--color-base,#eaecf0);background-color:#301702}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output table.numblk:target{color:var(--color-base,#eaecf0);background-color:#301702}}</style><table role="presentation" class="numblk" style="margin-left: 3.2em;"><tbody><tr><td class="nowrap"><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=R\;i(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>R</mi>
+        <mspace width="thickmathspace"></mspace>
+        <mi>i</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=R\;i(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f8cb4ef3f319464bbafb13b5d60a3680b76d45c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:23.564ex; height:2.843ex;" alt="{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=R\;i(t)}" /></span></td> <td></td> <td class="nowrap"><span id="math&#95;V" class="reference nourlexpansion" style="font-weight:bold;">V</span></td></tr></tbody></table>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1266403038" /><table role="presentation" class="numblk" style="margin-left: 3.2em;"><tbody><tr><td class="nowrap"><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Q_{c}(t)=C\,v_{\text{out}}(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>C</mi>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{c}(t)=C\,v_{\text{out}}(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42e3dbee48c2c61254df58b594cf919995486734" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:17.068ex; height:2.843ex;" alt="{\displaystyle Q_{c}(t)=C\,v_{\text{out}}(t)}" /></span></td> <td></td> <td class="nowrap"><span id="math&#95;Q" class="reference nourlexpansion" style="font-weight:bold;">Q</span></td></tr></tbody></table>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1266403038" /><table role="presentation" class="numblk" style="margin-left: 3.2em;"><tbody><tr><td class="nowrap"><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle i(t)={\frac {\operatorname {d} Q_{c}}{\operatorname {d} t}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <msub>
+                <mi>Q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>t</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i(t)={\frac {\operatorname {d} Q_{c}}{\operatorname {d} t}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffc48956e7bed7bd0c7d6a9dab4f370ec1d01b34" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:11.848ex; height:5.509ex;" alt="{\displaystyle i(t)={\frac {\operatorname {d} Q_{c}}{\operatorname {d} t}}}" /></span></td> <td></td> <td class="nowrap"><span id="math&#95;I" class="reference nourlexpansion" style="font-weight:bold;">I</span></td></tr></tbody></table>
+<p>where <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Q_{c}(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{c}(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/898c57e8fe87cec8beca4bafb7fc8508848bfbf5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:5.431ex; height:2.843ex;" alt="{\displaystyle Q_{c}(t)}" /></span> is the charge stored in the capacitor at time  <span class="texhtml mvar" style="font-style:italic;"> t</span>. Substituting equation <b><a href="#math_Q">Q</a></b> into equation <b><a href="#math_I">I</a></b> gives <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle i(t)\;=\;C{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thickmathspace"></mspace>
+        <mo>=</mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi>C</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <msub>
+                <mi>v</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>out</mtext>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>t</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i(t)\;=\;C{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51094445f59fc212776da2775e0cc75b61a5e4a1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:15.858ex; height:5.509ex;" alt="{\displaystyle i(t)\;=\;C{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}}" /></span>, which can be substituted into equation <b><a href="#math_V">V</a></b> so that
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>R</mi>
+        <mi>C</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <msub>
+                <mi>v</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>out</mtext>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">d</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>t</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f35770c7c625483f23d626db794252122eeddfa5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:28.132ex; height:5.509ex;" alt="{\displaystyle v_{\text{in}}(t)-v_{\text{out}}(t)=RC{\frac {\operatorname {d} v_{\text{out}}}{\operatorname {d} t}}.}" /></span></dd></dl>
+<p>This equation can be discretized. For simplicity, assume that samples of the input and output are taken at evenly spaced points in time separated by <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Delta _{T}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Delta _{T}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/de2ab103b073a960d85c061aeadaa5cb6d66dbc9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.325ex; height:2.509ex;" alt="{\displaystyle \Delta _{T}}" /></span> time. Let the samples of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{in}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>in</mtext>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{in}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1c2620c10ee74466ddb70d1d1693fc81da3b5f52" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.731ex; height:2.009ex;" alt="{\displaystyle v_{\text{in}}}" /></span> be represented by the sequence <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f7fedb95dcae7ab36de945e829ef11404516b772" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:16.499ex; height:2.843ex;" alt="{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}" /></span>, and let <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle v_{\text{out}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>out</mtext>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{\text{out}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6995972aaa3768ed8eccb42e15f0347fcad98d76" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.735ex; height:2.009ex;" alt="{\displaystyle v_{\text{out}}}" /></span> be represented by the sequence <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aee7de1aac1aef9d374dcfa5465050f0e69a0d46" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.927ex; height:2.843ex;" alt="{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}" /></span>, which correspond to the same points in time.     Making these substitutions,
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle x_{i}-y_{i}=RC\,{\frac {y_{i}-y_{i-1}}{\Delta _{T}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>R</mi>
+        <mi>C</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>y</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>y</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>i</mi>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <msub>
+              <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>T</mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}-y_{i}=RC\,{\frac {y_{i}-y_{i-1}}{\Delta _{T}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8dc522dee086433f238b65496740121425b9d53a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:24.226ex; height:5.676ex;" alt="{\displaystyle x_{i}-y_{i}=RC\,{\frac {y_{i}-y_{i-1}}{\Delta _{T}}}.}" /></span></dd></dl>
+<p>Rearranging terms gives the <a href="Recurrence_relation" title="Recurrence relation">recurrence relation</a>
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle y_{i}=\overbrace {x_{i}\left({\frac {\Delta _{T}}{RC+\Delta _{T}}}\right)} ^{\text{Input contribution}}+\overbrace {y_{i-1}\left({\frac {RC}{RC+\Delta _{T}}}\right)} ^{\text{Inertia from previous output}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mover>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <mover>
+              <mrow>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>i</mi>
+                  </mrow>
+                </msub>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mfrac>
+                      <msub>
+                        <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi>T</mi>
+                        </mrow>
+                      </msub>
+                      <mrow>
+                        <mi>R</mi>
+                        <mi>C</mi>
+                        <mo>+</mo>
+                        <msub>
+                          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>T</mi>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                    </mfrac>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mo>&#x23de;<!-- ⏞ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>Input contribution</mtext>
+          </mrow>
+        </mover>
+        <mo>+</mo>
+        <mover>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <mover>
+              <mrow>
+                <msub>
+                  <mi>y</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>i</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mfrac>
+                      <mrow>
+                        <mi>R</mi>
+                        <mi>C</mi>
+                      </mrow>
+                      <mrow>
+                        <mi>R</mi>
+                        <mi>C</mi>
+                        <mo>+</mo>
+                        <msub>
+                          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>T</mi>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                    </mfrac>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mo>&#x23de;<!-- ⏞ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>Inertia from previous output</mtext>
+          </mrow>
+        </mover>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i}=\overbrace {x_{i}\left({\frac {\Delta _{T}}{RC+\Delta _{T}}}\right)} ^{\text{Input contribution}}+\overbrace {y_{i-1}\left({\frac {RC}{RC+\Delta _{T}}}\right)} ^{\text{Inertia from previous output}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6c2e60ab240fd59dc15d9d4637514204d5a0889" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:45.717ex; height:9.676ex;" alt="{\displaystyle y_{i}=\overbrace {x_{i}\left({\frac {\Delta _{T}}{RC+\Delta _{T}}}\right)} ^{\text{Input contribution}}+\overbrace {y_{i-1}\left({\frac {RC}{RC+\Delta _{T}}}\right)} ^{\text{Inertia from previous output}}.}" /></span></dd></dl>
+<p>That is, this discrete-time implementation of a simple <i>RC</i> low-pass filter is the <a href="Exponential_smoothing" title="Exponential smoothing">exponentially weighted moving average</a>
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle y_{i}=\alpha x_{i}+(1-\alpha )y_{i-1}\qquad {\text{where}}\qquad \alpha :={\frac {\Delta _{T}}{RC+\Delta _{T}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>&#x3b1;<!-- α --></mi>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x3b1;<!-- α --></mi>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mspace width="2em"></mspace>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>where</mtext>
+        </mrow>
+        <mspace width="2em"></mspace>
+        <mi>&#x3b1;<!-- α --></mi>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>T</mi>
+              </mrow>
+            </msub>
+            <mrow>
+              <mi>R</mi>
+              <mi>C</mi>
+              <mo>+</mo>
+              <msub>
+                <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>T</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i}=\alpha x_{i}+(1-\alpha )y_{i-1}\qquad {\text{where}}\qquad \alpha :={\frac {\Delta _{T}}{RC+\Delta _{T}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f57006397ceff6884aa24f9598108551c56aa13" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:54.483ex; height:5.843ex;" alt="{\displaystyle y_{i}=\alpha x_{i}+(1-\alpha )y_{i-1}\qquad {\text{where}}\qquad \alpha :={\frac {\Delta _{T}}{RC+\Delta _{T}}}.}" /></span></dd></dl>
+<p>By definition, the <i>smoothing factor</i> is within the range <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle 0\;\leq \;\alpha \;\leq \;1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mspace width="thickmathspace"></mspace>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi>&#x3b1;<!-- α --></mi>
+        <mspace width="thickmathspace"></mspace>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mspace width="thickmathspace"></mspace>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\;\leq \;\alpha \;\leq \;1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/838f921f19aa6d2636ed25ddfea2260a016f369c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:12.59ex; height:2.343ex;" alt="{\displaystyle 0\;\leq \;\alpha \;\leq \;1}" /></span>. The expression for   <span class="texhtml mvar" style="font-style:italic;"> α</span>  yields the equivalent <a href="Time_constant" title="Time constant">time constant</a> <span class="texhtml"><i>RC</i></span> in terms of the sampling period <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Delta _{T}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Delta _{T}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/de2ab103b073a960d85c061aeadaa5cb6d66dbc9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.325ex; height:2.509ex;" alt="{\displaystyle \Delta _{T}}" /></span> and smoothing factor  <span class="texhtml mvar" style="font-style:italic;"> α</span>,
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle RC=\Delta _{T}\left({\frac {1-\alpha }{\alpha }}\right).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mi>C</mi>
+        <mo>=</mo>
+        <msub>
+          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msub>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mrow>
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>&#x3b1;<!-- α --></mi>
+              </mrow>
+              <mi>&#x3b1;<!-- α --></mi>
+            </mfrac>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle RC=\Delta _{T}\left({\frac {1-\alpha }{\alpha }}\right).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/724e32eb2d28d81b55e5dd28385555ef482a4f1a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:21.123ex; height:6.176ex;" alt="{\displaystyle RC=\Delta _{T}\left({\frac {1-\alpha }{\alpha }}\right).}" /></span></dd></dl>
+<p>Recalling that
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{c}={\frac {1}{2\pi RC}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <mi>R</mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{c}={\frac {1}{2\pi RC}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c19efc47accf71f4367a9d5ba699ab0d0bc979d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:12.043ex; height:5.343ex;" alt="{\displaystyle f_{c}={\frac {1}{2\pi RC}}}" /></span> so <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle RC={\frac {1}{2\pi f_{c}}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mi>C</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle RC={\frac {1}{2\pi f_{c}}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae7dcf4b0cc48e4fcc5a5bfca3aa88f2f165554" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:12.69ex; height:5.676ex;" alt="{\displaystyle RC={\frac {1}{2\pi f_{c}}},}" /></span></dd></dl>
+<p>note  <span class="texhtml mvar" style="font-style:italic;"> α</span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2b64a46c31800830b9fecc59b22812390e18c05" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.083ex; height:2.509ex;" alt="{\displaystyle f_{c}}" /></span> are related by,
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \alpha ={\frac {2\pi \Delta _{T}f_{c}}{2\pi \Delta _{T}f_{c}+1}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b1;<!-- α --></mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <msub>
+                <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>T</mi>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <msub>
+                <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>T</mi>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha ={\frac {2\pi \Delta _{T}f_{c}}{2\pi \Delta _{T}f_{c}+1}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/582e2fe147144354767288180055fe99e3700e8e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:17.328ex; height:6.176ex;" alt="{\displaystyle \alpha ={\frac {2\pi \Delta _{T}f_{c}}{2\pi \Delta _{T}f_{c}+1}}}" /></span></dd></dl>
+<p>and
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{c}={\frac {\alpha }{(1-\alpha )2\pi \Delta _{T}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>&#x3b1;<!-- α --></mi>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>&#x3b1;<!-- α --></mi>
+              <mo stretchy="false">)</mo>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <msub>
+                <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>T</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{c}={\frac {\alpha }{(1-\alpha )2\pi \Delta _{T}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/26d4e09d8b6206cfcdb884db842a2ffb917f153d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:19.784ex; height:5.509ex;" alt="{\displaystyle f_{c}={\frac {\alpha }{(1-\alpha )2\pi \Delta _{T}}}.}" /></span></dd></dl>
+<p>If   <span class="texhtml mvar" style="font-style:italic;"> α</span>=0.5,   then the <i>RC</i> time constant equals the sampling period. If <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \alpha \;\ll \;0.5}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b1;<!-- α --></mi>
+        <mspace width="thickmathspace"></mspace>
+        <mo>&#x226a;<!-- ≪ --></mo>
+        <mspace width="thickmathspace"></mspace>
+        <mn>0.5</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha \;\ll \;0.5}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/230edaa67f06c7f2ca509ffdfa2f0d256f549559" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:9.364ex; height:2.176ex;" alt="{\displaystyle \alpha \;\ll \;0.5}" /></span>, then <i>RC</i>  is significantly larger than the sampling interval, and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Delta _{T}\;\approx \;\alpha RC}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi mathvariant="normal">&#x394;<!-- Δ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msub>
+        <mspace width="thickmathspace"></mspace>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi>&#x3b1;<!-- α --></mi>
+        <mi>R</mi>
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Delta _{T}\;\approx \;\alpha RC}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/70ebe30cae36b9b2e6270d137b9d2d4c8cf5b947" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.732ex; height:2.509ex;" alt="{\displaystyle \Delta _{T}\;\approx \;\alpha RC}" /></span>.
+</p><p>The filter recurrence relation provides a way to determine the output samples in terms of the input samples and the preceding output.  The following <a href="Pseudocode" title="Pseudocode">pseudocode</a> algorithm simulates the effect of a low-pass filter on a series of digital samples:
+</p>
+<pre>// Return RC low-pass filter output samples, given input samples,
+// time interval <i>dt</i>, and time constant <i>RC</i>
+<b>function</b> lowpass(<i>real[1..n]</i> x, <i>real</i> dt, <i>real</i> RC)
+    <b>var</b> <i>real[1..n]</i> y
+    <b>var</b> <i>real</i> α&#160;:= dt / (RC + dt)
+    y[1]&#160;:= α * x[1]
+    <b>for</b> i <b>from</b> 2 <b>to</b> n
+        y[i]&#160;:= α * x[i] + (1-α) * y[i-1]
+    <b>return</b> y
+</pre>
+<p>The <a href="Programming_loop" class="mw-redirect" title="Programming loop">loop</a> that calculates each of the <i>n</i> outputs can be <a href="Code_refactoring" title="Code refactoring">refactored</a> into the equivalent:
+</p>
+<pre>    <b>for</b> i <b>from</b> 2 <b>to</b> n
+        y[i]&#160;:= y[i-1] + α * (x[i] - y[i-1])
+</pre>
+<p>That is, the change from one filter output to the next is <a href="Proportionality_(mathematics)" title="Proportionality (mathematics)">proportional</a> to the difference between the previous output and the next input. This <a href="Exponential_smoothing" title="Exponential smoothing">exponential smoothing</a> property matches the <a href="Exponential_function" title="Exponential function">exponential</a> decay seen in the continuous-time system. As expected, as the <a href="Time_constant" title="Time constant">time constant</a>  <i>RC</i>  increases, the discrete-time smoothing parameter <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \alpha }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b1;<!-- α --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b79333175c8b3f0840bfb4ec41b8072c83ea88d3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.488ex; height:1.676ex;" alt="{\displaystyle \alpha }" /></span> decreases, and the output samples <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aee7de1aac1aef9d374dcfa5465050f0e69a0d46" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.927ex; height:2.843ex;" alt="{\displaystyle (y_{1},\,y_{2},\,\ldots ,\,y_{n})}" /></span> respond more slowly to a change in the input samples <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mspace width="thinmathspace"></mspace>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f7fedb95dcae7ab36de945e829ef11404516b772" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:16.499ex; height:2.843ex;" alt="{\displaystyle (x_{1},\,x_{2},\,\ldots ,\,x_{n})}" /></span>; the system has more <i><a href="Inertia" title="Inertia">inertia</a></i>.  This filter is an <a href="Infinite-impulse-response" class="mw-redirect" title="Infinite-impulse-response">infinite-impulse-response</a> (IIR) single-pole low-pass filter.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Finite_impulse_response">Finite impulse response</h3></div>
+<p>Finite-impulse-response filters can be built that approximate the <a href="Sinc_function" title="Sinc function">sinc function</a> time-domain response of an ideal sharp-cutoff low-pass filter. For minimum distortion, the finite impulse response filter has an unbounded number of coefficients operating on an unbounded signal. In practice, the time-domain response must be time truncated and is often of a simplified shape; in the simplest case, a <a href="Running_average" class="mw-redirect" title="Running average">running average</a> can be used, giving a square time response.<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Fourier_transform">Fourier transform</h3></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1305433154" /><table class="box-Unreferenced&#95;section plainlinks metadata ambox ambox-content ambox-Unreferenced" role="presentation"><tbody><tr><td class="mbox-image"><div class="mbox-image-div"><span typeof="mw:File"><a href="File:Question_book-new.svg" class="mw-file-description"><img alt="icon" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/60px-Question_book-new.svg.png" decoding="async" width="50" height="39" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/120px-Question_book-new.svg.png 1.5x" data-file-width="512" data-file-height="399" /></a></span></div></td><td class="mbox-text"><div class="mbox-text-span">This section <b>does not <a href="Wikipedia:Citing_sources" title="Wikipedia:Citing sources">cite</a> any <a href="Wikipedia:Verifiability" title="Wikipedia:Verifiability">sources</a></b>.<span class="hide-when-compact"> Please help <a href="Special:EditPage/Low-pass_filter" title="Special:EditPage/Low-pass filter">improve this section</a> by <a href="Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and <a href="Wikipedia:Verifiability#Burden_of_evidence" title="Wikipedia:Verifiability">removed</a>.</span>  <span class="date-container"><i>(<span class="date">March 2015</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>For non-realtime filtering, to achieve a low pass filter, the entire signal is usually taken as a looped signal, the Fourier transform is taken, filtered in the frequency domain, followed by an inverse Fourier transform. Only O(n log(n)) operations are required compared to O(n<sup>2</sup>) for the time domain filtering algorithm.
+</p><p>This can also sometimes be done in real time, where the signal is delayed long enough to perform the Fourier transformation on shorter, overlapping blocks.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Continuous-time_realization">Continuous-time realization</h2></div>
+<figure typeof="mw:File/Thumb"><a href="File:Butterworth_Filter_Orders.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Butterworth_Filter_Orders.svg/500px-Butterworth_Filter_Orders.svg.png" decoding="async" width="350" height="247" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Butterworth_Filter_Orders.svg/960px-Butterworth_Filter_Orders.svg.png 1.5x" data-file-width="850" data-file-height="600" /></a><figcaption>Plot of the gain of Butterworth low-pass filters of orders 1 through 5, with <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \omega _{0}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x3c9;<!-- ω --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{0}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ee04380d93e624497ceace7e45108a63b1cd2cd3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:6.761ex; height:2.509ex;" alt="{\displaystyle \omega _{0}=1}" /></span>. Note that the slope is 20<i>n</i> dB/decade where <i>n</i> is the filter order.</figcaption></figure>
+<p>There are many different types of filter circuits, with different responses to changing frequency.  The frequency response of a filter is generally represented using a <a href="Bode_plot" title="Bode plot">Bode plot</a>, and the filter is characterized by its <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> and rate of frequency <a href="Roll-off" title="Roll-off">rolloff</a>. In all cases, at the <i>cutoff frequency,</i> the filter <a href="Attenuate" class="mw-redirect" title="Attenuate">attenuates</a> the input power by half or 3&#160;dB. So the <b>order</b> of the filter determines the amount of additional attenuation for frequencies higher than the cutoff frequency.
+</p>
+<ul><li>A <b>first-order filter</b>, for example, reduces the signal amplitude by half (so power reduces by a factor of 4, or <span class="nowrap">6 dB)</span>, every time the frequency doubles (goes up one <a href="Octave" title="Octave">octave</a>); more precisely, the power rolloff approaches 20&#160;dB per <a href="Decade_(log_scale)" title="Decade (log scale)">decade</a> in the limit of high frequency. The magnitude Bode plot for a first-order filter looks like a horizontal line below the <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a>, and a diagonal line above the cutoff frequency.  There is also a "knee curve" at the boundary between the two, smoothly transitioning between the two straight-line regions.  If the <a href="Transfer_function" title="Transfer function">transfer function</a> of a first-order low-pass filter has a <a href="Zero_(complex_analysis)" class="mw-redirect" title="Zero (complex analysis)">zero</a> as well as a <a href="Pole_(complex_analysis)" class="mw-redirect" title="Pole (complex analysis)">pole</a>, the Bode plot flattens out again, at some maximum attenuation of high frequencies; such an effect is caused for example by a little bit of the input leaking around the one-pole filter; this one-pole–one-zero filter is still a first-order low-pass. <i>See <a href="Pole%E2%80%93zero_plot" title="Pole–zero plot">Pole–zero plot</a> and <a href="RC_circuit" title="RC circuit">RC circuit</a>.</i></li>
+<li>A <b>second-order filter</b> attenuates high frequencies more steeply. The Bode plot for this type of filter resembles that of a first-order filter, except that it falls off more quickly. For example, a second-order <a href="Butterworth_filter" title="Butterworth filter">Butterworth filter</a> reduces the signal amplitude to one-fourth of its original level every time the frequency doubles (so power decreases by 12&#160;dB per octave, or 40&#160;dB per decade). Other all-pole second-order filters may roll off at different rates initially depending on their <a href="Q_factor" title="Q factor">Q factor</a>, but approach the same final rate of 12&#160;dB per octave; as with the first-order filters, zeroes in the transfer function can change the high-frequency asymptote. See <a href="RLC_circuit" title="RLC circuit">RLC circuit</a>.</li>
+<li>Third- and higher-order filters are defined similarly.  In general, the final rate of power rolloff for an order-<span class="texhtml mvar" style="font-style:italic;"> n</span> all-pole filter is 6<span class="texhtml mvar" style="font-style:italic;">n</span> dB per octave (20<span class="texhtml mvar" style="font-style:italic;">n</span> dB per decade).</li></ul>
+<p>On any Butterworth filter, if one extends the horizontal line to the right and the diagonal line to the upper-left (the <a href="Asymptote" title="Asymptote">asymptotes</a> of the function), they intersect at exactly the <i>cutoff frequency</i>, 3&#160;dB below the horizontal line.  The various types of filters (<a href="Butterworth_filter" title="Butterworth filter">Butterworth filter</a>, <a href="Chebyshev_filter" title="Chebyshev filter">Chebyshev filter</a>, <a href="Bessel_filter" title="Bessel filter">Bessel filter</a>, etc.) all have different-looking <i>knee curves</i>.  Many second-order filters have "peaking" or <a href="Electrical_resonance" title="Electrical resonance">resonance</a> that puts their frequency response <i>above</i> the horizontal line at this peak.
+</p><p>The meanings of 'low' and 'high'—that is, the <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a>—depend on the characteristics of the filter. The term "low-pass filter" merely refers to the shape of the filter's response; a high-pass filter could be built that cuts off at a lower frequency than any low-pass filter—it is their responses that set them apart.  Electronic circuits can be devised for any desired frequency range, right up through microwave frequencies (above 1&#160;GHz) and higher.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Laplace_notation">Laplace notation</h3></div>
+<p>Continuous-time filters can also be described in terms of the <a href="Laplace_transform" title="Laplace transform">Laplace transform</a> of their <a href="Impulse_response" title="Impulse response">impulse response</a>, in a way that makes it easy to analyze all characteristics of the filter by considering the pattern of poles and zeros of the Laplace transform in the complex plane. (In discrete time, one can similarly consider the <a href="Z-transform" title="Z-transform">Z-transform</a> of the impulse response.)
+</p><p>For example, a first-order low-pass filter can be described by the <a href="Continuous_time" class="mw-redirect" title="Continuous time">continuous time</a> <a href="Transfer_function" title="Transfer function">transfer function</a>, in the <a href="Laplace_transform" title="Laplace transform">Laplace domain</a>, as:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H(s)={\frac {\text{Output}}{\text{Input}}}=K{\frac {1}{\tau s+1}}=K{\frac {\alpha }{s+\alpha }}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mtext>Output</mtext>
+            <mtext>Input</mtext>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mi>K</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mi>&#x3c4;<!-- τ --></mi>
+              <mi>s</mi>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mi>K</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>&#x3b1;<!-- α --></mi>
+            <mrow>
+              <mi>s</mi>
+              <mo>+</mo>
+              <mi>&#x3b1;<!-- α --></mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s)={\frac {\text{Output}}{\text{Input}}}=K{\frac {1}{\tau s+1}}=K{\frac {\alpha }{s+\alpha }}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f987ebf2041692d110f66fce559ee0f4b03aaeb5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:40.108ex; height:5.843ex;" alt="{\displaystyle H(s)={\frac {\text{Output}}{\text{Input}}}=K{\frac {1}{\tau s+1}}=K{\frac {\alpha }{s+\alpha }}}" /></span></dd></dl>
+<p>where <i>H</i> is the transfer function, <i>s</i> is the Laplace transform variable (complex angular frequency), <i>τ</i> is the filter <a href="Time_constant" title="Time constant">time constant</a>, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \alpha }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b1;<!-- α --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b79333175c8b3f0840bfb4ec41b8072c83ea88d3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.488ex; height:1.676ex;" alt="{\displaystyle \alpha }" /></span> is the cutoff frequency, and <i>K</i> is the <a href="Gain_(electronics)" title="Gain (electronics)">gain</a> of the filter in the <a href="Passband" title="Passband">passband</a>.  The cutoff frequency is related to the time constant by:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \alpha ={1 \over \tau }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3b1;<!-- α --></mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>&#x3c4;<!-- τ --></mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha ={1 \over \tau }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e295ffcbc1b23c1641a410640808c1b661eba929" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.838ex; width:6.624ex; height:5.176ex;" alt="{\displaystyle \alpha ={1 \over \tau }}" /></span></dd></dl>
+<div class="mw-heading mw-heading2"><h2 id="Electronic_low-pass_filters">Electronic low-pass filters <span class="anchor" id="Electronic"></span></h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Further information: <a href="Electronic_filter" title="Electronic filter">Electronic filter</a></div>
+<div class="mw-heading mw-heading3"><h3 id="First-order_passive">First-order passive</h3></div>
+<div class="mw-heading mw-heading4"><h4 id="RC_filter">RC filter</h4></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="RC_circuit#Series_circuit" title="RC circuit">RC circuit §&#160;Series circuit</a></div>
+<figure typeof="mw:File/Thumb"><a href="File:RC_Divider.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/250px-RC_Divider.svg.png" decoding="async" width="200" height="187" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/330px-RC_Divider.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/500px-RC_Divider.svg.png 2x" data-file-width="172" data-file-height="161" /></a><figcaption>Passive, first order low-pass RC filter</figcaption></figure>
+<p>One simple low-pass filter <a href="Electrical_circuit" class="mw-redirect" title="Electrical circuit">circuit</a> consists of a <a href="Resistor" title="Resistor">resistor</a> in series with a <a href="External_electric_load" class="mw-redirect" title="External electric load">load</a>, and a <a href="Capacitor" title="Capacitor">capacitor</a> in parallel with the load. The capacitor exhibits <a href="Reactance_(electronics)" class="mw-redirect" title="Reactance (electronics)">reactance</a>, and blocks low-frequency signals, forcing them through the load instead. At higher frequencies, the reactance drops, and the capacitor effectively functions as a short circuit. The combination of resistance and capacitance gives the <a href="Time_constant" title="Time constant">time constant</a> of the filter <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \tau \;=\;RC}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3c4;<!-- τ --></mi>
+        <mspace width="thickmathspace"></mspace>
+        <mo>=</mo>
+        <mspace width="thickmathspace"></mspace>
+        <mi>R</mi>
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \tau \;=\;RC}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e90f44a2194be854d4793de104b22b3d87459f00" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:9.121ex; height:2.176ex;" alt="{\displaystyle \tau \;=\;RC}" /></span> (represented by the Greek letter <a href="Tau" title="Tau">tau</a>). The break frequency, also called the turnover frequency, corner frequency, or <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> (in hertz), is determined by the time constant:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{\mathrm {c} }={1 \over 2\pi \tau }={1 \over 2\pi RC}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">c</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <mi>&#x3c4;<!-- τ --></mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <mi>R</mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{\mathrm {c} }={1 \over 2\pi \tau }={1 \over 2\pi RC}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/599a3c054c7983ad187d15d08ff4d4ad983dcead" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:19.692ex; height:5.343ex;" alt="{\displaystyle f_{\mathrm {c} }={1 \over 2\pi \tau }={1 \over 2\pi RC}}" /></span></dd></dl>
+<p>or equivalently (in <a href="Radian" title="Radian">radians</a> per second):
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \omega _{\mathrm {c} }={1 \over \tau }={1 \over RC}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x3c9;<!-- ω --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">c</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>&#x3c4;<!-- τ --></mi>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mi>R</mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{\mathrm {c} }={1 \over \tau }={1 \over RC}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f2d3b40d9cce5cf502e64d398c95166eb6f5c489" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.005ex; width:15.01ex; height:5.343ex;" alt="{\displaystyle \omega _{\mathrm {c} }={1 \over \tau }={1 \over RC}}" /></span></dd></dl>
+<p>This circuit may be understood by considering the time the capacitor needs to charge or discharge through the resistor:
+</p>
+<ul><li>At low frequencies, there is plenty of time for the capacitor to charge up to practically the same voltage as the input voltage.</li>
+<li>At high frequencies, the capacitor only has time to charge up a small amount before the input switches direction. The output goes up and down only a small fraction of the amount the input goes up and down. At double the frequency, there's only time for it to charge up half the amount.</li></ul>
+<p>Another way to understand this circuit is through the concept of <a href="Reactance_(electronics)" class="mw-redirect" title="Reactance (electronics)">reactance</a> at a particular frequency:
+</p>
+<ul><li>Since <a href="Direct_current" title="Direct current">direct current</a> (DC) cannot flow through the capacitor, DC input must flow out the path marked <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{\mathrm {out} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/687b19f8452c7f967872b08df4a1fde73049e463" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:3.963ex; height:2.509ex;" alt="{\displaystyle V_{\mathrm {out} }}" /></span> (analogous to removing the capacitor).</li>
+<li>Since <a href="Alternating_current" title="Alternating current">alternating current</a> (AC) flows very well through the capacitor, almost as well as it flows through a solid wire, AC input flows out through the capacitor, effectively <a href="Short_circuit" title="Short circuit">short circuiting</a> to the ground (analogous to replacing the capacitor with just a wire).</li></ul>
+<p>The capacitor is not an "on/off" object (like the block or pass fluidic explanation above).  The capacitor variably acts between these two extremes.  It is the <a href="Bode_plot" title="Bode plot">Bode plot</a> and <a href="Frequency_response" title="Frequency response">frequency response</a> that show this variability.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="RL_filter">RL filter</h4></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="RL_circuit#Series_circuit" title="RL circuit">RL circuit §&#160;Series circuit</a></div>
+<p>A resistor–inductor circuit or <a href="RL_filter" class="mw-redirect" title="RL filter">RL filter</a> is an <a href="Electric_circuit" class="mw-redirect" title="Electric circuit">electric circuit</a> composed of <a href="Resistor" title="Resistor">resistors</a> and <a href="Inductor" title="Inductor">inductors</a> driven by a <a href="Voltage_source" title="Voltage source">voltage</a> or <a href="Current_source" title="Current source">current source</a>. A first-order RL circuit is composed of one resistor and one inductor and is the simplest type of RL circuit.
+</p><p>A first-order RL circuit is one of the simplest <a href="Analog_filter" class="mw-redirect" title="Analog filter">analogue</a> <a href="Infinite_impulse_response" title="Infinite impulse response">infinite impulse response</a> <a href="Electronic_filter" title="Electronic filter">electronic filters</a>. It consists of a <a href="Resistor" title="Resistor">resistor</a> and an <a href="Inductor" title="Inductor">inductor</a>, either in <a href="Series_and_parallel_circuits#Series_circuits" title="Series and parallel circuits">series</a> driven by a <a href="Voltage_source" title="Voltage source">voltage source</a> or in <a href="Series_and_parallel_circuits#Parallel_circuits" title="Series and parallel circuits">parallel</a> driven by a current source.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Second-order_passive">Second-order passive</h3></div>
+<div class="mw-heading mw-heading4"><h4 id="RLC_filter">RLC filter</h4></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:RLC_low-pass.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/RLC_low-pass.svg/250px-RLC_low-pass.svg.png" decoding="async" width="250" height="181" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/RLC_low-pass.svg/500px-RLC_low-pass.svg.png 1.5x" data-file-width="570" data-file-height="413" /></a><figcaption>RLC circuit as a low-pass filter</figcaption></figure>
+<p>An <a href="RLC_circuit" title="RLC circuit">RLC circuit</a>  (the letters R, L, and C can be in a different sequence) is an <a href="Electrical_circuit" class="mw-redirect" title="Electrical circuit">electrical circuit</a> consisting of a <a href="Resistor" title="Resistor">resistor</a>, an <a href="Inductor" title="Inductor">inductor</a>, and a <a href="Capacitor" title="Capacitor">capacitor</a>, connected in series or in parallel.  The RLC part of the name is due to those letters being the usual electrical symbols for <a href="Electrical_resistance" class="mw-redirect" title="Electrical resistance">resistance</a>, <a href="Inductance" title="Inductance">inductance</a>, and <a href="Capacitance" title="Capacitance">capacitance</a>, respectively.  The circuit forms a <a href="Harmonic_oscillator" title="Harmonic oscillator">harmonic oscillator</a> for current and will <a href="Resonance" title="Resonance">resonate</a> in a similar way as an <a href="LC_circuit" title="LC circuit">LC circuit</a> will.  The main difference that the presence of the resistor makes is that any oscillation induced in the circuit will die away over time if it is not kept going by a source.  This effect of the resistor is called <a href="Damping" title="Damping">damping</a>. The presence of the resistance also reduces the peak resonant frequency somewhat.  Some resistance is unavoidable in real circuits, even if a resistor is not specifically included as a component.  An ideal, pure LC circuit is an abstraction for the purpose of theory.
+</p><p>There are many applications for this circuit.  They are used in many different types of <a href="Electronic_oscillator" title="Electronic oscillator">oscillator circuits</a>.  Another important application is for <a href="Tuner_(electronics)" class="mw-redirect" title="Tuner (electronics)">tuning</a>, such as in <a href="Receiver_(radio)" class="mw-redirect" title="Receiver (radio)">radio receivers</a> or <a href="Television_set" title="Television set">television sets</a>, where they are used to select a narrow range of frequencies from the ambient radio waves.  In this role, the circuit is often called a tuned circuit.  An RLC circuit can be used as a <a href="Band-pass_filter" title="Band-pass filter">band-pass filter</a>, <a href="Band-stop_filter" title="Band-stop filter">band-stop filter</a>, low-pass filter, or <a href="High-pass_filter" title="High-pass filter">high-pass filter</a>. The RLC filter is described as a <i>second-order</i> circuit, meaning that any voltage or current in the circuit can be described by a second-order <a href="Differential_equation" title="Differential equation">differential equation</a> in circuit analysis.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="Second-order_low-pass_filter_in_standard_form">Second-order low-pass filter in standard form</h4></div>
+<p>The transfer function <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H_{LP}(f)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+            <mi>P</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{LP}(f)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dc9d03ef159ca2c708658da02218a23cac5802c9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.605ex; height:2.843ex;" alt="{\displaystyle H_{LP}(f)}" /></span> of a second-order low-pass filter can be expressed as a function of frequency <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="{\displaystyle f}" /></span> as shown in Equation 1, the Second-Order Low-Pass Filter Standard Form.
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H_{LP}(f)=-{\frac {K}{f_{FSF}\cdot f_{c}^{2}+{\frac {1}{Q}}\cdot jf_{FSF}\cdot f_{c}+1}}\quad (1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+            <mi>P</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>K</mi>
+            <mrow>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>F</mi>
+                  <mi>S</mi>
+                  <mi>F</mi>
+                </mrow>
+              </msub>
+              <mo>&#x22c5;<!-- ⋅ --></mo>
+              <msubsup>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msubsup>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mn>1</mn>
+                  <mi>Q</mi>
+                </mfrac>
+              </mrow>
+              <mo>&#x22c5;<!-- ⋅ --></mo>
+              <mi>j</mi>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>F</mi>
+                  <mi>S</mi>
+                  <mi>F</mi>
+                </mrow>
+              </msub>
+              <mo>&#x22c5;<!-- ⋅ --></mo>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>c</mi>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mspace width="1em"></mspace>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{LP}(f)=-{\frac {K}{f_{FSF}\cdot f_{c}^{2}+{\frac {1}{Q}}\cdot jf_{FSF}\cdot f_{c}+1}}\quad (1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a190dc67361acef3ed4824aeb906946eefa187dc" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.838ex; width:47.862ex; height:7.176ex;" alt="{\displaystyle H_{LP}(f)=-{\frac {K}{f_{FSF}\cdot f_{c}^{2}+{\frac {1}{Q}}\cdot jf_{FSF}\cdot f_{c}+1}}\quad (1)}" /></span></dd></dl>
+<p>In this equation, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="{\displaystyle f}" /></span> is the frequency variable, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2b64a46c31800830b9fecc59b22812390e18c05" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.083ex; height:2.509ex;" alt="{\displaystyle f_{c}}" /></span> is the cutoff frequency, <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{FSF}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>F</mi>
+            <mi>S</mi>
+            <mi>F</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{FSF}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2b861eef33a94c97030daedf4cabac7b278d4f7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:4.893ex; height:2.509ex;" alt="{\displaystyle f_{FSF}}" /></span> is the frequency scaling factor, and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8752c7023b4b3286800fe3238271bbca681219ed" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.838ex; height:2.509ex;" alt="{\displaystyle Q}" /></span> is the quality factor. Equation 1 describes three regions of operation: below cutoff, in the area of cutoff, and above cutoff. For each area, Equation 1 reduces to:
+</p>
+<ul><li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f\ll f_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo>&#x226a;<!-- ≪ --></mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f\ll f_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01ec5f86b7976de27bade028e644cb3445e3f396" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:6.976ex; height:2.509ex;" alt="{\displaystyle f\ll f_{c}}" /></span>: <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H_{LP}(f)\approx K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+            <mi>P</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{LP}(f)\approx K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/065ef2747dfe2db349dfbd9d58fedd4e30a56875" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:12.769ex; height:2.843ex;" alt="{\displaystyle H_{LP}(f)\approx K}" /></span> - The circuit passes signals multiplied by the gain factor <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="{\displaystyle K}" /></span>.</li>
+<li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\frac {f}{f_{c}}}=f_{FSF}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>f</mi>
+            <msub>
+              <mi>f</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>F</mi>
+            <mi>S</mi>
+            <mi>F</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {f}{f_{c}}}=f_{FSF}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7961067b1100f42270eaafc5269d7fc1db404fb9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:10.911ex; height:5.843ex;" alt="{\displaystyle {\frac {f}{f_{c}}}=f_{FSF}}" /></span>: <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H_{LP}(f)=jKQ}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+            <mi>P</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>j</mi>
+        <mi>K</mi>
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{LP}(f)=jKQ}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9a4a23a729c5467c940dd80be206c3438383b34f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:15.566ex; height:2.843ex;" alt="{\displaystyle H_{LP}(f)=jKQ}" /></span> - Signals are phase-shifted 90° and modified by the quality factor <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle Q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8752c7023b4b3286800fe3238271bbca681219ed" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:1.838ex; height:2.509ex;" alt="{\displaystyle Q}" /></span>.</li>
+<li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f\gg f_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo>&#x226b;<!-- ≫ --></mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f\gg f_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/444da734095709545097cedb24b1d5d2febc61c7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:6.976ex; height:2.509ex;" alt="{\displaystyle f\gg f_{c}}" /></span>: <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle H_{LP}(f)\approx -{\frac {K}{f_{FSF}\cdot f^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>H</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>L</mi>
+            <mi>P</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>K</mi>
+            <mrow>
+              <msub>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>F</mi>
+                  <mi>S</mi>
+                  <mi>F</mi>
+                </mrow>
+              </msub>
+              <mo>&#x22c5;<!-- ⋅ --></mo>
+              <msup>
+                <mi>f</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H_{LP}(f)\approx -{\frac {K}{f_{FSF}\cdot f^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/60721c65ac07d9f29482aa16069a52e7d6204e83" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:22.295ex; height:5.843ex;" alt="{\displaystyle H_{LP}(f)\approx -{\frac {K}{f_{FSF}\cdot f^{2}}}}" /></span> - Signals are phase-shifted 180° and attenuated by the square of the frequency ratio. This behavior is detailed by Jim Karki in "Active Low-Pass Filter Design" (Texas Instruments, 2023).<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup></li></ul>
+<p>With attenuation at frequencies above <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2b64a46c31800830b9fecc59b22812390e18c05" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.083ex; height:2.509ex;" alt="{\displaystyle f_{c}}" /></span> increasing by a power of two, the last formula describes a second-order low-pass filter. The frequency scaling factor <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{FSF}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>F</mi>
+            <mi>S</mi>
+            <mi>F</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{FSF}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2b861eef33a94c97030daedf4cabac7b278d4f7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:4.893ex; height:2.509ex;" alt="{\displaystyle f_{FSF}}" /></span> is used to scale the cutoff frequency of the filter so that it follows the definitions given before.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Higher_order_passive_filters">Higher order passive filters</h3></div>
+<p>Higher-order passive filters can also be constructed (see diagram for a third-order example).
+</p>
+<figure class="mw-halign-center" typeof="mw:File/Thumb"><a href="File:LowPass3poleICauer.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LowPass3poleICauer.svg/330px-LowPass3poleICauer.svg.png" decoding="async" width="300" height="127" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LowPass3poleICauer.svg/500px-LowPass3poleICauer.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LowPass3poleICauer.svg/960px-LowPass3poleICauer.svg.png 2x" data-file-width="2164" data-file-height="914" /></a><figcaption>A third-order low-pass filter (<a href="Cauer_topology" class="mw-redirect" title="Cauer topology">Cauer topology</a>). The filter becomes a Butterworth filter with <a href="Cutoff_frequency" title="Cutoff frequency">cutoff frequency</a> ω<sub>c</sub>=1 when (for example) C<sub>2</sub>=4/3 farad, R<sub>4</sub>=1 ohm, L<sub>1</sub>=3/2 henry and L<sub>3</sub>=1/2 henry.</figcaption></figure>
+<div style="clear:both;" class=""></div>
+<div class="mw-heading mw-heading3"><h3 id="First_order_active">First order active</h3></div>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:Active_Lowpass_Filter_RC.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/5/59/Active_Lowpass_Filter_RC.svg/330px-Active_Lowpass_Filter_RC.svg.png" decoding="async" width="300" height="208" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/59/Active_Lowpass_Filter_RC.svg/500px-Active_Lowpass_Filter_RC.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/59/Active_Lowpass_Filter_RC.svg/960px-Active_Lowpass_Filter_RC.svg.png 2x" data-file-width="325" data-file-height="225" /></a><figcaption>An active low-pass filter</figcaption></figure><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">See also: <a href="Operational_amplifier_applications#Inverting_integrator" title="Operational amplifier applications">operational amplifier applications §&#160;Inverting integrator</a>, and <a href="Op_amp_integrator" title="Op amp integrator">Op amp integrator</a></div>
+<p>An <i>active</i> low-pass filter adds an <a href="Active_device" class="mw-redirect" title="Active device">active device</a> to create an <a href="Active_filter" title="Active filter">active filter</a> that allows for <a href="Gain_(electronics)" title="Gain (electronics)">gain</a> in the passband.
+</p><p>In the <a href="Operational_amplifier" title="Operational amplifier">operational amplifier</a> circuit shown in the figure, the cutoff frequency (in <a href="Hertz" title="Hertz">hertz</a>) is defined as:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle f_{\text{c}}={\frac {1}{2\pi R_{2}C}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>c</mtext>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>2</mn>
+              <mi>&#x3c0;<!-- π --></mi>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{\text{c}}={\frac {1}{2\pi R_{2}C}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/876e4e9b63a83824fd29667433c6f57db76ad32f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:13.115ex; height:5.676ex;" alt="{\displaystyle f_{\text{c}}={\frac {1}{2\pi R_{2}C}}}" /></span></dd></dl>
+<p>or equivalently (in radians per second):
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \omega _{\text{c}}={\frac {1}{R_{2}C}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x3c9;<!-- ω --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>c</mtext>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega _{\text{c}}={\frac {1}{R_{2}C}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e64796644c4424f51da05a0c1f248d0906e650b6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:10.927ex; height:5.676ex;" alt="{\displaystyle \omega _{\text{c}}={\frac {1}{R_{2}C}}}" /></span></dd></dl>
+<p>The gain in the passband is −<i>R</i><sub>2</sub>/<i>R</i><sub>1</sub>, and the <a href="Stopband" title="Stopband">stopband</a> drops off at −6&#160;dB per octave (that is −20&#160;dB per decade) as it is a first-order filter.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1266661725">.mw-parser-output .portalbox{padding:0;margin:0.5em 0;display:table;box-sizing:border-box;max-width:175px;list-style:none}.mw-parser-output .portalborder{border:1px solid var(--border-color-base,#a2a9b1);padding:0.1em;background:var(--background-color-neutral-subtle,#f8f9fa)}.mw-parser-output .portalbox-entry{display:table-row;font-size:85%;line-height:110%;height:1.9em;font-style:italic;font-weight:bold}.mw-parser-output .portalbox-image{display:table-cell;padding:0.2em;vertical-align:middle;text-align:center}.mw-parser-output .portalbox-link{display:table-cell;padding:0.2em 0.2em 0.2em 0.3em;vertical-align:middle}@media(min-width:720px){.mw-parser-output .portalleft{margin:0.5em 1em 0.5em 0}.mw-parser-output .portalright{clear:right;float:right;margin:0.5em 0 0.5em 1em}}</style><ul role="navigation" aria-label="Portals" class="noprint portalbox portalborder portalright">
+<li class="portalbox-entry"><span class="portalbox-image"><span class="noviewer" typeof="mw:File"><a href="File:Nuvola_apps_ksim.png" class="mw-file-description"><img alt="icon" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Nuvola_apps_ksim.png/40px-Nuvola_apps_ksim.png" decoding="async" width="28" height="28" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Nuvola_apps_ksim.png/60px-Nuvola_apps_ksim.png 1.5x" data-file-width="128" data-file-height="128" /></a></span></span><span class="portalbox-link"><a href="Portal:Electronics" title="Portal:Electronics">Electronics portal</a></span></li></ul>
+<ul><li><a href="Baseband" title="Baseband">Baseband</a></li>
+<li><a href="Smoother_(statistics)" class="mw-redirect" title="Smoother (statistics)">Smoother (statistics)</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-globalspec.com-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-globalspec.com_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-globalspec.com_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite class="citation cs2"><a rel="nofollow" class="external text" href="http://www.globalspec.com/learnmore/optics_optical_components/optical_components/long_short_pass_filters"><i>Long Pass Filters and Short Pass Filters Information</i></a><span class="reference-accessdate">, retrieved <span class="nowrap">2017-10-04</span></span></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Long+Pass+Filters+and+Short+Pass+Filters+Information&amp;rft&#95;id=http%3A%2F%2Fwww.globalspec.com%2Flearnmore%2Foptics&#95;optical&#95;components%2Foptical&#95;components%2Flong&#95;short&#95;pass&#95;filters&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSedraSmith1991" class="citation book cs1"><a href="Adel_Sedra" title="Adel Sedra">Sedra, Adel</a>; Smith, Kenneth C. (1991). <span class="id-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/microelectronicc00sedr_0/page/60"><i>Microelectronic Circuits, 3 ed</i></a></span>. Saunders College Publishing. p.&#160;<a rel="nofollow" class="external text" href="https://archive.org/details/microelectronicc00sedr_0/page/60">60</a>. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-03-051648-X" title="Special:BookSources/0-03-051648-X"><bdi>0-03-051648-X</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Microelectronic+Circuits%2C+3+ed.&amp;rft.pages=60&amp;rft.pub=Saunders+College+Publishing&amp;rft.date=1991&amp;rft.isbn=0-03-051648-X&amp;rft.aulast=Sedra&amp;rft.aufirst=Adel&amp;rft.au=Smith%2C+Kenneth+C.&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Fmicroelectronicc00sedr&#95;0%2Fpage%2F60&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.epanorama.net/documents/telecom/adsl_filter.html">"ADSL filters explained"</a>. Epanorama.net<span class="reference-accessdate">. Retrieved <span class="nowrap">2013-09-24</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=ADSL+filters+explained&amp;rft.pub=Epanorama.net&amp;rft&#95;id=http%3A%2F%2Fwww.epanorama.net%2Fdocuments%2Ftelecom%2Fadsl&#95;filter.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130927135123/http://www.pcweenie.com/hni/broadband/broad6.shtml">"Home Networking – Local Area Network"</a>. Pcweenie.com. 2009-04-12. Archived from <a rel="nofollow" class="external text" href="http://www.pcweenie.com/hni/broadband/broad6.shtml">the original</a> on 2013-09-27<span class="reference-accessdate">. Retrieved <span class="nowrap">2013-09-24</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Home+Networking+%E2%80%93+Local+Area+Network&amp;rft.pub=Pcweenie.com&amp;rft.date=2009-04-12&amp;rft&#95;id=http%3A%2F%2Fwww.pcweenie.com%2Fhni%2Fbroadband%2Fbroad6.shtml&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.cg.tuwien.ac.at/research/vis/vismed/Windows/MasteringWindows.pdf">Mastering Windows: Improving Reconstruction</a></span>
+</li>
+<li id="cite&#95;note-:0-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFHayt,&#95;William&#95;H.&#95;Jr.&#95;and&#95;Kemmerly,&#95;Jack&#95;E.1978" class="citation book cs1">Hayt, William H. Jr. and Kemmerly, Jack E. (1978). <i>Engineering Circuit Analysis</i>. New York: McGRAW-HILL BOOK COMPANY. pp.&#160;<span class="nowrap">211–</span>224, <span class="nowrap">684–</span>729.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Engineering+Circuit+Analysis&amp;rft.place=New+York&amp;rft.pages=211-224%2C+684-729&amp;rft.pub=McGRAW-HILL+BOOK+COMPANY&amp;rft.date=1978&amp;rft.au=Hayt%2C+William+H.+Jr.+and+Kemmerly%2C+Jack+E.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>:  CS1 maint: multiple names: authors list (<a href="Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFBoyce,&#95;William&#95;and&#95;DiPrima,&#95;Richard1965" class="citation book cs1">Boyce, William and DiPrima, Richard (1965). <i>Elementary Differential Equations and Boundary Value Problems</i>. New York: JOHN WILEY &amp; SONS. pp.&#160;<span class="nowrap">11–</span>24.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Elementary+Differential+Equations+and+Boundary+Value+Problems&amp;rft.place=New+York&amp;rft.pages=11-24&amp;rft.pub=JOHN+WILEY+%26+SONS&amp;rft.date=1965&amp;rft.au=Boyce%2C+William+and+DiPrima%2C+Richard&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ALow-pass+filter" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>:  CS1 maint: multiple names: authors list (<a href="Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">Whilmshurst, T H (1990) <i>Signal recovery from noise in electronic instrumentation.</i> <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/9780750300582" title="Special:BookSources/9780750300582"><bdi>9780750300582</bdi></a></span>
+</li>
+<li id="cite&#95;note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.ti.com/lit/an/sloa049d/sloa049d.pdf">Active Low-Pass Filter Design" (Texas Instruments, 2023)</a></span>
+</li>
+</ol></div></div>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1314755338">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1311551236">@media print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}</style><div class="side-box side-box-right plainlinks sistersitebox"><style data-mw-deduplicate="TemplateStyles:r1126788409">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>
+<div class="side-box-flex">
+<div class="side-box-image"><span class="noviewer" typeof="mw:File"><a href="File:Commons-logo.svg" class="mw-file-description"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/40px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/60px-Commons-logo.svg.png 1.5x" data-file-width="1024" data-file-height="1376" /></a></span></div>
+<div class="side-box-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Lowpass_filters" class="extiw" title="commons:Category:Lowpass filters">Lowpass filters</a></span>.</div></div>
+</div>
+<ul><li><a rel="nofollow" class="external text" href="http://www.st-andrews.ac.uk/~www_pa/Scots_Guide/experiment/lowpass/lpf.html">Low Pass Filter java simulator</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.tedpavlic.com/teaching/osu/ece209/support/circuits_sys_review.pdf">ECE 209: Review of Circuits as LTI Systems</a>, a short primer on the mathematical analysis of (electrical) LTI systems.</li>
+<li><a rel="nofollow" class="external text" href="http://www.tedpavlic.com/teaching/osu/ece209/lab3_opamp_FO/lab3_opamp_FO_phase_shift.pdf">ECE 209: Sources of Phase Shift</a>, an intuitive explanation of the source of phase shift in a low-pass filter. Also verifies simple passive LPF <a href="Transfer_function" title="Transfer function">transfer function</a> by means of trigonometric identity.</li>
+<li><a rel="nofollow" class="external text" href="https://relayman.org/fisher/trad.html">C code generator</a> for digital implementation of Butterworth, Bessel, and Chebyshev filters created by the late Dr. Tony Fisher of the University of York (York, England).</li></ul>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox" aria-labelledby="Signal-processing&#95;filters257" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1239400231">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Electronic_filters" title="Template:Electronic filters"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Electronic_filters" title="Template talk:Electronic filters"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Electronic_filters" title="Special:EditPage/Template:Electronic filters"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Signal-processing&#95;filters257" style="font-size:114%;margin:0 4em"><a href="Filter_(signal_processing)" title="Filter (signal processing)">Signal-processing filters</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">Low-pass filter (LPF)</a></li>
+<li><a href="High-pass_filter" title="High-pass filter">High-pass filter (HPF)</a></li>
+<li><a href="All-pass_filter" title="All-pass filter">All-pass filter</a></li>
+<li><a href="Band-pass_filter" title="Band-pass filter">Band-pass filter</a></li>
+<li><a href="Band-stop_filter" title="Band-stop filter">Band-stop filter</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div><a href="Electronic_filter" title="Electronic filter">Electronic filter</a></div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q918242#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q918242#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" scope="row" class="navbox-group" style="width:1%"><a href="Help:Authority_control" title="Help:Authority control">Authority control databases</a> <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless"><a href="https://www.wikidata.org/wiki/Q918242#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" class="mw-file-element" data-file-width="20" data-file-height="20" /></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="nofollow" class="external text" href="https://d-nb.info/gnd/4263864-1">GND</a></span></li></ul></div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.main‐857f68949b‐m2slf
+Cached time: 20260106004202
+Cache expiry: 83894
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.508 seconds
+Real time usage: 0.758 seconds
+Preprocessor visited node count: 2139/1000000
+Revision size: 32618/2097152 bytes
+Post‐expand include size: 44608/2097152 bytes
+Template argument size: 2095/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 11/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 57253/5000000 bytes
+Lua time usage: 0.259/10.000 seconds
+Lua memory usage: 7036257/52428800 bytes
+Number of Wikibase entities loaded: 1/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  515.860      1 -total
+ 24.83%  128.092      1 Template:Reflist
+ 14.76%   76.119      1 Template:Citation
+ 14.30%   73.783      1 Template:Short_description
+ 12.89%   66.515      1 Template:Electronic_filters
+ 12.54%   64.671      1 Template:Navbox
+ 10.87%   56.093      1 Template:More_citations_needed
+ 10.27%   52.997      2 Template:Ambox
+  8.63%   44.514      1 Template:Commons_category
+  8.20%   42.324      1 Template:Sister_project
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:56484:|#|:idhash:canonical and timestamp 20260106004202 and revision id 1305309855. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/Low-pass_filter">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

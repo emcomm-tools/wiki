@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio propagation - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; Radio propagation
+    </nav>
+    <article>
+        <h1>Radio propagation</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Behaviour of travelling radio waves</div><style data-mw-deduplicate="TemplateStyles:r1320445320">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div role="note" class="hatnote navigation-not-searchable">For the journal, see <a href="Radio_Propagation_(journal)" class="mw-redirect" title="Radio Propagation (journal)">Radio Propagation (journal)</a>.</div>
+<style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1126788409">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style><style data-mw-deduplicate="TemplateStyles:r1246091330">.mw-parser-output .sidebar{width:22em;float:right;clear:right;margin:0.5em 0 1em 1em;background:var(--background-color-neutral-subtle,#f8f9fa);border:1px solid var(--border-color-base,#a2a9b1);padding:0.2em;text-align:center;line-height:1.4em;font-size:88%;border-collapse:collapse;display:table}body.skin-minerva .mw-parser-output .sidebar{display:table!important;float:right!important;margin:0.5em 0 1em 1em!important}.mw-parser-output .sidebar-subgroup{width:100%;margin:0;border-spacing:0}.mw-parser-output .sidebar-left{float:left;clear:left;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-none{float:none;clear:both;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-outer-title{padding:0 0.4em 0.2em;font-size:125%;line-height:1.2em;font-weight:bold}.mw-parser-output .sidebar-top-image{padding:0.4em}.mw-parser-output .sidebar-top-caption,.mw-parser-output .sidebar-pretitle-with-top-image,.mw-parser-output .sidebar-caption{padding:0.2em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-pretitle{padding:0.4em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-title,.mw-parser-output .sidebar-title-with-pretitle{padding:0.2em 0.8em;font-size:145%;line-height:1.2em}.mw-parser-output .sidebar-title-with-pretitle{padding:0.1em 0.4em}.mw-parser-output .sidebar-image{padding:0.2em 0.4em 0.4em}.mw-parser-output .sidebar-heading{padding:0.1em 0.4em}.mw-parser-output .sidebar-content{padding:0 0.5em 0.4em}.mw-parser-output .sidebar-content-with-subgroup{padding:0.1em 0.4em 0.2em}.mw-parser-output .sidebar-above,.mw-parser-output .sidebar-below{padding:0.3em 0.8em;font-weight:bold}.mw-parser-output .sidebar-collapse .sidebar-above,.mw-parser-output .sidebar-collapse .sidebar-below{border-top:1px solid #aaa;border-bottom:1px solid #aaa}.mw-parser-output .sidebar-navbar{text-align:right;font-size:115%;padding:0 0.4em 0.4em}.mw-parser-output .sidebar-list-title{padding:0 0.4em;text-align:left;font-weight:bold;line-height:1.6em;font-size:105%}.mw-parser-output .sidebar-list-title-c{padding:0 0.4em;text-align:center;margin:0 3.3em}@media(max-width:640px){body.mediawiki .mw-parser-output .sidebar{width:100%!important;clear:both;float:none!important;margin-left:0!important;margin-right:0!important}}body.skin--responsive .mw-parser-output .sidebar a>img{max-width:none!important}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-list-title,html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle{background:transparent!important}html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle a{color:var(--color-progressive)!important}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-list-title,html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle{background:transparent!important}html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle a{color:var(--color-progressive)!important}}@media print{body.ns-0 .mw-parser-output .sidebar{display:none!important}}</style><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><table class="sidebar sidebar-collapse nomobile nowraplinks plainlist" role="navigation"><tbody><tr><td class="sidebar-pretitle">Part of <a href="Category:Antennas" title="Category:Antennas">a series</a> on</td></tr><tr><th class="sidebar-title-with-pretitle"><a href="Antenna_(radio)" title="Antenna (radio)">Antennas</a></th></tr><tr><td class="sidebar-image" style="margin-bottom:0.5em;"><span typeof="mw:File"><a href="File:Maszt_radiowy_w_Konstantynowie.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Maszt_radiowy_w_Konstantynowie.jpg/120px-Maszt_radiowy_w_Konstantynowie.jpg" decoding="async" width="100" height="107" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Maszt_radiowy_w_Konstantynowie.jpg/250px-Maszt_radiowy_w_Konstantynowie.jpg 1.5x" data-file-width="1875" data-file-height="2000" /></a></span></td></tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)"><a href="Antenna_types" title="Antenna types">Common types</a></div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Dipole_antenna" title="Dipole antenna">Dipole</a></li>
+<li><a href="Fractal_antenna" title="Fractal antenna">Fractal</a></li>
+<li><a href="Loop_antenna" title="Loop antenna">Loop</a></li>
+<li><a href="Monopole_antenna" title="Monopole antenna">Monopole</a></li>
+<li><a href="Satellite_dish" title="Satellite dish">Satellite dish</a></li>
+<li><a href="Television_antenna" title="Television antenna">Television</a></li>
+<li><a href="Whip_antenna" title="Whip antenna">Whip</a></li></ul>
+</div></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)">Components</div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Balun" title="Balun">Balun</a></li>
+<li><a href="Block_upconverter" title="Block upconverter">Block upconverter</a></li>
+<li><a href="Coaxial_cable" title="Coaxial cable">Coaxial cable</a></li>
+<li><a href="Counterpoise_(ground_system)" title="Counterpoise (ground system)">Counterpoise (ground system)</a></li>
+<li><a href="Antenna_feed" title="Antenna feed">Feed</a></li>
+<li><a href="Feed_line" class="mw-redirect" title="Feed line">Feed line</a></li>
+<li><a href="Low-noise_block_downconverter" title="Low-noise block downconverter">Low-noise block downconverter</a></li>
+<li><a href="Passive_radiator" class="mw-redirect" title="Passive radiator">Passive radiator</a></li>
+<li><a href="Receiver_(radio)" class="mw-redirect" title="Receiver (radio)">Receiver</a></li>
+<li><a href="Antenna_rotator" title="Antenna rotator">Rotator</a></li>
+<li><a href="Stub_(electronics)" title="Stub (electronics)">Stub</a></li>
+<li><a href="Transmitter" title="Transmitter">Transmitter</a></li>
+<li><a href="Antenna_tuner" title="Antenna tuner">Tuner</a></li>
+<li><a href="Twin-lead" title="Twin-lead">Twin-lead</a></li></ul>
+</div></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)">Systems</div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Antenna_farm" title="Antenna farm">Antenna farm</a></li>
+<li><a href="Amateur_radio" title="Amateur radio">Amateur radio</a></li>
+<li><a href="Cellular_network" title="Cellular network">Cellular network</a></li>
+<li><a href="Hotspot_(Wi-Fi)" class="mw-redirect" title="Hotspot (Wi-Fi)">Hotspot</a></li>
+<li><a href="Municipal_wireless_network" title="Municipal wireless network">Municipal wireless network</a></li>
+<li><a href="Radio" title="Radio">Radio</a></li>
+<li><a href="Radio_masts_and_towers" title="Radio masts and towers">Radio masts and towers</a></li>
+<li><a href="Wi-Fi" title="Wi-Fi">Wi-Fi</a></li>
+<li><a href="Wireless" title="Wireless">Wireless</a></li></ul>
+</div></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)">Safety and regulation</div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;">
+<ul><li><a href="Wireless_device_radiation_and_health" title="Wireless device radiation and health">Wireless device radiation and health</a></li>
+<li><a href="Wireless_electronic_devices_and_health" class="mw-redirect" title="Wireless electronic devices and health">Wireless electronic devices and health</a></li>
+<li><div style="display:inline-block; padding:0.2em 0.4em; line-height:1.2em;"><a href="International_Telecommunication_Union" title="International Telecommunication Union">International Telecommunication Union</a><br />(<a href="ITU_Radio_Regulations" title="ITU Radio Regulations">Radio Regulations</a>)</div></li>
+<li><a href="World_Radiocommunication_Conference" title="World Radiocommunication Conference">World Radiocommunication Conference</a></li></ul></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)"><span class="nowrap">Radiation sources&#160;/&#32;regions</span></div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Antenna_boresight" title="Antenna boresight">Boresight</a></li>
+<li><a href="Focal_cloud" title="Focal cloud">Focal cloud</a></li>
+<li><a href="Ground_plane" title="Ground plane">Ground plane</a></li>
+<li><a href="Main_lobe" title="Main lobe">Main lobe</a></li>
+<li><a href="Near_and_far_field" title="Near and far field">Near and far field</a></li>
+<li><a href="Side_lobe" class="mw-redirect" title="Side lobe">Side lobe</a></li>
+<li><a href="Vertical_plane" class="mw-redirect" title="Vertical plane">Vertical plane</a></li></ul>
+</div></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)">Characteristics</div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Array_gain" title="Array gain">Array gain</a></li>
+<li><a href="Directivity" title="Directivity">Directivity</a></li>
+<li><a href="Antenna_efficiency" class="mw-redirect" title="Antenna efficiency">Efficiency</a></li>
+<li><a href="Electrical_length" title="Electrical length">Electrical length</a></li>
+<li><a href="Antenna_equivalent_radius" title="Antenna equivalent radius">Equivalent radius</a></li>
+<li><a href="Antenna_factor" title="Antenna factor">Factor</a></li>
+<li><a href="Friis_transmission_equation" title="Friis transmission equation">Friis transmission equation</a></li>
+<li><a href="Antenna_gain" class="mw-redirect" title="Antenna gain">Gain</a></li>
+<li><a href="Antenna_height_considerations" class="mw-redirect" title="Antenna height considerations">Height</a></li>
+<li><a href="Radiation_pattern" title="Radiation pattern">Radiation pattern</a></li>
+<li><a href="Radiation_resistance" title="Radiation resistance">Radiation resistance</a></li>
+<li><a class="mw-selflink selflink">Radio propagation</a></li>
+<li><a href="Radio_spectrum" title="Radio spectrum">Radio spectrum</a></li>
+<li><a href="Signal-to-noise_ratio" title="Signal-to-noise ratio">Signal-to-noise ratio</a></li>
+<li><a href="Spurious_emission" title="Spurious emission">Spurious emission</a></li></ul>
+</div></div></div></td>
+</tr><tr><td class="sidebar-content">
+<div class="sidebar-list mw-collapsible mw-collapsed"><div class="sidebar-list-title" style="text-align:center;;color: var(--color-base)">Techniques</div><div class="sidebar-list-content mw-collapsible-content" style="border-top:1px solid#aaa;border-bottom:1px solid #aaa;"><div class="hlist">
+<ul><li><a href="Beam_steering" title="Beam steering">Beam steering</a></li>
+<li><a href="Beam_tilt" class="mw-redirect" title="Beam tilt">Beam tilt</a></li>
+<li><a href="Beamforming" title="Beamforming">Beamforming</a></li>
+<li><a href="Small_cell" title="Small cell">Small cell</a></li></ul>
+</div>
+<ul><li><div style="display:inline-block; padding:0.2em 0.4em; line-height:1.2em;"><a href="Bell_Laboratories_Layered_Space-Time" title="Bell Laboratories Layered Space-Time">Bell Laboratories Layered<br />Space-Time (BLAST)</a></div></li>
+<li>Massive <a href="MIMO" title="MIMO">Multiple-input multiple-output (MIMO)</a></li></ul>
+<div class="hlist">
+<ul><li><a href="Reconfigurable_antenna" title="Reconfigurable antenna">Reconfiguration</a></li>
+<li><a href="Spread_spectrum" title="Spread spectrum">Spread spectrum</a></li></ul>
+</div>
+<ul><li><div style="display:inline-block; padding:0.2em 0.4em; line-height:1.2em;"><a href="WSDMA" title="WSDMA">Wideband Space Division<br />Multiple Access (WSDMA)</a></div></li></ul></div></div></td>
+</tr><tr><td class="sidebar-navbar"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1239400231">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Antennas" title="Template:Antennas"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Antennas" title="Template talk:Antennas"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Antennas" title="Special:EditPage/Template:Antennas"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Radio propagation</b> is the behavior of <a href="Radio_wave" title="Radio wave">radio waves</a> as they travel, or are <a href="Wave_propagation" class="mw-redirect" title="Wave propagation">propagated</a>, from one point to another in <a href="Vacuum" title="Vacuum">vacuum</a>, or into various parts of the <a href="Atmosphere" title="Atmosphere">atmosphere</a>.<sup id="cite&#95;ref-Westman-1968&#95;1-0" class="reference"><a href="#cite_note-Westman-1968-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Page: 26‑1">&#58;&#8202;26‑1&#8202;</span></sup> As a form of <a href="Electromagnetic_radiation" title="Electromagnetic radiation">electromagnetic radiation</a>, like light waves, radio waves are affected by the phenomena of <a href="Reflection_(physics)" title="Reflection (physics)">reflection</a>, <a href="Refraction" title="Refraction">refraction</a>, <a href="Diffraction" title="Diffraction">diffraction</a>, <a href="Absorption_(electromagnetic_radiation)" title="Absorption (electromagnetic radiation)">absorption</a>, <a href="Polarization_(waves)" title="Polarization (waves)">polarization</a>, and <a href="Scattering" title="Scattering">scattering</a>.<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> Understanding the effects of varying conditions on radio propagation has many practical applications, from choosing frequencies for <a href="Amateur_radio" title="Amateur radio">amateur radio</a> communications, international <a href="Shortwave" class="mw-redirect" title="Shortwave">shortwave</a> <a href="Broadcasting" title="Broadcasting">broadcasters</a>, to designing reliable <a href="Mobile_phone" title="Mobile phone">mobile telephone</a> systems, to <a href="Radio_navigation" title="Radio navigation">radio navigation</a>, to operation of <a href="Radar" title="Radar">radar</a> systems.
+</p><p>Several different types of propagation are used in practical radio transmission systems. <i><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a></i> means radio waves which travel in a straight line from the transmitting antenna to the receiving antenna. Line of sight transmission is used for medium-distance radio transmission, such as <a href="Cell_phone" class="mw-redirect" title="Cell phone">cell phones</a>, <a href="Cordless_phone" class="mw-redirect" title="Cordless phone">cordless phones</a>, <a href="Walkie-talkie" title="Walkie-talkie">walkie-talkies</a>, <a href="Wireless_network" title="Wireless network">wireless networks</a>, <a href="FM_radio" class="mw-redirect" title="FM radio">FM radio</a>, <a href="Television_broadcasting" class="mw-redirect" title="Television broadcasting">television broadcasting</a>, <a href="Radar" title="Radar">radar</a>, and <a href="Satellite_communication" class="mw-redirect" title="Satellite communication">satellite communication</a> (such as <a href="Satellite_television" title="Satellite television">satellite television</a>). Line-of-sight transmission on the surface of the Earth is limited to the distance to the visual horizon, which depends on the height of transmitting and receiving antennas. It is the only propagation method possible at <a href="Microwave" title="Microwave">microwave</a> frequencies and above.<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>a<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>At lower frequencies in the <a href="Medium_frequency" title="Medium frequency">MF</a>, <a href="Low_frequency" title="Low frequency">LF</a>, and <a href="Very_low_frequency" title="Very low frequency">VLF</a> bands, <a href="Diffraction" title="Diffraction">diffraction</a> allows radio waves to bend over hills and other obstacles, and travel beyond the horizon, following the contour of the Earth. These are called <i><a href="Surface_wave" title="Surface wave">surface waves</a></i> or <i><a href="Ground_wave" title="Ground wave">ground wave</a> propagation</i>. <a href="AM_broadcasting" title="AM broadcasting">AM broadcast</a> and amateur radio stations use ground waves to cover their listening areas. As the frequency gets lower, the <a href="Attenuation" title="Attenuation">attenuation</a> with distance decreases, so <a href="Very_low_frequency" title="Very low frequency">very low frequency</a> (VLF) to <a href="Extremely_low_frequency" title="Extremely low frequency">extremely low frequency</a> (ELF) ground waves can be used to communicate worldwide. VLF to ELF waves can penetrate significant distances through water and earth, and these frequencies are used for mine communication and military <a href="Communication_with_submarines" title="Communication with submarines">communication with submerged submarines</a>.
+</p><p>At <a href="Medium_wave" title="Medium wave">medium wave</a> and <a href="Shortwave" class="mw-redirect" title="Shortwave">shortwave</a> frequencies (<a href="Medium_frequency" title="Medium frequency">MF</a> and <a href="High_frequency" title="High frequency">HF</a> bands), radio waves can refract from the <a href="Ionosphere" title="Ionosphere">ionosphere</a>, a layer of <a href="Charged_particle" title="Charged particle">charged particles</a> (<a href="Ion" title="Ion">ions</a>) high in the atmosphere. This means that medium and short radio waves transmitted at an angle into the sky can be refracted back to Earth at great distances beyond the horizon – even transcontinental distances. This is called <i><a href="Skywave" title="Skywave">skywave</a> propagation</i>. It is used by <a href="Amateur_radio" title="Amateur radio">amateur radio</a> operators to communicate with operators in distant countries, and by <a href="List_of_shortwave_radio_broadcasters" title="List of shortwave radio broadcasters">shortwave broadcast stations</a> to transmit internationally.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>b<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>In addition, there are several less common radio propagation mechanisms, such as <i><a href="Tropospheric_scattering" class="mw-redirect" title="Tropospheric scattering">tropospheric scattering</a></i> (troposcatter), <i><a href="Atmospheric_duct" title="Atmospheric duct">tropospheric ducting</a></i> (ducting) at VHF frequencies and <i><a href="Near_vertical_incidence_skywave" title="Near vertical incidence skywave">near vertical incidence skywave</a></i> (NVIS) which are used when HF communications are desired within a few hundred miles.
+</p>
+
+<div class="mw-heading mw-heading2"><h2 id="Frequency_dependence">Frequency dependence</h2></div>
+<p>At different frequencies, radio waves travel through the atmosphere by different mechanisms or modes:<sup id="cite&#95;ref-Seybold&#95;5-0" class="reference"><a href="#cite_note-Seybold-5"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div style="clear:both;" class=""></div>
+<table class="wikitable" style="margin:0.5em auto">
+<caption>Radio frequencies and their primary mode of propagation
+</caption>
+<tbody><tr>
+<th colspan="2">Band
+</th>
+<th>Frequency
+</th>
+<th>Wavelength
+</th>
+<th>Propagation via
+</th></tr>
+<tr>
+<td><a href="Extremely_low_frequency" title="Extremely low frequency">ELF</a>
+</td>
+<td>Extremely Low Frequency
+</td>
+<td>3–30 <a href="Hertz" title="Hertz">Hz</a>
+</td>
+<td>100,000–10,000&#160;km
+</td>
+<td>Guided between the Earth and the <a href="D_layer" class="mw-redirect" title="D layer">D layer</a> of the ionosphere.
+</td></tr>
+<tr>
+<td><a href="Super_low_frequency" title="Super low frequency">SLF</a>
+</td>
+<td>Super Low Frequency
+</td>
+<td>30–300 <a href="Hertz" title="Hertz">Hz</a>
+</td>
+<td>10,000–1,000&#160;km
+</td>
+<td>Guided between the Earth and the <a href="Ionosphere" title="Ionosphere">ionosphere</a>.
+</td></tr>
+<tr>
+<td><a href="Ultra_low_frequency" title="Ultra low frequency">ULF</a>
+</td>
+<td>Ultra Low Frequency
+</td>
+<td>0.3–3&#160;<a href="Kilohertz" class="mw-redirect" title="Kilohertz">kHz</a><br />(300–3,000&#160;Hz)
+</td>
+<td>1,000–100&#160;km
+</td>
+<td>Guided between the Earth and the <a href="Ionosphere" title="Ionosphere">ionosphere</a>.
+</td></tr>
+<tr>
+<td><a href="Very_low_frequency" title="Very low frequency">VLF</a>
+</td>
+<td>Very Low Frequency
+</td>
+<td>3–30&#160;<a href="Kilohertz" class="mw-redirect" title="Kilohertz">kHz</a><br />(3,000–30,000&#160;Hz)
+</td>
+<td>100–10&#160;km
+</td>
+<td>Guided between the Earth and the <a href="Ionosphere" title="Ionosphere">ionosphere</a>.
+<p><a href="Ground_wave" title="Ground wave">Ground waves</a>.
+</p>
+</td></tr>
+<tr>
+<td><a href="Low_frequency" title="Low frequency">LF</a>
+</td>
+<td>Low Frequency
+</td>
+<td>30–300&#160;<a href="Kilohertz" class="mw-redirect" title="Kilohertz">kHz</a><br />(30,000–300,000&#160;Hz)
+</td>
+<td>10–1&#160;km
+</td>
+<td>Guided between the Earth and the ionosphere.
+<p><a href="Ground_wave" title="Ground wave">Ground waves</a>.
+</p>
+</td></tr>
+<tr>
+<td><a href="Medium_frequency" title="Medium frequency">MF</a>
+</td>
+<td>Medium Frequency
+</td>
+<td>300–3,000&#160;<a href="Kilohertz" class="mw-redirect" title="Kilohertz">kHz</a><br />(300,000–3,000,000&#160;Hz)
+</td>
+<td>1000–100&#160;m
+</td>
+<td><a href="Ground_wave" title="Ground wave">Ground waves</a>.
+<p>E, <a href="F_layer" class="mw-redirect" title="F layer">F layer</a> ionospheric refraction at night, when D layer absorption weakens.
+</p>
+</td></tr>
+<tr>
+<td><a href="High_frequency" title="High frequency">HF</a>
+</td>
+<td>High Frequency (<a href="Shortwave" class="mw-redirect" title="Shortwave">Short Wave</a>)
+</td>
+<td>3–30&#160;<a href="Megahertz" class="mw-redirect" title="Megahertz">MHz</a><br />(3,000,000–30,000,000&#160;Hz)
+</td>
+<td>100–10&#160;m
+</td>
+<td><a href="E_layer" class="mw-redirect" title="E layer">E layer</a> ionospheric refraction.
+<p>F1, <a href="F2_propagation" title="F2 propagation">F2</a> layer ionospheric refraction.
+</p>
+</td></tr>
+<tr>
+<td><a href="Very_high_frequency" title="Very high frequency">VHF</a>
+</td>
+<td>Very High Frequency
+</td>
+<td>30–300&#160;<a href="Megahertz" class="mw-redirect" title="Megahertz">MHz</a><br />(30,000,000–<br />&#160; &#160; 300,000,000&#160;Hz)
+</td>
+<td>10–1 m
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>.
+<p>Infrequent <a href="Sporadic_E_propagation" title="Sporadic E propagation">E ionospheric (E<sub>s</sub>) refraction</a>. Uncommonly <a href="F2_propagation" title="F2 propagation">F2</a> layer ionospheric refraction during high sunspot activity up to 50&#160;MHz and rarely to 80&#160;MHz. Sometimes <a href="Tropospheric_ducting" class="mw-redirect" title="Tropospheric ducting">tropospheric ducting</a> or <a href="Meteor_burst_communications" title="Meteor burst communications">meteor scatter</a>
+</p>
+</td></tr>
+<tr>
+<td><a href="Ultra_high_frequency" title="Ultra high frequency">UHF</a>
+</td>
+<td>Ultra High Frequency
+</td>
+<td>300–3,000&#160;<a href="Megahertz" class="mw-redirect" title="Megahertz">MHz</a><br />(300,000,000–<br />&#160; &#160; 3,000,000,000&#160;Hz)
+</td>
+<td>100–10&#160;cm
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>. Sometimes <a href="Tropospheric_ducting" class="mw-redirect" title="Tropospheric ducting">tropospheric ducting</a>.
+</td></tr>
+<tr>
+<td><a href="Super_high_frequency" title="Super high frequency">SHF</a>
+</td>
+<td>Super High Frequency
+</td>
+<td>3–30 <a href="Gigahertz" class="mw-redirect" title="Gigahertz">GHz</a><br />(3,000,000,000–<br />&#160; &#160; 30,000,000,000&#160;Hz)
+</td>
+<td>10–1&#160;cm
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>. Sometimes <a href="Non-line-of-sight_propagation#Rain_scattering" title="Non-line-of-sight propagation">rain scatter</a>.
+</td></tr>
+<tr>
+<td><a href="Extremely_high_frequency" title="Extremely high frequency">EHF</a>
+</td>
+<td>Extremely High Frequency
+</td>
+<td>30–300&#160;<a href="Gigahertz" class="mw-redirect" title="Gigahertz">GHz</a><br />(30,000,000,000–<br />&#160; &#160; 300,000,000,000&#160;Hz)
+</td>
+<td>10–1&#160;mm
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>, limited by atmospheric absorption to a few kilometers (miles)
+</td></tr>
+<tr>
+<td><a href="Tremendously_high_frequency" class="mw-redirect" title="Tremendously high frequency">THF</a>
+</td>
+<td>Tremendously High frequency
+</td>
+<td>0.3–3&#160;<a href="Terahertz_(unit)" class="mw-redirect" title="Terahertz (unit)">THz</a><br />(300,000,000,000–<br />&#160; &#160; 3,000,000,000,000&#160;Hz)
+</td>
+<td>1–0.1&#160;mm
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>, limited by atmospheric absorption to a few meters.<sup id="cite&#95;ref-Coutaz&#95;6-0" class="reference"><a href="#cite_note-Coutaz-6"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-Siegel&#95;7-0" class="reference"><a href="#cite_note-Siegel-7"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</td></tr>
+<tr style="background-color:lightgrey;">
+<td><a href="Far_infrared" title="Far infrared">FIR</a>
+</td>
+<td>Far infrared light<br />(overlaps radio)
+</td>
+<td>0.3–20&#160;<a href="Terahertz_(unit)" class="mw-redirect" title="Terahertz (unit)">THz</a><br />(300,000,000,000–<br />&#160; &#160; 20,000,000,000,000&#160;Hz)
+</td>
+<td>1,000–150&#160;μm<sup id="cite&#95;ref-Byrnes&#95;8-0" class="reference"><a href="#cite_note-Byrnes-8"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-Glagoleva&#95;9-0" class="reference"><a href="#cite_note-Glagoleva-9"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-caltech&#95;10-0" class="reference"><a href="#cite_note-caltech-10"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</td>
+<td><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a>, mostly limited by atmospheric absorption to a few meters.<sup id="cite&#95;ref-Byrnes&#95;8-1" class="reference"><a href="#cite_note-Byrnes-8"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-caltech&#95;10-1" class="reference"><a href="#cite_note-caltech-10"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</td></tr></tbody></table>
+<div class="mw-heading mw-heading2"><h2 id="Free_space_propagation">Free space propagation</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Further information: <a href="Free-space_path_loss" title="Free-space path loss">Free-space path loss</a></div>
+<p>In <a href="Free_space" class="mw-redirect" title="Free space">free space</a>, all <a href="Electromagnetic_wave" class="mw-redirect" title="Electromagnetic wave">electromagnetic waves</a> (radio, light, X-rays, etc.) obey the <a href="Inverse-square_law" title="Inverse-square law">inverse-square law</a> which states that the power density <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \rho \,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3c1;<!-- ρ --></mi>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \rho \,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a1d651c28959a0f15127c097ff4488b123d9e708" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:1.589ex; height:2.176ex;" alt="{\displaystyle \rho \,}" /></span> of an electromagnetic wave is proportional to the inverse of the square of the distance <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle r\,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+        <mspace width="thinmathspace"></mspace>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r\,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f08ce4d4c86c5b43f36c8435fb598da6471047c6" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.436ex; height:1.676ex;" alt="{\displaystyle r\,}" /></span> from a <a href="Point_source" title="Point source">point source</a><sup id="cite&#95;ref-Westman-1968&#95;1-1" class="reference"><a href="#cite_note-Westman-1968-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Page: 26‑19">&#58;&#8202;26‑19&#8202;</span></sup> or:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \rho \propto {\frac {1}{r^{2}}}~.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x3c1;<!-- ρ --></mi>
+        <mo>&#x221d;<!-- ∝ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msup>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mfrac>
+        </mrow>
+        <mtext>&#xa0;</mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \rho \propto {\frac {1}{r^{2}}}~.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/560e2d6231657d323a6c2bbb5f684b5f743d4339" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:8.467ex; height:5.509ex;" alt="{\displaystyle \rho \propto {\frac {1}{r^{2}}}~.}" /></span></dd></dl>
+<p>At typical communication distances from a transmitter, the transmitting antenna usually can be approximated by a point source. Doubling the distance of a receiver from a transmitter means that the power density of the radiated wave at that new location is reduced to one-quarter of its previous value.
+</p><p>The power density per surface unit is proportional to the product of the electric and magnetic field strengths. Thus, doubling the propagation path distance from the transmitter reduces each of these received field strengths over a free-space path by one-half.
+</p><p>Radio waves in vacuum travel at the <a href="Speed_of_light" title="Speed of light">speed of light</a>. The Earth's atmosphere is thin enough that radio waves in the atmosphere travel very close to the speed of light, but variations in density and temperature can cause some slight <a href="Refraction" title="Refraction">refraction</a> (bending) of waves over distances.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Direct_modes_(line-of-sight)"><span id="Direct_modes_.28line-of-sight.29"></span>Direct modes (line-of-sight)</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight propagation</a></div>
+<p><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight</a> refers to radio waves which travel directly in a line from the transmitting antenna to the receiving antenna, often also called direct-wave. It does not necessarily require a cleared sight path; at lower frequencies radio waves can pass through buildings, foliage and other obstructions. This is the most common propagation mode at <a href="VHF" class="mw-redirect" title="VHF">VHF</a> and above, and the only possible mode at <a href="Microwave" title="Microwave">microwave</a> frequencies and above. On the surface of the Earth, line of sight propagation is limited by the <a href="Horizon" title="Horizon">visual horizon</a> to about 40 miles (64&#160;km). This is the method used by <a href="Cell_phone" class="mw-redirect" title="Cell phone">cell phones</a>,<sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>c<span class="cite-bracket">&#93;</span></a></sup> <a href="Cordless_phone" class="mw-redirect" title="Cordless phone">cordless phones</a>, <a href="Walkie-talkie" title="Walkie-talkie">walkie-talkies</a>, <a href="Wireless_network" title="Wireless network">wireless networks</a>, point-to-point <a href="Microwave_radio_relay" class="mw-redirect" title="Microwave radio relay">microwave radio relay</a> links, <a href="FM_broadcasting" title="FM broadcasting">FM</a> and <a href="Television_broadcasting" class="mw-redirect" title="Television broadcasting">television broadcasting</a> and <a href="Radar" title="Radar">radar</a>. <a href="Satellite_communication" class="mw-redirect" title="Satellite communication">Satellite communication</a> uses longer line-of-sight paths; for example home <a href="Satellite_dish" title="Satellite dish">satellite dishes</a> receive signals from communication satellites 22,000 miles (35,000&#160;km) above the Earth, and <a href="Satellite_ground_station" class="mw-redirect" title="Satellite ground station">ground stations</a> can communicate with <a href="Spacecraft" title="Spacecraft">spacecraft</a> billions of miles from Earth.
+</p><p><a href="Ground_plane" title="Ground plane">Ground plane</a> <a href="Reflection_(physics)" title="Reflection (physics)">reflection</a> effects are an important factor in VHF line-of-sight propagation. The interference between the direct beam line-of-sight and the ground reflected beam often leads to an effective inverse-fourth-power <span class="nowrap">(<style data-mw-deduplicate="TemplateStyles:r1154941027">.mw-parser-output .frac{white-space:nowrap}.mw-parser-output .frac .num,.mw-parser-output .frac .den{font-size:80%;line-height:0;vertical-align:super}.mw-parser-output .frac .den{vertical-align:sub}.mw-parser-output .sr-only{border:0;clip:rect(0,0,0,0);clip-path:polygon(0px 0px,0px 0px,0px 0px);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}</style><span class="frac"><span class="num">1</span>&#8260;<span class="den">distance<sup>4</sup></span></span>)</span> law for ground-plane limited radiation.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="Need reference to inverse-fourth-power law + ground plane. Drawings may clarify. (December 2020)">citation needed</span></a></i>&#93;</sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Surface_modes_(groundwave)"><span id="Surface_modes_.28groundwave.29"></span>Surface modes (groundwave)</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="Ground_wave" title="Ground wave">Ground wave</a></div>
+<figure typeof="mw:File/Thumb"><a href="File:Groud_Wave_Propagation.svg" class="mw-file-description"><img alt="Ground Wave Propagation" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Groud_Wave_Propagation.svg/250px-Groud_Wave_Propagation.svg.png" decoding="async" width="171" height="95" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Groud_Wave_Propagation.svg/330px-Groud_Wave_Propagation.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Groud_Wave_Propagation.svg/500px-Groud_Wave_Propagation.svg.png 2x" data-file-width="103" data-file-height="57" /></a><figcaption>Ground wave propagation</figcaption></figure>
+<p>Lower frequency (between 30 and 3,000&#160;kHz) <a href="Vertical_polarization" class="mw-redirect" title="Vertical polarization">vertically polarized</a> radio waves can travel as <a href="Surface_wave" title="Surface wave">surface waves</a> following the contour of the Earth; this is called <i>ground wave</i> propagation. 
+</p><p>In this mode the radio wave propagates by interacting with the conductive surface of the Earth. The wave "clings" to the surface and thus follows the curvature of the Earth, so ground waves can travel over mountains and beyond the horizon. Ground waves propagate in <a href="Polarization_(waves)" title="Polarization (waves)">vertical polarization</a> so vertical antennas (<a href="Monopole_antenna" title="Monopole antenna">monopoles</a>) are required. Since the ground is not a perfect electrical conductor, ground waves are <a href="Attenuation_(electromagnetic_radiation)" class="mw-redirect" title="Attenuation (electromagnetic radiation)">attenuated</a> as they follow the Earth's surface. Attenuation is proportional to frequency, so ground waves are the main mode of propagation at lower frequencies, in the <a href="Medium_frequency" title="Medium frequency">MF</a>, <a href="Low_frequency" title="Low frequency">LF</a> and <a href="Very_low_frequency" title="Very low frequency">VLF</a> bands. Ground waves are used by <a href="Radio_broadcasting" title="Radio broadcasting">radio broadcasting</a> stations in the MF and LF bands, and for <a href="Time_signal" title="Time signal">time signals</a> and <a href="Radio_navigation" title="Radio navigation">radio navigation</a> systems.
+</p><p>At even lower frequencies, in the <a href="Very_low_frequency" title="Very low frequency">VLF</a> to <a href="Extremely_low_frequency" title="Extremely low frequency">ELF</a> bands, an <a href="Earth-ionosphere_waveguide" class="mw-redirect" title="Earth-ionosphere waveguide">Earth-ionosphere waveguide</a> mechanism allows even longer range transmission. These frequencies are used for secure <a href="Military_communications" title="Military communications">military communications</a>. They can also penetrate to a significant depth into seawater, and so are used for one-way military communication to submerged submarines.
+</p><p>Early long-distance radio communication (<a href="Wireless_telegraphy" title="Wireless telegraphy">wireless telegraphy</a>) before the mid-1920s used low frequencies in the <a href="Longwave" title="Longwave">longwave</a> bands and relied exclusively on ground-wave propagation. Frequencies above 3&#160;MHz were regarded as useless and were given to hobbyists (<a href="Radio_amateur" class="mw-redirect" title="Radio amateur">radio amateurs</a>). The discovery around 1920 of the ionospheric reflection or <a href="Skywave" title="Skywave">skywave</a> mechanism made the <a href="Medium_wave" title="Medium wave">medium wave</a> and <a href="Short_wave" class="mw-redirect" title="Short wave">short wave</a> frequencies useful for long-distance communication and they were allocated to commercial and military users.<sup id="cite&#95;ref-12" class="reference"><a href="#cite_note-12"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Non-line-of-sight_modes">Non-line-of-sight modes</h2></div>
+<div class="excerpt-block"><style data-mw-deduplicate="TemplateStyles:r1066933788">.mw-parser-output .excerpt-hat .mw-editsection-like{font-style:normal}</style><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable dablink excerpt-hat selfref">This section is an excerpt from <a href="Non-line-of-sight_propagation" title="Non-line-of-sight propagation">Non-line-of-sight propagation</a>.<span class="mw-editsection-like plainlinks"><span class="mw-editsection-bracket">[</span><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Non-line-of-sight_propagation&amp;action=edit">edit</a><span class="mw-editsection-bracket">]</span></span></div><div class="excerpt">
+<p><a href="Non-line-of-sight_propagation" title="Non-line-of-sight propagation">Non-line-of-sight</a> (NLOS) radio propagation occurs outside of the typical <a href="Line-of-sight_propagation" title="Line-of-sight propagation">line-of-sight</a> (LOS) between the transmitter and receiver, such as in <a href="Ground_reflection" class="mw-redirect" title="Ground reflection">ground reflections</a>. 
+Near-line-of-sight (also NLOS) conditions refer to partial obstruction by a physical object present in the innermost <a href="Fresnel_zone" title="Fresnel zone">Fresnel zone</a>.
+</p><p>Obstacles that commonly cause NLOS propagation include buildings, trees, hills, mountains, and, in some cases, high voltage <a href="Electric_power" title="Electric power">electric power</a> lines. Some of these obstructions reflect certain radio frequencies, while some simply absorb or garble the signals; but, in either case, they limit the use of many types of radio transmissions, especially when low on power budget.
+</p><p>Lower power levels at a receiver reduce the chance of successfully receiving a transmission. Low levels can be caused by at least three basic reasons: low transmit level, for example <a href="Wi-Fi" title="Wi-Fi">Wi-Fi</a> power levels; far-away transmitter, such as <a href="3G" title="3G">3G</a> more than 5 miles (8.0&#160;km) away or <a href="Television_station#Transmission" title="Television station">TV</a> more than 31 miles (50&#160;km) away; and obstruction between the transmitter and the receiver, leaving no clear path.
+</p><p>NLOS lowers the effective received power. Near Line Of Sight can usually be dealt with using better antennas, but Non Line Of Sight usually requires alternative paths or multipath propagation methods.
+</p><p>How to achieve effective NLOS networking has become one of the major questions of modern computer networking. Currently, the most common method for dealing with NLOS conditions on wireless computer networks is simply to circumvent the NLOS condition and place <a href="Radio_relay" title="Radio relay">relays</a> at additional locations, sending the content of the radio transmission around the obstructions. Some more advanced NLOS transmission schemes now use <a href="Multipath_propagation" title="Multipath propagation">multipath</a> signal propagation, bouncing the radio signal off other nearby objects to get to the receiver.
+</p><p>Non-Line-of-Sight (NLOS) is a term often used in <a href="Radio" title="Radio">radio communications</a> to describe a radio channel or link where there is no <a href="Visual_system" title="Visual system"><i>visual</i></a> <a href="Line-of-sight_propagation" title="Line-of-sight propagation">line of sight</a> (LOS) between the <a href="Transmitter" title="Transmitter">transmitting</a> <a href="Antenna_(radio)" title="Antenna (radio)">antenna</a> and the <a href="Receiver_(radio)" class="mw-redirect" title="Receiver (radio)">receiving antenna</a>. In this context LOS is taken
+</p>
+<ul><li>Either as a straight line free of any form of visual obstruction, even if it is actually too distant to see with the unaided <a href="Human_eye" title="Human eye">human eye</a></li>
+<li>As a virtual LOS i.e., as a straight line through visually obstructing material, thus leaving sufficient transmission for radio waves to be detected</li></ul>
+<p>There are many electrical characteristics of the transmission media that affect the radio <a href="Wave_propagation" class="mw-redirect" title="Wave propagation">wave propagation</a> and therefore the quality of operation of a radio channel, if it is possible at all, over an NLOS path.
+</p><p>The acronym NLOS has become more popular in the context of <a href="Wireless_local_area_network" class="mw-redirect" title="Wireless local area network">wireless local area networks</a> (WLANs) and wireless metropolitan area networks such as <a href="WiMAX" title="WiMAX">WiMAX</a> because the capability of such links to provide a reasonable level of NLOS coverage greatly improves their marketability and versatility in the typical <a href="Urban_area" title="Urban area">urban</a> environments where they are most frequently used. However, NLOS contains many other subsets of radio communications.
+</p><p>The influence of a visual obstruction on a NLOS link may be anything from negligible to complete suppression. An example might apply to a LOS path between a television broadcast antenna and a roof mounted receiving antenna. If a cloud passed between the antennas the link could actually become NLOS but the quality of the radio channel could be virtually unaffected. If, instead, a large building was constructed in the path making it NLOS, the channel may be impossible to receive.
+</p>
+<pre>(BLOS) is a related term often used in the military to describe radio communications capabilities that link personnel or systems too distant or too fully obscured by terrain for LOS communications. These radios utilize active <a href="Repeater" title="Repeater">repeaters</a>, <a href="Groundwave_propagation" class="mw-redirect" title="Groundwave propagation">groundwave propagation</a>, <a href="Tropospheric_scatter_link" class="mw-redirect" title="Tropospheric scatter link">tropospheric scatter links</a>, and <a href="Ionospheric_propagation" class="mw-redirect" title="Ionospheric propagation">ionospheric propagation</a> to extend communication ranges from a few kilometers to a few thousand kilometers.
+</pre>
+</div></div>
+<div class="mw-heading mw-heading2"><h2 id="Measuring_HF_propagation">Measuring HF propagation</h2></div>
+<p>HF propagation conditions can be simulated using <a href="Radio_propagation_model" class="mw-redirect" title="Radio propagation model">radio propagation models</a>, such as <a href="VOACAP" title="VOACAP">the Voice of America Coverage Analysis Program</a>, and realtime measurements can be done using <a href="Chirp_Transmitter" class="mw-redirect" title="Chirp Transmitter">chirp transmitters</a>. For radio amateurs the <a href="WSPR_(amateur_radio_software)" title="WSPR (amateur radio software)">WSPR mode</a> provides maps with real time propagation conditions between a network of transmitters and receivers.<sup id="cite&#95;ref-13" class="reference"><a href="#cite_note-13"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup> Even without special beacons the realtime propagation conditions can be measured: A worldwide network of receivers decodes morse code signals on amateur radio frequencies in realtime and provides sophisticated search functions and propagation maps for every station received.<sup id="cite&#95;ref-14" class="reference"><a href="#cite_note-14"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Practical_effects">Practical effects</h2></div>
+<p>The average person can notice the effects of changes in radio propagation in several ways.
+</p><p>In <a href="AM_broadcasting" title="AM broadcasting">AM broadcasting</a>, the dramatic ionospheric changes that occur overnight in the mediumwave band drive a unique <a href="Broadcast_license" title="Broadcast license">broadcast license</a> scheme in the United States, with entirely different <a href="Transmitter_power_output" title="Transmitter power output">transmitter power output</a> levels and <a href="Directional_antenna" title="Directional antenna">directional antenna</a> patterns to cope with skywave propagation at night. Very few stations are allowed to run without modifications during dark hours, typically only those on <a href="Clear-channel_station" title="Clear-channel station">clear channels</a> in <a href="NARBA" class="mw-redirect" title="NARBA">North America</a>.<sup id="cite&#95;ref-15" class="reference"><a href="#cite_note-15"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup> Many stations have no authorization to run at all outside of daylight hours.
+</p><p>For <a href="FM_broadcasting" title="FM broadcasting">FM broadcasting</a> (and the few remaining low-band <a href="TV_station" class="mw-redirect" title="TV station">TV stations</a>), weather is the primary cause for changes in VHF propagation, along with some diurnal changes when the sky is mostly without <a href="Cloud_cover" title="Cloud cover">cloud cover</a>.<sup id="cite&#95;ref-16" class="reference"><a href="#cite_note-16"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup> These changes are most obvious during temperature inversions, such as in the late-night and early-morning hours when it is clear, allowing the ground and the air near it to cool more rapidly. This not only causes <a href="Dew" title="Dew">dew</a>, <a href="Frost" title="Frost">frost</a>, or <a href="Fog" title="Fog">fog</a>, but also causes a slight "drag" on the bottom of the radio waves, bending the signals down such that they can follow the Earth's curvature over the normal radio horizon. The result is typically several stations being heard from another <a href="Media_market" title="Media market">media market</a> – usually a neighboring one, but sometimes ones from a few hundred kilometers (miles) away.  <a href="Ice_storm" title="Ice storm">Ice storms</a> are also the result of inversions, but these normally cause more scattered omnidirection propagation, resulting mainly in interference, often among <a href="Weather_radio" title="Weather radio">weather radio</a> stations. In late spring and early summer, a combination of other atmospheric factors can occasionally cause skips that duct high-power signals to places well over 1000&#160;km (600 miles) away.
+</p><p>Non-broadcast signals are also affected. <a href="Mobile_phone_signal" title="Mobile phone signal">Mobile phone signals</a> are in the UHF band, ranging from 700 to over 2600&#160;MHz, a range which makes them even more prone to weather-induced propagation changes. In <a href="Urban_area" title="Urban area">urban</a> (and to some extent <a href="Suburb" title="Suburb">suburban</a>) areas with a high <a href="Population_density" title="Population density">population density</a>, this is partly offset by the use of smaller cells, which use lower <a href="Effective_radiated_power" title="Effective radiated power">effective radiated power</a> and <a href="Beam_tilt" class="mw-redirect" title="Beam tilt">beam tilt</a> to reduce interference, and therefore increase <a href="Frequency_reuse" class="mw-redirect" title="Frequency reuse">frequency reuse</a> and user capacity. However, since this would not be very cost-effective in more <a href="Rural" class="mw-redirect" title="Rural">rural</a> areas, these cells are larger and so more likely to cause interference over longer distances when propagation conditions allow.
+</p><p>While this is generally transparent to the user thanks to the way that <a href="Cellular_network" title="Cellular network">cellular networks</a> handle cell-to-cell <a href="Handoff" class="mw-redirect" title="Handoff">handoffs</a>, when <a href="International_boundary" class="mw-redirect" title="International boundary">cross-border</a> signals are involved, unexpected charges for international <a href="Roaming" title="Roaming">roaming</a> may occur despite not having left the country at all. This often occurs between southern <a href="San_Diego" title="San Diego">San Diego</a> and northern <a href="Tijuana" title="Tijuana">Tijuana</a> at the western end of the <a href="Mexico%E2%80%93United_States_border" title="Mexico–United States border">U.S./Mexico border</a>, and between eastern <a href="Detroit" title="Detroit">Detroit</a> and western  <a href="Windsor,_Ontario" title="Windsor, Ontario">Windsor</a> along the <a href="Canada%E2%80%93United_States_border" title="Canada–United States border">U.S./Canada border</a>. Since signals can travel unobstructed over a <a href="Body_of_water" title="Body of water">body of water</a> far larger than the <a href="Detroit_River" title="Detroit River">Detroit River</a>, and cool water temperatures also cause inversions in surface air, this "fringe roaming" sometimes occurs across the <a href="Great_Lakes" title="Great Lakes">Great Lakes</a>, and between islands in the <a href="Caribbean" title="Caribbean">Caribbean</a>. Signals can skip from the <a href="Dominican_Republic" title="Dominican Republic">Dominican Republic</a> to a mountainside in <a href="Puerto_Rico" title="Puerto Rico">Puerto Rico</a> and vice versa, or between the U.S. and British <a href="Virgin_Islands" title="Virgin Islands">Virgin Islands</a>, among others. While unintended cross-border roaming is often automatically removed by <a href="Mobile_phone_company" class="mw-redirect" title="Mobile phone company">mobile phone company</a> billing systems, inter-island roaming is typically not.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Empirical_models">Empirical models<span class="anchor" id="Models"></span></h2></div>
+<p>A <b>radio propagation model</b>, also known as the <b>radio wave propagation model</b> or the <b>radio frequency propagation model</b>, is an <a href="Empirical" class="mw-redirect" title="Empirical">empirical</a> <a href="Mathematical" class="mw-redirect" title="Mathematical">mathematical</a> <a href="Formulation" title="Formulation">formulation</a> for the characterization of <a href="Radio_wave" title="Radio wave">radio wave</a> propagation as a <a href="Function_(mathematics)" title="Function (mathematics)">function</a> of <a href="Frequency" title="Frequency">frequency</a>, <a href="Distance" title="Distance">distance</a> and other conditions. A single model is usually developed to predict the behavior of propagation for all similar links under similar constraints. Created with the goal of formalizing the way radio waves are propagated from one place to another, such models typically predict the <a href="Path_loss" title="Path loss">path loss</a> along a link or the effective coverage area of a <a href="Transmitter" title="Transmitter">transmitter</a>.
+</p><p>The inventor of radio communication, <a href="Guglielmo_Marconi" title="Guglielmo Marconi">Guglielmo Marconi</a>, before 1900 formulated the first crude empirical rule of radio propagation: the maximum  transmission distance varied as the square of the height of the antenna.
+</p><p>As the path loss encountered along any radio link serves as the dominant factor for characterization of propagation for the link, radio propagation models typically focus on realization of the path loss with the auxiliary task of predicting the area of coverage for a transmitter or modeling the distribution of signals over different regions.
+</p><p>Because each individual telecommunication link has to encounter different terrain, path, obstructions, atmospheric conditions and other phenomena, it is intractable to formulate the exact loss for all telecommunication systems in a single mathematical equation. As a result, different models exist for different types of radio links under different conditions. The models rely on <a href="Reference_distance" title="Reference distance">computing the median path loss</a> for a link under a certain probability that the considered conditions will occur.
+</p><p>Radio propagation models are empirical in nature, which means, they are developed based on large collections of data collected for the specific scenario. For any model, the collection of data has to be sufficiently large to provide enough likeliness (or enough scope) to all kind of situations that can happen in that specific scenario. Like all empirical models, radio propagation models do not point out the exact behavior of a link, rather, they predict the most likely behavior the link may exhibit under the specified conditions.
+</p><p>Different models have been developed to meet the needs of realizing the propagation behavior in different conditions. Types of models for radio propagation include:
+</p>
+<dl><dt>Models for free space attenuation</dt></dl>
+<ul><li><a href="Free-space_path_loss" title="Free-space path loss">Free-space path loss</a></li>
+<li><a href="Dipole_field_strength_in_free_space" title="Dipole field strength in free space">Dipole field strength in free space</a></li>
+<li><a href="Friis_transmission_equation" title="Friis transmission equation">Friis transmission equation</a></li></ul>
+<dl><dt>Models for outdoor attenuation</dt></dl>
+<ul><li>Terrain models
+<ul><li><a href="ITU_terrain_model" title="ITU terrain model">ITU terrain model</a></li>
+<li><a href="Egli_model" title="Egli model">Egli model</a></li>
+<li><a href="Longley%E2%80%93Rice_model" title="Longley–Rice model">Longley–Rice irregular terrain model (ITM)</a></li>
+<li><a href="Two-ray_ground-reflection_model" title="Two-ray ground-reflection model">Two-ray ground-reflection model</a></li></ul></li>
+<li>City models
+<ul><li><a href="Okumura_model" title="Okumura model">Okumura model</a></li>
+<li><a href="Hata_model" title="Hata model">Hata model</a></li>
+<li><a href="COST_Hata_model" title="COST Hata model">COST Hata model</a></li></ul></li></ul>
+<dl><dt>Models for indoor attenuation</dt></dl>
+<ul><li><a href="ITU_model_for_indoor_attenuation" title="ITU model for indoor attenuation">ITU model for indoor attenuation</a></li>
+<li><a href="Log-distance_path_loss_model" title="Log-distance path loss model">Log-distance path loss model</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1266661725">.mw-parser-output .portalbox{padding:0;margin:0.5em 0;display:table;box-sizing:border-box;max-width:175px;list-style:none}.mw-parser-output .portalborder{border:1px solid var(--border-color-base,#a2a9b1);padding:0.1em;background:var(--background-color-neutral-subtle,#f8f9fa)}.mw-parser-output .portalbox-entry{display:table-row;font-size:85%;line-height:110%;height:1.9em;font-style:italic;font-weight:bold}.mw-parser-output .portalbox-image{display:table-cell;padding:0.2em;vertical-align:middle;text-align:center}.mw-parser-output .portalbox-link{display:table-cell;padding:0.2em 0.2em 0.2em 0.3em;vertical-align:middle}@media(min-width:720px){.mw-parser-output .portalleft{margin:0.5em 1em 0.5em 0}.mw-parser-output .portalright{clear:right;float:right;margin:0.5em 0 0.5em 1em}}</style><ul role="navigation" aria-label="Portals" class="noprint portalbox portalborder portalright">
+<li class="portalbox-entry"><span class="portalbox-image"><span class="noviewer" typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/1/1d/Radio_icon.png" decoding="async" width="32" height="23" class="mw-file-element" data-file-width="30" data-file-height="22" /></span></span></span><span class="portalbox-link"><a href="Portal:Radio" title="Portal:Radio">Radio portal</a></span></li></ul>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1320445320" /><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="Index_of_radio_propagation_articles" title="Index of radio propagation articles">Index of radio propagation articles</a></div>
+<style data-mw-deduplicate="TemplateStyles:r1184024115">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class="div-col" style="column-width: 22em;">
+<ul><li><a href="Anomalous_propagation" title="Anomalous propagation">Anomalous propagation</a></li>
+<li><a href="Channel_model" class="mw-redirect" title="Channel model">Channel model</a></li>
+<li><a href="Computation_of_radiowave_attenuation_in_the_atmosphere" class="mw-redirect" title="Computation of radiowave attenuation in the atmosphere">Computation of radiowave attenuation in the atmosphere</a></li>
+<li><a href="Critical_frequency" title="Critical frequency">Critical frequency</a></li>
+<li><a href="Diversity_scheme" title="Diversity scheme">Diversity scheme</a></li>
+<li><a href="Earth_bulge" class="mw-redirect" title="Earth bulge">Earth bulge</a></li>
+<li><a href="Earth-ionosphere_waveguide" class="mw-redirect" title="Earth-ionosphere waveguide">Earth-ionosphere waveguide</a></li>
+<li><a href="Effective_Earth_radius" class="mw-redirect" title="Effective Earth radius">Effective Earth radius</a></li>
+<li><a href="Electromagnetic_radiation" title="Electromagnetic radiation">Electromagnetic radiation</a></li>
+<li><a href="F2_propagation" title="F2 propagation">F2 propagation</a></li>
+<li><a href="Fading" title="Fading">Fading</a></li>
+<li><a href="Free_space" class="mw-redirect" title="Free space">Free space</a></li>
+<li><a href="Fresnel_zone" title="Fresnel zone">Fresnel zone</a></li>
+<li><a href="Inversion_(meteorology)" title="Inversion (meteorology)">Inversion (meteorology)</a></li>
+<li><a href="Kennelly%E2%80%93Heaviside_layer" title="Kennelly–Heaviside layer">Kennelly–Heaviside layer</a></li>
+<li><a href="Link_budget" title="Link budget">Link budget</a></li>
+<li><a href="Mobility_model" title="Mobility model">Mobility model</a></li>
+<li><a href="Nakagami_distribution" title="Nakagami distribution">Nakagami fading</a></li>
+<li><a href="Near_and_far_field" title="Near and far field">Near and far field</a></li>
+<li><a href="Propagation_graph" title="Propagation graph">Propagation graph</a></li>
+<li><a href="Radio_atmospherics" class="mw-redirect" title="Radio atmospherics">Radio atmospherics</a></li>
+<li><a href="Radio_frequency" title="Radio frequency">Radio frequency</a></li>
+<li><a href="Radio_horizon" class="mw-redirect" title="Radio horizon">Radio horizon</a></li>
+<li><a href="Radio_resource_management" title="Radio resource management">Radio resource management</a></li>
+<li><a href="Ray_tracing_(physics)" title="Ray tracing (physics)">Ray tracing (physics)</a></li>
+<li><a href="Rayleigh_fading" title="Rayleigh fading">Rayleigh fading</a></li>
+<li><a href="Schumann_resonance" class="mw-redirect" title="Schumann resonance">Schumann resonance</a></li>
+<li><a href="Skip_(radio)" class="mw-redirect" title="Skip (radio)">Skip (radio)</a></li>
+<li><a href="Skip_zone" title="Skip zone">Skip zone</a></li>
+<li><a href="Skywave" title="Skywave">Skywave</a></li>
+<li><a href="Traffic_generation_model" title="Traffic generation model">Traffic generation model</a></li>
+<li><a href="Tropospheric_propagation" title="Tropospheric propagation">Tropospheric propagation</a></li>
+<li><a href="TV_and_FM_DX" title="TV and FM DX">TV and FM DX</a></li>
+<li><a href="Upfade" class="mw-redirect" title="Upfade">Upfade</a></li>
+<li><a href="Vertical_and_horizontal_(radio_propagation)" title="Vertical and horizontal (radio propagation)">Vertical and horizontal (radio propagation)</a></li>
+<li><a href="VOACAP" title="VOACAP">VOACAP</a> – Free professional HF propagation prediction software</li></ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Footnotes">Footnotes</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div class="mw-references-wrap"><ol class="references" data-mw-group="lower-alpha">
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">At microwave frequencies, moisture in the atmosphere (<a href="Rain_fade" title="Rain fade">rain fade</a>) can degrade transmission.</span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">Skywave communication is variable: It depends on conditions in the <a href="Ionosphere" title="Ionosphere">ionosphere</a>. Long distance shortwave transmission is most reliable at night and during the winter. Since the advent of <a href="Communication_satellite" class="mw-redirect" title="Communication satellite">communication satellites</a> in the 1960s, many long range communication needs that previously used skywaves now use satellites and <a href="Submarine_communications_cable" title="Submarine communications cable">submerged cables</a>, to avoid dependence on the erratic performance of skywave communications.</span>
+</li>
+<li id="cite&#95;note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text">Cellular networks function even without a single clear line-of-sight by relaying signals along multiple line-of-sight paths through cell towers.</span>
+</li>
+</ol></div>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1327269900" /><div class="mw-references-wrap mw-references-columns" style="column-width: calc( 0.9 * 25em );"><ol class="references">
+<li id="cite&#95;note-Westman-1968-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-Westman-1968_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Westman-1968_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFWestman1968" class="citation book cs1">Westman, H.P.; et&#160;al., eds. (1968). <i>Reference Data for Radio Engineers</i> (Fifth&#160;ed.). Howard W. Sams and Co. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-672-20678-1" title="Special:BookSources/0-672-20678-1"><bdi>0-672-20678-1</bdi></a>. <a href="LCCN_(identifier)" class="mw-redirect" title="LCCN (identifier)">LCCN</a>&#160;<a rel="nofollow" class="external text" href="https://lccn.loc.gov/43-14665">43-14665</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Reference+Data+for+Radio+Engineers&amp;rft.edition=Fifth&amp;rft.pub=Howard+W.+Sams+and+Co.&amp;rft.date=1968&amp;rft&#95;id=info%3Alccn%2F43-14665&amp;rft.isbn=0-672-20678-1&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFParisHurd1969" class="citation book cs1">Paris, Demetrius T. and Hurd, F. Kenneth (1969). <i>Basic Electromagnetic Theory</i>. New York, NY: McGraw Hill. Chapter&#160;8. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-07-048470-8" title="Special:BookSources/0-07-048470-8"><bdi>0-07-048470-8</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Basic+Electromagnetic+Theory&amp;rft.place=New+York%2C+NY&amp;rft.pages=Chapter-8&amp;rft.pub=McGraw+Hill&amp;rft.date=1969&amp;rft.isbn=0-07-048470-8&amp;rft.aulast=Paris&amp;rft.aufirst=Demetrius+T.&amp;rft.au=Hurd%2C+F.+Kenneth&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Seybold-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-Seybold_5-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSeybold2005" class="citation book cs1">Seybold, John S. (2005). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=4LtmjGNwOPIC&amp;pg=PA6"><i>Introduction to RF Propagation</i></a>. John Wiley and Sons. pp.&#160;<span class="nowrap">3–</span>10. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0471743682" title="Special:BookSources/0471743682"><bdi>0471743682</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+RF+Propagation&amp;rft.pages=3-10&amp;rft.pub=John+Wiley+and+Sons&amp;rft.date=2005&amp;rft.isbn=0471743682&amp;rft.aulast=Seybold&amp;rft.aufirst=John+S.&amp;rft&#95;id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3D4LtmjGNwOPIC%26pg%3DPA6&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Coutaz-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-Coutaz_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFCoutazGaretWallace2018" class="citation book cs1">Coutaz, Jean-Louis; Garet, Frederic; Wallace, Vincent P. (2018). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=zah8DwAAQBAJ&amp;pg=PA18"><i>Principles of Terahertz Time-Domain Spectroscopy: An introductory textbook</i></a>. Boca Raton, FL: CRC Press. p.&#160;18. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/9781351356367" title="Special:BookSources/9781351356367"><bdi>9781351356367</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Terahertz+Time-Domain+Spectroscopy%3A+An+introductory+textbook&amp;rft.place=Boca+Raton%2C+FL&amp;rft.pages=18&amp;rft.pub=CRC+Press&amp;rft.date=2018&amp;rft.isbn=9781351356367&amp;rft.aulast=Coutaz&amp;rft.aufirst=Jean-Louis&amp;rft.au=Garet%2C+Frederic&amp;rft.au=Wallace%2C+Vincent+P.&amp;rft&#95;id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3Dzah8DwAAQBAJ%26pg%3DPA18&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Siegel-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-Siegel_7-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSiegel2002" class="citation web cs1">Siegel, Peter (2002). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20210620092047/https://www.nasa.gov/audience/foreducators/k-4/features/Peter_Siegel.html">"Studying the Energy of the Universe"</a>. <i><a href="National_Aeronautics_and_Space_Administration" class="mw-redirect" title="National Aeronautics and Space Administration">National Aeronautics and Space Administration</a> (nasa.gov)</i>. Education materials. Archived from <a rel="nofollow" class="external text" href="https://www.nasa.gov/audience/foreducators/k-4/features/Peter_Siegel.html">the original</a> on 20 June 2021<span class="reference-accessdate">. Retrieved <span class="nowrap">19 May</span> 2021</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=National+Aeronautics+and+Space+Administration+%28nasa.gov%29&amp;rft.atitle=Studying+the+Energy+of+the+Universe&amp;rft.date=2002&amp;rft.aulast=Siegel&amp;rft.aufirst=Peter&amp;rft&#95;id=https%3A%2F%2Fwww.nasa.gov%2Faudience%2Fforeducators%2Fk-4%2Ffeatures%2FPeter&#95;Siegel.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Byrnes-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-Byrnes_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Byrnes_8-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFByrnes2009" class="citation book cs1">Byrnes, James (2009). <span class="id-lock-limited" title="Free access subject to limited trial, subscription normally required"><a rel="nofollow" class="external text" href="https://archive.org/details/unexplodedordnan00abry"><i>Unexploded Ordnance Detection and Mitigation</i></a></span>. Springer. pp.&#160;<a rel="nofollow" class="external text" href="https://archive.org/details/unexplodedordnan00abry/page/n29">21</a>–22. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-1-4020-9252-7" title="Special:BookSources/978-1-4020-9252-7"><bdi>978-1-4020-9252-7</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Unexploded+Ordnance+Detection+and+Mitigation&amp;rft.pages=21-22&amp;rft.pub=Springer&amp;rft.date=2009&amp;rft.isbn=978-1-4020-9252-7&amp;rft.aulast=Byrnes&amp;rft.aufirst=James&amp;rft&#95;id=https%3A%2F%2Farchive.org%2Fdetails%2Funexplodedordnan00abry&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Glagoleva-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-Glagoleva_9-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFGlagoleva-Arkadiewa1924" class="citation journal cs1"><a href="Alexandra_Glagoleva-Arkadieva" title="Alexandra Glagoleva-Arkadieva">Glagoleva-Arkadiewa, A.</a> (1924). <a rel="nofollow" class="external text" href="https://doi.org/10.1038%2F113640a0">"Short electromagnetic waves of wave-length up to 82&#160;Microns"</a>. <i><a href="Nature_(journal)" title="Nature (journal)">Nature</a></i>. <b>2844</b> (113). <a href="Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="id-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1038%2F113640a0">10.1038/113640a0</a></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Nature&amp;rft.atitle=Short+electromagnetic+waves+of+wave-length+up+to+82+Microns&amp;rft.volume=2844&amp;rft.issue=113&amp;rft.date=1924&amp;rft&#95;id=info%3Adoi%2F10.1038%2F113640a0&amp;rft.aulast=Glagoleva-Arkadiewa&amp;rft.aufirst=A.&amp;rft&#95;id=https%3A%2F%2Fdoi.org%2F10.1038%252F113640a0&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-caltech-10"><span class="mw-cite-backlink">^ <a href="#cite_ref-caltech_10-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-caltech_10-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://archive.today/20120529/http://www.ipac.caltech.edu/Outreach/Edu/Regions/irregions.html">"Near, mid and far-infrared"</a>. Caltech Infrared Processing and Analysis Center. <a href="California_Institute_of_Technology" title="California Institute of Technology">California Institute of Technology</a>. Archived from <a rel="nofollow" class="external text" href="http://www.ipac.caltech.edu/outreach/Edu/Regions/irregions.html">the original</a> on 29 May 2012<span class="reference-accessdate">. Retrieved <span class="nowrap">28 January</span> 2013</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Near%2C+mid+and+far-infrared&amp;rft.series=Caltech+Infrared+Processing+and+Analysis+Center&amp;rft.pub=California+Institute+of+Technology&amp;rft&#95;id=http%3A%2F%2Fwww.ipac.caltech.edu%2Foutreach%2FEdu%2FRegions%2Firregions.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFDeSoto1936" class="citation book cs1">DeSoto, Clinton B. (1936). <i>200&#160;meters &amp; Down - The Story of Amateur Radio</i>. Newington, CT: The <a href="American_Radio_Relay_League" title="American Radio Relay League">American Radio Relay League</a>. pp.&#160;<span class="nowrap">132–</span>146. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-87259-001-1" title="Special:BookSources/0-87259-001-1"><bdi>0-87259-001-1</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=200+meters+%26+Down+-+The+Story+of+Amateur+Radio&amp;rft.place=Newington%2C+CT&amp;rft.pages=132-146&amp;rft.pub=The+American+Radio+Relay+League&amp;rft.date=1936&amp;rft.isbn=0-87259-001-1&amp;rft.aulast=DeSoto&amp;rft.aufirst=Clinton+B.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span> <span class="cs1-hidden-error citation-comment"><code class="cs1-code">{{<a href="Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>: </span><span class="cs1-hidden-error citation-comment">ISBN / Date incompatibility (<a href="Help:CS1_errors#invalid_isbn_date" title="Help:CS1 errors">help</a>)</span></span>
+</li>
+<li id="cite&#95;note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://wsprnet.org/drupal/wsprnet/map">"WSPR propagation conditions"</a>. <i>wsprnet.org</i> (map)<span class="reference-accessdate">. Retrieved <span class="nowrap">4 December</span> 2020</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=wsprnet.org&amp;rft.atitle=WSPR+propagation+conditions&amp;rft&#95;id=http%3A%2F%2Fwsprnet.org%2Fdrupal%2Fwsprnet%2Fmap&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.reversebeacon.net/">"Network of CW signal decoders for realtime analysis"</a>. <i>Reverse Beacon Network</i><span class="reference-accessdate">. Retrieved <span class="nowrap">4 December</span> 2020</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Reverse+Beacon+Network&amp;rft.atitle=Network+of+CW+signal+decoders+for+realtime+analysis&amp;rft&#95;id=http%3A%2F%2Fwww.reversebeacon.net%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation report cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20200428033424/https://www.fcc.gov/media/radio/am-stations-at-night">Why AM stations must reduce power, change operations, or cease broadcasting at night</a> (Report). U.S. Federal Communications Commission. 11 December 2015. Archived from <a rel="nofollow" class="external text" href="https://www.fcc.gov/media/radio/am-stations-at-night">the original</a> on 28 April 2020<span class="reference-accessdate">. Retrieved <span class="nowrap">11 February</span> 2017</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=Why+AM+stations+must+reduce+power%2C+change+operations%2C+or+cease+broadcasting+at+night&amp;rft.pub=U.S.+Federal+Communications+Commission&amp;rft.date=2015-12-11&amp;rft&#95;id=https%3A%2F%2Fwww.fcc.gov%2Fmedia%2Fradio%2Fam-stations-at-night&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://rsgb.org/main/get-started-in-amateur-radio/operating-your-new-station/vhfuhf-propagation/">"VHF/UHF Propagation"</a>. <i>rsgb.org</i>. Radio Society of Great Britain<span class="reference-accessdate">. Retrieved <span class="nowrap">11 February</span> 2017</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=rsgb.org&amp;rft.atitle=VHF%2FUHF+Propagation&amp;rft&#95;id=http%3A%2F%2Frsgb.org%2Fmain%2Fget-started-in-amateur-radio%2Foperating-your-new-station%2Fvhfuhf-propagation%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></span>
+</li>
+</ol></div>
+<div class="mw-heading mw-heading2"><h2 id="Further_reading">Further reading</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1239549316">.mw-parser-output .refbegin{margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}@media screen{.mw-parser-output .refbegin{font-size:90%}}</style><div class="refbegin" style="">
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFBoithais1987" class="citation book cs1">Boithais, Lucien (1987). <i>Radio Wave Propagation</i>. New York, NY: McGraw-Hill Book Company. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-07-006433-4" title="Special:BookSources/0-07-006433-4"><bdi>0-07-006433-4</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Radio+Wave+Propagation&amp;rft.place=New+York%2C+NY&amp;rft.pub=McGraw-Hill+Book+Company&amp;rft.date=1987&amp;rft.isbn=0-07-006433-4&amp;rft.aulast=Boithais&amp;rft.aufirst=Lucien&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFRawer1993" class="citation book cs1">Rawer, Karl (1993). <i>Wave Propagation in the Ionosphere</i>. Dordrecht, NL: Kluwer Acad. Publ. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0-7923-0775-5" title="Special:BookSources/0-7923-0775-5"><bdi>0-7923-0775-5</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Wave+Propagation+in+the+Ionosphere&amp;rft.place=Dordrecht%2C+NL&amp;rft.pub=Kluwer+Acad.+Publ.&amp;rft.date=1993&amp;rft.isbn=0-7923-0775-5&amp;rft.aulast=Rawer&amp;rft.aufirst=Karl&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFPocock2010" class="citation book cs1">Pocock, Emil (2010). "Propagation of Radio Signals". In Silver, H. Ward and Wilson, Mark J. (eds.). <i>The ARRL Handbook for Radio Communications</i> (88th&#160;ed.). Newington, CT: American Radio Relay League. Chapter&#160;19. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-0-87259-095-3" title="Special:BookSources/978-0-87259-095-3"><bdi>978-0-87259-095-3</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Propagation+of+Radio+Signals&amp;rft.btitle=The+ARRL+Handbook+for+Radio+Communications&amp;rft.place=Newington%2C+CT&amp;rft.pages=Chapter-19&amp;rft.edition=88th&amp;rft.pub=American+Radio+Relay+League&amp;rft.date=2010&amp;rft.isbn=978-0-87259-095-3&amp;rft.aulast=Pocock&amp;rft.aufirst=Emil&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFBlanarovich1980" class="citation magazine cs1">Blanarovich, Yuri (VE3BMV, K3BU) (June 1980). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20211204181337/http://www.k3bu.us/propagation.htm">"Electromagnetic wave propagation by conduction"</a>. <i>CQ Magazine</i>. p.&#160;44. Archived from <a rel="nofollow" class="external text" href="http://k3bu.us/propagation.htm">the original</a> on 4 December 2021<span class="reference-accessdate">. Retrieved <span class="nowrap">13 January</span> 2015</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=CQ+Magazine&amp;rft.atitle=Electromagnetic+wave+propagation+by+conduction&amp;rft.pages=44&amp;rft.date=1980-06&amp;rft.aulast=Blanarovich&amp;rft.aufirst=Yuri+%28VE3BMV%2C+K3BU%29&amp;rft&#95;id=http%3A%2F%2Fk3bu.us%2Fpropagation.htm&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_magazine" title="Template:Cite magazine">cite magazine</a>}}</code>:  CS1 maint: multiple names: authors list (<a href="Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>) CS1 maint: numeric names: authors list (<a href="Category:CS1_maint:_numeric_names:_authors_list" title="Category:CS1 maint: numeric names: authors list">link</a>)</span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFGhasemiAbediGhasemi2016" class="citation book cs1">Ghasemi, Adbollah; Abedi, Ali; and Ghasemi, Farshid (2016). <i>Propagation Engineering in Wireless Communication</i> (2nd&#160;ed.). <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-3-319-32783-9" title="Special:BookSources/978-3-319-32783-9"><bdi>978-3-319-32783-9</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Propagation+Engineering+in+Wireless+Communication&amp;rft.edition=2nd&amp;rft.date=2016&amp;rft.isbn=978-3-319-32783-9&amp;rft.aulast=Ghasemi&amp;rft.aufirst=Adbollah&amp;rft.au=Abedi%2C+Ali&amp;rft.au=Ghasemi%2C+Farshid&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3ARadio+propagation" class="Z3988"></span></li></ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1314755338">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1311551236">@media print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}</style><div class="side-box side-box-right plainlinks sistersitebox"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1126788409" />
+<div class="side-box-flex">
+<div class="side-box-image"><span class="noviewer" typeof="mw:File"><a href="File:Commons-logo.svg" class="mw-file-description"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/40px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/60px-Commons-logo.svg.png 1.5x" data-file-width="1024" data-file-height="1376" /></a></span></div>
+<div class="side-box-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Radio_propagation" class="extiw" title="commons:Category:Radio propagation">Radio propagation</a></span>.</div></div>
+</div>
+<ul><li><a rel="nofollow" class="external text" href="http://rigreference.com/solar">Solar widget</a> Propagation widget based on NOAA data. Also available as WordPress plugin.</li>
+<li><a rel="nofollow" class="external text" href="http://www.arrl.org/propagation-of-rf-signals">ARRL Propagation Page</a> The <a href="ARRL" class="mw-redirect" title="ARRL">American Radio Relay League</a> page on radio propagation.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20050527220501/http://www.ips.gov.au/HF_Systems">HF Radio and Ionospheric Prediction Service - Australia</a></li>
+<li><a rel="nofollow" class="external text" href="https://sunearthday.nasa.gov/swac/data.php">NASA Space Weather Action Center</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.hamqsl.com/solar.html">Online Propagation Tools, HF Solar Data, and HF Propagation Tutorials</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.electronics-notes.com/articles/antennas-propagation/ionospheric/hf-propagation-basics.php">HF ionospheric propagation</a> several pages</li></ul>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox" aria-labelledby="Radio&#95;spectrum&#95;(ITU)2792" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Radio_spectrum" title="Template:Radio spectrum"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Radio_spectrum" title="Template talk:Radio spectrum"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Radio_spectrum" title="Special:EditPage/Template:Radio spectrum"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Radio&#95;spectrum&#95;(ITU)2792" style="font-size:114%;margin:0 4em"><a href="Radio_spectrum" title="Radio spectrum">Radio spectrum</a> (ITU)</div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0;background:transparent;color:inherit;"><div style="padding:0px"><table class="navbox-columns-table" style="border-spacing: 0px; text-align:left;width:auto; margin-left:auto; margin-right:auto;"><tbody><tr style="vertical-align:top"><td class="navbox-list" style="padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Extremely_low_frequency" title="Extremely low frequency">ELF</a></b>     <br />   3 Hz/100 Mm  <br />  30 Hz/10 Mm
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Super_low_frequency" title="Super low frequency">SLF</a></b>         <br />  30 Hz/10 Mm   <br /> 300 Hz/1 Mm
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Ultra_low_frequency" title="Ultra low frequency">ULF</a></b>         <br /> 300 Hz/1 Mm    <br />   3 kHz/100 km
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Very_low_frequency" title="Very low frequency">VLF</a></b>          <br />   3 kHz/100 km <br />  30 kHz/10 km
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Low_frequency" title="Low frequency">LF</a></b>                <br />  30 kHz/10 km  <br /> 300 kHz/1 km
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Medium_frequency" title="Medium frequency">MF</a></b>             <br /> 300 kHz/1 km   <br />   3 MHz/100 m
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="High_frequency" title="High frequency">HF</a></b>               <br />   3 MHz/100 m  <br />  30 MHz/10 m
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Very_high_frequency" title="Very high frequency">VHF</a></b>         <br />  30 MHz/10 m   <br /> 300 MHz/1 m
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Ultra_high_frequency" title="Ultra high frequency">UHF</a></b>        <br /> 300 MHz/1 m    <br />   3 GHz/100 mm
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Super_high_frequency" title="Super high frequency">SHF</a></b>        <br />   3 GHz/100 mm <br />  30 GHz/10 mm
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Extremely_high_frequency" title="Extremely high frequency">EHF</a></b>    <br />  30 GHz/10 mm  <br /> 300 GHz/1 mm
+</p>
+</div></td><td class="navbox-list" style="border-left:2px solid #fdfdfd;padding:0px;text-align:center;width:10em;"><div>
+<p><b><a href="Tremendously_high_frequency" class="mw-redirect" title="Tremendously high frequency">THF</a></b> <br /> 300 GHz/1 mm   <br />   3 THz/0.1 mm
+</p>
+</div></td></tr></tbody></table></div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div><b><span class="nowrap"><span class="noviewer" typeof="mw:File"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Radio_icon.png/30px-Radio_icon.png" decoding="async" width="21" height="15" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/1/1d/Radio_icon.png 1.5x" data-file-width="30" data-file-height="22" /></span></span> </span><a href="Portal:Radio" title="Portal:Radio">Radio&#32;portal</a></b></div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style></div><div role="navigation" class="navbox" aria-labelledby="Electromagnetic&#95;spectrum2333" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Electromagnetic_spectrum" title="Template:Electromagnetic spectrum"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Electromagnetic_spectrum" title="Template talk:Electromagnetic spectrum"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Electromagnetic_spectrum" title="Special:EditPage/Template:Electromagnetic spectrum"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Electromagnetic&#95;spectrum2333" style="font-size:114%;margin:0 4em"><a href="Electromagnetic_spectrum" title="Electromagnetic spectrum">Electromagnetic spectrum</a></div></th></tr><tr><td class="navbox-abovebelow" colspan="2" style="padding:0.3em 0.5em 0.4em;line-height:1.25em;font-weight:bold;"><div>
+<ul><li><a href="Gamma_ray" title="Gamma ray">Gamma rays</a></li>
+<li><a href="X-ray" title="X-ray">X-rays</a></li>
+<li><a href="Ultraviolet" title="Ultraviolet">Ultraviolet</a></li>
+<li><a href="Visible_spectrum" title="Visible spectrum">Visible</a></li>
+<li><a href="Infrared" title="Infrared">Infrared</a></li>
+<li><a href="Microwave" title="Microwave">Microwave</a></li>
+<li><a href="Radio_wave" title="Radio wave">Radio</a><figure class="mw-halign-center" typeof="mw:File"><a href="File:Frequency_vs._wave_length.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/Frequency_vs._wave_length.svg/500px-Frequency_vs._wave_length.svg.png" decoding="async" width="500" height="65" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/Frequency_vs._wave_length.svg/960px-Frequency_vs._wave_length.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/Frequency_vs._wave_length.svg/1000px-Frequency_vs._wave_length.svg.png 2x" data-file-width="800" data-file-height="104" /></a><figcaption></figcaption></figure><div style="clear:both;" class=""></div><span class="nobold"><i><span style="font-size:120%">←</span> higher <a href="Frequency" title="Frequency">frequencies</a>, higher energy, shorter <a href="Wavelength" title="Wavelength">wavelengths</a><span class="nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>longer <a href="Wavelength" title="Wavelength">wavelengths</a>, lower frequencies, lower energy <span style="font-size:120%">→</span></i></span></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Gamma_ray" title="Gamma ray">Gamma rays</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Very-high-energy_gamma_ray" title="Very-high-energy gamma ray">Very-high-energy</a></li>
+<li><a href="Ultra-high-energy_gamma_ray" title="Ultra-high-energy gamma ray">Ultra-high-energy</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="X-ray" title="X-ray">X-rays</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Soft_X-ray" class="mw-redirect" title="Soft X-ray">Soft X-ray</a></li>
+<li><a href="Hard_X-ray" class="mw-redirect" title="Hard X-ray">Hard X-ray</a></li>
+<li><a href="High-energy_X-rays" title="High-energy X-rays">High-energy X-rays</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Ultraviolet" title="Ultraviolet">Ultraviolet</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Extreme_ultraviolet" title="Extreme ultraviolet">Extreme ultraviolet</a></li>
+<li><a href="Vacuum_ultraviolet" class="mw-redirect" title="Vacuum ultraviolet">Vacuum ultraviolet</a></li>
+<li><a href="Lyman-alpha" title="Lyman-alpha">Lyman-alpha</a></li>
+<li><a href="Far_ultraviolet" class="mw-redirect" title="Far ultraviolet">FUV</a></li>
+<li><a href="Middle_ultraviolet" class="mw-redirect" title="Middle ultraviolet">MUV</a></li>
+<li><a href="Near_ultraviolet" class="mw-redirect" title="Near ultraviolet">NUV</a></li>
+<li><a href="Ultraviolet_C" class="mw-redirect" title="Ultraviolet C">UVC</a></li>
+<li><a href="Ultraviolet_B" class="mw-redirect" title="Ultraviolet B">UVB</a></li>
+<li><a href="Ultraviolet_A" class="mw-redirect" title="Ultraviolet A">UVA</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Visible_spectrum" title="Visible spectrum">Visible (optical)</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Violet_(color)" title="Violet (color)">Violet</a></li>
+<li><a href="Blue" title="Blue">Blue</a></li>
+<li><a href="Cyan" title="Cyan">Cyan</a></li>
+<li><a href="Green" title="Green">Green</a></li>
+<li><a href="Yellow" title="Yellow">Yellow</a></li>
+<li><a href="Orange_(colour)" title="Orange (colour)">Orange</a></li>
+<li><a href="Red" title="Red">Red</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Infrared" title="Infrared">Infrared</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Near-infrared" class="mw-redirect" title="Near-infrared">NIR</a> (<a href="Photometric_system" title="Photometric system">Bands</a>: <a href="J_band_(infrared)" title="J band (infrared)">J</a>, <a href="K_band_(infrared)" title="K band (infrared)">K</a>, <a href="H_band_(infrared)" title="H band (infrared)">H</a>)</li>
+<li><a href="Infrared#Regions" title="Infrared">SWIR</a></li>
+<li><a href="Infrared#Regions" title="Infrared">MWIR</a> (<a href="Photometric_system" title="Photometric system">Bands</a>: <a href="L_band_(infrared)" title="L band (infrared)">L</a>, <a href="M_band_(infrared)" title="M band (infrared)">M</a>, <a href="N_band" title="N band">N</a>)</li>
+<li><a href="Infrared#Regions" title="Infrared">LWIR</a></li>
+<li><a href="Far_infrared" title="Far infrared">FIR</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Microwave" title="Microwave">Microwaves</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="W_band" title="W band">W band</a></li>
+<li><a href="V_band" title="V band">V band</a></li>
+<li><a href="Q_band" title="Q band">Q band</a></li>
+<li><a href="Ka_band" title="Ka band">K<sub>a</sub> band</a></li>
+<li><a href="K_band_(IEEE)" title="K band (IEEE)">K band</a></li>
+<li><a href="Ku_band" title="Ku band">K<sub>u</sub> band</a></li>
+<li><a href="X_band" title="X band">X band</a></li>
+<li><a href="C_band_(IEEE)" title="C band (IEEE)">C band</a></li>
+<li><a href="S_band" title="S band">S band</a></li>
+<li><a href="L_band" title="L band">L band</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Radio_frequency" title="Radio frequency">Radio</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Terahertz_radiation" title="Terahertz radiation">THF</a></li>
+<li><a href="Extremely_high_frequency" title="Extremely high frequency">EHF</a></li>
+<li><a href="Super_high_frequency" title="Super high frequency">SHF</a></li>
+<li><a href="Ultra_high_frequency" title="Ultra high frequency">UHF</a></li>
+<li><a href="Very_high_frequency" title="Very high frequency">VHF</a></li>
+<li><a href="High_frequency" title="High frequency">HF</a></li>
+<li><a href="Medium_frequency" title="Medium frequency">MF</a></li>
+<li><a href="Low_frequency" title="Low frequency">LF</a></li>
+<li><a href="Very_low_frequency" title="Very low frequency">VLF</a></li>
+<li><a href="Ultra_low_frequency" title="Ultra low frequency">ULF</a></li>
+<li><a href="Super_low_frequency" title="Super low frequency">SLF</a></li>
+<li><a href="Extremely_low_frequency" title="Extremely low frequency">ELF</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background:lavender;"><a href="Wavelength" title="Wavelength">Wavelength</a> types</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Microwave" title="Microwave">Microwave</a></li>
+<li><a href="Shortwave_radio" title="Shortwave radio">Shortwave</a></li>
+<li><a href="Medium_wave" title="Medium wave">Medium wave</a></li>
+<li><a href="Longwave" title="Longwave">Longwave</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Analog&#95;television&#95;broadcasting&#95;topics3214" style="padding:3px"><table class="nowraplinks mw-collapsible mw-collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Analogue_TV_transmitter_topics" title="Template:Analogue TV transmitter topics"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Analogue_TV_transmitter_topics" title="Template talk:Analogue TV transmitter topics"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Analogue_TV_transmitter_topics" title="Special:EditPage/Template:Analogue TV transmitter topics"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Analog&#95;television&#95;broadcasting&#95;topics3214" style="font-size:114%;margin:0 4em"><a href="Analog_television" title="Analog television">Analog television</a> <a href="Outline_of_television_broadcasting" title="Outline of television broadcasting">broadcasting topics</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Broadcast_television_systems" title="Broadcast television systems">Systems</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="180-line_television_system" title="180-line television system">180-line</a></li>
+<li><a href="343-line_television_system" title="343-line television system">343-line</a></li>
+<li><a href="375-line_television_system" title="375-line television system">375-line</a></li>
+<li><a href="405-line_television_system" title="405-line television system">405-line</a> (<a href="CCIR_System_A" title="CCIR System A">System A</a>)</li>
+<li><a href="441-line_television_system" title="441-line television system">441-line</a></li>
+<li><a href="455-line_television_system" title="455-line television system">455-line</a></li>
+<li><a href="525-line_television_system" class="mw-redirect" title="525-line television system">525-line</a> (<a href="CCIR_System_M" title="CCIR System M">System M</a>)</li>
+<li><a href="625-line_television_system" class="mw-redirect" title="625-line television system">625-line</a> (<a href="CCIR_System_B" title="CCIR System B">System B</a>, <a href="CCIR_System_C" title="CCIR System C">System C</a>, <a href="CCIR_System_D" title="CCIR System D">System D</a>, <a href="CCIR_System_G" title="CCIR System G">System G</a>, <a href="CCIR_System_H" title="CCIR System H">System H</a>, <a href="CCIR_System_I" title="CCIR System I">System I</a>, <a href="CCIR_System_K" title="CCIR System K">System K</a>, <a href="CCIR_System_L" title="CCIR System L">System L</a>, <a href="CCIR_System_N" title="CCIR System N">System N</a>)</li>
+<li><a href="819_line" title="819 line">819-line</a> (<a href="CCIR_System_E" title="CCIR System E">System E</a>, <a href="CCIR_System_F" title="CCIR System F">System F</a>)</li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Color systems</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="NTSC" title="NTSC">NTSC</a></li>
+<li><a href="NTSC-J" title="NTSC-J">NTSC-J</a></li>
+<li><a href="Clear-Vision" title="Clear-Vision">Clear-Vision</a></li>
+<li><a href="PAL" title="PAL">PAL</a></li>
+<li><a href="PAL-M" title="PAL-M">PAL-M</a></li>
+<li><a href="PAL-S" title="PAL-S">PAL-S</a></li>
+<li><a href="PALplus" title="PALplus">PALplus</a></li>
+<li><a href="SECAM" title="SECAM">SECAM</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Video</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Analog_television#Structure_of_a_video_signal" title="Analog television">Back porch</a> and <a href="Analog_television#Structure_of_a_video_signal" title="Analog television">front porch</a></li>
+<li><a href="Black_level" title="Black level">Black level</a></li>
+<li><a href="Blanking_level" title="Blanking level">Blanking level</a></li>
+<li><a href="Chrominance" title="Chrominance">Chrominance</a></li>
+<li><a href="Chrominance_subcarrier" title="Chrominance subcarrier">Chrominance subcarrier</a></li>
+<li><a href="Colorburst" title="Colorburst">Colorburst</a></li>
+<li><a href="Color_killer" title="Color killer">Color killer</a></li>
+<li><a href="Color_television" title="Color television">Color TV</a></li>
+<li><a href="Composite_video" title="Composite video">Composite video</a></li>
+<li><a href="Frame_(video)" class="mw-redirect" title="Frame (video)">Frame (video)</a></li>
+<li><a href="Horizontal_scan_rate" title="Horizontal scan rate">Horizontal scan rate</a></li>
+<li><a href="Horizontal_blanking_interval" title="Horizontal blanking interval">Horizontal blanking interval</a></li>
+<li><a href="Luma_(video)" title="Luma (video)">Luma</a></li>
+<li><a href="Nominal_analogue_blanking" title="Nominal analogue blanking">Nominal analogue blanking</a></li>
+<li><a href="Overscan" title="Overscan">Overscan</a></li>
+<li><a href="Raster_scan" title="Raster scan">Raster scan</a></li>
+<li><a href="Safe_area_(television)" title="Safe area (television)">Safe area</a></li>
+<li><a href="Television_lines" title="Television lines">Television lines</a></li>
+<li><a href="Vertical_blanking_interval" title="Vertical blanking interval">Vertical blanking interval</a></li>
+<li><a href="White_clipper" title="White clipper">White clipper</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Sound</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Multichannel_Television_Sound" title="Multichannel Television Sound">Multichannel Television Sound</a></li>
+<li><a href="NICAM" title="NICAM">NICAM</a></li>
+<li><a href="Sound-in-Syncs" title="Sound-in-Syncs">Sound-in-Syncs</a></li>
+<li><a href="Zweikanalton" title="Zweikanalton">Zweikanalton</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Modulation</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Frequency_modulation" title="Frequency modulation">Frequency modulation</a></li>
+<li><a href="Quadrature_amplitude_modulation" title="Quadrature amplitude modulation">Quadrature amplitude modulation</a></li>
+<li><a href="Single-sideband_modulation#Vestigial_sideband_(VSB)" title="Single-sideband modulation">Vestigial sideband modulation (VSB)</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Transmission</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Amplifier#Electronic_amplifiers" title="Amplifier">Amplifiers</a></li>
+<li><a href="Antenna_(radio)" title="Antenna (radio)">Antenna (radio)</a></li>
+<li><a href="Broadcast_transmitter" title="Broadcast transmitter">Broadcast transmitter</a>/<a href="Transmitter_station" title="Transmitter station">Transmitter station</a></li>
+<li><a href="Resonator#Electromagnetic" title="Resonator">Cavity amplifier</a></li>
+<li><a href="Differential_gain" title="Differential gain">Differential gain</a></li>
+<li><a href="Differential_phase" title="Differential phase">Differential phase</a></li>
+<li><a href="Diplexer" title="Diplexer">Diplexer</a></li>
+<li><a href="Dipole_antenna" title="Dipole antenna">Dipole antenna</a></li>
+<li><a href="Dummy_load" title="Dummy load">Dummy load</a></li>
+<li><a href="Frequency_mixer" title="Frequency mixer">Frequency mixer</a></li>
+<li><a href="Intercarrier_method" title="Intercarrier method">Intercarrier method</a></li>
+<li><a href="Intermediate_frequency" title="Intermediate frequency">Intermediate frequency</a></li>
+<li><a href="Output_power_of_an_analog_TV_transmitter" title="Output power of an analog TV transmitter">Output power of an analog TV transmitter</a></li>
+<li><a href="Pre-emphasis" class="mw-redirect" title="Pre-emphasis">Pre-emphasis</a></li>
+<li><a href="Residual_carrier" title="Residual carrier">Residual carrier</a></li>
+<li><a href="Split_sound_system" title="Split sound system">Split sound system</a></li>
+<li><a href="Superheterodyne_transmitter" title="Superheterodyne transmitter">Superheterodyne transmitter</a></li>
+<li><a href="Television_receive-only" title="Television receive-only">Television receive-only</a></li>
+<li><a href="Direct-broadcast_satellite_television" class="mw-redirect" title="Direct-broadcast satellite television">Direct-broadcast satellite television</a></li>
+<li><a href="Television_transmitter" title="Television transmitter">Television transmitter</a></li>
+<li><a href="Terrestrial_television" title="Terrestrial television">Terrestrial television</a></li>
+<li><a href="Transposer" title="Transposer">Transposer</a></li>
+<li><a href="Digital_television_transition" title="Digital television transition">Digital television transition</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Radio_frequency" title="Radio frequency">Frequencies</a> &amp; bands</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Frequency_offset" title="Frequency offset">Frequency offset</a></li>
+<li><a href="Microwave_transmission" title="Microwave transmission">Microwave transmission</a></li>
+<li><a href="Television_channel_frequencies" title="Television channel frequencies">Television channel frequencies</a></li>
+<li><a href="Ultra_high_frequency" title="Ultra high frequency">UHF</a></li>
+<li><a href="Very_high_frequency" title="Very high frequency">VHF</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a class="mw-selflink selflink">Propagation</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Beam_tilt" class="mw-redirect" title="Beam tilt">Beam tilt</a></li>
+<li><a href="Distortion" title="Distortion">Distortion</a></li>
+<li><a href="Earth_bulge" class="mw-redirect" title="Earth bulge">Earth bulge</a></li>
+<li><a href="Field_strength_in_free_space" class="mw-redirect" title="Field strength in free space">Field strength in free space</a></li>
+<li><a href="Noise_(electronics)" title="Noise (electronics)">Noise (electronics)</a></li>
+<li><a href="Null_fill" title="Null fill">Null fill</a></li>
+<li><a href="Path_loss" title="Path loss">Path loss</a></li>
+<li><a href="Radiation_pattern" title="Radiation pattern">Radiation pattern</a></li>
+<li><a href="Skew_(antenna)" title="Skew (antenna)">Skew</a></li>
+<li><a href="Television_interference" title="Television interference">Television interference</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Testing</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Distortionmeter" title="Distortionmeter">Distortionmeter</a></li>
+<li><a href="Field_strength_meter" title="Field strength meter">Field strength meter</a></li>
+<li><a href="Vectorscope" title="Vectorscope">Vectorscope</a></li>
+<li><a href="VIT_signals" title="VIT signals">VIT signals</a></li>
+<li><a href="Zero_reference_pulse" title="Zero reference pulse">Zero reference pulse</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Artifacts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Dot_crawl" title="Dot crawl">Dot crawl</a></li>
+<li><a href="Ghosting_(television)" title="Ghosting (television)">Ghosting</a></li>
+<li><a href="Hanover_bars" title="Hanover bars">Hanover bars</a></li>
+<li><a href="Sparklies" title="Sparklies">Sparklies</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Modes&#95;of&#95;radio&#95;propagation453" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:RF_Propagation_Navbox" title="Template:RF Propagation Navbox"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:RF_Propagation_Navbox" title="Template talk:RF Propagation Navbox"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:RF_Propagation_Navbox" title="Special:EditPage/Template:RF Propagation Navbox"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Modes&#95;of&#95;radio&#95;propagation453" style="font-size:114%;margin:0 4em">Modes of <a class="mw-selflink selflink">radio propagation</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Line-of-sight_propagation" title="Line-of-sight propagation">Line-of-sight</a></li>
+<li><a href="Non-line-of-sight_propagation" title="Non-line-of-sight propagation">Non-line-of-sight</a></li>
+<li><a href="Ionosphere" title="Ionosphere">Ionospheric</a>
+<ul><li><a href="Meteor_burst_communications" title="Meteor burst communications">Meteor burst</a></li>
+<li><a href="E-skip#Sporadic_E_propagation_(E-skip)" class="mw-redirect" title="E-skip">Sporadic E</a></li></ul></li>
+<li><a href="Airplane_scatter" title="Airplane scatter">Airplane scatter</a></li>
+<li><a href="Tropospheric_scatter" title="Tropospheric scatter">Tropospheric scatter</a></li>
+<li><a href="EME_(communications)" class="mw-redirect" title="EME (communications)">Earth&#8211;Moon&#8211;Earth</a> (EME)</li>
+<li><a href="Interstellar_medium" title="Interstellar medium">Interstellar Medium</a> (ISM)</li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox" aria-labelledby="Radio&#95;frequency&#95;propagation&#95;models907" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1239400231" /><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template:Radio_frequency_propagation_models" title="Template:Radio frequency propagation models"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="Template_talk:Radio_frequency_propagation_models" title="Template talk:Radio frequency propagation models"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="Special:EditPage/Template:Radio_frequency_propagation_models" title="Special:EditPage/Template:Radio frequency propagation models"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Radio&#95;frequency&#95;propagation&#95;models907" style="font-size:114%;margin:0 4em"><a href="Radio_propagation_model" class="mw-redirect" title="Radio propagation model">Radio frequency propagation models</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Free_space" class="mw-redirect" title="Free space">Free space</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Free-space_path_loss" title="Free-space path loss">Free-space path loss</a></li>
+<li><a href="Friis_transmission_equation" title="Friis transmission equation">Friis transmission equation</a></li>
+<li><a href="Dipole_field_strength_in_free_space" title="Dipole field strength in free space">Dipole field strength in free space</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Terrain" title="Terrain">Terrain</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ITU_terrain_model" title="ITU terrain model">ITU terrain model</a></li>
+<li><a href="Egli_model" title="Egli model">Egli model</a></li>
+<li><a href="Longley%E2%80%93Rice_model" title="Longley–Rice model">Longley–Rice Irregular Terrain Model (ITM)</a></li>
+<li><a href="Two-ray_ground-reflection_model" title="Two-ray ground-reflection model">Two-ray ground-reflection model</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Foliage" class="mw-redirect" title="Foliage">Foliage</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Weissberger%27s_model" title="Weissberger&#39;s model">Weissberger's model</a></li>
+<li><a href="Early_ITU_model" title="Early ITU model">Early ITU model</a></li>
+<li><a href="One_woodland_terminal_model" title="One woodland terminal model">One woodland terminal model</a></li>
+<li><a href="Single_vegetative_obstruction_model" title="Single vegetative obstruction model">Single vegetative obstruction model</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Urban_area" title="Urban area">Urban</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Okumura_model" title="Okumura model">Okumura model</a></li>
+<li><a href="Hata_model" title="Hata model">Hata model</a></li>
+<li><a href="COST_Hata_model" title="COST Hata model">COST Hata model</a></li>
+<li><a href="Young_model" title="Young model">Young model</a></li>
+<li><a href="Six-rays_model" title="Six-rays model">Six-rays model</a></li>
+<li><a href="Ten-rays_model" title="Ten-rays model">Ten-rays model</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Indoor</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="ITU_model_for_indoor_attenuation" title="ITU model for indoor attenuation">ITU model for indoor attenuation</a></li>
+<li><a href="Log-distance_path_loss_model" title="Log-distance path loss model">Log-distance path loss model</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="VOACAP" title="VOACAP">VOACAP</a> (<a href="High_frequency" title="High frequency">HF</a>)</li>
+<li><a href="Area-to-area_Lee_model" title="Area-to-area Lee model">Area-to-area Lee model</a> (900 MHz)</li>
+<li><a href="Point-to-point_Lee_model" title="Point-to-point Lee model">Point-to-point Lee model</a> (900 MHz)</li>
+<li><a href="Longley%E2%80%93Rice_model" title="Longley–Rice model">Longley–Rice model</a> (20 MHz - 20 GHz)</li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1331366825" /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1314944253" /></div><div role="navigation" class="navbox authority-control" aria-label="Navbox398" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Help:Authority_control" title="Help:Authority control">Authority control databases</a>: National <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless"><a href="https://www.wikidata.org/wiki/Q1474701#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" class="mw-file-element" data-file-width="20" data-file-height="20" /></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="nofollow" class="external text" href="https://id.ndl.go.jp/auth/ndlna/00561396">Japan</a></span></li></ul></div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.main‐857f68949b‐w4hs6
+Cached time: 20260106005259
+Cache expiry: 83225
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.729 seconds
+Real time usage: 0.965 seconds
+Preprocessor visited node count: 3373/1000000
+Revision size: 28474/2097152 bytes
+Post‐expand include size: 136418/2097152 bytes
+Template argument size: 3789/2097152 bytes
+Highest expansion depth: 15/100
+Expensive parser function count: 11/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 158983/5000000 bytes
+Lua time usage: 0.383/10.000 seconds
+Lua memory usage: 9756504/52428800 bytes
+Number of Wikibase entities loaded: 1/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  770.742      1 -total
+ 20.65%  159.192      2 Template:Reflist
+ 16.36%  126.055     10 Template:Cite_book
+ 12.31%   94.847      1 Template:Antennas
+ 12.02%   92.643      1 Template:Sidebar_with_collapsible_lists
+  9.30%   71.690      1 Template:Short_description
+  6.43%   49.566      1 Template:Commons_category
+  6.19%   47.725      1 Template:Sister_project
+  6.12%   47.153      2 Template:Pagetype
+  6.00%   46.224      1 Template:Side_box
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:271195:|#|:idhash:canonical and timestamp 20260106005259 and revision id 1313286499. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/Radio_propagation">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

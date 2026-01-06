@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standing wave ratio - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; Standing wave ratio
+    </nav>
+    <article>
+        <h1>Standing wave ratio</h1>
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Measure used in radio engineering and telecommunications</div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:SWR-Verlauf_an_der_7MHz_HB9XBG-Antenne.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/76/SWR-Verlauf_an_der_7MHz_HB9XBG-Antenne.jpg/250px-SWR-Verlauf_an_der_7MHz_HB9XBG-Antenne.jpg" decoding="async" width="250" height="205" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/76/SWR-Verlauf_an_der_7MHz_HB9XBG-Antenne.jpg/500px-SWR-Verlauf_an_der_7MHz_HB9XBG-Antenne.jpg 1.5x" data-file-width="3144" data-file-height="2582" /></a><figcaption>SWR of a vertical <a href="HB9XBG_Antenna" title="HB9XBG Antenna">HB9XBG Antenna</a> for the <a href="40_meter_band" class="mw-redirect" title="40 meter band">40m-band</a> as a function of frequency</figcaption></figure>
+<p>In <a href="Radio-frequency_engineering" title="Radio-frequency engineering">radio engineering</a> and <a href="Telecommunications" title="Telecommunications">telecommunications</a>, <b>standing wave ratio</b> (<b>SWR</b>) is a measure of <a href="Impedance_matching" title="Impedance matching">impedance matching</a> of <a href="Electrical_load" title="Electrical load">loads</a> to the <a href="Characteristic_impedance" title="Characteristic impedance">characteristic impedance</a> of a <a href="Transmission_line" title="Transmission line">transmission line</a> or <a href="Waveguide" title="Waveguide">waveguide</a>. Impedance mismatches result in <a href="Standing_wave" title="Standing wave">standing waves</a> along the transmission line, and SWR is defined as the ratio of the partial <a href="Standing_wave" title="Standing wave">standing wave</a>'s amplitude at an antinode (maximum) to the amplitude at a <a href="Node_(physics)" title="Node (physics)">node</a> (minimum) along the line.
+</p><p><b>Voltage standing wave ratio (VSWR)</b> (pronounced "vizwar"<sup id="cite&#95;ref-Knott&#95;1-0" class="reference"><a href="#cite_note-Knott-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-Schaub&#95;2-0" class="reference"><a href="#cite_note-Schaub-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>) is the ratio of maximum to minimum <a href="Voltage" title="Voltage">voltage</a> on a transmission line . For example, a VSWR of 1.2 means a peak voltage 1.2 times the minimum voltage along that line, if the line is at least one half wavelength long.
+</p><p>A SWR can be also defined as the ratio of the maximum amplitude to minimum amplitude of the transmission line's <a href="Current_(electricity)" class="mw-redirect" title="Current (electricity)">currents</a>, <a href="Electric_field_strength" class="mw-redirect" title="Electric field strength">electric field strength</a>, or the magnetic field strength. Neglecting transmission line loss, these ratios are identical.
+</p><p>The <b>power standing wave ratio</b> (<b>PSWR</b>) is defined as the square of the VSWR,<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> however, this deprecated term has no direct physical relation to power actually involved in transmission.
+</p><p>SWR is usually measured using a dedicated instrument called an <a href="SWR_meter" title="SWR meter">SWR meter</a>. Since SWR is a measure of the load impedance relative to the characteristic impedance of the transmission line in use (which together determine the <a href="Reflection_coefficient" title="Reflection coefficient">reflection coefficient</a> as described <a href="#Relationship_to_the_reflection_coefficient">below</a>), a given SWR meter can interpret the impedance it sees in terms of SWR only if it has been designed for the same particular characteristic impedance as the line. In practice most transmission lines used in these applications are <a href="Coaxial_cable" title="Coaxial cable">coaxial cables</a> with an impedance of either 50 or 75&#160;<a href="Ohm" title="Ohm">ohms</a>, so most SWR meters correspond to one of these.
+</p><p>Checking the SWR is a standard procedure in a radio station. Although the same information could be obtained by measuring the load's impedance with an <a href="Impedance_analyzer" title="Impedance analyzer">impedance analyzer</a> (or "impedance bridge"), the SWR meter is simpler and more robust for this purpose. By measuring the magnitude of the impedance mismatch at the transmitter output it reveals problems due to either the antenna or the transmission line.
+</p>
+
+<div class="mw-heading mw-heading2"><h2 id="Impedance_matching">Impedance matching</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1320445320">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="Impedance_matching" title="Impedance matching">Impedance matching</a></div>
+<p>SWR is used as a measure of <a href="Impedance_matching" title="Impedance matching">impedance matching</a> of a load to the <a href="Characteristic_impedance" title="Characteristic impedance">characteristic impedance</a> of a transmission line carrying <a href="Radio_frequency" title="Radio frequency">radio frequency</a> (RF) signals. This especially applies to transmission lines connecting <a href="Transmitter" title="Transmitter">radio transmitters</a> and receivers with their <a href="Antenna_(radio)" title="Antenna (radio)">antennas</a>, as well as similar uses of RF cables such as <a href="Cable_television" title="Cable television">cable television</a> connections to TV receivers and <a href="Distribution_amplifier" title="Distribution amplifier">distribution amplifiers</a>. Impedance matching is achieved when the source impedance is the <a href="Complex_conjugate" title="Complex conjugate">complex conjugate</a> of the load impedance. The easiest way of achieving this, and the way that minimizes losses along the transmission line, is for the imaginary part of the <a href="Complex_number" title="Complex number">complex impedance</a> of both the source and load to be zero, that is, pure resistances, equal to the characteristic impedance of the transmission line. When there is a mismatch between the load impedance and the transmission line, part of the forward wave sent toward the load is reflected back along the transmission line towards the source. The source then sees a different impedance than it expects which can lead to lesser (or in some cases, more) power being supplied by it, the result being very sensitive to the <a href="Electrical_length" title="Electrical length">electrical length</a> of the transmission line.
+</p><p>Such a mismatch is usually undesired and results in <a href="Standing_wave" title="Standing wave">standing waves</a> along the transmission line which magnifies transmission line losses (significant at higher frequencies and for longer cables). The SWR is a measure of the depth of those standing waves and is, therefore, a measure of the matching of the load to the transmission line. A matched load would result in an SWR of 1:1 implying no reflected wave. An infinite SWR represents complete reflection by a load unable to absorb electrical power, with all the incident power reflected back towards the source.
+</p><p>It should be understood that the match of a load to the transmission line is different from the match of a <i>source</i> to the transmission line or the match of a source to the load <i>seen through</i> the transmission line. For instance, if there is a perfect match between the load impedance <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> and the source impedance <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>source</sub> = <span class="texhtml mvar" style="font-style:italic;">Z</span><sup>*</sup><sub>load</sub>,</span> that perfect match will remain if the source and load are connected through a transmission line with an electrical length of one half wavelength (or a multiple of one half wavelengths) using a transmission line of <i>any</i> characteristic impedance <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>0</sub>. However the SWR will generally not be 1:1, depending only on <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> and <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>0</sub>. With a different length of transmission line, the source will see a different impedance than <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> which may or may not be a good match to the source. Sometimes this is deliberate, as when a <a href="Quarter-wave_impedance_transformer" title="Quarter-wave impedance transformer">quarter-wave matching section</a> is used to improve the match between an otherwise mismatched source and load.
+</p><p>However typical <a href="Radio_frequency" title="Radio frequency">RF</a> sources such as transmitters and signal generators are designed to look into a purely resistive load impedance such as 50Ω or 75Ω, corresponding to common transmission lines' characteristic impedances. In those cases, matching the load to the transmission line, <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> = <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>0</sub>, <i>always</i> ensures that the source will see the same load impedance as if the transmission line weren't there. This is identical to a 1:1 SWR. This condition (<span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> = <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>0</sub>) also means that the load seen by the source is independent of the transmission line's electrical length. Since the electrical length of a physical segment of transmission line depends on the signal frequency, violation of this condition means that the impedance seen by the source through the transmission line becomes a function of frequency (especially if the line is long), even if <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>load</sub> is frequency-independent. So in practice, a good SWR (near 1:1) implies a transmitter's output seeing the exact impedance it expects for optimum and safe operation.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Relationship_to_the_reflection_coefficient">Relationship to the reflection coefficient</h2></div>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:Standing_wave_2.gif" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Standing_wave_2.gif/500px-Standing_wave_2.gif" decoding="async" width="350" height="117" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Standing_wave_2.gif/750px-Standing_wave_2.gif 1.5x" data-file-width="750" data-file-height="250" /></a><figcaption>Incident wave (blue) is fully reflected (red wave) out of phase at short-circuited end of transmission line, creating a net voltage (black) standing wave. Γ = −1, SWR = ∞.</figcaption></figure>
+<figure class="mw-halign-right" typeof="mw:File/Thumb"><a href="File:StandingWaves-3.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/4/43/StandingWaves-3.png/500px-StandingWaves-3.png" decoding="async" width="500" height="350" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/43/StandingWaves-3.png/960px-StandingWaves-3.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/43/StandingWaves-3.png/1000px-StandingWaves-3.png 2x" data-file-width="1130" data-file-height="791" /></a><figcaption>Standing waves on transmission line, net voltage shown in different colors during one period of oscillation. Incoming wave from left (amplitude = 1) is partially reflected with (top to bottom) Γ = 0.6, −0.333, and 0.8 ∠60°. Resulting SWR = 4, 2, 9.</figcaption></figure>
+<p>The voltage component of a standing wave in a uniform <a href="Transmission_line" title="Transmission line">transmission line</a> consists of the forward wave (with <a href="Phasor" title="Phasor">complex</a> amplitude <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{f}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{f}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cdc0d1604bbf75069df35d14afa9fac3e883be3f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.005ex; width:2.492ex; height:2.843ex;" alt="{\displaystyle V_{f}}" /></span>) superimposed on the reflected wave (with complex amplitude <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{r}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{r}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6af090a087f942232cc8c5321a7c0422f109b745" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:2.329ex; height:2.509ex;" alt="{\displaystyle V_{r}}" /></span>).
+</p><p>A wave is partly reflected when a transmission line is terminated with an impedance unequal to its <a href="Characteristic_impedance" title="Characteristic impedance">characteristic impedance</a>.  The <a href="Reflection_coefficient" title="Reflection coefficient">reflection coefficient</a> <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span> can be defined as:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma ={\frac {V_{r}}{V_{f}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>r</mi>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>f</mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma ={\frac {V_{r}}{V_{f}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/805d3238f524b16c95edf533c89fc81499e03c6e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:8.526ex; height:5.843ex;" alt="{\displaystyle \Gamma ={\frac {V_{r}}{V_{f}}}.}" /></span></dd></dl>
+<p>or
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma ={Z_{L}-Z_{o} \over Z_{L}+Z_{o}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>o</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>L</mi>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>o</mi>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma ={Z_{L}-Z_{o} \over Z_{L}+Z_{o}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f95923e9017d6a4c40510e5d12d571af52b9d840" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:13.784ex; height:5.676ex;" alt="{\displaystyle \Gamma ={Z_{L}-Z_{o} \over Z_{L}+Z_{o}}}" /></span></dd></dl>
+<p><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span> is a <a href="Complex_number" title="Complex number">complex number</a> that describes both the magnitude and the phase shift of the reflection.  The simplest cases with <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span> <i>measured at the load</i> are:
+</p>
+<ul><li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma =-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma =-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5a5b71df0d3d176c3b99ddbd40ecd749fc247aa9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:7.522ex; height:2.343ex;" alt="{\displaystyle \Gamma =-1}" /></span>: complete negative reflection, when the line is short-circuited,</li>
+<li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma =0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma =0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f9896b8ebf4dd4079563aefd15653a9880687480" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:5.714ex; height:2.176ex;" alt="{\displaystyle \Gamma =0}" /></span>: no reflection, when the line is perfectly matched,</li>
+<li><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma =+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+        <mo>=</mo>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma =+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/10f982c19c72238e8eb463dc96033fa72453cf86" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.505ex; width:7.522ex; height:2.343ex;" alt="{\displaystyle \Gamma =+1}" /></span>: complete positive reflection, when the line is open-circuited.</li></ul>
+<p>The SWR directly corresponds to the <a href="Magnitude_(mathematics)#Complex_numbers" title="Magnitude (mathematics)">magnitude</a> of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span>.
+</p><p>At some points along the line the forward and reflected waves <a href="Wave_interference" title="Wave interference">interfere</a> constructively, exactly in phase, with the resulting amplitude <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{\text{max}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>max</mtext>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\text{max}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/550aaeaf825bba56d6f276d151e6830e5ee53f37" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:4.646ex; height:2.509ex;" alt="{\displaystyle V_{\text{max}}}" /></span> given by the sum of those waves' amplitudes:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}|V_{\text{max}}|&amp;=|V_{f}|+|V_{r}|\\&amp;=|V_{f}|+|\Gamma V_{f}|\\&amp;=(1+|\Gamma |)|V_{f}|.\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>max</mtext>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>+</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>+</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo>+</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>.</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}|V_{\text{max}}|&amp;=|V_{f}|+|V_{r}|\\&amp;=|V_{f}|+|\Gamma V_{f}|\\&amp;=(1+|\Gamma |)|V_{f}|.\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/14f9d5d3514b462348cb1640f57fcd728bbf264d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -4.171ex; width:22.781ex; height:9.509ex;" alt="{\displaystyle {\begin{aligned}|V_{\text{max}}|&amp;=|V_{f}|+|V_{r}|\\&amp;=|V_{f}|+|\Gamma V_{f}|\\&amp;=(1+|\Gamma |)|V_{f}|.\end{aligned}}}" /></span></dd></dl>
+<p>At other points, the waves interfere 180° out of phase with the amplitudes partially cancelling:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}|V_{\text{min}}|&amp;=|V_{f}|-|V_{r}|\\&amp;=|V_{f}|-|\Gamma V_{f}|\\&amp;=(1-|\Gamma |)|V_{f}|.\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>min</mtext>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>&#x2212;<!-- − --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>&#x2212;<!-- − --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mo>.</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}|V_{\text{min}}|&amp;=|V_{f}|-|V_{r}|\\&amp;=|V_{f}|-|\Gamma V_{f}|\\&amp;=(1-|\Gamma |)|V_{f}|.\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/28f4dfe6642cc0bd9a3f4e90c097b29c2d61cbe2" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -4.171ex; width:22.462ex; height:9.509ex;" alt="{\displaystyle {\begin{aligned}|V_{\text{min}}|&amp;=|V_{f}|-|V_{r}|\\&amp;=|V_{f}|-|\Gamma V_{f}|\\&amp;=(1-|\Gamma |)|V_{f}|.\end{aligned}}}" /></span></dd></dl>
+<p>The voltage standing wave ratio is then
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\text{VSWR}}={\frac {|V_{\text{max}}|}{|V_{\text{min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>VSWR</mtext>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>max</mtext>
+                </mrow>
+              </msub>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>min</mtext>
+                </mrow>
+              </msub>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{VSWR}}={\frac {|V_{\text{max}}|}{|V_{\text{min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f48b101cfa63e95f22d9c53844c5ca15663faac9" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:28.34ex; height:6.509ex;" alt="{\displaystyle {\text{VSWR}}={\frac {|V_{\text{max}}|}{|V_{\text{min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}.}" /></span></dd></dl>
+<p>Since the magnitude of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span> always falls in the range [0,1], the SWR is always greater than or equal to unity. Note that the <i>phase</i> of <i>V</i><sub>f</sub> and <i>V</i><sub>r</sub> vary along the transmission line in opposite directions to each other. Therefore, the complex-valued reflection coefficient <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span> varies as well, but only in phase. With the SWR dependent <i>only</i> on the complex magnitude of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \Gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:1.453ex; height:2.176ex;" alt="{\displaystyle \Gamma }" /></span>, it can be seen that the SWR measured at <i>any</i> point along the transmission line (neglecting transmission line losses) obtains an identical reading.
+</p><p>Since the power of the forward and reflected waves are proportional to the square of the voltage components due to each wave, SWR can be expressed in terms of forward and reflected power:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\text{SWR}}={\frac {1+{\sqrt {P_{r}/P_{f}}}}{1-{\sqrt {P_{r}/P_{f}}}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>SWR</mtext>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msqrt>
+                  <msub>
+                    <mi>P</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>r</mi>
+                    </mrow>
+                  </msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>/</mo>
+                  </mrow>
+                  <msub>
+                    <mi>P</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>f</mi>
+                    </mrow>
+                  </msub>
+                </msqrt>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msqrt>
+                  <msub>
+                    <mi>P</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>r</mi>
+                    </mrow>
+                  </msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>/</mo>
+                  </mrow>
+                  <msub>
+                    <mi>P</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>f</mi>
+                    </mrow>
+                  </msub>
+                </msqrt>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{SWR}}={\frac {1+{\sqrt {P_{r}/P_{f}}}}{1-{\sqrt {P_{r}/P_{f}}}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/94cd26fd4dcd330a5ae75a15598e8c16a285cbf5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -4.671ex; width:22.557ex; height:10.509ex;" alt="{\displaystyle {\text{SWR}}={\frac {1+{\sqrt {P_{r}/P_{f}}}}{1-{\sqrt {P_{r}/P_{f}}}}}.}" /></span></dd></dl>
+<p>By sampling the complex voltage and current at the point of insertion, an SWR meter is able to compute the effective forward and reflected voltages on the transmission line for the characteristic impedance for which the SWR meter has been designed. Since the forward and reflected power is related to the square of the forward and reflected voltages, some SWR meters also display the forward and reflected power.
+</p><p>In the special case of a load <span class="texhtml mvar" style="font-style:italic;">R</span><sub>L</sub>, which is purely resistive but unequal to the characteristic impedance of the transmission line <span class="texhtml mvar" style="font-style:italic;">Z</span><sub>0</sub>, the SWR is given simply by their ratio:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\text{SWR}}=\max \left\{{\frac {R_{\text{L}}}{\,Z_{\text{0}}\,}}\,,{\frac {\,Z_{\text{0}}\,}{R_{\text{L}}}}\right\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>SWR</mtext>
+        </mrow>
+        <mo>=</mo>
+        <mo movablelimits="true" form="prefix">max</mo>
+        <mrow>
+          <mo>{</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <msub>
+                  <mi>R</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>L</mtext>
+                  </mrow>
+                </msub>
+                <mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <msub>
+                    <mi>Z</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mtext>0</mtext>
+                    </mrow>
+                  </msub>
+                  <mspace width="thinmathspace"></mspace>
+                </mrow>
+              </mfrac>
+            </mrow>
+            <mspace width="thinmathspace"></mspace>
+            <mo>,</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mrow>
+                  <mspace width="thinmathspace"></mspace>
+                  <msub>
+                    <mi>Z</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mtext>0</mtext>
+                    </mrow>
+                  </msub>
+                  <mspace width="thinmathspace"></mspace>
+                </mrow>
+                <msub>
+                  <mi>R</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>L</mtext>
+                  </mrow>
+                </msub>
+              </mfrac>
+            </mrow>
+          </mrow>
+          <mo>}</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{SWR}}=\max \left\{{\frac {R_{\text{L}}}{\,Z_{\text{0}}\,}}\,,{\frac {\,Z_{\text{0}}\,}{R_{\text{L}}}}\right\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1ace44865068bc299221ed5ab29206602a5c1c4d" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:26.615ex; height:6.176ex;" alt="{\displaystyle {\text{SWR}}=\max \left\{{\frac {R_{\text{L}}}{\,Z_{\text{0}}\,}}\,,{\frac {\,Z_{\text{0}}\,}{R_{\text{L}}}}\right\}}" /></span></dd></dl>
+<p>with the ratio or its reciprocal is chosen to obtain a value greater than unity.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="The_standing_wave_pattern">The standing wave pattern</h2></div>
+<p>Using <a href="Phasor" title="Phasor">complex</a> notation for the voltage amplitudes, for a signal at frequency <span class="texhtml mvar" style="font-style:italic;">f</span>, the actual (real) voltages V<sub>actual</sub> as a function of time <span class="texhtml mvar" style="font-style:italic;">t</span> are understood to relate to the complex voltages according to:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle V_{\mathsf {actual}}={\mathcal {R_{e}}}(e^{i2\pi ft}V)~.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">a</mi>
+              <mi mathvariant="sans-serif">c</mi>
+              <mi mathvariant="sans-serif">t</mi>
+              <mi mathvariant="sans-serif">u</mi>
+              <mi mathvariant="sans-serif">a</mi>
+              <mi mathvariant="sans-serif">l</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi class="MJX-tex-caligraphic" mathvariant="script">R</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">e</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mn>2</mn>
+            <mi>&#x3c0;<!-- π --></mi>
+            <mi>f</mi>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+        <mi>V</mi>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xa0;</mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathsf {actual}}={\mathcal {R_{e}}}(e^{i2\pi ft}V)~.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/465d7661ca44d7052fbb56e63c4476e19164e51f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:21.772ex; height:3.176ex;" alt="{\displaystyle V_{\mathsf {actual}}={\mathcal {R_{e}}}(e^{i2\pi ft}V)~.}" /></span></dd></dl>
+<p>Thus taking the real part of the complex quantity inside the parenthesis, the actual voltage consists of a <a href="Sine_wave" title="Sine wave">sine wave</a> at frequency <span class="texhtml mvar" style="font-style:italic;">f</span> with a peak amplitude equal to the complex magnitude of <span class="texhtml mvar" style="font-style:italic;">V</span>, and with a phase given by the phase of the complex <span class="texhtml mvar" style="font-style:italic;">V</span>. Then with the position along a transmission line given by <span class="texhtml mvar" style="font-style:italic;">x</span>, with the line ending in a load located at <span class="texhtml mvar" style="font-style:italic;">x</span><sub>o</sub>, the complex amplitudes of the forward and reverse waves would be written as:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}V_{\mathsf {fwd}}(x)&amp;=e^{-ik(x-x_{\mathsf {o}})}A\\V_{\mathsf {rev}}(x)&amp;=\Gamma e^{ik(x-x_{\mathsf {o}})}A\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">f</mi>
+                      <mi mathvariant="sans-serif">w</mi>
+                      <mi mathvariant="sans-serif">d</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msup>
+                  <mi>e</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mi>i</mi>
+                    <mi>k</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>x</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi mathvariant="sans-serif">o</mi>
+                        </mrow>
+                      </mrow>
+                    </msub>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                </msup>
+                <mi>A</mi>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">r</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">v</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                <msup>
+                  <mi>e</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>i</mi>
+                    <mi>k</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>x</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi mathvariant="sans-serif">o</mi>
+                        </mrow>
+                      </mrow>
+                    </msub>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                </msup>
+                <mi>A</mi>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}V_{\mathsf {fwd}}(x)&amp;=e^{-ik(x-x_{\mathsf {o}})}A\\V_{\mathsf {rev}}(x)&amp;=\Gamma e^{ik(x-x_{\mathsf {o}})}A\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f57063e6d97b7d44092a1f4f6abe1e7fdc630690" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.838ex; width:22.325ex; height:6.843ex;" alt="{\displaystyle {\begin{aligned}V_{\mathsf {fwd}}(x)&amp;=e^{-ik(x-x_{\mathsf {o}})}A\\V_{\mathsf {rev}}(x)&amp;=\Gamma e^{ik(x-x_{\mathsf {o}})}A\end{aligned}}}" /></span></dd></dl>
+<p>for some complex amplitude <span class="texhtml mvar" style="font-style:italic;">A</span> (corresponding to the forward wave at <span class="texhtml mvar" style="font-style:italic;">x</span><sub>o</sub> that some treatments use phasors where the time dependence is according to <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle e^{-i2\pi ft}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>i</mi>
+            <mn>2</mn>
+            <mi>&#x3c0;<!-- π --></mi>
+            <mi>f</mi>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle e^{-i2\pi ft}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a14c52d3731a247af04d4ba5dcca50928645788c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:6.423ex; height:2.676ex;" alt="{\displaystyle e^{-i2\pi ft}}" /></span> and spatial dependence (for a wave in the <span class="texhtml mvar" style="font-style:italic;">+x</span> direction) of <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ e^{+ik(x-x_{\mathsf {o}})}~.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>+</mo>
+            <mi>i</mi>
+            <mi>k</mi>
+            <mo stretchy="false">(</mo>
+            <mi>x</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>x</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="sans-serif">o</mi>
+                </mrow>
+              </mrow>
+            </msub>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msup>
+        <mtext>&#xa0;</mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ e^{+ik(x-x_{\mathsf {o}})}~.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7823dbb223be1e8dfb2a89b740ffdd04336f9422" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.338ex; width:11.096ex; height:2.843ex;" alt="{\displaystyle \ e^{+ik(x-x_{\mathsf {o}})}~.}" /></span> Either convention obtains the same result for <span class="texhtml mvar" style="font-style:italic;">V</span><sub>actual</sub>.
+</p><p>According to the <a href="Superposition_principle" title="Superposition principle">superposition principle</a> the net voltage present at any point <span class="texhtml mvar" style="font-style:italic;">x</span> on the transmission line is equal to the sum of the voltages due to the forward and reflected waves:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}V_{\mathsf {net}}(x)&amp;=V_{\mathsf {fwd}}(x)+V_{\mathsf {rev}}(x)\\&amp;=e^{-ik(x-x_{\mathsf {o}})}\left(1+\Gamma e^{i2k(x-x_{\mathsf {o}})}\right)A\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">n</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">t</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">f</mi>
+                      <mi mathvariant="sans-serif">w</mi>
+                      <mi mathvariant="sans-serif">d</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">r</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">v</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msup>
+                  <mi>e</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mi>i</mi>
+                    <mi>k</mi>
+                    <mo stretchy="false">(</mo>
+                    <mi>x</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi mathvariant="sans-serif">o</mi>
+                        </mrow>
+                      </mrow>
+                    </msub>
+                    <mo stretchy="false">)</mo>
+                  </mrow>
+                </msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                    <msup>
+                      <mi>e</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi>i</mi>
+                        <mn>2</mn>
+                        <mi>k</mi>
+                        <mo stretchy="false">(</mo>
+                        <mi>x</mi>
+                        <mo>&#x2212;<!-- − --></mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mrow class="MJX-TeXAtom-ORD">
+                              <mi mathvariant="sans-serif">o</mi>
+                            </mrow>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">)</mo>
+                      </mrow>
+                    </msup>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+                <mi>A</mi>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}V_{\mathsf {net}}(x)&amp;=V_{\mathsf {fwd}}(x)+V_{\mathsf {rev}}(x)\\&amp;=e^{-ik(x-x_{\mathsf {o}})}\left(1+\Gamma e^{i2k(x-x_{\mathsf {o}})}\right)A\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/efef8832b7356aa60f4880ee629ab15371f0e44e" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.338ex; width:39.618ex; height:7.843ex;" alt="{\displaystyle {\begin{aligned}V_{\mathsf {net}}(x)&amp;=V_{\mathsf {fwd}}(x)+V_{\mathsf {rev}}(x)\\&amp;=e^{-ik(x-x_{\mathsf {o}})}\left(1+\Gamma e^{i2k(x-x_{\mathsf {o}})}\right)A\end{aligned}}}" /></span></dd></dl>
+<p>Since we are interested in the variations of the <i>magnitude</i> of <span class="texhtml mvar" style="font-style:italic;">V</span><sub>net</sub> along the line (as a function of <span class="texhtml mvar" style="font-style:italic;">x</span>), we shall solve instead for the squared magnitude of that quantity, which simplifies the mathematics. To obtain the squared magnitude we multiply the above quantity by its complex conjugate:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}|V_{\mathsf {net}}(x)|^{2}&amp;=V_{\mathsf {net}}(x)V_{\mathsf {net}}^{*}(x)\\&amp;=e^{-ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)A\,e^{+ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma ^{*}e^{-i2k\left(x-x_{\mathsf {o}}\right)}\right)A^{*}\\&amp;=\left[\ 1+|\Gamma |^{2}+2\ \operatorname {\mathcal {R_{e}}} \left(\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)\ \right]|A|^{2}\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">n</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">t</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+                <msup>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo stretchy="false">|</mo>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">n</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">t</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+                <msubsup>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="sans-serif">n</mi>
+                      <mi mathvariant="sans-serif">e</mi>
+                      <mi mathvariant="sans-serif">t</mi>
+                    </mrow>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>&#x2217;<!-- ∗ --></mo>
+                  </mrow>
+                </msubsup>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msup>
+                  <mi>e</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mi>i</mi>
+                    <mi>k</mi>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi>x</mi>
+                        <mo>&#x2212;<!-- − --></mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mrow class="MJX-TeXAtom-ORD">
+                              <mi mathvariant="sans-serif">o</mi>
+                            </mrow>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                  </mrow>
+                </msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                    <msup>
+                      <mi>e</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi>i</mi>
+                        <mn>2</mn>
+                        <mi>k</mi>
+                        <mrow>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi>x</mi>
+                            <mo>&#x2212;<!-- − --></mo>
+                            <msub>
+                              <mi>x</mi>
+                              <mrow class="MJX-TeXAtom-ORD">
+                                <mrow class="MJX-TeXAtom-ORD">
+                                  <mi mathvariant="sans-serif">o</mi>
+                                </mrow>
+                              </mrow>
+                            </msub>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                      </mrow>
+                    </msup>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+                <mi>A</mi>
+                <mspace width="thinmathspace"></mspace>
+                <msup>
+                  <mi>e</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>+</mo>
+                    <mi>i</mi>
+                    <mi>k</mi>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi>x</mi>
+                        <mo>&#x2212;<!-- − --></mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mrow class="MJX-TeXAtom-ORD">
+                              <mi mathvariant="sans-serif">o</mi>
+                            </mrow>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                  </mrow>
+                </msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <msup>
+                      <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mo>&#x2217;<!-- ∗ --></mo>
+                      </mrow>
+                    </msup>
+                    <msup>
+                      <mi>e</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mo>&#x2212;<!-- − --></mo>
+                        <mi>i</mi>
+                        <mn>2</mn>
+                        <mi>k</mi>
+                        <mrow>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi>x</mi>
+                            <mo>&#x2212;<!-- − --></mo>
+                            <msub>
+                              <mi>x</mi>
+                              <mrow class="MJX-TeXAtom-ORD">
+                                <mrow class="MJX-TeXAtom-ORD">
+                                  <mi mathvariant="sans-serif">o</mi>
+                                </mrow>
+                              </mrow>
+                            </msub>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                      </mrow>
+                    </msup>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+                <msup>
+                  <mi>A</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo>&#x2217;<!-- ∗ --></mo>
+                  </mrow>
+                </msup>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd></mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mrow>
+                  <mo>[</mo>
+                  <mrow>
+                    <mtext>&#xa0;</mtext>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">|</mo>
+                    </mrow>
+                    <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                    <msup>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mo stretchy="false">|</mo>
+                      </mrow>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>2</mn>
+                      </mrow>
+                    </msup>
+                    <mo>+</mo>
+                    <mn>2</mn>
+                    <mtext>&#xa0;</mtext>
+                    <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <msub>
+                          <mi class="MJX-tex-caligraphic" mathvariant="script">R</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi class="MJX-tex-caligraphic" mathvariant="script">e</mi>
+                          </mrow>
+                        </msub>
+                      </mrow>
+                    </mrow>
+                    <mo>&#x2061;<!-- ⁡ --></mo>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+                        <msup>
+                          <mi>e</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>i</mi>
+                            <mn>2</mn>
+                            <mi>k</mi>
+                            <mrow>
+                              <mo>(</mo>
+                              <mrow>
+                                <mi>x</mi>
+                                <mo>&#x2212;<!-- − --></mo>
+                                <msub>
+                                  <mi>x</mi>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mrow class="MJX-TeXAtom-ORD">
+                                      <mi mathvariant="sans-serif">o</mi>
+                                    </mrow>
+                                  </mrow>
+                                </msub>
+                              </mrow>
+                              <mo>)</mo>
+                            </mrow>
+                          </mrow>
+                        </msup>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                    <mtext>&#xa0;</mtext>
+                  </mrow>
+                  <mo>]</mo>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo stretchy="false">|</mo>
+                </mrow>
+                <mi>A</mi>
+                <msup>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo stretchy="false">|</mo>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}|V_{\mathsf {net}}(x)|^{2}&amp;=V_{\mathsf {net}}(x)V_{\mathsf {net}}^{*}(x)\\&amp;=e^{-ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)A\,e^{+ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma ^{*}e^{-i2k\left(x-x_{\mathsf {o}}\right)}\right)A^{*}\\&amp;=\left[\ 1+|\Gamma |^{2}+2\ \operatorname {\mathcal {R_{e}}} \left(\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)\ \right]|A|^{2}\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80f1f0755b44a4062c4c738252e5d9305e2c2d3a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -6.005ex; width:74.608ex; height:13.176ex;" alt="{\displaystyle {\begin{aligned}|V_{\mathsf {net}}(x)|^{2}&amp;=V_{\mathsf {net}}(x)V_{\mathsf {net}}^{*}(x)\\&amp;=e^{-ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)A\,e^{+ik\left(x-x_{\mathsf {o}}\right)}\left(1+\Gamma ^{*}e^{-i2k\left(x-x_{\mathsf {o}}\right)}\right)A^{*}\\&amp;=\left[\ 1+|\Gamma |^{2}+2\ \operatorname {\mathcal {R_{e}}} \left(\Gamma e^{i2k\left(x-x_{\mathsf {o}}\right)}\right)\ \right]|A|^{2}\end{aligned}}}" /></span></dd></dl>
+<p>Depending on the phase of the third term, the maximum and minimum values of <span class="texhtml mvar" style="font-style:italic;">V</span><sub>net</sub> (the square root of the quantity in the equations) are <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ \left(1+|\Gamma |\right)|A|\ }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mn>1</mn>
+            <mo>+</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>A</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mtext>&#xa0;</mtext>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ \left(1+|\Gamma |\right)|A|\ }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/005321bc011dfcab58404f7a1349ceb208181a24" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:13.531ex; height:2.843ex;" alt="{\displaystyle \ \left(1+|\Gamma |\right)|A|\ }" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ \left(1-|\Gamma |\right)|A|\ ,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mn>1</mn>
+            <mo>&#x2212;<!-- − --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>A</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mtext>&#xa0;</mtext>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ \left(1-|\Gamma |\right)|A|\ ,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8cdcc45d69ba85713a44d34a64c2c260ff1e278c" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:14.178ex; height:2.843ex;" alt="{\displaystyle \ \left(1-|\Gamma |\right)|A|\ ,}" /></span> respectively, for a standing wave ratio of:
+</p><p><br />
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\boldsymbol {\mathsf {SWR}}}={\frac {|V_{\mathsf {max}}|}{|V_{\mathsf {min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold-sans-serif">S</mi>
+            <mi mathvariant="bold-sans-serif">W</mi>
+            <mi mathvariant="bold-sans-serif">R</mi>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="sans-serif">m</mi>
+                    <mi mathvariant="sans-serif">a</mi>
+                    <mi mathvariant="sans-serif">x</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="sans-serif">m</mi>
+                    <mi mathvariant="sans-serif">i</mi>
+                    <mi mathvariant="sans-serif">n</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\boldsymbol {\mathsf {SWR}}}={\frac {|V_{\mathsf {max}}|}{|V_{\mathsf {min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/16eeaba4c04b3511fec36619dd9b7a30d2e6c63f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:25.822ex; height:6.509ex;" alt="{\displaystyle {\boldsymbol {\mathsf {SWR}}}={\frac {|V_{\mathsf {max}}|}{|V_{\mathsf {min}}|}}={\frac {1+|\Gamma |}{1-|\Gamma |}}}" /></span></dd></dl>
+<p><br />
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \left|\Gamma \right|={\frac {\ {\boldsymbol {\mathsf {SWR}}}-1\ }{{\boldsymbol {\mathsf {SWR}}}+1}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>|</mo>
+          <mi mathvariant="normal">&#x393;<!-- Γ --></mi>
+          <mo>|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mtext>&#xa0;</mtext>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="bold-sans-serif">S</mi>
+                  <mi mathvariant="bold-sans-serif">W</mi>
+                  <mi mathvariant="bold-sans-serif">R</mi>
+                </mrow>
+              </mrow>
+              <mo>&#x2212;<!-- − --></mo>
+              <mn>1</mn>
+              <mtext>&#xa0;</mtext>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="bold-sans-serif">S</mi>
+                  <mi mathvariant="bold-sans-serif">W</mi>
+                  <mi mathvariant="bold-sans-serif">R</mi>
+                </mrow>
+              </mrow>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left|\Gamma \right|={\frac {\ {\boldsymbol {\mathsf {SWR}}}-1\ }{{\boldsymbol {\mathsf {SWR}}}+1}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd5ffb964ee940e9b9bf3fc97ec81130ff650931" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:17.314ex; height:5.676ex;" alt="{\displaystyle \left|\Gamma \right|={\frac {\ {\boldsymbol {\mathsf {SWR}}}-1\ }{{\boldsymbol {\mathsf {SWR}}}+1}}}" /></span></dd></dl>
+<p><br />
+as earlier asserted. Along the line, the above expression for <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ |V_{\mathsf {net}}(x)|^{2}\ }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">n</mi>
+              <mi mathvariant="sans-serif">e</mi>
+              <mi mathvariant="sans-serif">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mtext>&#xa0;</mtext>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ |V_{\mathsf {net}}(x)|^{2}\ }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/177ca9b1d3b3ad3b820fb3692c9e146f291ff7c7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:10.409ex; height:3.343ex;" alt="{\displaystyle \ |V_{\mathsf {net}}(x)|^{2}\ }" /></span> is seen to oscillate sinusoidally between <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ |V_{\mathsf {min}}|^{2}\ }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">m</mi>
+              <mi mathvariant="sans-serif">i</mi>
+              <mi mathvariant="sans-serif">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mtext>&#xa0;</mtext>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ |V_{\mathsf {min}}|^{2}\ }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d6f231b3adeeb521c7c047662d2fe7a64391638a" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.645ex; height:3.343ex;" alt="{\displaystyle \ |V_{\mathsf {min}}|^{2}\ }" /></span> and <span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ |V_{\mathsf {max}}|^{2}\ }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xa0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">m</mi>
+              <mi mathvariant="sans-serif">a</mi>
+              <mi mathvariant="sans-serif">x</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mtext>&#xa0;</mtext>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ |V_{\mathsf {max}}|^{2}\ }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a60000d8e9e945c9b337e2bf0ee823f238b94f7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:7.95ex; height:3.343ex;" alt="{\displaystyle \ |V_{\mathsf {max}}|^{2}\ }" /></span> with a period of <style data-mw-deduplicate="TemplateStyles:r1214402035">.mw-parser-output .sfrac{white-space:nowrap}.mw-parser-output .sfrac.tion,.mw-parser-output .sfrac .tion{display:inline-block;vertical-align:-0.5em;font-size:85%;text-align:center}.mw-parser-output .sfrac .num{display:block;line-height:1em;margin:0.0em 0.1em;border-bottom:1px solid}.mw-parser-output .sfrac .den{display:block;line-height:1em;margin:0.1em 0.1em}.mw-parser-output .sr-only{border:0;clip:rect(0,0,0,0);clip-path:polygon(0px 0px,0px 0px,0px 0px);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}</style><span class="sfrac">&#8288;<span class="tion"><span class="num">&#160;2<span class="texhtml mvar" style="font-style:italic;">π</span>&#160;</span><span class="sr-only">/</span><span class="den">2<span class="texhtml mvar" style="font-style:italic;">k</span> </span></span>&#8288;</span>&#160;. This is <i>half</i> of the guided wavelength <span class="nowrap"><span class="texhtml mvar" style="font-style:italic;">λ</span> = <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1214402035" /><span class="sfrac">&#8288;<span class="tion"><span class="num">&#160;2<span class="texhtml mvar" style="font-style:italic;">π</span>&#160;</span><span class="sr-only">/</span><span class="den"> <span class="texhtml mvar" style="font-style:italic;">k</span> </span></span>&#8288;</span> </span> for the frequency <span class="texhtml mvar" style="font-style:italic;">f</span>&#160;. That can be seen as due to interference between two waves of that frequency which are travelling in <i>opposite</i> directions.
+</p><p>For example, at a frequency <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">f</span> = 20 MHz </span> (free space wavelength of 15&#160;m) in a transmission line whose <a href="Velocity_factor" title="Velocity factor">velocity factor</a> is 0.67&#160;, the guided wavelength (distance between voltage peaks of the forward wave alone) would be <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">λ</span> = 10 m .</span> At instances when the forward wave at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 0 </span> is at zero phase (peak voltage) then at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 10 m </span> it would also be at zero phase, but at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 5 m </span> it would be at 180° phase (peak <i>negative</i> voltage). On the other hand, the magnitude of the voltage due to a standing wave produced by its addition to a reflected wave, would have a wavelength between peaks of only <span class="nowrap"> <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1214402035" /><span class="sfrac">&#8288;<span class="tion"><span class="num">1</span><span class="sr-only">/</span><span class="den">2</span></span>&#8288;</span><span class="texhtml mvar" style="font-style:italic;">λ</span> = 5 m .</span> Depending on the location of the load and phase of reflection, there might be a peak in the magnitude of <span class="texhtml mvar" style="font-style:italic;">V</span><sub>net</sub> at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 1.3 m .</span> Then there would be another peak found where <span class="nowrap"> |<span class="texhtml mvar" style="font-style:italic;">V</span><sub>net</sub>| = <span class="texhtml mvar" style="font-style:italic;">V</span><sub>max</sub> </span> at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 6.3 m ,</span> whereas it would find minima of the standing wave <span class="nowrap">  </span> at <span class="nowrap"> <span class="texhtml mvar" style="font-style:italic;">x</span> = 3.8 m,</span> 8.8&#160;m, etc.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Practical_implications_of_SWR">Practical implications of SWR</h2></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="File:VSWR_Return_Loss.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/VSWR_Return_Loss.jpg/250px-VSWR_Return_Loss.jpg" decoding="async" width="250" height="210" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/VSWR_Return_Loss.jpg/500px-VSWR_Return_Loss.jpg 1.5x" data-file-width="2604" data-file-height="2184" /></a><figcaption>Example of estimated bandwidth of antenna according to the schedule VSWR by the help of the <a href="Ansys_HFSS" title="Ansys HFSS">Ansys HFSS</a><sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup></figcaption></figure>
+<p>The most common case for measuring and examining SWR is when installing and tuning transmitting <a href="Antenna_(radio)" title="Antenna (radio)">antennas</a>. When a transmitter is connected to an antenna by a <a href="Feed_line" class="mw-redirect" title="Feed line">feed line</a>, the <a href="Antenna_(radio)#Impedance" title="Antenna (radio)">driving point impedance</a> of the antenna must match the characteristic impedance of the feed line in order for the transmitter to see the impedance it was designed for (the impedance of the feed line, usually 50 or 75 ohms).
+</p><p>The impedance of a particular antenna design can vary due to a number of factors that cannot always be clearly identified. This includes the transmitter frequency (as compared to the antenna's design or <a href="Antenna_(radio)#Resonant_frequency" title="Antenna (radio)">resonant</a> frequency), the antenna's height above and quality of the ground, proximity to large metal structures, and variations in the exact size of the conductors used to construct the antenna.<sup id="cite&#95;ref-ARRL-2001-Hdbk&#95;5-0" class="reference"><a href="#cite_note-ARRL-2001-Hdbk-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Page: 20.2">(p20.2)</span></sup>
+</p><p>When an antenna and feed line do not have matching impedances, the transmitter sees an unexpected impedance, where it might not be able to produce its full power, and can even damage the transmitter in some cases.<sup id="cite&#95;ref-ARRL-2001-Hdbk&#95;5-1" class="reference"><a href="#cite_note-ARRL-2001-Hdbk-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Pages: 19.4–19.6">(pp19.4–19.6)</span></sup>
+The reflected power in the transmission line increases the average current and therefore losses in the transmission line compared to power actually delivered to the load.<sup id="cite&#95;ref-QST&#95;6-0" class="reference"><a href="#cite_note-QST-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup>
+It is the interaction of these reflected waves with forward waves which causes standing wave patterns,<sup id="cite&#95;ref-ARRL-2001-Hdbk&#95;5-2" class="reference"><a href="#cite_note-ARRL-2001-Hdbk-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Pages: 19.4–19.6">(pp19.4–19.6)</span></sup> with the negative repercussions we have noted.<sup id="cite&#95;ref-ARRL-2001-Hdbk&#95;5-3" class="reference"><a href="#cite_note-ARRL-2001-Hdbk-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Page: 19.13">(p19.13)</span></sup>
+</p><p>Matching the impedance of the antenna to the impedance of the feed line can sometimes be accomplished through adjusting the antenna itself, but otherwise is possible using an <a href="Antenna_tuner" title="Antenna tuner">antenna tuner</a>, an impedance matching device. Installing the tuner between the feed line and the antenna allows for the feed line to see a load close to its characteristic impedance, while sending most of the transmitter's power (a small amount may be dissipated within the tuner) to be radiated by the antenna despite its otherwise unacceptable feed point impedance. Installing a tuner in between the transmitter and the feed line can also transform the impedance seen at the transmitter end of the feed line to one preferred by the transmitter. However, in the latter case, the feed line still has a high SWR present, with the resulting increased feed line losses unmitigated.
+</p><p>The magnitude of those losses are dependent on the type of transmission line, and its length. They always increase with frequency. For example, a certain antenna used well away from its resonant frequency may have an SWR of 6:1. For a frequency of 3.5&#160;MHz, with that antenna fed through 75 meters of RG-8A coax, the loss due to standing waves would be 2.2&#160;dB. However the same 6:1 mismatch through 75 meters of RG-8A coax would incur 10.8&#160;dB of loss at 146&#160;MHz.<sup id="cite&#95;ref-ARRL-2001-Hdbk&#95;5-4" class="reference"><a href="#cite_note-ARRL-2001-Hdbk-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup><sup class="reference nowrap"><span title="Pages: 19.4–19.6">(pp19.4–19.6)</span></sup> Thus, a better match of the antenna to the feed line, that is, a lower SWR, becomes increasingly important with increasing frequency, even if the transmitter is able to accommodate the impedance seen (or an antenna tuner is used between the transmitter and feed line).
+</p><p>Certain types of transmissions can suffer other negative effects from reflected waves on a transmission line.  Analog TV can experience "ghosts" from delayed signals bouncing back and forth on a long line.  FM stereo can also be affected and digital signals can experience delayed pulses leading to bit errors. Whenever the delay times for a signal going back down and then again up the line are comparable to the modulation time constants, effects occur.  For this reason, these types of transmissions require a low SWR on the feedline, even if SWR induced loss might be acceptable and matching is done at the transmitter.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Methods_of_measuring_standing_wave_ratio">Methods of measuring standing wave ratio</h2></div>
+<figure typeof="mw:File/Thumb"><a href="File:Slotted_line.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Slotted_line.png/250px-Slotted_line.png" decoding="async" width="200" height="178" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Slotted_line.png/330px-Slotted_line.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Slotted_line.png/483px-Slotted_line.png 2x" data-file-width="483" data-file-height="431" /></a><figcaption>Slotted line. The probe moves along the line to measure the variable voltage. SWR is the maximum divided by the minimum voltage</figcaption></figure><p>Many different methods can be used to measure standing wave ratio.  The most intuitive method uses a <a href="Slotted_line" title="Slotted line">slotted line</a> which is a section of transmission line with an open slot which allows a probe to detect the actual voltage at various points along the line.<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Thus the maximum and minimum values can be compared directly. This method is used at VHF and higher frequencies. At lower frequencies, such lines are impractically long.
+</p><p><a href="Power_dividers_and_directional_couplers" title="Power dividers and directional couplers">Directional couplers</a> can be used at HF through microwave frequencies. Some are a quarter wave or more long, which restricts their use to the higher frequencies. Other types of directional couplers sample the current and voltage at a single point in the transmission path and mathematically combine them in such a way as to represent the power flowing in one direction.<sup id="cite&#95;ref-Schulz&#95;8-0" class="reference"><a href="#cite_note-Schulz-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+The common type of SWR / power meter used in amateur operation may contain a dual directional coupler. Other types use a single coupler which can be rotated 180 degrees to sample power flowing in either direction. Unidirectional couplers of this type are available for many frequency ranges  and  power levels and with appropriate coupling values for the analog meter used.
+</p>
+<figure typeof="mw:File/Thumb"><a href="File:Bird_43_RF_power_meter.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/8/8b/Bird_43_RF_power_meter.jpg" decoding="async" width="150" height="236" class="mw-file-element" data-file-width="150" data-file-height="236" /></a><figcaption>A directional wattmeter using a rotatable directional coupler element.</figcaption></figure>
+<p>The forward and reflected power measured by directional couplers can be used to calculate SWR. The computations can be done mathematically in analog or digital form or by using graphical methods built into the meter as an additional scale or by reading from the crossing point between two needles on the same meter. 
+The above measuring instruments can be used "in line" that is, the full power of the transmitter can pass through the measuring device so as to allow continuous monitoring of SWR.  Other instruments, such as network analyzers, low power directional couplers and antenna bridges use low power for the measurement and must be connected in place of the transmitter.  Bridge circuits can be used to directly measure the real and imaginary parts of a load impedance and to use those values to derive SWR. These methods can provide more information than just SWR or forward and reflected power.<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup>
+Stand alone antenna analyzers use various measuring methods and can display SWR and other parameters plotted against frequency.  By using directional couplers and a bridge in combination, it is possible to make an in line instrument that reads directly in complex impedance or in SWR.<sup id="cite&#95;ref-10" class="reference"><a href="#cite_note-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup>
+Stand alone <a href="Antenna_analyzer" title="Antenna analyzer">antenna analyzers</a> also are available that measure multiple parameters.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Power_standing_wave_ratio">Power standing wave ratio</h2></div>
+<p>The term <i>power standing wave ratio</i> (PSWR) is sometimes referred to, and defined as, the square of the voltage standing wave ratio. The term is widely cited as "misleading".<sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1244412712">.mw-parser-output .templatequote{overflow:hidden;margin:1em 0;padding:0 32px}.mw-parser-output .templatequotecite{line-height:1.5em;text-align:left;margin-top:0}@media(min-width:500px){.mw-parser-output .templatequotecite{padding-left:1.6em}}</style><blockquote class="templatequote">
+<p>The expression "power standing-wave ratio", which may sometimes be encountered, is even more misleading, for the power distribution along a loss-free line is constant.&#160;...
+</p>
+</blockquote><div class="templatequotecite"><p style="display: inline; padding-left: 2.3em;">—&#8202;J.H. Gridley (2014)<sup id="cite&#95;ref-Gridley-2014&#95;12-0" class="reference"><a href="#cite_note-Gridley-2014-12"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup><span style="display:none" data-plural="0"></span></p></div>
+<p>However it does correspond to one type of measurement of SWR using what was formerly a standard measuring instrument at microwave frequencies, the <a href="Slotted_line" title="Slotted line">slotted line</a>. The slotted line is a <a href="Waveguide" title="Waveguide">waveguide</a> (or air-filled coaxial line) in which a small sensing antenna which is part of a <i>crystal detector</i> or <i>detector</i> is placed in the electric field in the line. The voltage induced in the antenna is rectified by either a <a href="Diode#Semiconductor_diodes" title="Diode">point contact diode (crystal rectifier)</a> or a <a href="Schottky_barrier_diode" class="mw-redirect" title="Schottky barrier diode">Schottky barrier diode</a> that is incorporated in the detector.  These detectors have a square law output for low levels of input.  Readings therefore corresponded to the square of the electric field along the slot, <i>E</i><sup>2</sup>(<i>x</i>), with maximum and minimum readings of <i>E</i><sup>2</sup><sub>max</sub> and  <i>E</i><sup>2</sup><sub>min</sub> found  as the probe is moved along the slot. The ratio of these yields the <i>square</i> of the SWR, the so-called PSWR.<sup id="cite&#95;ref-13" class="reference"><a href="#cite_note-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>This technique of rationalization of terms is fraught with problems.<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag may need clarification or removal of jargon. (January 2019)">clarification needed</span></a></i>&#93;</sup> The <a href="Square-law_detector" title="Square-law detector">square law</a> behavior of the detector diode is exhibited only when the voltage across the diode is below the knee of the diode. Once the detected voltage exceeds the knee, the response of the diode becomes nearly linear. In this mode the diode and its associated filtering <a href="Capacitor" title="Capacitor">capacitor</a> produce a voltage that is proportional to the peak of the sampled voltage. The operator of such a detector would not have a ready indication as to the mode in which the detector diode is operating and therefore differentiating the results between SWR or so called PSWR is not practical. Perhaps even worse, is the common case where the minimum detected voltage is below the knee and the maximum voltage is above the knee. In this case, the computed results are largely meaningless. Thus the terms PSWR and Power Standing Wave Ratio are deprecated and should be considered only from a legacy measurement perspective.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Implications_of_SWR_on_medical_applications">Implications of SWR on medical applications</h2></div>
+<p>SWR can also have a detrimental impact upon the performance of microwave-based medical applications. In microwave <a href="Electrosurgery" title="Electrosurgery">electrosurgery</a> an antenna that is placed directly into tissue may not always have an optimal match with the feedline resulting in standing waves, the presence of which can affect monitoring components used to measure power levels, making such measurements less reliable.<sup id="cite&#95;ref-ARRL19.5&#95;14-0" class="reference"><a href="#cite_note-ARRL19.5-14"><span class="cite-bracket">&#91;</span>14<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1184024115">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class="div-col" style="column-width: 16em;">
+<ul><li><a href="Antenna_tuner" title="Antenna tuner">Antenna tuner</a> ("transmatch")</li>
+<li><a href="Electrical_impedance" title="Electrical impedance">Impedance</a></li>
+<li><a href="Impedance_matching" title="Impedance matching">Impedance matching</a></li>
+<li><a href="Mismatch_loss" title="Mismatch loss">Mismatch loss</a></li>
+<li><a href="Return_loss" title="Return loss">Return loss</a></li>
+<li><a href="SWR_meter" title="SWR meter">SWR meter</a></li>
+<li><a href="Time-domain_reflectometer" title="Time-domain reflectometer">Time-domain reflectometer</a></li>
+<li><a href="Total_active_reflection_coefficient" title="Total active reflection coefficient">Total active reflection coefficient</a></li></ul></div>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+<style data-mw-deduplicate="TemplateStyles:r1327269900">.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}body.skin-vector-2022 .mw-parser-output .reflist-columns-2{column-width:27em}body.skin-vector-2022 .mw-parser-output .reflist-columns-3{column-width:22.5em}.mw-parser-output .references[data-mw-group=upper-alpha]{list-style-type:upper-alpha}.mw-parser-output .references[data-mw-group=upper-roman]{list-style-type:upper-roman}.mw-parser-output .references[data-mw-group=lower-alpha]{list-style-type:lower-alpha}.mw-parser-output .references[data-mw-group=lower-greek]{list-style-type:lower-greek}.mw-parser-output .references[data-mw-group=lower-roman]{list-style-type:lower-roman}.mw-parser-output div.reflist-liststyle-upper-alpha .references{list-style-type:upper-alpha}.mw-parser-output div.reflist-liststyle-upper-roman .references{list-style-type:upper-roman}.mw-parser-output div.reflist-liststyle-lower-alpha .references{list-style-type:lower-alpha}.mw-parser-output div.reflist-liststyle-lower-greek .references{list-style-type:lower-greek}.mw-parser-output div.reflist-liststyle-lower-roman .references{list-style-type:lower-roman}</style><div>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite&#95;note-Knott-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-Knott_1-0">^</a></b></span> <span class="reference-text">
+<style data-mw-deduplicate="TemplateStyles:r1238218222">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#d33)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#d33)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite id="CITEREFKnottShaefferTuley2004" class="citation book cs1">Knott, Eugene F.; Shaeffer, John F.; Tuley, Michael T. (2004). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=0WuGjb8sqCUC&amp;pg=PA374"><i>Radar cross section</i></a>. SciTech Radar and Defense Series (2nd&#160;ed.). SciTech Publishing. p.&#160;374. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-1-891121-25-8" title="Special:BookSources/978-1-891121-25-8"><bdi>978-1-891121-25-8</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Radar+cross+section&amp;rft.series=SciTech+Radar+and+Defense+Series&amp;rft.pages=374&amp;rft.edition=2nd&amp;rft.pub=SciTech+Publishing&amp;rft.date=2004&amp;rft.isbn=978-1-891121-25-8&amp;rft.aulast=Knott&amp;rft.aufirst=Eugene+F.&amp;rft.au=Shaeffer%2C+John+F.&amp;rft.au=Tuley%2C+Michael+T.&amp;rft&#95;id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3D0WuGjb8sqCUC%26pg%3DPA374&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Schaub-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-Schaub_2-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSchaubKelly2004" class="citation book cs1">Schaub, Keith B.; Kelly, Joe (2004). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=26RfoKg2UxIC&amp;pg=PA93"><i>Production testing of RF and system-on-a-chip devices for wireless communications</i></a>. Artech House microwave library. Artech House. p.&#160;93. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-1-58053-692-9" title="Special:BookSources/978-1-58053-692-9"><bdi>978-1-58053-692-9</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Production+testing+of+RF+and+system-on-a-chip+devices+for+wireless+communications&amp;rft.series=Artech+House+microwave+library&amp;rft.pages=93&amp;rft.pub=Artech+House&amp;rft.date=2004&amp;rft.isbn=978-1-58053-692-9&amp;rft.aulast=Schaub&amp;rft.aufirst=Keith+B.&amp;rft.au=Kelly%2C+Joe&amp;rft&#95;id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3D26RfoKg2UxIC%26pg%3DPA93&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSilver1984" class="citation book cs1">Silver, Samuel (1984) [1949]. <i>Microwave Antenna Theory and Design</i>. IEE. p.&#160;28. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/0863410170" title="Special:BookSources/0863410170"><bdi>0863410170</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Microwave+Antenna+Theory+and+Design&amp;rft.pages=28&amp;rft.pub=IEE&amp;rft.date=1984&amp;rft.isbn=0863410170&amp;rft.aulast=Silver&amp;rft.aufirst=Samuel&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSliusar,&#95;I.Slyusar,&#95;V.Voloshko,&#95;S.Zinchenko,&#95;A.2020" class="citation conference cs1">Sliusar, I.; Slyusar, V.; Voloshko, S.; Zinchenko, A.; Utkin, Y. (22–27 June 2020). <a rel="nofollow" class="external text" href="https://slyusar.kiev.ua/Slyusar_ICATT-2020.pdf"><i>Synthesis of a broadband ring antenna of a two-tape design</i></a> <span class="cs1-format">(PDF)</span>. 12th International Conference on Antenna Theory and Techniques (ICATT-2020). Kharkiv, Ukraine. <a rel="nofollow" class="external text" href="https://ghostarchive.org/archive/20221009/https://slyusar.kiev.ua/Slyusar_ICATT-2020.pdf">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2022-10-09.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Synthesis+of+a+broadband+ring+antenna+of+a+two-tape+design&amp;rft.place=Kharkiv%2C+Ukraine&amp;rft.date=2020-06-22%2F2020-06-27&amp;rft.au=Sliusar%2C+I.&amp;rft.au=Slyusar%2C+V.&amp;rft.au=Voloshko%2C+S.&amp;rft.au=Zinchenko%2C+A.&amp;rft.au=Utkin%2C+Y.&amp;rft&#95;id=https%3A%2F%2Fslyusar.kiev.ua%2FSlyusar&#95;ICATT-2020.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-ARRL-2001-Hdbk-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-ARRL-2001-Hdbk_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ARRL-2001-Hdbk_5-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-ARRL-2001-Hdbk_5-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-ARRL-2001-Hdbk_5-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-ARRL-2001-Hdbk_5-4"><sup><i><b>e</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFHutchinson2000" class="citation book cs1">Hutchinson, Chuck, ed. (2000). <i>The ARRL Handbook for Radio Amateurs 2001</i>. Newington, CT: <a href="American_Radio_Relay_League" title="American Radio Relay League">American Radio Relay League</a>. pp.&#160;<span class="nowrap">19.4 –</span> <span class="nowrap">19.6</span>, 19.13, 20.2. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-0-87259-186-8" title="Special:BookSources/978-0-87259-186-8"><bdi>978-0-87259-186-8</bdi></a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+ARRL+Handbook+for+Radio+Amateurs+2001&amp;rft.place=Newington%2C+CT&amp;rft.pages=19.4+-+19.6%2C+19.13%2C+20.2&amp;rft.pub=American+Radio+Relay+League&amp;rft.date=2000&amp;rft.isbn=978-0-87259-186-8&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-QST-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-QST_6-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFFord1994" class="citation cs2">Ford, Steve (April 1994), <a rel="nofollow" class="external text" href="http://www.qsl.net/4/4z4tl//pub/swr_obsession.pdf">"The SWR obsession"</a> <span class="cs1-format">(PDF)</span>, <i><a href="QST" title="QST">QST</a> Magazine</i>, vol.&#160;78, no.&#160;4, Newington, CT: <a href="American_Radio_Relay_League" title="American Radio Relay League">American Radio Relay League</a>, pp.&#160;<span class="nowrap">70–</span>72<span class="reference-accessdate">, retrieved <span class="nowrap">2014-11-04</span></span></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=QST+Magazine&amp;rft.atitle=The+SWR+obsession&amp;rft.volume=78&amp;rft.issue=4&amp;rft.pages=70-72&amp;rft.date=1994-04&amp;rft.aulast=Ford&amp;rft.aufirst=Steve&amp;rft&#95;id=http%3A%2F%2Fwww.qsl.net%2F4%2F4z4tl%2F%2Fpub%2Fswr&#95;obsession.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFTerman1952" class="citation book cs1">Terman, Fredrick E. (1952). <i>Electronic Measurements</i>. McGraw Hill. p.&#160;135 ff. <a href="LCCN_(identifier)" class="mw-redirect" title="LCCN (identifier)">LCCN</a>&#160;<a rel="nofollow" class="external text" href="https://lccn.loc.gov/51-12650">51-12650</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Electronic+Measurements&amp;rft.pages=135+ff&amp;rft.pub=McGraw+Hill&amp;rft.date=1952&amp;rft&#95;id=info%3Alccn%2F51-12650&amp;rft.aulast=Terman&amp;rft.aufirst=Fredrick+E.&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Schulz-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-Schulz_8-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFSchulz2018" class="citation web cs1">Schulz, Glenn B., (W9IQ) (January 24, 2018). <a rel="nofollow" class="external text" href="https://ham.stackexchange.com/questions/9778/how-does-an-swr-meter-really-work/9779#9779">"How does an SWR meter really work?"</a>. <i>ham.stackexchange.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">March 18,</span> 2018</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=ham.stackexchange.com&amp;rft.atitle=How+does+an+SWR+meter+really+work%3F&amp;rft.date=2018-01-24&amp;rft.aulast=Schulz&amp;rft.aufirst=Glenn+B.%2C+%28W9IQ%29&amp;rft&#95;id=https%3A%2F%2Fham.stackexchange.com%2Fquestions%2F9778%2Fhow-does-an-swr-meter-really-work%2F9779%239779&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: multiple names: authors list (<a href="Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>) CS1 maint: numeric names: authors list (<a href="Category:CS1_maint:_numeric_names:_authors_list" title="Category:CS1 maint: numeric names: authors list">link</a>)</span></span>
+</li>
+<li id="cite&#95;note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation pressrelease cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20160818224451/http://www.nautel.com/press-releases/nautel-adds-two-models-to-nx-series/">"Nautel adds two models to NX series"</a>. <i><a href="Nautel" title="Nautel">Nautel</a></i> (Press release). March 11, 2015. Archived from <a rel="nofollow" class="external text" href="http://www.nautel.com/press-releases/nautel-adds-two-models-to-nx-series/">the original</a> on August 18, 2016<span class="reference-accessdate">. Retrieved <span class="nowrap">July 6,</span> 2017</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Nautel+adds+two+models+to+NX+series&amp;rft.date=2015-03-11&amp;rft&#95;id=http%3A%2F%2Fwww.nautel.com%2Fpress-releases%2Fnautel-adds-two-models-to-nx-series%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.deltaelectronics.com/data/oib1&amp;3.htm">"Model OIB-1 and OIB-3"</a>. <i>www.deltaelectronics.com</i>. Delta Electronics, Inc.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.deltaelectronics.com&amp;rft.atitle=Model+OIB-1+and+OIB-3&amp;rft&#95;id=http%3A%2F%2Fwww.deltaelectronics.com%2Fdata%2Foib1%263.htm&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFWolff" class="citation web cs1">Wolff, Christian. <a rel="nofollow" class="external text" href="http://www.radartutorial.eu/03.linetheory/tl06.en.html">"Standing wave ratio"</a>. <i>radartutorial.eu</i>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=radartutorial.eu&amp;rft.atitle=Standing+wave+ratio&amp;rft.aulast=Wolff&amp;rft.aufirst=Christian&amp;rft&#95;id=http%3A%2F%2Fwww.radartutorial.eu%2F03.linetheory%2Ftl06.en.html&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-Gridley-2014-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-Gridley-2014_12-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFGridley2014" class="citation book cs1">Gridley, J.H. (2014). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=geNbAwAAQBAJ&amp;pg=PA265"><i>Principles of Electrical Transmission Lines in Power and Communication</i></a>. Elsevier. p.&#160;265. <a href="ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special:BookSources/978-1483186030" title="Special:BookSources/978-1483186030"><bdi>978-1483186030</bdi></a> &#8211; via Google Books.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Electrical+Transmission+Lines+in+Power+and+Communication&amp;rft.pages=265&amp;rft.pub=Elsevier&amp;rft.date=2014&amp;rft.isbn=978-1483186030&amp;rft.aulast=Gridley&amp;rft.aufirst=J.H.&amp;rft&#95;id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DgeNbAwAAQBAJ%26pg%3DPA265&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite id="CITEREFRollin1964" class="citation book cs1">Rollin, Bernard Vincent (1964). <i>An Introduction to Electronics</i>. Clarendon Press. p.&#160;209. <a href="OCLC_(identifier)" class="mw-redirect" title="OCLC (identifier)">OCLC</a>&#160;<a rel="nofollow" class="external text" href="https://search.worldcat.org/oclc/1148924">1148924</a>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=An+Introduction+to+Electronics&amp;rft.pages=209&amp;rft.pub=Clarendon+Press&amp;rft.date=1964&amp;rft&#95;id=info%3Aoclcnum%2F1148924&amp;rft.aulast=Rollin&amp;rft.aufirst=Bernard+Vincent&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+<li id="cite&#95;note-ARRL19.5-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-ARRL19.5_14-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.microwaves101.com/encyclopedias/problems-with-vswr-in-medical-applications">"Problems with VSWR in medical applications"</a>. <i>microwaves101.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">July 6,</span> 2017</span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=microwaves101.com&amp;rft.atitle=Problems+with+VSWR+in+medical+applications&amp;rft&#95;id=https%3A%2F%2Fwww.microwaves101.com%2Fencyclopedias%2Fproblems-with-vswr-in-medical-applications&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<ul><li><style data-mw-deduplicate="TemplateStyles:r1041539562">.mw-parser-output .citation{word-wrap:break-word}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}</style><span class="citation FS1037C MS188"><span class="noviewer" typeof="mw:File"><span><img alt="Public Domain" src="//upload.wikimedia.org/wikipedia/en/thumb/6/62/PD-icon.svg/20px-PD-icon.svg.png" decoding="async" width="12" height="12" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/6/62/PD-icon.svg/40px-PD-icon.svg.png 2x" data-file-width="196" data-file-height="196" /></span></span>&#160;This article incorporates <a href="Copyright_status_of_works_by_the_federal_government_of_the_United_States" title="Copyright status of works by the federal government of the United States">public domain material</a> from <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20220122224547/https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm"><i>Federal Standard 1037C</i></a>. <a href="General_Services_Administration" title="General Services Administration">General Services Administration</a>. Archived from <a rel="nofollow" class="external text" href="https://www.its.bldrdoc.gov/fs-1037/fs-1037c.htm">the original</a> on 2022-01-22.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Federal+Standard+1037C&amp;rft.pub=General+Services+Administration&amp;rft&#95;id=https%3A%2F%2Fwww.its.bldrdoc.gov%2Ffs-1037%2Ffs-1037c.htm&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span>&#160;(in support of <a href="MIL-STD-188" title="MIL-STD-188">MIL-STD-188</a>).</span></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Further_reading">Further reading</h2></div>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation report cs1 cs1-prop-long-vol"><a rel="nofollow" class="external text" href="http://hpmemoryproject.org/an/pdf/an_1287-1.pdf">Understanding the Fundamental Principles of Vector Network Analysis</a> <span class="cs1-format">(PDF)</span> (Report). Application note. Vol.&#160;<span class="nowrap">1287–</span>1. <a href="Hewlett-Packard" title="Hewlett-Packard">Hewlett-Packard</a>. 1997. <a rel="nofollow" class="external text" href="https://ghostarchive.org/archive/20221009/http://hpmemoryproject.org/an/pdf/an_1287-1.pdf">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2022-10-09.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=Understanding+the+Fundamental+Principles+of+Vector+Network+Analysis&amp;rft.series=Application+note&amp;rft.pub=Hewlett-Packard&amp;rft.date=1997&amp;rft&#95;id=http%3A%2F%2Fhpmemoryproject.org%2Fan%2Fpdf%2Fan&#95;1287-1.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20201125200215/https://poynting.herokuapp.com/">"Standing wave diagram"</a>. <i>poynting.herokuapp.com</i>. Archived from <a rel="nofollow" class="external text" href="https://poynting.herokuapp.com/">the original</a> on 2020-11-25<span class="reference-accessdate">. Retrieved <span class="nowrap">2015-07-09</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=poynting.herokuapp.com&amp;rft.atitle=Standing+wave+diagram&amp;rft&#95;id=https%3A%2F%2Fpoynting.herokuapp.com%2F&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span> — A web application that draws the Standing Wave Diagram and calculates the SWR, input impedance, reflection coefficient and more</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://cgi.www.telestrian.co.uk/cgi-bin/www.telestrian.co.uk/vswr.pl">"VSWR"</a>. <i>telestrian.co.uk</i>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=telestrian.co.uk&amp;rft.atitle=VSWR&amp;rft&#95;id=http%3A%2F%2Fcgi.www.telestrian.co.uk%2Fcgi-bin%2Fwww.telestrian.co.uk%2Fvswr.pl&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span> — An online conversion tool between SWR, return loss and reflection coefficient</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.emtalk.com/vswr.php">"Online VSWR Calculator"</a>. <i>emtalk.com</i>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=emtalk.com&amp;rft.atitle=Online+VSWR+Calculator&amp;rft&#95;id=http%3A%2F%2Fwww.emtalk.com%2Fvswr.php&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.electronics-notes.com/articles/antennas-propagation/vswr-return-loss/what-is-vswr.php">"VSWR tutorial"</a>. <i>electronics-notes.com</i>. antennas &amp; propagation.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=electronics-notes.com&amp;rft.atitle=VSWR+tutorial&amp;rft&#95;id=https%3A%2F%2Fwww.electronics-notes.com%2Farticles%2Fantennas-propagation%2Fvswr-return-loss%2Fwhat-is-vswr.php&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span> — Series of pages dealing with all aspects of VSWR, reflection coefficient, return loss, practical aspects, measurement, etc.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1238218222" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.portable-antennas.com/extras_ref.php?swrch=1">"Online interactive standing waves animation"</a>. <i>portable-antennas.com</i>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=portable-antennas.com&amp;rft.atitle=Online+interactive+standing+waves+animation&amp;rft&#95;id=https%3A%2F%2Fwww.portable-antennas.com%2Fextras&#95;ref.php%3Fswrch%3D1&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AStanding+wave+ratio" class="Z3988"></span> — An online tool to view and configure animated forward and reflected waves in a feedline, and their resultant animated standing wave pattern. Also calculates VSWR, mismatch loss, power loss and return loss based on input reflection coefficient.</li></ul>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1331366825">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q188364#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q188364#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" scope="row" class="navbox-group" style="width:1%"><a href="Help:Authority_control" title="Help:Authority control">Authority control databases</a> <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless"><a href="https://www.wikidata.org/wiki/Q188364#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" class="mw-file-element" data-file-width="20" data-file-height="20" /></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="nofollow" class="external text" href="https://d-nb.info/gnd/4502840-0">GND</a></span></li></ul></div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.main‐857f68949b‐wr449
+Cached time: 20260106003743
+Cache expiry: 84140
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, show‐toc]
+CPU time usage: 0.481 seconds
+Real time usage: 0.687 seconds
+Preprocessor visited node count: 3558/1000000
+Revision size: 32327/2097152 bytes
+Post‐expand include size: 54137/2097152 bytes
+Template argument size: 4764/2097152 bytes
+Highest expansion depth: 15/100
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 75322/5000000 bytes
+Lua time usage: 0.259/10.000 seconds
+Lua memory usage: 7392630/52428800 bytes
+Number of Wikibase entities loaded: 1/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  499.515      1 -total
+ 31.74%  158.521      1 Template:Reflist
+ 20.03%  100.057      7 Template:Cite_book
+ 14.65%   73.188      1 Template:Authority_control
+ 14.20%   70.934      1 Template:Short_description
+  8.92%   44.534      5 Template:Rp
+  8.41%   42.024      2 Template:Pagetype
+  7.82%   39.050      5 Template:R/superscript
+  6.49%   32.394      1 Template:Clarify
+  6.15%   30.712      9 Template:Cite_web
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:41742:|#|:idhash:canonical and timestamp 20260106003743 and revision id 1303397943. Rendering was triggered because: page_view
+ -->
+</div>
+        <footer class="attribution">
+            <p>Content from <a href="https://en.wikipedia.org/wiki/Standing_wave_ratio">Wikipedia</a>, 
+            licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+        </footer>
+    </article>
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

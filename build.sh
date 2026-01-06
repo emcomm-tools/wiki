@@ -51,6 +51,10 @@ check_dependencies() {
         missing=1
     fi
     
+    if ! command -v convert &> /dev/null; then
+        log_warn "ImageMagick not found. Will create basic favicon."
+    fi
+    
     if [[ $missing -eq 1 ]]; then
         exit 1
     fi
@@ -97,27 +101,87 @@ validate_content() {
     fi
 }
 
+# Create illustration/favicon PNG
+create_illustration() {
+    local illust_path="${CONTENT_DIR}/illustration.png"
+    
+    if [[ -f "${illust_path}" ]]; then
+        log_info "Illustration already exists."
+        return 0
+    fi
+    
+    log_info "Creating illustration (48x48 PNG)..."
+    
+    if command -v convert &> /dev/null; then
+        # Create a simple ham radio themed icon with ImageMagick
+        convert -size 48x48 xc:'#2c5282' \
+            -fill white -draw "circle 24,24 24,8" \
+            -fill '#2c5282' -draw "circle 24,24 24,14" \
+            -fill white -draw "circle 24,24 24,20" \
+            -fill '#ed8936' -draw "rectangle 20,22 28,40" \
+            "${illust_path}" 2>/dev/null || {
+                # Fallback: simple colored square
+                convert -size 48x48 xc:'#2c5282' "${illust_path}"
+            }
+    else
+        # Create minimal valid PNG without ImageMagick
+        # This is a 48x48 blue PNG
+        python3 << 'PYEOF'
+import zlib
+import struct
+
+def create_png(filename, width=48, height=48, color=(44, 82, 130)):
+    def png_chunk(chunk_type, data):
+        chunk_len = struct.pack('>I', len(data))
+        chunk_crc = struct.pack('>I', zlib.crc32(chunk_type + data) & 0xffffffff)
+        return chunk_len + chunk_type + data + chunk_crc
+
+    # PNG signature
+    signature = b'\x89PNG\r\n\x1a\n'
+    
+    # IHDR chunk
+    ihdr_data = struct.pack('>IIBBBBB', width, height, 8, 2, 0, 0, 0)
+    ihdr = png_chunk(b'IHDR', ihdr_data)
+    
+    # IDAT chunk (image data)
+    raw_data = b''
+    for y in range(height):
+        raw_data += b'\x00'  # filter byte
+        for x in range(width):
+            raw_data += bytes(color)
+    
+    compressed = zlib.compress(raw_data)
+    idat = png_chunk(b'IDAT', compressed)
+    
+    # IEND chunk
+    iend = png_chunk(b'IEND', b'')
+    
+    with open(filename, 'wb') as f:
+        f.write(signature + ihdr + idat + iend)
+
+create_png("content/articles/illustration.png")
+print("Created illustration.png")
+PYEOF
+    fi
+    
+    if [[ -f "${illust_path}" ]]; then
+        log_info "Illustration created: ${illust_path}"
+    else
+        log_error "Failed to create illustration"
+        exit 1
+    fi
+}
+
 # Build the ZIM file
 build_zim() {
     log_info "Building ZIM file: ${OUTPUT_FILE}"
     
-    # Ensure favicon exists
-    if [[ ! -f "${WIKI_FAVICON}" ]]; then
-        log_warn "Favicon not found, creating placeholder..."
-        mkdir -p "$(dirname "${WIKI_FAVICON}")"
-        # Create a simple 48x48 red/white ham radio icon placeholder
-        convert -size 48x48 xc:white -fill red \
-            -draw "circle 24,24 24,4" \
-            -fill white -draw "circle 24,24 24,12" \
-            -fill red -draw "circle 24,24 24,20" \
-            "${WIKI_FAVICON}" 2>/dev/null || \
-        # Fallback: create a simple PNG if ImageMagick not available
-        echo -e '\x89PNG\r\n\x1a\n' > "${WIKI_FAVICON}"
-    fi
+    # Ensure illustration exists
+    create_illustration
     
     zimwriterfs \
-        --welcome="${WIKI_MAIN_PAGE}" \
-        --favicon="${WIKI_FAVICON}" \
+        --welcome=index.html \
+        --illustration=illustration.png \
         --language="${WIKI_LANGUAGE}" \
         --title="${WIKI_TITLE}" \
         --description="${WIKI_DESCRIPTION}" \
