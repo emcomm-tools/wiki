@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Digital Mode Settings - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#radios">Radios</a> &gt; 
+        Digital Mode Settings
+    </nav>
+    
+    <article>
+        <h1>Radio Digital Mode Settings</h1>
+        
+        <section class="summary">
+            <p>Comprehensive digital mode configuration settings for radios supported by EmComm-Tools. These settings are used for JS8Call, FT8, VARA, Winlink, and other digital modes.</p>
+        </section>
+        
+        <nav class="toc">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#icom">Icom Radios</a></li>
+                <li><a href="#yaesu">Yaesu Radios</a></li>
+                <li><a href="#kenwood">Kenwood Radios</a></li>
+                <li><a href="#xiegu">Xiegu Radios</a></li>
+                <li><a href="#elecraft">Elecraft Radios</a></li>
+                <li><a href="#qrplabs">QRP Labs</a></li>
+                <li><a href="#lab599">Lab599 Radios</a></li>
+                <li><a href="#other">Other Radios</a></li>
+                <li><a href="#interfaces">Audio Interfaces</a></li>
+                <li><a href="#bluetooth">Bluetooth TNCs</a></li>
+            </ul>
+        </nav>
+
+        <!-- ICOM RADIOS -->
+        <h2 id="icom">Icom Radios</h2>
+        
+        <h3>IC-705</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3085</td></tr>
+            <tr><td>Baud Rate</td><td>9600</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li><strong>Enable GPS:</strong> [MENU] → [SET] → [Connectors] → [USB (B) Function] → GPS Out = ON</li>
+        </ul>
+
+        <h3>IC-7300</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3073</td></tr>
+            <tr><td>Baud Rate</td><td>19200</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>[MENU] → [SET] → [Connectors] → [CI-V] → CI-V USB Baud Rate = 19200</li>
+        </ul>
+
+        <h3>IC-7200</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3061</td></tr>
+            <tr><td>Baud Rate</td><td>19200</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Set SSB to USB</li>
+            <li>Set filter to wide</li>
+            <li>Menu DATA = ON</li>
+            <li>Menu D-Mod = U</li>
+            <li>Menu USB Lvl = 75</li>
+            <li>Menu CIV BAUD = At (Automatic) or 19200</li>
+        </ul>
+
+        <h3>IC-7100</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3070</td></tr>
+            <tr><td>Baud Rate</td><td>9600</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+
+        <h3>IC-9700</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3081</td></tr>
+            <tr><td>Baud Rate</td><td>57600</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li><strong>Enable GPS:</strong> [MENU] → [SET] → [Connectors] → [USB (B) Function] → GPS Out = ON</li>
+        </ul>
+
+        <!-- YAESU RADIOS -->
+        <h2 id="yaesu">Yaesu Radios</h2>
+
+        <h3>FT-991A</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1035</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Menu Settings</h4>
+        <ul>
+            <li>031 CAT RATE = 38400bps</li>
+            <li>032 CAT TOT = 100ms</li>
+            <li>033 CAT RTS = DISABLE</li>
+            <li>062 DATA MODE = OTHERS</li>
+            <li>064 OTHER DISP (SSB) = 1500Hz</li>
+            <li>065 OTHER SHIFT (SSB) = 1500Hz</li>
+            <li>066 DATA LCUT FREQ = OFF</li>
+            <li>068 DATA HCUT FREQ = OFF</li>
+            <li>070 DATA IN SELECT = REAR</li>
+            <li>071 DATA PTT SELECT = DAKY</li>
+            <li>072 DATA PORT SELECT = USB</li>
+            <li>073 DATA OUT LEVEL = 50</li>
+            <li>076 FM PKT PTT SELECT = DAKY</li>
+            <li>077 FM PKT PORT SELECT = USB</li>
+            <li>078 FM PKT TX GAIN = 50</li>
+            <li>079 FM PKT MODE = 1200</li>
+        </ul>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>For HF digital operation: Mode = DATA-USB</li>
+            <li>For HF digital operation: WDH = 3000Hz</li>
+            <li>For FM packet operation: Mode = DATA-FM</li>
+        </ul>
+
+        <h3>FT-891 (with DR-891)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1036</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Menu Settings</h4>
+        <ul>
+            <li>05-06 CAT RATE = 38400bps</li>
+            <li>05-07 CAT TOT = 100ms</li>
+            <li>05-08 CAT RTS = DISABLE</li>
+            <li>08-01 DATA MODE = OTHERS</li>
+            <li>08-02 PSK TONE = 1500Hz</li>
+            <li>08-03 OTHER DISP = 1500Hz</li>
+            <li>08-04 OTHER SHIFT = 1500Hz</li>
+            <li>08-05 DATA LCUT FREQ = OFF</li>
+            <li>08-07 DATA HCUT FREQ = OFF</li>
+            <li>08-09 DATA IN SELECT = REAR</li>
+            <li>08-10 DATA PTT SELECT = DAKY</li>
+            <li>08-11 DATA OUT LEVEL = 50</li>
+            <li>08-12 DATA BFO = USB</li>
+            <li>11-07 SSB BFO = AUTO</li>
+        </ul>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>For digital operation: Mode = DATA, WDH = 3000</li>
+            <li>Long press [BAND] to select DATA using VFO knob</li>
+            <li>Short press [F] multiple times to FUNCTION-1 screen</li>
+            <li>Use MFK to select WDH, short press MFK, rotate to 3000</li>
+            <li>Digital output power via menu 16-03</li>
+        </ul>
+
+        <h3>FT-857D (with DigiRig)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1022</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Menu Settings</h4>
+        <ul>
+            <li>Menu 019 CAT RATE = 38400</li>
+            <li>Menu 020 CAT = CAT</li>
+            <li>Menu 036 DIG DISP = 0 Hz</li>
+            <li>Menu 037 DIG GAIN = 50</li>
+            <li>Menu 038 DIG MODE = USER-U</li>
+            <li>Menu 039 DIG SHIFT = 0 Hz</li>
+            <li>Menu 040 DIG VOX = 0</li>
+            <li>Menu 071 PKT 1200 = 10</li>
+            <li>Menu 073 1200 RATE = 1200 bps</li>
+        </ul>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>For VHF/UHF packet: Mode = PKT, Menu 080 = SQL</li>
+            <li>For HF: Mode = DIGI, Menu 080 = RF GAIN</li>
+        </ul>
+
+        <h3>FT-897D (with DigiRig)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1043</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Menu Settings</h4>
+        <ul>
+            <li>Menu 019 CAT RATE = 38400bps</li>
+            <li>Menu 020 CAT/LIN/TUN = CAT</li>
+            <li>Menu 036 DIG DISP = 0Hz</li>
+            <li>Menu 037 DIG GAIN = 50</li>
+            <li>Menu 038 DIG MODE = USER-U</li>
+            <li>Menu 039 DIG SHIFT = 0Hz</li>
+            <li>Menu 040 DIG VOX = 0</li>
+            <li>Menu 071 PKT 1200 = 10</li>
+            <li>Menu 073 1200 RATE = 1200bps</li>
+        </ul>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>For VHF/UHF packet: Mode = PKT, Menu 080 = SQL</li>
+            <li>For HF: Mode = DIGI, Menu 080 = RF GAIN</li>
+        </ul>
+
+        <h3>FT-818ND (with DigiRig)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1041</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Menu Settings</h4>
+        <ul>
+            <li>Menu 007 ANTENNA = REAR</li>
+            <li>Menu 014 CAT RATE = 38400</li>
+            <li>Menu 024 DIG DISP = 0 Hz</li>
+            <li>Menu 025 DIG MIC = 75</li>
+            <li>Menu 026 DIG MODE = USER-U</li>
+            <li>Menu 027 DIG SHIFT = 0 Hz</li>
+            <li>Menu 039 PKT MIC = 50</li>
+            <li>Menu 040 PKT RATE = 1200</li>
+            <li>Set AGC fast</li>
+        </ul>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>For VHF/UHF packet: Mode = PKT, Menu 045 = SQL</li>
+            <li>For HF: Mode = DIGI, Menu 045 = RF GAIN</li>
+        </ul>
+
+        <h3>FTX-1 (No CAT)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1 (Dummy)</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RTS (PTT only)</td></tr>
+        </table>
+        <h4>Operating Notes</h4>
+        <ul>
+            <li>Tune radio to desired frequency manually</li>
+            <li>Long press [MODE], then set accordingly for HF or VHF/UHF</li>
+            <li><strong>For HF:</strong> Select 'DATA-U', then long press 'PRESET' and select 'FT8'</li>
+            <li><strong>For VHF/UHF FM:</strong> Select 'FM', then long press 'PRESET' and select 'FT8'</li>
+            <li>The 'PRESET' button should be highlighted in blue when configured</li>
+        </ul>
+
+        <!-- KENWOOD RADIOS -->
+        <h2 id="kenwood">Kenwood Radios</h2>
+
+        <h3>TH-D74 (Bluetooth)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Connection</td><td>Bluetooth SPP</td></tr>
+            <tr><td>BT Channel</td><td>2</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Menu → Configuration → Bluetooth → On</li>
+            <li>Menu → Configuration → Interface → KISS → Bluetooth</li>
+        </ul>
+
+        <h3>TH-D75 (Bluetooth)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Connection</td><td>Bluetooth SPP</td></tr>
+            <tr><td>BT Channel</td><td>2</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Menu → Configuration → Bluetooth → On</li>
+            <li>Menu → Configuration → Interface → KISS → Bluetooth</li>
+        </ul>
+
+        <!-- XIEGU RADIOS -->
+        <h2 id="xiegu">Xiegu Radios</h2>
+
+        <h3>X6100</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3087</td></tr>
+            <tr><td>Baud Rate</td><td>19200</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Turn on radio</li>
+            <li>Plug USB-C cable into the DEV port</li>
+            <li>Set mode to U-DIG</li>
+            <li>Set filter to FILTER1</li>
+            <li>Set AGC to AGC--</li>
+        </ul>
+        <h4>Field Notes</h4>
+        <ul>
+            <li>Tested with firmware version: 1.1.9 APP / 1.1.8 BASE</li>
+        </ul>
+
+        <h3>G90 (with DigiRig)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>3088</td></tr>
+            <tr><td>Baud Rate</td><td>19200</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Radio Settings</h4>
+        <ul>
+            <li>AGC = OFF (AGC--)</li>
+            <li>MODE = U-D</li>
+            <li>RF-GAIN = 50%</li>
+            <li>AUX IN = 10</li>
+            <li>AUX OUT = 13</li>
+        </ul>
+        <h4>How to Set</h4>
+        <ul>
+            <li><strong>AGC:</strong> Short press [AGC]</li>
+            <li><strong>Mode:</strong> Press Mode arrow keys on top of head unit</li>
+            <li><strong>RF Gain:</strong> Long press [AGC], use VFO knob</li>
+            <li><strong>AUX IN:</strong> Long press [FUNC], Menu 5, use VFO</li>
+            <li><strong>AUX OUT:</strong> Long press [FUNC], Menu 6, use VFO</li>
+        </ul>
+
+        <!-- ELECRAFT RADIOS -->
+        <h2 id="elecraft">Elecraft Radios</h2>
+
+        <h3>KX-2 (with DigiRig)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>2044</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>In Menu set RS232 to 38400 b</li>
+            <li>Note current Mic Gain setting then set to 5 (ALC meter should read 3-5 bars during TX)</li>
+            <li>Set AF Gain to 15 (ensure input level is green in JS8Call)</li>
+            <li>For voice operation, return Mic Gain to setting noted above (25 typical)</li>
+        </ul>
+
+        <!-- QRP LABS -->
+        <h2 id="qrplabs">QRP Labs</h2>
+
+        <h3>QMX</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>2002</td></tr>
+            <tr><td>Baud Rate</td><td>38400</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+        </table>
+        <h4>Notes</h4>
+        <ul>
+            <li>This device is purely plug-and-play and requires no changes.</li>
+        </ul>
+
+        <!-- LAB599 -->
+        <h2 id="lab599">Lab599 Radios</h2>
+
+        <h3>TX-500MP (with DigiRig Mobile)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>2014</td></tr>
+            <tr><td>Baud Rate</td><td>9600</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Set MENU 36 CAT PROTOCOL = TS2000</li>
+            <li>Set MODE = DIGI</li>
+            <li><strong>Do not enable VOX on radio</strong></li>
+        </ul>
+
+        <!-- OTHER RADIOS -->
+        <h2 id="other">Other Radios</h2>
+
+        <h3>BG2FX FX-4CR</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>2031</td></tr>
+            <tr><td>Baud Rate</td><td>115200</td></tr>
+            <tr><td>PTT Method</td><td>RIG (CAT)</td></tr>
+            <tr><td>Special Config</td><td>data_bits=8, serial_handshake=None, stop_bits=1, rts_state=OFF</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Short press [PWR], then rotate AF knob until POW = 5.0</li>
+            <li>Toggle [SSB] button until both USB and DIG appear</li>
+            <li>Short press [M. V] until VFOA is displayed</li>
+            <li>Long press [MENU], rotate AF to BLUETOOTH, rotate TUNE and set to 0</li>
+            <li>Set radio volume to 50</li>
+            <li>Set mic gain to 50</li>
+            <li>Set alsamixer PCM to 21</li>
+            <li>Set alsamixer Mic to 55</li>
+            <li>Set alsamixer AGC to mm</li>
+        </ul>
+        <h4>Field Notes</h4>
+        <ul>
+            <li>Tested with FX-4CR firmware version: 1.7.3 (2025/09/01)</li>
+            <li><strong>Important:</strong> You must force the RTS control line to low for audio output to work with PTT</li>
+            <li>This is handled with rts_state=OFF using the --set-conf argument of rigctld</li>
+        </ul>
+
+        <!-- AUDIO INTERFACES -->
+        <h2 id="interfaces">Audio Interfaces (No CAT)</h2>
+
+        <h3>DigiRig Mobile (No CAT)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>6 (Yaesu FT-747GX)</td></tr>
+            <tr><td>PTT Method</td><td>RTS</td></tr>
+        </table>
+        <h4>Notes</h4>
+        <ul>
+            <li>Set your VFO manually</li>
+            <li>Adjust your volume, RF gain and squelch manually</li>
+        </ul>
+
+        <h3>DigiRig Lite</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Hamlib Model</td><td>1 (Dummy)</td></tr>
+            <tr><td>PTT Method</td><td>NONE</td></tr>
+        </table>
+
+        <!-- BLUETOOTH TNCs -->
+        <h2 id="bluetooth">Bluetooth TNCs</h2>
+
+        <h3>BTECH UV PRO (Bluetooth)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Connection</td><td>Bluetooth</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Menu → General Settings → KISS TNC → Enable KISS TNC = checked</li>
+        </ul>
+
+        <h3>VGC VR-N76 (Bluetooth)</h3>
+        <table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Connection</td><td>Bluetooth</td></tr>
+        </table>
+        <h4>Configuration Notes</h4>
+        <ul>
+            <li>Menu → General Settings → KISS TNC → Enable KISS TNC = checked</li>
+        </ul>
+        <h4>Field Notes</h4>
+        <ul>
+            <li>Power cycle VGC between each Bluetooth operation</li>
+            <li>If power cycling VGC doesn't help, cycle Bluetooth on laptop</li>
+        </ul>
+
+        <h2>Hamlib Model Reference</h2>
+        <p>Quick reference for <code>rigctld -m MODEL</code>:</p>
+        <table>
+            <thead>
+                <tr><th>Model ID</th><th>Radio</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Dummy (no rig)</td></tr>
+                <tr><td>6</td><td>Yaesu FT-747GX (PTT only)</td></tr>
+                <tr><td>1022</td><td>Yaesu FT-857</td></tr>
+                <tr><td>1035</td><td>Yaesu FT-991</td></tr>
+                <tr><td>1036</td><td>Yaesu FT-891</td></tr>
+                <tr><td>1041</td><td>Yaesu FT-818</td></tr>
+                <tr><td>1043</td><td>Yaesu FT-897</td></tr>
+                <tr><td>2002</td><td>QRP Labs QMX</td></tr>
+                <tr><td>2014</td><td>Lab599 TX-500</td></tr>
+                <tr><td>2031</td><td>BG2FX FX-4CR</td></tr>
+                <tr><td>2044</td><td>Elecraft KX2/KX3</td></tr>
+                <tr><td>3061</td><td>Icom IC-7200</td></tr>
+                <tr><td>3070</td><td>Icom IC-7100</td></tr>
+                <tr><td>3073</td><td>Icom IC-7300</td></tr>
+                <tr><td>3081</td><td>Icom IC-9700</td></tr>
+                <tr><td>3085</td><td>Icom IC-705</td></tr>
+                <tr><td>3087</td><td>Xiegu X6100</td></tr>
+                <tr><td>3088</td><td>Xiegu G90</td></tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="digirig-setup.html">Digirig Setup Guide</a></li>
+            <li><a href="../software/js8call.html">JS8Call</a></li>
+            <li><a href="../software/fldigi-guide.html">Fldigi</a></li>
+            <li><a href="../digital-modes/vara.html">VARA Modem</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>Radio configurations compiled by <strong>Gaston Gonzalez (KT7RUN)</strong> for the EmComm-Tools project.</p>
+            <p>Source: <code>/opt/emcomm-tools/conf/radios.d/</code></p>
+            <p>Adapted for EmComm-Tools Debian Edition by VA2OPS</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

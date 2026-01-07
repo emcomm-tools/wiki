@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winlink Catalog Requests - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Winlink Catalog Requests
+    </nav>
+    
+    <article>
+        <h1>Winlink Catalog &amp; Inquiry Requests</h1>
+        
+        <section class="summary">
+            <p>Winlink provides automated information services accessible via radio email. These "catalog" or "inquiry" requests allow operators to retrieve weather forecasts, propagation data, position reports, GRIB files, and system information—critical resources when internet is unavailable.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#winlink-express">Using Winlink Express</a></li>
+                <li><a href="#pat-client">Using Pat (Linux)</a></li>
+                <li><a href="#categories">Catalog Categories</a></li>
+                <li><a href="#saildocs">SailDocs Requests</a></li>
+                <li><a href="#grib">GRIB Weather Files</a></li>
+                <li><a href="#position">Position Reports</a></li>
+                <li><a href="#nws-weather">NWS Weather by Email</a></li>
+                <li><a href="#other-services">Other Email Services</a></li>
+                <li><a href="#message-priority">Message Priority Codes</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">Overview</h2>
+        <p>Winlink's Query Catalog system provides automated information retrieval via specially formatted email messages. When connected to an RMS gateway, you send a request message, and the system responds with the requested information. This works entirely over radio—no internet required at your end.</p>
+
+        <h3>How It Works</h3>
+        <ol>
+            <li>Compose an inquiry message with specific formatting</li>
+            <li>Connect to an RMS gateway and send the message</li>
+            <li>Disconnect and wait a few minutes</li>
+            <li>Reconnect to receive the response</li>
+        </ol>
+
+        <h2 id="winlink-express">Using Winlink Express (Windows)</h2>
+        
+        <h3>Accessing the Catalog</h3>
+        <ol>
+            <li>Click <strong>Settings</strong> → <strong>Winlink Catalog Request</strong></li>
+            <li>Click <strong>Update via Internet</strong> (if available) to refresh the catalog list</li>
+            <li>Select a category from the left panel</li>
+            <li>Double-click items to add to your request list</li>
+            <li>Click <strong>Post Request</strong> to create the message</li>
+            <li>Connect to an RMS and send/receive</li>
+        </ol>
+
+        <h3>Manual Catalog Request</h3>
+        <p>You can also compose requests manually:</p>
+        <pre>
+To: INQUIRY@winlink.org
+Subject: Catalog Request
+Body:
+&lt;category&gt; &lt;item&gt;
+        </pre>
+
+        <h2 id="pat-client">Using Pat (Linux)</h2>
+        <p>With the Pat Winlink client, compose messages to the catalog addresses:</p>
+        <pre>
+# Create a catalog request
+echo "WX_US FORECAST_CA" | pat compose INQUIRY@winlink.org -s "Catalog"
+
+# Or use patmail.sh script
+echo "WX_US FORECAST_CA" | patmail.sh INQUIRY "Catalog" telnet
+        </pre>
+
+        <h2 id="categories">Winlink Catalog Categories</h2>
+        
+        <h3>Weather Categories</h3>
+        <table>
+            <thead>
+                <tr><th>Category</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>WX_US</td><td>United States weather forecasts by state/region</td></tr>
+                <tr><td>WX_AREA</td><td>Area forecasts (marine, aviation)</td></tr>
+                <tr><td>WX_MARINE</td><td>Marine weather and sea state forecasts</td></tr>
+                <tr><td>WX_PACIFIC</td><td>Pacific region weather</td></tr>
+                <tr><td>WX_ATLANTIC</td><td>Atlantic region weather</td></tr>
+                <tr><td>WX_CARIBBEAN</td><td>Caribbean weather forecasts</td></tr>
+                <tr><td>WX_TROPICS</td><td>Tropical weather and hurricane info</td></tr>
+                <tr><td>SAT_IMAGES</td><td>Satellite weather images</td></tr>
+            </tbody>
+        </table>
+
+        <h3>System &amp; Information Categories</h3>
+        <table>
+            <thead>
+                <tr><th>Category</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>WL2K_HELP</td><td>Winlink system help and documentation</td></tr>
+                <tr><td>WL2K_INFO</td><td>System information and status</td></tr>
+                <tr><td>GPS_INFO</td><td>GPS and position-related information</td></tr>
+                <tr><td>PROPAGATION</td><td>HF propagation predictions and solar data</td></tr>
+                <tr><td>RMS_LIST</td><td>List of active RMS gateway stations</td></tr>
+                <tr><td>FREQUENCIES</td><td>Current RMS frequencies by region</td></tr>
+                <tr><td>ARRL</td><td>ARRL newsletters and bulletins</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="saildocs">SailDocs Email Requests</h2>
+        <p>SailDocs is an automated email service providing weather data, optimized for low-bandwidth connections like Winlink.</p>
+
+        <h3>Basic SailDocs Request</h3>
+        <pre>
+To: query@saildocs.com
+Subject: (anything)
+Body:
+send info
+send home
+        </pre>
+
+        <h3>Requesting Web Pages</h3>
+        <p>SailDocs can fetch and convert web pages to text:</p>
+        <pre>
+To: query@saildocs.com
+Subject: Weather Request
+Body:
+send https://tgftp.nws.noaa.gov/data/forecasts/zone/ca/caz006.txt
+        </pre>
+
+        <h3>Hurricane Information</h3>
+        <pre>
+To: query@saildocs.com
+Subject: Hurricane Info
+Body:
+send https://tgftp.nws.noaa.gov/data/hurricane_products/atlantic/weather/discussion.txt
+send https://tgftp.nws.noaa.gov/data/hurricane_products/atlantic/weather/outlook.txt
+send https://www.nhc.noaa.gov/text/MIATCMAT1.shtml
+        </pre>
+
+        <h3>Weather Catalog Codes</h3>
+        <table>
+            <thead>
+                <tr><th>Code</th><th>Region/Product</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>send peace</td><td>Eastern Pacific bulletins catalog</td></tr>
+                <tr><td>send pwatl</td><td>Atlantic bulletins catalog</td></tr>
+                <tr><td>send home</td><td>Main document library</td></tr>
+                <tr><td>send info</td><td>SailDocs documentation</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="grib">GRIB Weather Files</h2>
+        <p>GRIB (GRIdded Binary) files contain weather model data that can be displayed on chart plotters and navigation software.</p>
+
+        <h3>GRIB Request Syntax</h3>
+        <pre>
+To: query@saildocs.com
+Subject: GRIB
+Body:
+send gfs:LAT1,LAT2,LON1,LON2|GRID|TIMES|PARAMS
+        </pre>
+
+        <h3>Parameters</h3>
+        <ul>
+            <li><strong>LAT1,LAT2</strong>: Latitude bounds (e.g., 30N,50N)</li>
+            <li><strong>LON1,LON2</strong>: Longitude bounds (e.g., 130W,110W)</li>
+            <li><strong>GRID</strong>: Grid spacing in degrees (e.g., 1,1 or 2,2)</li>
+            <li><strong>TIMES</strong>: Forecast hours (e.g., 0,24,48,72)</li>
+            <li><strong>PARAMS</strong>: Data types (WIND, PRESS, WAVES, RAIN, etc.)</li>
+        </ul>
+
+        <h3>GRIB Examples</h3>
+        <pre>
+# Basic wind and pressure for US West Coast
+send gfs:30N,50N,130W,110W|2,2|24,48,72|WIND,PRESS
+
+# Detailed forecast with waves
+send gfs:25N,45N,140W,115W|1,1|0,12,24,36,48,72|WIND,WAVES,PRESS
+
+# Atlantic crossing forecast
+send gfs:30N,45N,70W,10W|2,2|0,24,48,72,96,120|WIND,PRESS,WAVES
+        </pre>
+
+        <h3>GRIB Subscription</h3>
+        <p>To receive daily updates, change "send" to "sub":</p>
+        <pre>
+sub gfs:30N,50N,130W,110W|2,2|0,24,48,72|WIND DAYS=7
+        </pre>
+        <p>Cancel with the same request using "cancel" instead of "sub".</p>
+
+        <h3>Available GRIB Models</h3>
+        <p>Send blank email to <code>gribmodels@saildocs.com</code> for complete list:</p>
+        <ul>
+            <li><strong>gfs:</strong> - NOAA GFS global model (default)</li>
+            <li><strong>nam:</strong> - North American Mesoscale</li>
+            <li><strong>coamps:</strong> - Navy COAMPS model</li>
+            <li><strong>ww3:</strong> - WaveWatch III (waves only)</li>
+        </ul>
+
+        <h2 id="position">Position Reports</h2>
+        
+        <h3>Sending Position Reports</h3>
+        <p>Position reports can be sent automatically (GPS) or manually through Winlink Express:</p>
+        <ol>
+            <li>Settings → GPS/Position Reports</li>
+            <li>Configure GPS COM port or enter manual coordinates</li>
+            <li>Click "Send Position Report"</li>
+        </ol>
+
+        <h3>Requesting Position Reports</h3>
+        <p>To request another station's position:</p>
+        <pre>
+To: INQUIRY@winlink.org
+Subject: Position Request
+Body:
+QTH CALLSIGN
+        </pre>
+
+        <h3>Position Report Destinations</h3>
+        <p>Position reports are automatically sent to:</p>
+        <ul>
+            <li>Winlink position map (winlink.org/userPositions)</li>
+            <li>APRS-IS (appears on aprs.fi)</li>
+            <li>ShipTrak and YotReps maritime tracking</li>
+        </ul>
+
+        <h2 id="nws-weather">NWS Weather by Email</h2>
+        
+        <h3>Direct NWS Zone Forecasts</h3>
+        <p>Get forecasts directly from NOAA/NWS:</p>
+        <pre>
+To: query@saildocs.com
+Subject: NWS Forecast
+Body:
+send https://tgftp.nws.noaa.gov/data/forecasts/zone/ca/caz006.txt
+        </pre>
+
+        <h3>Finding Your Zone Code</h3>
+        <ol>
+            <li>Visit: <code>https://tgftp.nws.noaa.gov/data/forecasts/zone/</code></li>
+            <li>Select your state (2-letter code)</li>
+            <li>Find your county/zone file (e.g., caz006.txt for California zone 6)</li>
+        </ol>
+
+        <h3>Alternative Weather Service</h3>
+        <p>Third-party weather by email (requires Winlink account):</p>
+        <pre>
+To: weather@hamdesk.com
+Subject: 97103
+
+(Returns short forecast for ZIP code 97103)
+        </pre>
+        <p>For detailed forecast, use "full" prefix:</p>
+        <pre>
+Subject: full 97103
+        </pre>
+
+        <h2 id="other-services">Other Email Services</h2>
+
+        <h3>Spot Forecasts</h3>
+        <p>Get point forecast for specific coordinates:</p>
+        <pre>
+To: query@saildocs.com
+Subject: Spot
+Body:
+send spot:45.5N,122.7W|7,12|
+        </pre>
+        <p>Returns 7-day forecast at 12-hour intervals for Portland, OR area.</p>
+
+        <h3>Buoy Weather Data</h3>
+        <pre>
+To: query@saildocs.com
+Subject: Buoy
+Body:
+send http://www.ndbc.noaa.gov/data/latest_obs/46029.txt
+        </pre>
+
+        <h2 id="message-priority">Message Priority Codes</h2>
+        <p>For messages to/from internet addresses, include priority in subject line:</p>
+        
+        <table>
+            <thead>
+                <tr><th>Code</th><th>Priority</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>//WL2K Z/</td><td>Flash</td><td>Life-threatening emergencies only</td></tr>
+                <tr><td>//WL2K O/</td><td>Immediate</td><td>Urgent operational matters</td></tr>
+                <tr><td>//WL2K P/</td><td>Priority</td><td>Important but not urgent</td></tr>
+                <tr><td>//WL2K R/</td><td>Routine</td><td>Normal traffic (default)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Example Subject Lines</h3>
+        <pre>
+//WL2K R/Weather request for deployment
+//WL2K P/Resource status update needed
+//WL2K Z/Medical emergency - need airlift coordinates
+        </pre>
+
+        <h2>Tips for Efficient Catalog Use</h2>
+        <ul>
+            <li><strong>Minimize data</strong>: Request only what you need—airtime is limited</li>
+            <li><strong>Use subscriptions</strong>: For daily weather, subscriptions save connection time</li>
+            <li><strong>Batch requests</strong>: Combine multiple requests in one message</li>
+            <li><strong>Check file sizes</strong>: GRIB files can be large; use coarser grids (2,2 vs 1,1)</li>
+            <li><strong>Time zones</strong>: Weather products use UTC/Zulu time</li>
+            <li><strong>Update catalog</strong>: Refresh the catalog periodically for new services</li>
+        </ul>
+
+        <h2>Troubleshooting</h2>
+        <table>
+            <thead>
+                <tr><th>Problem</th><th>Solution</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>No response received</td><td>Reconnect after 2-3 minutes; check message syntax</td></tr>
+                <tr><td>Invalid request error</td><td>Verify category and item names; update catalog</td></tr>
+                <tr><td>File too large</td><td>Reduce GRIB grid resolution or area size</td></tr>
+                <tr><td>Timeout on connection</td><td>Try different RMS gateway; check propagation</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Quick Reference Card</h2>
+        <div class="reference-card">
+            <h4>Essential Addresses</h4>
+            <ul>
+                <li><code>INQUIRY@winlink.org</code> - Winlink catalog</li>
+                <li><code>query@saildocs.com</code> - SailDocs weather/web</li>
+                <li><code>gribmodels@saildocs.com</code> - GRIB model list</li>
+                <li><code>weather@hamdesk.com</code> - ZIP code weather</li>
+            </ul>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../software/pat-winlink.html">Pat Winlink Client</a></li>
+            <li><a href="../digital-modes/vara.html">VARA Modem</a></li>
+            <li><a href="../emcomm/ics-forms-guide.html">ICS Forms Guide</a></li>
+            <li><a href="digital-frequencies.html">Digital Mode Frequencies</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>Information compiled from Winlink.org, SailDocs, and ARRL resources.</p>
+            <p>Last updated: January 2026</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
