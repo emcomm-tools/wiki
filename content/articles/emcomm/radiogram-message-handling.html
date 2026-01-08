@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiogram &amp; NTS Message Handling - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .radiogram-form {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: "Courier New", monospace;
+            max-width: 700px;
+        }
+        .radiogram-form .section {
+            border-bottom: 1px solid #999;
+            padding: 8px 0;
+            margin-bottom: 8px;
+        }
+        .radiogram-form .section:last-child {
+            border-bottom: none;
+        }
+        .radiogram-form .label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .radiogram-form .value {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .preamble-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .preamble-item {
+            text-align: center;
+        }
+        .preamble-item .label {
+            font-size: 0.7em;
+            color: #666;
+        }
+        .preamble-item .value {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2c5282;
+        }
+        .precedence-table td:first-child {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            width: 60px;
+        }
+        .hx-code {
+            font-family: monospace;
+            font-weight: bold;
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .proword {
+            font-weight: bold;
+            color: #c53030;
+        }
+        .example-exchange {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .example-exchange .tx {
+            color: #63b3ed;
+        }
+        .example-exchange .rx {
+            color: #68d391;
+        }
+        .example-exchange .comment {
+            color: #a0aec0;
+            font-style: italic;
+        }
+        .arl-table {
+            font-size: 0.9em;
+        }
+        .arl-table td:first-child {
+            font-weight: bold;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .quick-ref {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Radiogram &amp; Message Handling
+    </nav>
+    
+    <article>
+        <h1>Radiogram &amp; NTS Message Handling</h1>
+        
+        <section class="summary">
+            <p>The ARRL Radiogram is the standard format for passing formal written traffic in amateur radio. Used by the National Traffic System (NTS) and emergency communications networks, proper message handling ensures accurate, reliable delivery of critical information.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#format">Radiogram Format</a></li>
+                <li><a href="#preamble">The Preamble</a></li>
+                <li><a href="#precedence">Precedence Levels</a></li>
+                <li><a href="#hx-codes">Handling Instructions (HX)</a></li>
+                <li><a href="#address">Address Block</a></li>
+                <li><a href="#text">Message Text</a></li>
+                <li><a href="#signature">Signature</a></li>
+                <li><a href="#arl">ARL Numbered Messages</a></li>
+                <li><a href="#sending">Sending a Radiogram</a></li>
+                <li><a href="#receiving">Receiving a Radiogram</a></li>
+                <li><a href="#prowords">Prowords Reference</a></li>
+                <li><a href="#examples">Complete Examples</a></li>
+                <li><a href="#tips">Tips for Accuracy</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">Overview</h2>
+        
+        <p>The National Traffic System (NTS) was created by ARRL to handle routine and emergency message traffic. The radiogram format provides:</p>
+        <ul>
+            <li><strong>Standardization</strong> - Everyone uses the same format</li>
+            <li><strong>Accuracy</strong> - Structured fields reduce errors</li>
+            <li><strong>Accountability</strong> - Messages can be tracked and verified</li>
+            <li><strong>Efficiency</strong> - Trained operators handle traffic quickly</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Why This Matters:</strong> In a real emergency, a garbled message could send rescuers to the wrong location or cause critical supplies to go elsewhere. Proper message handling saves lives.
+        </div>
+
+        <h2 id="format">Radiogram Format</h2>
+        
+        <p>Every radiogram has four parts:</p>
+        <ol>
+            <li><strong>Preamble</strong> - Message metadata (number, precedence, origin, date, etc.)</li>
+            <li><strong>Address</strong> - Who the message is going to</li>
+            <li><strong>Text</strong> - The actual message content (25 words or less recommended)</li>
+            <li><strong>Signature</strong> - Who the message is from</li>
+        </ol>
+
+        <h3>Sample Radiogram</h3>
+        <div class="radiogram-form">
+            <div class="section preamble-box">
+                <div class="preamble-item">
+                    <div class="label">Number</div>
+                    <div class="value">47</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Precedence</div>
+                    <div class="value">R</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">HX</div>
+                    <div class="value">__</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Station</div>
+                    <div class="value">W1AW</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Check</div>
+                    <div class="value">12</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Place</div>
+                    <div class="value">NEWINGTON CT</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Time</div>
+                    <div class="value">1830Z</div>
+                </div>
+                <div class="preamble-item">
+                    <div class="label">Date</div>
+                    <div class="value">JAN 8</div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="label">To:</div>
+                <div class="value">JOHN SMITH<br>
+                123 MAIN STREET<br>
+                ANYTOWN NY 12345<br>
+                518 555 1234</div>
+            </div>
+            <div class="section">
+                <div class="label">Message:</div>
+                <div class="value">HAPPY BIRTHDAY X HOPE YOU HAVE A WONDERFUL DAY X LOOKING FORWARD TO SEEING YOU SOON X</div>
+            </div>
+            <div class="section">
+                <div class="label">Signature:</div>
+                <div class="value">UNCLE BOB</div>
+            </div>
+        </div>
+
+        <h2 id="preamble">The Preamble</h2>
+        
+        <p>The preamble contains all the routing and tracking information:</p>
+
+        <table class="formula-table">
+            <thead>
+                <tr><th>Field</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Number</strong></td>
+                    <td>Sequential message number assigned by originating station. Start at 1 each year.</td>
+                    <td>47</td>
+                </tr>
+                <tr>
+                    <td><strong>Precedence</strong></td>
+                    <td>Priority level: R, W, P, or EMERGENCY</td>
+                    <td>R</td>
+                </tr>
+                <tr>
+                    <td><strong>HX</strong></td>
+                    <td>Handling instructions (optional). See HX codes below.</td>
+                    <td>HXC</td>
+                </tr>
+                <tr>
+                    <td><strong>Station of Origin</strong></td>
+                    <td>Callsign of station that created the message</td>
+                    <td>W1AW</td>
+                </tr>
+                <tr>
+                    <td><strong>Check</strong></td>
+                    <td>Word count of the TEXT only (not address or signature)</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td><strong>Place of Origin</strong></td>
+                    <td>City and state where message originated</td>
+                    <td>NEWINGTON CT</td>
+                </tr>
+                <tr>
+                    <td><strong>Time Filed</strong></td>
+                    <td>Time message was created (optional, 24-hour UTC)</td>
+                    <td>1830Z</td>
+                </tr>
+                <tr>
+                    <td><strong>Date</strong></td>
+                    <td>Date message was created</td>
+                    <td>JAN 8</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="precedence">Precedence Levels</h2>
+        
+        <table class="formula-table precedence-table">
+            <thead>
+                <tr><th>Code</th><th>Name</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="background:#c53030;color:white;">E</td>
+                    <td><strong>EMERGENCY</strong></td>
+                    <td>Life or death situation. <strong>Any station may interrupt any net to handle.</strong> Must be cleared before all other traffic. Rare - most "emergencies" are actually Priority.</td>
+                </tr>
+                <tr>
+                    <td style="background:#dd6b20;color:white;">P</td>
+                    <td><strong>PRIORITY</strong></td>
+                    <td>Important messages with time limit: official messages, evacuation notices, welfare traffic in disaster areas, press traffic. Handle before Routine.</td>
+                </tr>
+                <tr>
+                    <td style="background:#3182ce;color:white;">W</td>
+                    <td><strong>WELFARE</strong></td>
+                    <td>Relates to health/welfare of individuals in disaster area OR inquiries about same. Handle before Routine but after Priority.</td>
+                </tr>
+                <tr>
+                    <td style="background:#38a169;color:white;">R</td>
+                    <td><strong>ROUTINE</strong></td>
+                    <td>Normal traffic. Greetings, test messages, most day-to-day NTS traffic. No urgency.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Do Not Overuse EMERGENCY:</strong> True EMERGENCY precedence is extremely rare. Using it inappropriately disrupts the system and desensitizes operators. When in doubt, use PRIORITY.
+        </div>
+
+        <h2 id="hx-codes">Handling Instructions (HX Codes)</h2>
+        
+        <p>Optional instructions that tell receiving stations how to handle the message:</p>
+
+        <table class="formula-table">
+            <thead>
+                <tr><th>Code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="hx-code">HXA</span></td>
+                    <td>Collect delivery authorized by addressee within ___ miles. (Insert miles.)</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXB</span></td>
+                    <td>Cancel message if not delivered within ___ hours of filing time.</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXC</span></td>
+                    <td>Report date and time of delivery to originating station.</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXD</span></td>
+                    <td>Report to originating station the identity of station that delivered message.</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXE</span></td>
+                    <td>Delivering station get reply from addressee, originate message back.</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXF</span></td>
+                    <td>Hold delivery until ___ (date/time).</td>
+                </tr>
+                <tr>
+                    <td><span class="hx-code">HXG</span></td>
+                    <td>Delivery by mail or landline (telephone) OK. Do not phone after 10 PM local.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Most Common:</strong> HXG (delivery by phone OK) and HXC (report delivery) are used most frequently. Many routine messages use no HX code at all.
+        </div>
+
+        <h2 id="address">Address Block</h2>
+        
+        <p>The address must be complete enough to deliver the message:</p>
+
+        <ul>
+            <li><strong>Line 1:</strong> Name (and callsign if amateur)</li>
+            <li><strong>Line 2:</strong> Street address or PO Box</li>
+            <li><strong>Line 3:</strong> City, State, ZIP</li>
+            <li><strong>Line 4:</strong> Telephone number (with area code)</li>
+        </ul>
+
+        <div class="example">
+<pre>JOHN SMITH W1ABC
+123 MAIN STREET
+NEWINGTON CT 06111
+860 555 1234</pre>
+        </div>
+
+        <p><strong>Address Counting:</strong> The address is NOT included in the word count (check).</p>
+
+        <h3>Telephone Numbers in Address</h3>
+        <p>Phone numbers are written as groups without dashes or parentheses:</p>
+        <ul>
+            <li>Spoken: "EIGHT SIX ZERO" (pause) "FIVE FIVE FIVE" (pause) "ONE TWO THREE FOUR"</li>
+            <li>Written: <code>860 555 1234</code></li>
+        </ul>
+
+        <h2 id="text">Message Text</h2>
+        
+        <h3>Guidelines</h3>
+        <ul>
+            <li><strong>25 words or less</strong> - Keep it concise. Longer messages should be split.</li>
+            <li><strong>All text characters</strong> - No punctuation except X for period, R for "received"</li>
+            <li><strong>Use X for period</strong> - "ARRIVED SAFELY X CALL WHEN YOU CAN X"</li>
+            <li><strong>Spell out numbers</strong> - "THREE" not "3" (unless using figures intentionally)</li>
+            <li><strong>No contractions</strong> - "DO NOT" not "DON'T"</li>
+            <li><strong>Initial groups</strong> - Count as one word: "ARRL" = 1 word</li>
+            <li><strong>Mixed groups</strong> - Letters and numbers together = 1 word: "W1AW" = 1 word</li>
+        </ul>
+
+        <h3>Counting Words (The Check)</h3>
+        <table class="formula-table">
+            <thead>
+                <tr><th>Item</th><th>Count As</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Each dictionary word</td><td>1 word</td><td>HAPPY = 1</td></tr>
+                <tr><td>X (period)</td><td>1 word</td><td>X = 1</td></tr>
+                <tr><td>R (received/roger)</td><td>1 word</td><td>R = 1</td></tr>
+                <tr><td>Initial groups</td><td>1 word</td><td>ARRL = 1, FBI = 1</td></tr>
+                <tr><td>Mixed groups</td><td>1 word</td><td>W1AW = 1, 73 = 1</td></tr>
+                <tr><td>Telephone numbers</td><td>3 words</td><td>860 555 1234 = 3</td></tr>
+                <tr><td>ARL codes</td><td>Count shown</td><td>ARL FIFTY = 2</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>The Check Must Be Accurate!</strong> If sender says "CHECK 12" and receiver counts 13 words, there's an error. Always verify the count and request fills if needed.
+        </div>
+
+        <h2 id="signature">Signature</h2>
+        
+        <p>The signature identifies who the message is FROM. It can be:</p>
+        <ul>
+            <li>A name: "UNCLE BOB"</li>
+            <li>A name and callsign: "JOHN W1ABC"</li>
+            <li>An organization: "COUNTY EOC"</li>
+            <li>Multiple lines if needed</li>
+        </ul>
+
+        <p>The signature is NOT included in the word count.</p>
+
+        <h2 id="arl">ARL Numbered Radiogram Messages</h2>
+        
+        <p>ARL codes are pre-defined messages that save time. Say "ARL FIFTY" and the receiving station writes the standard text. Use for common situations.</p>
+
+        <h3>Most Common ARL Messages</h3>
+        <table class="formula-table arl-table">
+            <thead>
+                <tr><th>Code</th><th>Full Text</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ARL ONE</td><td>Everyone safe here. Please don't worry.</td></tr>
+                <tr><td>ARL TWO</td><td>Coming home as soon as possible.</td></tr>
+                <tr><td>ARL THREE</td><td>Am in ___ hospital. Receiving excellent care and recovering fine.</td></tr>
+                <tr><td>ARL FOUR</td><td>Only slight property damage here. Do not be concerned about disaster reports.</td></tr>
+                <tr><td>ARL FIVE</td><td>Am moving to new address. Will inform you of new address when relocated.</td></tr>
+                <tr><td>ARL SIX</td><td>Will contact you as soon as possible.</td></tr>
+                <tr><td>ARL SEVEN</td><td>Please reply by Amateur Radio through the amateur station on this message.</td></tr>
+                <tr><td>ARL EIGHT</td><td>Need additional ___ mobile or portable equipment for relief work. Please ship immediately.</td></tr>
+                <tr><td>ARL NINE</td><td>Additional ___ radio operators needed to operate relief net. Please send volunteers.</td></tr>
+                <tr><td>ARL TEN</td><td>Please contact ___. Advise to standby and provide further emergency information, instructions or assistance.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Greeting/Welfare Messages</h3>
+        <table class="formula-table arl-table">
+            <tbody>
+                <tr><td>ARL FORTY SIX</td><td>Greetings on your birthday and best wishes for many more to come.</td></tr>
+                <tr><td>ARL FIFTY</td><td>Greetings by Amateur Radio.</td></tr>
+                <tr><td>ARL FIFTY ONE</td><td>Greetings by Amateur Radio. This message is sent as a free public service by ham radio operators. Am having a wonderful time.</td></tr>
+                <tr><td>ARL FIFTY EIGHT</td><td>Wish we could be together with you.</td></tr>
+                <tr><td>ARL SIXTY</td><td>Wishing you the best of everything on ___.</td></tr>
+                <tr><td>ARL SIXTY ONE</td><td>Wishing you a very Merry Christmas and a Happy New Year.</td></tr>
+                <tr><td>ARL SIXTY SEVEN</td><td>Your message number ___ undeliverable because of ___. Please advise.</td></tr>
+                <tr><td>ARL SIXTY EIGHT</td><td>Your message number ___ delivered on ___ at ___ UTC.</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Counting ARL:</strong> "ARL FIFTY" counts as 2 words in the check. "ARL SIXTY SEVEN" counts as 3 words.
+        </div>
+
+        <h2 id="sending">Sending a Radiogram</h2>
+        
+        <h3>Voice Procedure</h3>
+        <div class="example-exchange">
+<span class="comment">// Net Control calls for traffic</span>
+<span class="rx">NCS: Any traffic for the net?</span>
+<span class="tx">YOU: W1AW, one routine for Newington.</span>
+<span class="rx">NCS: W1AW, call W1XYZ for your traffic.</span>
+
+<span class="comment">// Move to working frequency or stay on net</span>
+<span class="tx">YOU: W1XYZ, W1AW, ready to copy?</span>
+<span class="rx">W1XYZ: W1AW, ready to copy, go ahead.</span>
+
+<span class="comment">// Send preamble</span>
+<span class="tx">YOU: NUMBER FOUR SEVEN</span>
+<span class="tx">     ROUTINE</span>
+<span class="tx">     W ONE A W</span>
+<span class="tx">     CHECK ONE TWO</span>
+<span class="tx">     NEWINGTON CONNECTICUT</span>
+<span class="tx">     JANUARY EIGHT</span>
+<span class="tx">     BREAK</span>
+
+<span class="comment">// Send address</span>
+<span class="tx">YOU: JOHN SMITH</span>
+<span class="tx">     ONE TWO THREE MAIN STREET</span>
+<span class="tx">     ANYTOWN NEW YORK ONE TWO THREE FOUR FIVE</span>
+<span class="tx">     FIVE ONE EIGHT (pause) FIVE FIVE FIVE (pause) ONE TWO THREE FOUR</span>
+<span class="tx">     BREAK</span>
+
+<span class="comment">// Send text</span>
+<span class="tx">YOU: HAPPY BIRTHDAY X HOPE YOU HAVE A WONDERFUL</span>
+<span class="tx">     DAY X LOOKING FORWARD TO SEEING YOU SOON X</span>
+<span class="tx">     BREAK</span>
+
+<span class="comment">// Send signature</span>
+<span class="tx">YOU: UNCLE BOB</span>
+<span class="tx">     END NO MORE</span>
+
+<span class="rx">W1XYZ: ROGER, NUMBER FOUR SEVEN, W1AW.</span>
+</div>
+
+        <h3>Key Prowords When Sending</h3>
+        <ul>
+            <li><span class="proword">BREAK</span> - Separates preamble/address/text/signature</li>
+            <li><span class="proword">I SPELL</span> - About to spell phonetically</li>
+            <li><span class="proword">FIGURES</span> - Numbers follow, written as digits</li>
+            <li><span class="proword">INITIAL</span> - Single letter follows</li>
+            <li><span class="proword">END</span> - Message complete</li>
+            <li><span class="proword">MORE</span> - I have more messages</li>
+            <li><span class="proword">NO MORE</span> - Last message</li>
+        </ul>
+
+        <h2 id="receiving">Receiving a Radiogram</h2>
+        
+        <h3>Before You Start</h3>
+        <ul>
+            <li>Have blank radiogram forms ready (or paper)</li>
+            <li>Have pen/pencil ready</li>
+            <li>Confirm you're ready: "Ready to copy"</li>
+        </ul>
+
+        <h3>During Reception</h3>
+        <ul>
+            <li>Write everything down immediately</li>
+            <li>Count words as you copy the text</li>
+            <li>Don't interrupt unless you miss something</li>
+        </ul>
+
+        <h3>Requesting Fills</h3>
+        <p>If you miss something, request a "fill" using these phrases:</p>
+        <ul>
+            <li><span class="proword">SAY AGAIN</span> - Repeat entire message</li>
+            <li><span class="proword">SAY AGAIN ___</span> - Repeat the word ___</li>
+            <li><span class="proword">WORD AFTER ___</span> - What comes after ___?</li>
+            <li><span class="proword">WORD BEFORE ___</span> - What comes before ___?</li>
+            <li><span class="proword">SAY AGAIN ALL AFTER ___</span> - Repeat everything after ___</li>
+            <li><span class="proword">SAY AGAIN ALL BEFORE ___</span> - Repeat everything before ___</li>
+            <li><span class="proword">SAY AGAIN ___ TO ___</span> - Repeat from ___ to ___</li>
+        </ul>
+
+        <h3>After Reception</h3>
+        <ol>
+            <li><strong>Verify word count</strong> - Does your count match the check?</li>
+            <li><strong>Roger the message</strong> - "ROGER NUMBER 47"</li>
+            <li><strong>Book the message</strong> - Add your callsign and date/time received to your log</li>
+            <li><strong>Deliver or relay</strong> - Get the message to its destination</li>
+        </ol>
+
+        <h2 id="prowords">Prowords Quick Reference</h2>
+        
+        <div class="quick-ref">
+            <table class="formula-table">
+                <thead>
+                    <tr><th>Proword</th><th>Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="proword">BREAK</span></td><td>Separates sections of radiogram</td></tr>
+                    <tr><td><span class="proword">CORRECTION</span></td><td>Error in transmission, correct version follows</td></tr>
+                    <tr><td><span class="proword">END</span></td><td>End of message</td></tr>
+                    <tr><td><span class="proword">FIGURES</span></td><td>Numbers follow (write as digits)</td></tr>
+                    <tr><td><span class="proword">I SAY AGAIN</span></td><td>I am repeating</td></tr>
+                    <tr><td><span class="proword">I SPELL</span></td><td>Phonetic spelling follows</td></tr>
+                    <tr><td><span class="proword">INITIAL</span></td><td>Single letter follows</td></tr>
+                    <tr><td><span class="proword">MORE</span></td><td>Additional messages to follow</td></tr>
+                    <tr><td><span class="proword">NO MORE</span></td><td>No more messages</td></tr>
+                    <tr><td><span class="proword">ROGER</span></td><td>Message received correctly</td></tr>
+                    <tr><td><span class="proword">SAY AGAIN</span></td><td>Please repeat</td></tr>
+                    <tr><td><span class="proword">WORD AFTER</span></td><td>Requesting word after ___</td></tr>
+                    <tr><td><span class="proword">WORD BEFORE</span></td><td>Requesting word before ___</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="examples">Complete Examples</h2>
+        
+        <h3>Example 1: Simple Welfare Message</h3>
+        <div class="radiogram-form">
+            <div class="section preamble-box">
+                <div class="preamble-item"><div class="label">Nr</div><div class="value">23</div></div>
+                <div class="preamble-item"><div class="label">Prec</div><div class="value">W</div></div>
+                <div class="preamble-item"><div class="label">HX</div><div class="value">HXG</div></div>
+                <div class="preamble-item"><div class="label">Stn</div><div class="value">VA2OPS</div></div>
+                <div class="preamble-item"><div class="label">Ck</div><div class="value">5</div></div>
+                <div class="preamble-item"><div class="label">Place</div><div class="value">GRANBY QC</div></div>
+                <div class="preamble-item"><div class="label">Time</div><div class="value">1430Z</div></div>
+                <div class="preamble-item"><div class="label">Date</div><div class="value">JAN 8</div></div>
+            </div>
+            <div class="section">
+                <div class="label">To:</div>
+                <div class="value">MARIE SMITH<br>456 RUE PRINCIPALE<br>MONTREAL QC H2X 1Y6<br>514 555 6789</div>
+            </div>
+            <div class="section">
+                <div class="label">Text:</div>
+                <div class="value">ARL ONE X ARL SIX X</div>
+            </div>
+            <div class="section">
+                <div class="label">Sig:</div>
+                <div class="value">JEAN</div>
+            </div>
+        </div>
+        <p><em>Translation: "Everyone safe here. Please don't worry. Will contact you as soon as possible."</em></p>
+
+        <h3>Example 2: Emergency Shelter Message</h3>
+        <div class="radiogram-form">
+            <div class="section preamble-box">
+                <div class="preamble-item"><div class="label">Nr</div><div class="value">1</div></div>
+                <div class="preamble-item"><div class="label">Prec</div><div class="value">P</div></div>
+                <div class="preamble-item"><div class="label">HX</div><div class="value">HXC</div></div>
+                <div class="preamble-item"><div class="label">Stn</div><div class="value">W1EOC</div></div>
+                <div class="preamble-item"><div class="label">Ck</div><div class="value">18</div></div>
+                <div class="preamble-item"><div class="label">Place</div><div class="value">HARTFORD CT</div></div>
+                <div class="preamble-item"><div class="label">Time</div><div class="value">0845Z</div></div>
+                <div class="preamble-item"><div class="label">Date</div><div class="value">JAN 8</div></div>
+            </div>
+            <div class="section">
+                <div class="label">To:</div>
+                <div class="value">STATE EOC<br>EMERGENCY MANAGEMENT<br>HARTFORD CT 06106<br>860 555 0911</div>
+            </div>
+            <div class="section">
+                <div class="label">Text:</div>
+                <div class="value">SHELTER ALPHA AT LINCOLN SCHOOL NOW HAS ONE FIVE ZERO EVACUEES X NEED ADDITIONAL BLANKETS AND WATER X</div>
+            </div>
+            <div class="section">
+                <div class="label">Sig:</div>
+                <div class="value">JOHN SMITH SHELTER MANAGER</div>
+            </div>
+        </div>
+
+        <h2 id="tips">Tips for Accuracy</h2>
+        
+        <ol>
+            <li><strong>Read back unclear portions</strong> - If unsure, confirm with sender</li>
+            <li><strong>Use phonetics for unusual words</strong> - Spell them out</li>
+            <li><strong>Always verify the check</strong> - Count is critical</li>
+            <li><strong>Write legibly</strong> - Someone else may deliver your message</li>
+            <li><strong>Copy EXACTLY what is sent</strong> - Don't interpret or "correct"</li>
+            <li><strong>Keep messages short</strong> - 25 words or less is ideal</li>
+            <li><strong>Use ARL codes</strong> - Saves time, reduces errors</li>
+            <li><strong>Practice regularly</strong> - Join NTS nets to build skill</li>
+        </ol>
+
+        <div class="tip">
+            <strong>Pro Tip:</strong> Keep blank radiogram forms in your go-kit. You can download official ARRL forms at <a href="http://www.arrl.org/nts">www.arrl.org/nts</a>.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="ics-forms.html">ICS Forms Reference</a></li>
+            <li><a href="../reference/phonetic-alphabet.html">Phonetic Alphabet</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="../wikipedia/National_Traffic_System.html">National Traffic System (Wikipedia)</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Operating Manual, NTS Methods and Practices Guidelines</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
