@@ -1,4 +1,4 @@
-# EmComm-Tools Ham Radio Wiki
+# EmComm-Tools Ham Radio Encyclopedia
 
 A comprehensive offline Ham Radio encyclopedia in ZIM format for use with EmComm-Tools OS.
 
@@ -6,23 +6,23 @@ A comprehensive offline Ham Radio encyclopedia in ZIM format for use with EmComm
 
 This project builds a searchable, offline reference library for amateur radio operators. The resulting ZIM file can be viewed with Kiwix (included in EmComm-Tools) and provides critical reference material when internet connectivity is unavailable during emergencies.
 
-**Current Build:** 64+ articles, ~7 MB with images
+**Current Build:** 67+ articles | ~7 MB with images | Works offline
 
 ## Content Categories
 
 - **Band Plans** - ITU regions, country allocations, mode segments
 - **Digital Modes** - FT8, JS8Call, VARA, VarAC, ARDOP, Winlink, RTTY, PSK31
-- **Software Guides** - Fldigi, Direwolf, Pat, YAAC, JS8Call quick-starts
-- **Radio Profiles** - Digital mode settings, Digirig setup
+- **Software Guides** - Fldigi, Direwolf, Pat, YAAC, JS8Call, LinBPQ quick-starts
+- **Radio Profiles** - Digital mode settings for 22+ radios, Digirig setup
 - **Antennas** - Construction guides, formulas, wire lengths
 - **Electronics** - Fundamentals for ham radio operators
 - **EmComm Procedures** - ICS forms, ARES/RACES, net operations
 - **Propagation** - HF characteristics, NVIS, solar indices
-- **Quick Reference** - Q-codes, phonetics, frequencies, pinouts
+- **Quick Reference** - Q-codes, phonetics, frequencies, Winlink catalog commands
 
 ## Quick Start (Use Pre-built)
 
-Download the latest ZIM from [Releases](https://github.com/emcomm-tools/wiki/releases) and copy to your wikipedia folder:
+Download the latest ZIM from [SourceForge](https://sourceforge.net/projects/emcomm-tools/files/ZIM/) and open with Kiwix:
 
 ```bash
 cp emcomm-ham-wiki_*.zim ~/wikipedia/
@@ -60,7 +60,6 @@ emcomm-tools-wiki/
 ├── README.md
 ├── LICENSE
 ├── build.sh                    # Main build script
-├── config.sh                   # Configuration variables
 ├── scripts/
 │   ├── fetch-wikipedia.py      # Fetch articles from Wikipedia
 │   ├── generate-index.sh       # Build main index page
@@ -73,16 +72,17 @@ emcomm-tools-wiki/
 │       ├── images/             # Downloaded Wikipedia images
 │       ├── bandplans/
 │       ├── digital-modes/
-│       ├── software/
-│       ├── radios/
+│       ├── software/           # JS8Call, Pat, Fldigi, LinBPQ, etc.
+│       ├── radios/             # Radio digital mode settings
 │       ├── antennas/
 │       ├── electronics/
 │       ├── emcomm/
 │       ├── propagation/
-│       └── reference/
+│       ├── reference/          # Winlink catalog, ICS forms, etc.
+│       └── wikipedia/          # Fetched Wikipedia articles
 ├── templates/
 │   └── article.html            # Template for new articles
-└── output/                     # Built ZIM files
+└── output/                     # Built ZIM files (git-ignored)
 ```
 
 ## Adding Content
@@ -147,15 +147,28 @@ Contributions welcome! Please ensure:
 
 ## Credits
 
+| Contributor | Role |
+|-------------|------|
+| **Sylvain Deguire (VA2OPS)** | Project lead, EmComm-Tools Debian Edition |
+| **Gaston Gonzalez (KT7RUN)** | Radio configurations, EmComm-Tools OS Community |
+| **Bill Cremerius (PY2BIL/LU7ECX)** | BPQ commands reference |
+| **John Wiseman (G8BPQ)** | LinBPQ/BPQ32 software |
+| **Wikimedia Foundation** | Wikipedia article content |
+
+### Resources
+
 - [EmComm-Tools Project](https://emcomm-tools.ca)
 - [Kiwix](https://kiwix.org) - Offline content viewer
 - [OpenZIM](https://openzim.org) - ZIM file format
-- Wikipedia contributors for source articles
 
-## Author
+## Links
 
-Sylvain Deguire (VA2OPS)
+- **Website**: https://emcomm-tools.ca
+- **GitHub**: https://github.com/emcomm-tools
+- **SourceForge Downloads**: https://sourceforge.net/projects/emcomm-tools/files/ZIM/
 
 ---
 
 *Part of the [EmComm-Tools](https://github.com/emcomm-tools) project - Ham Radio Emergency Communications for Linux*
+
+**73 de VA2OPS**

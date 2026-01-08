@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ham Radio Math Formulas - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .formula-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+        .formula-box .main {
+            font-size: 1.3em;
+            color: #2c5282;
+            font-weight: bold;
+        }
+        .formula-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .formula-table th, .formula-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .formula-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .formula-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .quick-ref {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Ham Radio Math Formulas
+    </nav>
+    
+    <article>
+        <h1>Ham Radio Math Formulas</h1>
+        
+        <section class="summary">
+            <p>Essential mathematical formulas for amateur radio operators. From basic Ohm's Law to antenna calculations and decibel conversions, these formulas are fundamental to understanding and working with radio equipment.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#quick-reference">Quick Reference Chart</a></li>
+                <li><a href="#ohms-law">Ohm's Law &amp; Power</a></li>
+                <li><a href="#decibels">Decibel Calculations</a></li>
+                <li><a href="#frequency">Frequency &amp; Wavelength</a></li>
+                <li><a href="#antennas">Antenna Formulas</a></li>
+                <li><a href="#reactance">Reactance &amp; Impedance</a></li>
+                <li><a href="#swr">SWR &amp; Transmission Lines</a></li>
+                <li><a href="#propagation">Propagation</a></li>
+                <li><a href="#conversions">Unit Conversions</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="quick-reference">Quick Reference Chart</h2>
+        
+        <div class="quick-ref">
+            <table class="formula-table">
+                <thead>
+                    <tr><th>Formula</th><th>Equation</th><th>Use</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ohm's Law</td><td>V = I × R</td><td>Voltage, current, resistance relationship</td></tr>
+                    <tr><td>Power</td><td>P = I × V</td><td>Calculate power in watts</td></tr>
+                    <tr><td>Wavelength (meters)</td><td>λ = 300 / f(MHz)</td><td>Convert frequency to wavelength</td></tr>
+                    <tr><td>Dipole Length (feet)</td><td>L = 468 / f(MHz)</td><td>Half-wave dipole total length</td></tr>
+                    <tr><td>Quarter Wave (feet)</td><td>L = 234 / f(MHz)</td><td>Quarter-wave vertical length</td></tr>
+                    <tr><td>dB (Power)</td><td>dB = 10 × log(P₂/P₁)</td><td>Power ratio in decibels</td></tr>
+                    <tr><td>Resonant Frequency</td><td>f = 1 / (2π√LC)</td><td>LC circuit resonance</td></tr>
+                    <tr><td>SWR</td><td>SWR = (1+Γ) / (1-Γ)</td><td>Standing wave ratio</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="ohms-law">Ohm's Law &amp; Power Formulas</h2>
+        
+        <p>The foundation of all electrical calculations. Memorize these!</p>
+
+        <h3>Ohm's Law</h3>
+        <div class="formula-box">
+            <span class="main">V = I × R</span><br>
+            <span class="main">I = V / R</span><br>
+            <span class="main">R = V / I</span>
+        </div>
+        <p>Where: V = Voltage (volts), I = Current (amperes), R = Resistance (ohms)</p>
+
+        <h3>Power Formulas</h3>
+        <div class="formula-box">
+            <span class="main">P = I × V</span> (Power = Current × Voltage)<br>
+            <span class="main">P = I² × R</span> (Power = Current² × Resistance)<br>
+            <span class="main">P = V² / R</span> (Power = Voltage² / Resistance)
+        </div>
+        <p>Where: P = Power (watts)</p>
+
+        <div class="example">
+            <strong>Example:</strong> A 12V radio draws 2A. What's the power consumption?<br>
+            P = I × V = 2A × 12V = <strong>24 watts</strong>
+        </div>
+
+        <h3>Resistance Calculations</h3>
+        <table class="formula-table">
+            <tr><th>Configuration</th><th>Formula</th></tr>
+            <tr><td>Series</td><td>R_total = R₁ + R₂ + R₃ + ...</td></tr>
+            <tr><td>Parallel (2 resistors)</td><td>R_total = (R₁ × R₂) / (R₁ + R₂)</td></tr>
+            <tr><td>Parallel (general)</td><td>1/R_total = 1/R₁ + 1/R₂ + 1/R₃ + ...</td></tr>
+        </table>
+
+        <h2 id="decibels">Decibel Calculations</h2>
+        
+        <p>Decibels (dB) express ratios logarithmically, making large ratios easier to work with.</p>
+
+        <h3>Power Ratio</h3>
+        <div class="formula-box">
+            <span class="main">dB = 10 × log₁₀(P₂ / P₁)</span>
+        </div>
+
+        <h3>Voltage Ratio</h3>
+        <div class="formula-box">
+            <span class="main">dB = 20 × log₁₀(V₂ / V₁)</span>
+        </div>
+
+        <h3>Common dB Values - Memorize These!</h3>
+        <table class="formula-table">
+            <thead>
+                <tr><th>dB</th><th>Power Ratio</th><th>Voltage Ratio</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>+3 dB</td><td>2×</td><td>1.41×</td><td>Double the power</td></tr>
+                <tr><td>+6 dB</td><td>4×</td><td>2×</td><td>4× power, 2× voltage</td></tr>
+                <tr><td>+10 dB</td><td>10×</td><td>3.16×</td><td>10× power (1 S-unit)</td></tr>
+                <tr><td>+20 dB</td><td>100×</td><td>10×</td><td>100× power</td></tr>
+                <tr><td>-3 dB</td><td>0.5×</td><td>0.71×</td><td>Half the power</td></tr>
+                <tr><td>-6 dB</td><td>0.25×</td><td>0.5×</td><td>Quarter power</td></tr>
+                <tr><td>-10 dB</td><td>0.1×</td><td>0.316×</td><td>1/10 power</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Tip:</strong> Each S-unit on your radio is approximately 6 dB (4× power). Going from S5 to S9 is 24 dB or 250× power difference!
+        </div>
+
+        <h3>dBm and dBW</h3>
+        <div class="formula-box">
+            <span class="main">dBm = 10 × log₁₀(P / 1 mW)</span> (reference: 1 milliwatt)<br>
+            <span class="main">dBW = 10 × log₁₀(P / 1 W)</span> (reference: 1 watt)<br>
+            <span class="main">dBW = dBm - 30</span>
+        </div>
+
+        <table class="formula-table">
+            <thead>
+                <tr><th>Power</th><th>dBm</th><th>dBW</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1 mW</td><td>0 dBm</td><td>-30 dBW</td></tr>
+                <tr><td>1 W</td><td>30 dBm</td><td>0 dBW</td></tr>
+                <tr><td>5 W (QRP)</td><td>37 dBm</td><td>7 dBW</td></tr>
+                <tr><td>100 W</td><td>50 dBm</td><td>20 dBW</td></tr>
+                <tr><td>1000 W (1 kW)</td><td>60 dBm</td><td>30 dBW</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="frequency">Frequency &amp; Wavelength</h2>
+
+        <h3>Basic Relationship</h3>
+        <div class="formula-box">
+            <span class="main">λ = c / f</span><br>
+            Where: λ = wavelength, c = speed of light (3×10⁸ m/s), f = frequency
+        </div>
+
+        <h3>Practical Formulas</h3>
+        <div class="formula-box">
+            <span class="main">Wavelength (meters) = 300 / f(MHz)</span><br>
+            <span class="main">Wavelength (feet) = 984 / f(MHz)</span>
+        </div>
+
+        <div class="example">
+            <strong>Example:</strong> What is the wavelength of 14.2 MHz (20m band)?<br>
+            λ = 300 / 14.2 = <strong>21.13 meters</strong>
+        </div>
+
+        <h3>Ham Band Wavelengths</h3>
+        <table class="formula-table">
+            <thead>
+                <tr><th>Band</th><th>Frequency</th><th>Wavelength</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>160m</td><td>1.8 MHz</td><td>166.7 m</td></tr>
+                <tr><td>80m</td><td>3.5 MHz</td><td>85.7 m</td></tr>
+                <tr><td>40m</td><td>7.0 MHz</td><td>42.9 m</td></tr>
+                <tr><td>20m</td><td>14.0 MHz</td><td>21.4 m</td></tr>
+                <tr><td>15m</td><td>21.0 MHz</td><td>14.3 m</td></tr>
+                <tr><td>10m</td><td>28.0 MHz</td><td>10.7 m</td></tr>
+                <tr><td>2m</td><td>144 MHz</td><td>2.08 m</td></tr>
+                <tr><td>70cm</td><td>440 MHz</td><td>0.68 m</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="antennas">Antenna Formulas</h2>
+
+        <h3>Half-Wave Dipole (total length)</h3>
+        <div class="formula-box">
+            <span class="main">Length (feet) = 468 / f(MHz)</span><br>
+            <span class="main">Length (meters) = 143 / f(MHz)</span>
+        </div>
+        <p>Each leg is half this value.</p>
+
+        <div class="example">
+            <strong>Example:</strong> 40m dipole for 7.15 MHz<br>
+            L = 468 / 7.15 = <strong>65.45 feet total</strong> (32.7 feet each leg)
+        </div>
+
+        <h3>Quarter-Wave Vertical</h3>
+        <div class="formula-box">
+            <span class="main">Length (feet) = 234 / f(MHz)</span><br>
+            <span class="main">Length (meters) = 71.5 / f(MHz)</span>
+        </div>
+
+        <h3>5/8 Wave Vertical</h3>
+        <div class="formula-box">
+            <span class="main">Length (feet) = 585 / f(MHz)</span>
+        </div>
+
+        <h3>Full Wave Loop</h3>
+        <div class="formula-box">
+            <span class="main">Length (feet) = 1005 / f(MHz)</span><br>
+            <span class="main">Length (meters) = 306 / f(MHz)</span>
+        </div>
+
+        <h3>Velocity Factor Adjustment</h3>
+        <div class="formula-box">
+            <span class="main">Actual Length = Calculated Length × VF</span>
+        </div>
+        <p>Common velocity factors:</p>
+        <ul>
+            <li>Bare wire: 0.95</li>
+            <li>Insulated wire: 0.93-0.95</li>
+            <li>RG-58 coax: 0.66</li>
+            <li>RG-8X coax: 0.82</li>
+            <li>RG-213 coax: 0.66</li>
+            <li>Hardline: 0.81-0.88</li>
+        </ul>
+
+        <h3>Antenna Quick Reference</h3>
+        <table class="formula-table">
+            <thead>
+                <tr><th>Band</th><th>½λ Dipole (ft)</th><th>¼λ Vertical (ft)</th><th>Full Loop (ft)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>80m (3.75 MHz)</td><td>124.8</td><td>62.4</td><td>268</td></tr>
+                <tr><td>40m (7.15 MHz)</td><td>65.5</td><td>32.7</td><td>140.6</td></tr>
+                <tr><td>20m (14.2 MHz)</td><td>33.0</td><td>16.5</td><td>70.8</td></tr>
+                <tr><td>15m (21.2 MHz)</td><td>22.1</td><td>11.0</td><td>47.4</td></tr>
+                <tr><td>10m (28.5 MHz)</td><td>16.4</td><td>8.2</td><td>35.3</td></tr>
+                <tr><td>2m (146 MHz)</td><td>3.2</td><td>1.6</td><td>6.9</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="reactance">Reactance &amp; Impedance</h2>
+
+        <h3>Capacitive Reactance</h3>
+        <div class="formula-box">
+            <span class="main">Xc = 1 / (2πfC)</span>
+        </div>
+        <p>Where: Xc = capacitive reactance (ohms), f = frequency (Hz), C = capacitance (farads)</p>
+
+        <h3>Inductive Reactance</h3>
+        <div class="formula-box">
+            <span class="main">XL = 2πfL</span>
+        </div>
+        <p>Where: XL = inductive reactance (ohms), f = frequency (Hz), L = inductance (henries)</p>
+
+        <h3>Impedance</h3>
+        <div class="formula-box">
+            <span class="main">Z = √(R² + X²)</span><br>
+            <span class="main">Z = √(R² + (XL - Xc)²)</span>
+        </div>
+
+        <h3>Resonant Frequency</h3>
+        <div class="formula-box">
+            <span class="main">f = 1 / (2π√LC)</span>
+        </div>
+        <p>At resonance, XL = Xc and the circuit is purely resistive.</p>
+
+        <div class="example">
+            <strong>Example:</strong> Find resonant frequency with L=10µH and C=100pF<br>
+            f = 1 / (2π√(10×10⁻⁶ × 100×10⁻¹²))<br>
+            f = 1 / (2π√10⁻¹⁵) = <strong>5.03 MHz</strong>
+        </div>
+
+        <h3>Q Factor</h3>
+        <div class="formula-box">
+            <span class="main">Q = XL / R = Xc / R</span> (at resonance)<br>
+            <span class="main">Q = f₀ / BW</span> (where BW = bandwidth)
+        </div>
+
+        <h2 id="swr">SWR &amp; Transmission Lines</h2>
+
+        <h3>Standing Wave Ratio</h3>
+        <div class="formula-box">
+            <span class="main">SWR = Z_load / Z₀</span> (if Z_load > Z₀)<br>
+            <span class="main">SWR = Z₀ / Z_load</span> (if Z₀ > Z_load)
+        </div>
+
+        <h3>From Reflection Coefficient</h3>
+        <div class="formula-box">
+            <span class="main">Γ = (Z_load - Z₀) / (Z_load + Z₀)</span><br>
+            <span class="main">SWR = (1 + |Γ|) / (1 - |Γ|)</span>
+        </div>
+
+        <h3>Return Loss</h3>
+        <div class="formula-box">
+            <span class="main">Return Loss (dB) = -20 × log₁₀(|Γ|)</span><br>
+            <span class="main">Return Loss (dB) = 20 × log₁₀((SWR+1)/(SWR-1))</span>
+        </div>
+
+        <h3>SWR / Return Loss Table</h3>
+        <table class="formula-table">
+            <thead>
+                <tr><th>SWR</th><th>Return Loss</th><th>Power Reflected</th><th>Rating</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1.0:1</td><td>∞ dB</td><td>0%</td><td>Perfect</td></tr>
+                <tr><td>1.5:1</td><td>14 dB</td><td>4%</td><td>Excellent</td></tr>
+                <tr><td>2.0:1</td><td>9.5 dB</td><td>11%</td><td>Good</td></tr>
+                <tr><td>3.0:1</td><td>6 dB</td><td>25%</td><td>Acceptable</td></tr>
+                <tr><td>5.0:1</td><td>3.5 dB</td><td>44%</td><td>Poor</td></tr>
+                <tr><td>10.0:1</td><td>1.7 dB</td><td>67%</td><td>Bad</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Coax Loss</h3>
+        <div class="formula-box">
+            <span class="main">Total Loss (dB) = Matched Loss + Additional Loss from SWR</span>
+        </div>
+
+        <h2 id="propagation">Propagation Formulas</h2>
+
+        <h3>Free Space Path Loss</h3>
+        <div class="formula-box">
+            <span class="main">FSPL (dB) = 20×log₁₀(d) + 20×log₁₀(f) + 32.44</span>
+        </div>
+        <p>Where: d = distance (km), f = frequency (MHz)</p>
+
+        <h3>Line of Sight Distance</h3>
+        <div class="formula-box">
+            <span class="main">d (miles) = √(2 × h)</span><br>
+            <span class="main">d (km) = √(12.75 × h)</span>
+        </div>
+        <p>Where: h = antenna height in feet (miles formula) or meters (km formula)</p>
+
+        <div class="example">
+            <strong>Example:</strong> Antenna at 100 feet height<br>
+            d = √(2 × 100) = <strong>14.1 miles</strong> to radio horizon
+        </div>
+
+        <h3>Two Station Line of Sight</h3>
+        <div class="formula-box">
+            <span class="main">d (miles) = √(2 × h₁) + √(2 × h₂)</span>
+        </div>
+
+        <h3>Maximum Usable Frequency (MUF)</h3>
+        <div class="formula-box">
+            <span class="main">MUF = Critical Frequency × sec(θ)</span>
+        </div>
+        <p>Where θ = angle of incidence to the ionosphere</p>
+
+        <h2 id="conversions">Unit Conversions</h2>
+
+        <h3>Power</h3>
+        <table class="formula-table">
+            <tr><td>1 watt</td><td>= 1000 milliwatts (mW)</td></tr>
+            <tr><td>1 kilowatt (kW)</td><td>= 1000 watts</td></tr>
+            <tr><td>1 horsepower</td><td>≈ 746 watts</td></tr>
+        </table>
+
+        <h3>Frequency</h3>
+        <table class="formula-table">
+            <tr><td>1 kHz</td><td>= 1,000 Hz</td></tr>
+            <tr><td>1 MHz</td><td>= 1,000,000 Hz</td></tr>
+            <tr><td>1 GHz</td><td>= 1,000,000,000 Hz</td></tr>
+        </table>
+
+        <h3>Capacitance</h3>
+        <table class="formula-table">
+            <tr><td>1 farad (F)</td><td>= 1,000,000 µF</td></tr>
+            <tr><td>1 microfarad (µF)</td><td>= 1,000,000 pF</td></tr>
+            <tr><td>1 picofarad (pF)</td><td>= 0.001 nF</td></tr>
+        </table>
+
+        <h3>Inductance</h3>
+        <table class="formula-table">
+            <tr><td>1 henry (H)</td><td>= 1,000 mH</td></tr>
+            <tr><td>1 millihenry (mH)</td><td>= 1,000 µH</td></tr>
+            <tr><td>1 microhenry (µH)</td><td>= 1,000 nH</td></tr>
+        </table>
+
+        <h3>Length</h3>
+        <table class="formula-table">
+            <tr><td>1 meter</td><td>= 3.281 feet</td></tr>
+            <tr><td>1 foot</td><td>= 0.3048 meters</td></tr>
+            <tr><td>1 inch</td><td>= 2.54 cm</td></tr>
+        </table>
+
+        <h2>Trigonometry for Antennas</h2>
+        
+        <p>Useful for calculating antenna angles, tower heights, and guy wire lengths.</p>
+
+        <div class="formula-box">
+            <span class="main">sin(θ) = opposite / hypotenuse</span> (SOH)<br>
+            <span class="main">cos(θ) = adjacent / hypotenuse</span> (CAH)<br>
+            <span class="main">tan(θ) = opposite / adjacent</span> (TOA)
+        </div>
+
+        <h3>Pythagorean Theorem</h3>
+        <div class="formula-box">
+            <span class="main">a² + b² = c²</span>
+        </div>
+
+        <div class="example">
+            <strong>Example:</strong> Guy wire from 50ft tower to anchor 30ft from base<br>
+            c = √(50² + 30²) = √(2500 + 900) = √3400 = <strong>58.3 feet</strong>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="digital-frequencies.html">Digital Mode Frequencies</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Mode Settings</a></li>
+            <li><a href="../wikipedia/Antenna_(radio).html">Antennas (Wikipedia)</a></li>
+            <li><a href="../wikipedia/Standing_wave_ratio.html">Standing Wave Ratio (Wikipedia)</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+            <p>Reference: ARRL Handbook, amateur radio license study guides</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
