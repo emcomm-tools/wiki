@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmComm Go-Kit Checklist - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .checklist-section {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .checklist-section h3 {
+            margin-top: 0;
+            color: #2d3748;
+            border-bottom: 2px solid #4299e1;
+            padding-bottom: 8px;
+        }
+        .checklist-section.critical {
+            border-color: #c53030;
+            background: #fff5f5;
+        }
+        .checklist-section.critical h3 {
+            color: #c53030;
+            border-color: #c53030;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 30px;
+        }
+        @media (max-width: 600px) {
+            .checklist { columns: 1; }
+        }
+        .checklist li {
+            padding: 6px 0 6px 30px;
+            position: relative;
+            break-inside: avoid;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        .checklist li.priority::before {
+            content: "⬜";
+            color: #c53030;
+        }
+        .checklist li .note {
+            color: #718096;
+            font-size: 0.9em;
+            display: block;
+        }
+        .kit-level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .level-basic { background: #c6f6d5; color: #276749; }
+        .level-standard { background: #bee3f8; color: #2b6cb0; }
+        .level-full { background: #e9d8fd; color: #6b46c1; }
+        .level-extended { background: #feebc8; color: #c05621; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .kit-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .kit-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .kit-card h4 {
+            margin: 0 0 10px 0;
+        }
+        .kit-card .weight {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4299e1;
+        }
+        .kit-card .desc {
+            font-size: 0.9em;
+            color: #718096;
+        }
+        .pack-tip {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .print-friendly {
+            background: #ebf8ff;
+            border: 2px dashed #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        @media print {
+            .no-print { display: none; }
+            .checklist-section { break-inside: avoid; }
+            .checklist { columns: 2; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb no-print">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Go-Kit Checklist
+    </nav>
+    
+    <article>
+        <h1>EmComm Go-Kit Checklist</h1>
+        
+        <section class="summary">
+            <p>Complete packing checklist for amateur radio emergency communications deployments. Scalable from a grab-and-go bag to a full 72-hour deployment kit.</p>
+        </section>
+
+        <div class="print-friendly no-print">
+            <strong>📄 Print This Page:</strong> This checklist is designed to be printed. Check off items as you pack!
+        </div>
+
+        <nav class="toc no-print">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#levels">Kit Levels</a></li>
+                <li><a href="#radio">Radio Equipment</a></li>
+                <li><a href="#power">Power Systems</a></li>
+                <li><a href="#antennas">Antennas</a></li>
+                <li><a href="#digital">Digital/Data</a></li>
+                <li><a href="#paperwork">Documentation</a></li>
+                <li><a href="#tools">Tools &amp; Supplies</a></li>
+                <li><a href="#personal">Personal Gear</a></li>
+                <li><a href="#packing">Packing Tips</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="levels">Kit Levels</h2>
+        
+        <div class="kit-summary">
+            <div class="kit-card">
+                <h4><span class="kit-level level-basic">BASIC</span></h4>
+                <div class="weight">5-10 lbs</div>
+                <div class="desc">Quick response<br>1-2 hours<br>HT + essentials</div>
+            </div>
+            <div class="kit-card">
+                <h4><span class="kit-level level-standard">STANDARD</span></h4>
+                <div class="weight">15-25 lbs</div>
+                <div class="desc">Half-day ops<br>4-8 hours<br>QRP HF + VHF</div>
+            </div>
+            <div class="kit-card">
+                <h4><span class="kit-level level-full">FULL</span></h4>
+                <div class="weight">30-50 lbs</div>
+                <div class="desc">Full day<br>8-12 hours<br>50-100W HF station</div>
+            </div>
+            <div class="kit-card">
+                <h4><span class="kit-level level-extended">EXTENDED</span></h4>
+                <div class="weight">50+ lbs</div>
+                <div class="desc">Multi-day (72hr)<br>Full station + solar<br>Self-sufficient</div>
+            </div>
+        </div>
+
+        <h2 id="radio">Radio Equipment</h2>
+        
+        <div class="checklist-section critical">
+            <h3>🔴 Primary Radios</h3>
+            <ul class="checklist">
+                <li>HT (VHF/UHF) with charged battery
+                    <span class="note">Minimum: 1 VHF HT</span></li>
+                <li>HT spare battery (charged)</li>
+                <li>HT antenna (stock or upgrade)</li>
+                <li>HT speaker-mic or headset</li>
+                <li>HF transceiver
+                    <span class="note">QRP for portable, 100W for fixed</span></li>
+                <li>HF microphone</li>
+                <li>HF power cable (fused)</li>
+                <li>Mobile/base VHF radio
+                    <span class="note">Higher power than HT</span></li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>📻 Radio Accessories</h3>
+            <ul class="checklist">
+                <li>Programming cable for HT</li>
+                <li>Earpiece/earbuds for HT</li>
+                <li>External speaker</li>
+                <li>CW key/paddle
+                    <span class="note">If CW capable</span></li>
+                <li>SWR meter / antenna analyzer</li>
+                <li>Dummy load</li>
+                <li>Headphones (for HF)</li>
+                <li>Frequency reference card</li>
+            </ul>
+        </div>
+
+        <h2 id="power">Power Systems</h2>
+        
+        <div class="checklist-section critical">
+            <h3>🔋 Batteries &amp; Charging</h3>
+            <ul class="checklist">
+                <li class="priority">Primary battery (LiFePO4 recommended)
+                    <span class="note">20Ah minimum for QRP</span></li>
+                <li class="priority">Battery charger (AC)</li>
+                <li>Backup battery</li>
+                <li>HT battery charger</li>
+                <li>AA/AAA batteries (spare)</li>
+                <li>USB power bank (for phone/tablet)</li>
+                <li>12V accessory socket/distribution</li>
+                <li>Powerpole distribution box</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>☀️ Solar/Alternate Power <span class="kit-level level-standard">STANDARD+</span></h3>
+            <ul class="checklist">
+                <li>Solar panel (50-100W)</li>
+                <li>Solar charge controller</li>
+                <li>Solar panel stand/mount</li>
+                <li>MC4 to Powerpole cable</li>
+                <li>Generator (if extended)
+                    <span class="note">With fuel and oil</span></li>
+                <li>12V vehicle charging cable</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>🔌 Cables &amp; Connectors</h3>
+            <ul class="checklist">
+                <li class="priority">Anderson Powerpole cables (assorted)</li>
+                <li>Powerpole crimper or spares</li>
+                <li>Fuses (assorted: 5A, 10A, 20A, 30A)</li>
+                <li>Inline fuse holders</li>
+                <li>Alligator clip leads</li>
+                <li>Binding post adapters</li>
+                <li>DC barrel connectors (assorted)</li>
+                <li>Extension cord (AC)</li>
+                <li>Power strip</li>
+            </ul>
+        </div>
+
+        <h2 id="antennas">Antennas</h2>
+        
+        <div class="checklist-section critical">
+            <h3>📡 Antenna Systems</h3>
+            <ul class="checklist">
+                <li class="priority">HF antenna (EFHW, dipole, or vertical)</li>
+                <li class="priority">VHF/UHF antenna (mobile or portable)</li>
+                <li>Coax feedline - HF (50+ ft)</li>
+                <li>Coax feedline - VHF (25+ ft)</li>
+                <li>Coax adapters (BNC, PL-259, SMA)</li>
+                <li>Antenna tuner (manual or auto)</li>
+                <li>Ground rod or stake</li>
+                <li>Ground wire/strap</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>🌳 Antenna Support</h3>
+            <ul class="checklist">
+                <li>Throw line (100ft + weight)</li>
+                <li>Paracord/rope (200+ ft)</li>
+                <li>Telescoping mast (fiberglass)</li>
+                <li>Tripod or mast base</li>
+                <li>Guy lines and stakes</li>
+                <li>Bungee cords</li>
+                <li>Carabiners</li>
+                <li>Wire antenna kit (see Field Antennas)</li>
+            </ul>
+        </div>
+
+        <h2 id="digital">Digital/Data Modes</h2>
+        
+        <div class="checklist-section">
+            <h3>💻 Digital Equipment <span class="kit-level level-standard">STANDARD+</span></h3>
+            <ul class="checklist">
+                <li>Laptop or tablet (charged)</li>
+                <li>Laptop charger (AC + 12V DC)</li>
+                <li>Sound card interface (SignaLink, Digirig, etc.)</li>
+                <li>USB cables (A, B, C types)</li>
+                <li>USB hub</li>
+                <li>CAT/CI-V cable for rig control</li>
+                <li>USB-serial adapter</li>
+                <li>USB flash drive with software</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>📧 Winlink/VARA <span class="kit-level level-full">FULL</span></h3>
+            <ul class="checklist">
+                <li>Winlink configured and tested</li>
+                <li>VARA license (if applicable)</li>
+                <li>Gateway list (printed backup)</li>
+                <li>Forms templates installed</li>
+                <li>Offline maps/propagation</li>
+            </ul>
+        </div>
+
+        <h2 id="paperwork">Documentation</h2>
+        
+        <div class="checklist-section critical">
+            <h3>📋 Critical Documents</h3>
+            <ul class="checklist">
+                <li class="priority">FCC/ISED license (original or copy)</li>
+                <li class="priority">Photo ID</li>
+                <li>ARES/RACES credentials</li>
+                <li>ICS-217A (frequencies)</li>
+                <li>Net frequencies list</li>
+                <li>Repeater list (local area)</li>
+                <li>Emergency contact list</li>
+                <li>Radio programming cheat sheet</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>📝 Logging &amp; Forms</h3>
+            <ul class="checklist">
+                <li>Logbook (waterproof paper)</li>
+                <li>Radiogram forms (blank)</li>
+                <li>ICS-213 Message forms</li>
+                <li>ICS-214 Unit Log</li>
+                <li>Pens/pencils (multiple)</li>
+                <li>Sharpie marker</li>
+                <li>Clipboard</li>
+                <li>Phonetic alphabet card</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>📚 Reference Materials</h3>
+            <ul class="checklist">
+                <li>Radio manual (printed or PDF)</li>
+                <li>Band plan chart</li>
+                <li>Antenna reference (lengths)</li>
+                <li>Propagation charts</li>
+                <li>Local area maps</li>
+                <li>Emergency procedures guide</li>
+            </ul>
+        </div>
+
+        <h2 id="tools">Tools &amp; Supplies</h2>
+        
+        <div class="checklist-section">
+            <h3>🔧 Tools</h3>
+            <ul class="checklist">
+                <li>Multimeter</li>
+                <li>Wire cutters/strippers</li>
+                <li>Crimping tool</li>
+                <li>Screwdrivers (Phillips, flat)</li>
+                <li>Needle-nose pliers</li>
+                <li>Adjustable wrench</li>
+                <li>Hex key set (Allen wrenches)</li>
+                <li>Utility knife</li>
+                <li>Scissors</li>
+                <li>Tape measure</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>🛠️ Supplies</h3>
+            <ul class="checklist">
+                <li>Electrical tape</li>
+                <li>Duct tape</li>
+                <li>Cable ties (zip ties)</li>
+                <li>Velcro straps</li>
+                <li>Wire (14-18 AWG stranded)</li>
+                <li>Spare connectors (Powerpole, PL-259)</li>
+                <li>Solder + iron (or butt splices)</li>
+                <li>Heat shrink tubing</li>
+                <li>Fuses (assorted)</li>
+                <li>RTV sealant / Coax Seal</li>
+            </ul>
+        </div>
+
+        <h2 id="personal">Personal Gear</h2>
+        
+        <div class="checklist-section">
+            <h3>👤 Operator Essentials</h3>
+            <ul class="checklist">
+                <li class="priority">Water (1 gallon per day)</li>
+                <li class="priority">Food/snacks (non-perishable)</li>
+                <li class="priority">Medications (personal)</li>
+                <li>Weather-appropriate clothing</li>
+                <li>Rain gear</li>
+                <li>Hat (sun protection)</li>
+                <li>Sunscreen</li>
+                <li>Insect repellent</li>
+                <li>Work gloves</li>
+                <li>Safety glasses</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>🏕️ Comfort &amp; Safety</h3>
+            <ul class="checklist">
+                <li>Folding chair</li>
+                <li>Folding table</li>
+                <li>Flashlight/headlamp</li>
+                <li>Spare batteries for lights</li>
+                <li>First aid kit</li>
+                <li>Sunglasses</li>
+                <li>Hand warmers (cold weather)</li>
+                <li>Cooling towel (hot weather)</li>
+                <li>Ear plugs</li>
+                <li>Trash bags</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <h3>🚗 Vehicle Kit Additions <span class="kit-level level-extended">EXTENDED</span></h3>
+            <ul class="checklist">
+                <li>Canopy/shelter/tarp</li>
+                <li>Ground tarp</li>
+                <li>Sleeping bag/blanket</li>
+                <li>Pillow</li>
+                <li>Camp stove + fuel</li>
+                <li>Cooler with ice</li>
+                <li>Toilet paper</li>
+                <li>Hand sanitizer</li>
+                <li>Wet wipes</li>
+                <li>Portable toilet (bucket + bags)</li>
+            </ul>
+        </div>
+
+        <h2 id="packing">Packing Tips</h2>
+        
+        <div class="pack-tip">
+            <h4>📦 Kit Organization</h4>
+            <ul>
+                <li><strong>Use clear containers</strong> - See contents without opening</li>
+                <li><strong>Label everything</strong> - Especially cables and connectors</li>
+                <li><strong>Modular packing</strong> - Radio kit, antenna kit, power kit, etc.</li>
+                <li><strong>Grab-and-go bags</strong> - Pre-packed for different scenarios</li>
+                <li><strong>Inventory list</strong> - Laminated, inside each container</li>
+            </ul>
+        </div>
+
+        <div class="pack-tip">
+            <h4>⚡ Power Strategy</h4>
+            <ul>
+                <li><strong>Calculate needs</strong> - See <a href="off-grid-power.html">Off-Grid Power</a> article</li>
+                <li><strong>Keep batteries charged</strong> - Monthly maintenance</li>
+                <li><strong>Test solar before you go</strong> - Don't discover problems in the field</li>
+                <li><strong>Multiple charging sources</strong> - AC, 12V vehicle, solar</li>
+            </ul>
+        </div>
+
+        <div class="pack-tip">
+            <h4>🔍 Pre-Deployment Checklist</h4>
+            <ul>
+                <li>☐ All batteries charged?</li>
+                <li>☐ Radios programmed with local frequencies?</li>
+                <li>☐ Antennas tested?</li>
+                <li>☐ Software/apps up to date?</li>
+                <li>☐ Personal medications packed?</li>
+                <li>☐ Weather forecast checked?</li>
+                <li>☐ Family notified of deployment?</li>
+                <li>☐ Fuel in vehicle?</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>Test Your Kit!</strong> Don't wait for an emergency to discover problems. Set up your complete kit at least twice a year. Practice deployment. Time yourself. Fix issues before they matter.
+        </div>
+
+        <div class="tip">
+            <strong>Post-Event:</strong> After every deployment, restock consumables, recharge batteries, and note any equipment issues. Update your kit while lessons are fresh!
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="off-grid-power.html">Off-Grid Power &amp; Battery Calculator</a></li>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="radiogram-message-handling.html">Radiogram &amp; Message Handling</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARES Field Resources Manual, ARRL EmComm resources</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav no-print">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

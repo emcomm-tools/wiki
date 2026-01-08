@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonetic Alphabet &amp; Prowords - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .phonetic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .phonetic-table th, .phonetic-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        .phonetic-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .phonetic-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .phonetic-table .letter {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+            width: 60px;
+        }
+        .phonetic-table .word {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .phonetic-table .pronunciation {
+            color: #718096;
+            font-style: italic;
+        }
+        .number-table td:first-child {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #c53030;
+            width: 60px;
+        }
+        .proword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .proword-table th, .proword-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .proword-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .proword-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .proword-table td:first-child {
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 1.1em;
+            background: #edf2f7;
+            white-space: nowrap;
+            width: 180px;
+        }
+        .category-header {
+            background: #2c5282 !important;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        .quick-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        .quick-card .item {
+            text-align: center;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+        .quick-card .letter {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .quick-card .word {
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .emergency-box {
+            background: #fff5f5;
+            border: 2px solid #c53030;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .emergency-box h4 {
+            color: #c53030;
+            margin-top: 0;
+        }
+        .rst-table td {
+            text-align: center;
+        }
+        .rst-table td:first-child {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .print-friendly {
+            background: #ebf8ff;
+            border: 2px dashed #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        @media print {
+            .no-print { display: none; }
+            .phonetic-table { font-size: 10pt; }
+            .quick-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb no-print">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Phonetic Alphabet &amp; Prowords
+    </nav>
+    
+    <article>
+        <h1>Phonetic Alphabet &amp; Prowords</h1>
+        
+        <section class="summary">
+            <p>Quick reference for the NATO/ITU phonetic alphabet, numbers, procedural words (prowords), and signal reporting. Essential for clear amateur radio communication.</p>
+        </section>
+
+        <div class="print-friendly no-print">
+            <strong>📄 Print This Page:</strong> This reference is designed to be printer-friendly. Print it and keep a copy in your go-kit!
+        </div>
+
+        <nav class="toc no-print">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#alphabet">Phonetic Alphabet</a></li>
+                <li><a href="#numbers">Numbers</a></li>
+                <li><a href="#prowords">Procedural Words</a></li>
+                <li><a href="#qcodes">Q-Codes</a></li>
+                <li><a href="#rst">Signal Reports (RST)</a></li>
+                <li><a href="#examples">Usage Examples</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="alphabet">NATO/ITU Phonetic Alphabet</h2>
+        
+        <p>Use this alphabet to spell out callsigns, names, and unclear words. Stress the <strong>capitalized</strong> syllable.</p>
+
+        <table class="phonetic-table">
+            <thead>
+                <tr><th>Letter</th><th>Word</th><th>Pronunciation</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="letter">A</td><td class="word">ALFA</td><td class="pronunciation">AL-fah</td></tr>
+                <tr><td class="letter">B</td><td class="word">BRAVO</td><td class="pronunciation">BRAH-voh</td></tr>
+                <tr><td class="letter">C</td><td class="word">CHARLIE</td><td class="pronunciation">CHAR-lee</td></tr>
+                <tr><td class="letter">D</td><td class="word">DELTA</td><td class="pronunciation">DELL-tah</td></tr>
+                <tr><td class="letter">E</td><td class="word">ECHO</td><td class="pronunciation">ECK-oh</td></tr>
+                <tr><td class="letter">F</td><td class="word">FOXTROT</td><td class="pronunciation">FOKS-trot</td></tr>
+                <tr><td class="letter">G</td><td class="word">GOLF</td><td class="pronunciation">GOLF</td></tr>
+                <tr><td class="letter">H</td><td class="word">HOTEL</td><td class="pronunciation">hoh-TELL</td></tr>
+                <tr><td class="letter">I</td><td class="word">INDIA</td><td class="pronunciation">IN-dee-ah</td></tr>
+                <tr><td class="letter">J</td><td class="word">JULIETT</td><td class="pronunciation">JEW-lee-ett</td></tr>
+                <tr><td class="letter">K</td><td class="word">KILO</td><td class="pronunciation">KEY-loh</td></tr>
+                <tr><td class="letter">L</td><td class="word">LIMA</td><td class="pronunciation">LEE-mah</td></tr>
+                <tr><td class="letter">M</td><td class="word">MIKE</td><td class="pronunciation">MIKE</td></tr>
+                <tr><td class="letter">N</td><td class="word">NOVEMBER</td><td class="pronunciation">no-VEM-ber</td></tr>
+                <tr><td class="letter">O</td><td class="word">OSCAR</td><td class="pronunciation">OSS-car</td></tr>
+                <tr><td class="letter">P</td><td class="word">PAPA</td><td class="pronunciation">pah-PAH</td></tr>
+                <tr><td class="letter">Q</td><td class="word">QUEBEC</td><td class="pronunciation">keh-BECK</td></tr>
+                <tr><td class="letter">R</td><td class="word">ROMEO</td><td class="pronunciation">ROW-me-oh</td></tr>
+                <tr><td class="letter">S</td><td class="word">SIERRA</td><td class="pronunciation">see-AIR-ah</td></tr>
+                <tr><td class="letter">T</td><td class="word">TANGO</td><td class="pronunciation">TANG-go</td></tr>
+                <tr><td class="letter">U</td><td class="word">UNIFORM</td><td class="pronunciation">YOU-nee-form</td></tr>
+                <tr><td class="letter">V</td><td class="word">VICTOR</td><td class="pronunciation">VIK-tor</td></tr>
+                <tr><td class="letter">W</td><td class="word">WHISKEY</td><td class="pronunciation">WISS-key</td></tr>
+                <tr><td class="letter">X</td><td class="word">X-RAY</td><td class="pronunciation">ECKS-ray</td></tr>
+                <tr><td class="letter">Y</td><td class="word">YANKEE</td><td class="pronunciation">YANG-key</td></tr>
+                <tr><td class="letter">Z</td><td class="word">ZULU</td><td class="pronunciation">ZOO-loo</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Quick Reference Card</h3>
+        <div class="quick-card">
+            <div class="item"><span class="letter">A</span><br><span class="word">Alfa</span></div>
+            <div class="item"><span class="letter">B</span><br><span class="word">Bravo</span></div>
+            <div class="item"><span class="letter">C</span><br><span class="word">Charlie</span></div>
+            <div class="item"><span class="letter">D</span><br><span class="word">Delta</span></div>
+            <div class="item"><span class="letter">E</span><br><span class="word">Echo</span></div>
+            <div class="item"><span class="letter">F</span><br><span class="word">Foxtrot</span></div>
+            <div class="item"><span class="letter">G</span><br><span class="word">Golf</span></div>
+            <div class="item"><span class="letter">H</span><br><span class="word">Hotel</span></div>
+            <div class="item"><span class="letter">I</span><br><span class="word">India</span></div>
+            <div class="item"><span class="letter">J</span><br><span class="word">Juliett</span></div>
+            <div class="item"><span class="letter">K</span><br><span class="word">Kilo</span></div>
+            <div class="item"><span class="letter">L</span><br><span class="word">Lima</span></div>
+            <div class="item"><span class="letter">M</span><br><span class="word">Mike</span></div>
+            <div class="item"><span class="letter">N</span><br><span class="word">November</span></div>
+            <div class="item"><span class="letter">O</span><br><span class="word">Oscar</span></div>
+            <div class="item"><span class="letter">P</span><br><span class="word">Papa</span></div>
+            <div class="item"><span class="letter">Q</span><br><span class="word">Quebec</span></div>
+            <div class="item"><span class="letter">R</span><br><span class="word">Romeo</span></div>
+            <div class="item"><span class="letter">S</span><br><span class="word">Sierra</span></div>
+            <div class="item"><span class="letter">T</span><br><span class="word">Tango</span></div>
+            <div class="item"><span class="letter">U</span><br><span class="word">Uniform</span></div>
+            <div class="item"><span class="letter">V</span><br><span class="word">Victor</span></div>
+            <div class="item"><span class="letter">W</span><br><span class="word">Whiskey</span></div>
+            <div class="item"><span class="letter">X</span><br><span class="word">X-ray</span></div>
+            <div class="item"><span class="letter">Y</span><br><span class="word">Yankee</span></div>
+            <div class="item"><span class="letter">Z</span><br><span class="word">Zulu</span></div>
+        </div>
+
+        <div class="tip">
+            <strong>Tip:</strong> Note that "ALFA" and "JULIETT" have non-standard spellings. This is intentional to ensure correct pronunciation across different languages.
+        </div>
+
+        <h2 id="numbers">Numbers</h2>
+        
+        <p>Pronounce numbers clearly. For critical information, say each digit individually.</p>
+
+        <table class="phonetic-table number-table">
+            <thead>
+                <tr><th>Number</th><th>Pronunciation</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0</td><td><strong>ZEE-ro</strong></td><td>Not "oh"</td></tr>
+                <tr><td>1</td><td><strong>WUN</strong></td><td>Not "one"</td></tr>
+                <tr><td>2</td><td><strong>TOO</strong></td><td></td></tr>
+                <tr><td>3</td><td><strong>TREE</strong></td><td>Emphasize the "T"</td></tr>
+                <tr><td>4</td><td><strong>FOW-er</strong></td><td>Two syllables</td></tr>
+                <tr><td>5</td><td><strong>FIFE</strong></td><td>Not "five"</td></tr>
+                <tr><td>6</td><td><strong>SIX</strong></td><td></td></tr>
+                <tr><td>7</td><td><strong>SEV-en</strong></td><td></td></tr>
+                <tr><td>8</td><td><strong>AIT</strong></td><td>Not "eight"</td></tr>
+                <tr><td>9</td><td><strong>NIN-er</strong></td><td>Not "nine"</td></tr>
+                <tr><td>00</td><td><strong>HUN-dred</strong></td><td>For frequencies</td></tr>
+                <tr><td>000</td><td><strong>TOU-sand</strong></td><td>For frequencies</td></tr>
+                <tr><td>.</td><td><strong>DAY-see-mal</strong> or <strong>POINT</strong></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="example">
+            <strong>Frequency Example:</strong><br>
+            14.225 MHz = "One Four Decimal Two Two Five" or "One Four Point Two Two Five"
+        </div>
+
+        <h2 id="prowords">Procedural Words (Prowords)</h2>
+        
+        <h3>General Communication</h3>
+        <table class="proword-table">
+            <tbody>
+                <tr><td>ROGER</td><td>Message received and understood</td></tr>
+                <tr><td>AFFIRMATIVE</td><td>Yes, correct, that is so</td></tr>
+                <tr><td>NEGATIVE</td><td>No, incorrect, permission denied</td></tr>
+                <tr><td>COPY</td><td>I understand (often used like ROGER)</td></tr>
+                <tr><td>WILCO</td><td>"Will comply" - I received and will act on your message</td></tr>
+                <tr><td>GO AHEAD</td><td>Proceed with your transmission</td></tr>
+                <tr><td>STAND BY</td><td>Wait, I will respond shortly</td></tr>
+                <tr><td>WAIT OUT</td><td>I must pause longer, will call you back</td></tr>
+                <tr><td>SAY AGAIN</td><td>Repeat your transmission (not "repeat")</td></tr>
+                <tr><td>I SAY AGAIN</td><td>I am repeating my transmission</td></tr>
+                <tr><td>WORDS TWICE</td><td>Send each phrase twice due to poor conditions</td></tr>
+                <tr><td>SPELL</td><td>Spell phonetically what follows</td></tr>
+                <tr><td>I SPELL</td><td>I am about to spell phonetically</td></tr>
+                <tr><td>FIGURES</td><td>Numbers follow</td></tr>
+                <tr><td>GROUPS</td><td>Message contains coded groups</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Message Handling</h3>
+        <table class="proword-table">
+            <tbody>
+                <tr><td>BREAK</td><td>Separates parts of a message (preamble/address/text)</td></tr>
+                <tr><td>CORRECTION</td><td>I made an error, correction follows</td></tr>
+                <tr><td>WRONG</td><td>Your last transmission was incorrect</td></tr>
+                <tr><td>VERIFY</td><td>Check and confirm with originator</td></tr>
+                <tr><td>READ BACK</td><td>Repeat this message back to me</td></tr>
+                <tr><td>I READ BACK</td><td>Here is my readback of your message</td></tr>
+                <tr><td>RELAY</td><td>Transmit this message to (callsign)</td></tr>
+                <tr><td>RELAY TO</td><td>Pass this to (station)</td></tr>
+                <tr><td>TIME</td><td>Time follows in hours and minutes</td></tr>
+                <tr><td>AUTHENTICATE</td><td>Station must verify identity</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Ending Communication</h3>
+        <table class="proword-table">
+            <tbody>
+                <tr><td>OVER</td><td>End of my transmission, expecting reply</td></tr>
+                <tr><td>OUT</td><td>End of communication, no reply expected</td></tr>
+                <tr><td>CLEAR</td><td>I am done, frequency is available</td></tr>
+                <tr><td>NOTHING HEARD</td><td>No response received from called station</td></tr>
+                <tr><td>RADIO CHECK</td><td>What is my signal strength and readability?</td></tr>
+                <tr><td>LOUD AND CLEAR</td><td>Your signal is strong and readable</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Never say "OVER AND OUT"</strong> - These are contradictory. OVER means you expect a reply, OUT means you don't. Use one or the other!
+        </div>
+
+        <h3>Traffic Handling</h3>
+        <table class="proword-table">
+            <tbody>
+                <tr><td>WORD AFTER</td><td>Request repetition of word after ___</td></tr>
+                <tr><td>WORD BEFORE</td><td>Request repetition of word before ___</td></tr>
+                <tr><td>ALL AFTER</td><td>Request repetition of everything after ___</td></tr>
+                <tr><td>ALL BEFORE</td><td>Request repetition of everything before ___</td></tr>
+                <tr><td>FROM ___ TO ___</td><td>Request repetition from ___ to ___</td></tr>
+                <tr><td>END</td><td>End of message</td></tr>
+                <tr><td>MORE</td><td>I have more messages</td></tr>
+                <tr><td>NO MORE</td><td>I have no more messages</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Emergency Prowords</h3>
+        <div class="emergency-box">
+            <h4>🚨 Emergency Communications</h4>
+            <table class="proword-table">
+                <tbody>
+                    <tr><td>MAYDAY</td><td>Life-threatening distress (say 3 times)</td></tr>
+                    <tr><td>PAN-PAN</td><td>Urgent, but not life-threatening (say 3 times)</td></tr>
+                    <tr><td>SÉCURITÉ</td><td>Safety announcement follows (say 3 times)</td></tr>
+                    <tr><td>BREAK BREAK</td><td>Interrupt net for emergency</td></tr>
+                    <tr><td>PRIORITY</td><td>Important traffic, handle before routine</td></tr>
+                    <tr><td>EMERGENCY</td><td>Life or death traffic (NTS precedence)</td></tr>
+                    <tr><td>SILENCE</td><td>Cease all transmissions (emergency in progress)</td></tr>
+                    <tr><td>SILENCE FINI</td><td>Silence period is over, resume normal ops</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="qcodes">Common Q-Codes</h2>
+        
+        <p>Q-codes originated in CW (Morse) but are used in voice too. Each can be a question (with "?") or statement.</p>
+
+        <table class="proword-table">
+            <thead>
+                <tr><th>Code</th><th>Question</th><th>Statement/Answer</th></tr>
+            </thead>
+            <tbody>
+                <tr class="category-header"><td colspan="3">Frequency &amp; Interference</td></tr>
+                <tr><td>QRM</td><td>Is there interference?</td><td>I have interference</td></tr>
+                <tr><td>QRN</td><td>Is there static?</td><td>I have static/noise</td></tr>
+                <tr><td>QRO</td><td>Shall I increase power?</td><td>Increase power</td></tr>
+                <tr><td>QRP</td><td>Shall I decrease power?</td><td>Decrease power / Low power ops</td></tr>
+                <tr><td>QRT</td><td>Shall I stop transmitting?</td><td>Stop transmitting / Going off air</td></tr>
+                <tr><td>QRV</td><td>Are you ready?</td><td>I am ready</td></tr>
+                <tr><td>QRX</td><td>When will you call again?</td><td>Stand by, I'll call at ___</td></tr>
+                <tr><td>QRZ</td><td>Who is calling me?</td><td>You are being called by ___</td></tr>
+                <tr><td>QSB</td><td>Is my signal fading?</td><td>Your signal is fading</td></tr>
+                <tr><td>QSY</td><td>Shall I change frequency?</td><td>Change to ___ frequency</td></tr>
+                <tr class="category-header"><td colspan="3">Station &amp; Location</td></tr>
+                <tr><td>QTH</td><td>What is your location?</td><td>My location is ___</td></tr>
+                <tr><td>QSL</td><td>Can you acknowledge?</td><td>I acknowledge / Confirmation card</td></tr>
+                <tr><td>QSO</td><td>Can you communicate with?</td><td>Contact/conversation</td></tr>
+                <tr><td>QSP</td><td>Will you relay?</td><td>I will relay to ___</td></tr>
+                <tr><td>QST</td><td>—</td><td>General call to all stations</td></tr>
+                <tr class="category-header"><td colspan="3">Time</td></tr>
+                <tr><td>QTR</td><td>What is the time?</td><td>The time is ___</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="rst">Signal Reports (RST)</h2>
+        
+        <p>RST = Readability, Strength, Tone. Use RS for voice (no Tone), RST for CW.</p>
+
+        <h3>R - Readability (1-5)</h3>
+        <table class="proword-table rst-table">
+            <tbody>
+                <tr><td>1</td><td>Unreadable</td></tr>
+                <tr><td>2</td><td>Barely readable, occasional words distinguishable</td></tr>
+                <tr><td>3</td><td>Readable with considerable difficulty</td></tr>
+                <tr><td>4</td><td>Readable with practically no difficulty</td></tr>
+                <tr><td>5</td><td>Perfectly readable</td></tr>
+            </tbody>
+        </table>
+
+        <h3>S - Strength (1-9)</h3>
+        <table class="proword-table rst-table">
+            <tbody>
+                <tr><td>1</td><td>Faint, barely perceptible</td></tr>
+                <tr><td>2</td><td>Very weak</td></tr>
+                <tr><td>3</td><td>Weak</td></tr>
+                <tr><td>4</td><td>Fair</td></tr>
+                <tr><td>5</td><td>Fairly good</td></tr>
+                <tr><td>6</td><td>Good</td></tr>
+                <tr><td>7</td><td>Moderately strong</td></tr>
+                <tr><td>8</td><td>Strong</td></tr>
+                <tr><td>9</td><td>Extremely strong</td></tr>
+            </tbody>
+        </table>
+
+        <h3>T - Tone (CW only, 1-9)</h3>
+        <table class="proword-table rst-table">
+            <tbody>
+                <tr><td>1</td><td>Sixty-cycle AC, very rough</td></tr>
+                <tr><td>5</td><td>Ripple modulated, musical</td></tr>
+                <tr><td>9</td><td>Perfect tone, no trace of ripple</td></tr>
+            </tbody>
+        </table>
+
+        <div class="example">
+            <strong>Examples:</strong><br>
+            "You're 5-9" = Perfectly readable, extremely strong (voice)<br>
+            "You're 5-7-9" = Perfectly readable, moderately strong, perfect tone (CW)<br>
+            "You're 3-3" = Readable with difficulty, weak signal
+        </div>
+
+        <div class="tip">
+            <strong>Be Honest:</strong> Don't give everyone "5-9" automatically. Accurate reports help operators know their true signal quality.
+        </div>
+
+        <h2 id="examples">Usage Examples</h2>
+        
+        <h3>Spelling a Callsign</h3>
+        <div class="example">
+            <strong>VA2OPS:</strong><br>
+            "Victor Alfa Two Oscar Papa Sierra"
+        </div>
+
+        <h3>Spelling a Name</h3>
+        <div class="example">
+            <strong>SYLVAIN:</strong><br>
+            "I spell: Sierra Yankee Lima Victor Alfa India November"
+        </div>
+
+        <h3>Giving a Frequency</h3>
+        <div class="example">
+            <strong>7.185 MHz:</strong><br>
+            "Seven point one eight five megahertz" or<br>
+            "Seven decimal one eight five"
+        </div>
+
+        <h3>Correcting an Error</h3>
+        <div class="example">
+            "The frequency is 14.250... CORRECTION... 14.225 megahertz"
+        </div>
+
+        <h3>Requesting a Fill</h3>
+        <div class="example">
+            "SAY AGAIN WORD AFTER 'SHELTER'"<br>
+            <em>(Asking sender to repeat the word that came after "shelter")</em>
+        </div>
+
+        <h3>Handling Poor Conditions</h3>
+        <div class="example">
+            "CONDITIONS POOR, WORDS TWICE"<br>
+            <em>(Now both stations send each phrase twice)</em>
+        </div>
+
+        <h3>Emergency Break-In</h3>
+        <div class="example">
+            "BREAK BREAK - This is W1ABC with emergency traffic!"<br>
+            <em>(Used to interrupt a net for urgent traffic)</em>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="radiogram-message-handling.html">Radiogram &amp; Message Handling</a></li>
+            <li><a href="../wikipedia/NATO_phonetic_alphabet.html">NATO Phonetic Alphabet (Wikipedia)</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ITU Phonetic Alphabet, ARRL Operating Manual</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav no-print">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

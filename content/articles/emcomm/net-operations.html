@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Operations Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .net-script {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+        .net-script .ncs {
+            color: #63b3ed;
+            font-weight: bold;
+        }
+        .net-script .station {
+            color: #f6ad55;
+        }
+        .net-script .comment {
+            color: #a0aec0;
+            font-style: italic;
+        }
+        .net-script .proword {
+            color: #fc8181;
+            font-weight: bold;
+        }
+        .proword-table td:first-child {
+            font-weight: bold;
+            font-family: monospace;
+            background: #edf2f7;
+            white-space: nowrap;
+        }
+        .role-box {
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            background: #ebf8ff;
+        }
+        .role-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 1px solid #bee3f8;
+            padding-bottom: 8px;
+        }
+        .checklist {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .checklist h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .freq-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .freq-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .freq-table .highlight {
+            background: #c6f6d5;
+        }
+        .ics-box {
+            background: #faf5ff;
+            border: 2px solid #9f7aea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .ref-card h4 {
+            margin-top: 0;
+            color: #2d3748;
+            font-size: 1em;
+            border-bottom: 2px solid #ed8936;
+            padding-bottom: 5px;
+        }
+        .ref-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Net Operations Guide
+    </nav>
+    
+    <article>
+        <h1>Net Operations Guide</h1>
+        
+        <section class="summary">
+            <p>How to participate in and run amateur radio nets. Essential skills for emergency communications, traffic handling, and organized radio operations.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is a Net?</a></li>
+                <li><a href="#types">Types of Nets</a></li>
+                <li><a href="#roles">Net Roles</a></li>
+                <li><a href="#checking-in">How to Check In</a></li>
+                <li><a href="#prowords">Prowords &amp; Procedures</a></li>
+                <li><a href="#ncs-duties">Net Control Station Duties</a></li>
+                <li><a href="#scripts">Sample Net Scripts</a></li>
+                <li><a href="#traffic">Handling Traffic</a></li>
+                <li><a href="#emcomm-nets">EmComm Net Operations</a></li>
+                <li><a href="#ics">ICS Integration</a></li>
+                <li><a href="#frequencies">Common Net Frequencies</a></li>
+                <li><a href="#tips">Tips for Success</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is a Net?</h2>
+        
+        <p>A <strong>net</strong> (network) is an organized on-air meeting of amateur radio operators. One station acts as <strong>Net Control Station (NCS)</strong> and directs all communications. Nets provide:</p>
+        
+        <ul>
+            <li><strong>Order</strong> - Structured communication prevents chaos</li>
+            <li><strong>Efficiency</strong> - Messages flow through a central point</li>
+            <li><strong>Accountability</strong> - NCS tracks who's present and what traffic moves</li>
+            <li><strong>Training</strong> - Regular practice builds skills for emergencies</li>
+        </ul>
+
+        <h2 id="types">Types of Nets</h2>
+        
+        <table class="freq-table">
+            <thead>
+                <tr><th>Type</th><th>Purpose</th><th>Format</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Traffic Net</strong></td>
+                    <td>Pass formal written messages (radiograms)</td>
+                    <td>Directed, formal</td>
+                </tr>
+                <tr>
+                    <td><strong>Emergency Net</strong></td>
+                    <td>Handle disaster/emergency communications</td>
+                    <td>Directed, strict discipline</td>
+                </tr>
+                <tr>
+                    <td><strong>Training Net</strong></td>
+                    <td>Practice procedures, train new operators</td>
+                    <td>Directed, educational</td>
+                </tr>
+                <tr>
+                    <td><strong>Public Service Net</strong></td>
+                    <td>Support events (marathons, parades)</td>
+                    <td>Directed or tactical</td>
+                </tr>
+                <tr>
+                    <td><strong>Social/Ragchew Net</strong></td>
+                    <td>Casual conversation, fellowship</td>
+                    <td>Informal, round-table</td>
+                </tr>
+                <tr>
+                    <td><strong>Swap Net</strong></td>
+                    <td>Buy/sell/trade equipment</td>
+                    <td>Informal</td>
+                </tr>
+                <tr>
+                    <td><strong>Technical Net</strong></td>
+                    <td>Q&amp;A on technical topics</td>
+                    <td>Semi-formal</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Net Formats</h3>
+        <ul>
+            <li><strong>Directed Net:</strong> All communication goes through NCS. You must be recognized before transmitting. Used for traffic and emergency nets.</li>
+            <li><strong>Open/Informal Net:</strong> Stations may call each other directly. NCS maintains order but doesn't control every exchange.</li>
+            <li><strong>Round-Table:</strong> Stations take turns in order. Common for ragchew nets.</li>
+            <li><strong>Tactical Net:</strong> Uses tactical callsigns (e.g., "Command", "Aid Station 1"). Common for public service events.</li>
+        </ul>
+
+        <h2 id="roles">Net Roles</h2>
+        
+        <div class="role-box">
+            <h4>📡 Net Control Station (NCS)</h4>
+            <p>The "traffic cop" of the net. Responsibilities:</p>
+            <ul>
+                <li>Open and close the net</li>
+                <li>Call for check-ins</li>
+                <li>Maintain the station roster</li>
+                <li>Recognize stations and direct traffic</li>
+                <li>Keep the net moving efficiently</li>
+                <li>Handle interference and problems</li>
+                <li>Ensure all traffic is passed</li>
+            </ul>
+        </div>
+
+        <div class="role-box">
+            <h4>📝 Net Liaison</h4>
+            <p>Connects this net to other nets. Responsibilities:</p>
+            <ul>
+                <li>Check into multiple nets</li>
+                <li>Carry traffic between nets</li>
+                <li>Relay information between organizations</li>
+            </ul>
+        </div>
+
+        <div class="role-box">
+            <h4>👥 Net Participants</h4>
+            <p>Regular stations checking into the net:</p>
+            <ul>
+                <li>Check in when called</li>
+                <li>Wait to be recognized before transmitting</li>
+                <li>Handle traffic as requested</li>
+                <li>Monitor the frequency</li>
+                <li>Follow NCS instructions</li>
+            </ul>
+        </div>
+
+        <h2 id="checking-in">How to Check In</h2>
+        
+        <h3>Basic Check-In Procedure</h3>
+        <div class="net-script">
+<span class="ncs">NCS:</span> This net is now open for check-ins. Stations with 
+      emergency or priority traffic, call now.
+<span class="comment">      [pause for emergency traffic]</span>
+
+<span class="ncs">NCS:</span> Stations with routine traffic, call now.
+<span class="station">YOU:</span> <span class="proword">W1ABC WITH TRAFFIC</span>
+
+<span class="ncs">NCS:</span> W1ABC, welcome to the net. What traffic do you have?
+<span class="station">YOU:</span> One routine for Hartford.
+
+<span class="ncs">NCS:</span> Roger, W1ABC, one routine for Hartford. Stand by.
+<span class="comment">      [NCS notes your traffic]</span>
+
+<span class="ncs">NCS:</span> Stations without traffic, call now.
+<span class="station">OTHER:</span> <span class="proword">W2XYZ</span>
+<span class="station">OTHER:</span> <span class="proword">W3DEF MOBILE</span>
+        </div>
+
+        <h3>Check-In Elements</h3>
+        <ul>
+            <li><strong>Callsign:</strong> Always required</li>
+            <li><strong>Traffic:</strong> "WITH TRAFFIC" or "NO TRAFFIC"</li>
+            <li><strong>Status:</strong> Mobile, portable, QRP, relay, etc.</li>
+            <li><strong>Location:</strong> If relevant (especially EmComm)</li>
+            <li><strong>Comments:</strong> Brief - "checking in short time only"</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Tip:</strong> Keep check-ins SHORT. Just your call and essential info. Save the ragchewing for later!
+        </div>
+
+        <h3>Check-In Timing</h3>
+        <ol>
+            <li><strong>Wait</strong> for NCS to call for check-ins</li>
+            <li><strong>Listen</strong> to make sure frequency is clear</li>
+            <li><strong>Key up</strong> and give your call clearly</li>
+            <li><strong>Unkey</strong> and wait for acknowledgment</li>
+            <li><strong>Don't double</strong> - if two stations call together, NCS will sort it out</li>
+        </ol>
+
+        <h2 id="prowords">Prowords &amp; Procedures</h2>
+        
+        <h3>Essential Prowords</h3>
+        <table class="freq-table proword-table">
+            <thead>
+                <tr><th>Proword</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ROGER</td><td>Message received and understood</td></tr>
+                <tr><td>AFFIRMATIVE</td><td>Yes</td></tr>
+                <tr><td>NEGATIVE</td><td>No</td></tr>
+                <tr><td>STAND BY</td><td>Wait - I'll get back to you</td></tr>
+                <tr><td>GO AHEAD</td><td>Proceed with your transmission</td></tr>
+                <tr><td>SAY AGAIN</td><td>Repeat your last transmission</td></tr>
+                <tr><td>RELAY</td><td>Pass this message to another station</td></tr>
+                <tr><td>CLEAR</td><td>I am done transmitting, frequency is yours</td></tr>
+                <tr><td>OUT</td><td>End of communication, no reply expected</td></tr>
+                <tr><td>OVER</td><td>End of my transmission, expecting reply</td></tr>
+                <tr><td>BREAK</td><td>Separation between portions of message</td></tr>
+                <tr><td>CORRECTION</td><td>Error in my transmission, correction follows</td></tr>
+                <tr><td>I SPELL</td><td>Phonetic spelling follows</td></tr>
+                <tr><td>WORDS TWICE</td><td>Send each phrase twice (poor conditions)</td></tr>
+                <tr><td>NOTHING HEARD</td><td>No response received</td></tr>
+                <tr><td>WAIT OUT</td><td>I must pause, will call you back</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Emergency Prowords</h3>
+        <table class="freq-table proword-table">
+            <thead>
+                <tr><th>Proword</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>MAYDAY</td><td>Life-threatening emergency (voice)</td></tr>
+                <tr><td>PAN-PAN</td><td>Urgent situation, not life-threatening</td></tr>
+                <tr><td>SÉCURITÉ</td><td>Safety information follows</td></tr>
+                <tr><td>PRIORITY</td><td>Important traffic, handle before routine</td></tr>
+                <tr><td>EMERGENCY</td><td>Life or death traffic</td></tr>
+                <tr><td>BREAK BREAK</td><td>Interrupt net for emergency traffic</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>BREAK BREAK:</strong> If you have emergency traffic and the net is busy, say "BREAK BREAK" to interrupt. NCS will immediately recognize you. Use only for genuine emergencies!
+        </div>
+
+        <h2 id="ncs-duties">Net Control Station Duties</h2>
+        
+        <div class="checklist">
+            <h4>📋 Before the Net</h4>
+            <ul>
+                <li>☐ Check equipment and antenna</li>
+                <li>☐ Have logging materials ready (paper or computer)</li>
+                <li>☐ Review net preamble/script</li>
+                <li>☐ Note any announcements to make</li>
+                <li>☐ Check for previous session's unfinished business</li>
+                <li>☐ Be on frequency 5 minutes early</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>📋 During the Net</h4>
+            <ul>
+                <li>☐ Open net on time with preamble</li>
+                <li>☐ Call for emergency/priority traffic first</li>
+                <li>☐ Take check-ins systematically</li>
+                <li>☐ Log all stations and their traffic</li>
+                <li>☐ Direct traffic efficiently</li>
+                <li>☐ Make announcements</li>
+                <li>☐ Handle late check-ins</li>
+                <li>☐ Keep net moving - don't let it drag</li>
+                <li>☐ Call for final check-ins</li>
+                <li>☐ Close net properly</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>📋 After the Net</h4>
+            <ul>
+                <li>☐ Note any unfinished business</li>
+                <li>☐ File net report if required</li>
+                <li>☐ Pass statistics to net manager</li>
+                <li>☐ Handle any post-net traffic</li>
+            </ul>
+        </div>
+
+        <h2 id="scripts">Sample Net Scripts</h2>
+        
+        <h3>Formal Net Opening</h3>
+        <div class="net-script">
+<span class="ncs">NCS:</span> Calling the [NET NAME]. Calling the [NET NAME].
+
+This is [CALLSIGN], net control for this session of the 
+[NET NAME], meeting on [FREQUENCY] at [TIME].
+
+This is a directed net. Please do not transmit without 
+being recognized by net control.
+
+The purpose of this net is [STATE PURPOSE].
+
+Is there any station with emergency or priority traffic?
+<span class="comment">[Pause - handle any emergency traffic immediately]</span>
+
+Are there any stations with traffic? Stations with traffic, 
+call now.
+<span class="comment">[Take check-ins, note traffic]</span>
+
+Are there any stations without traffic wishing to check in?
+<span class="comment">[Take remaining check-ins]</span>
+
+We have [NUMBER] stations checked in with [NUMBER] pieces 
+of traffic. Let's begin passing traffic.
+        </div>
+
+        <h3>Directing Traffic</h3>
+        <div class="net-script">
+<span class="ncs">NCS:</span> W1ABC, you have traffic for Hartford. 
+      W2XYZ, can you take Hartford traffic?
+
+<span class="station">W2XYZ:</span> W2XYZ, affirmative.
+
+<span class="ncs">NCS:</span> W1ABC, call W2XYZ and pass your traffic.
+
+<span class="station">W1ABC:</span> W2XYZ, W1ABC.
+<span class="station">W2XYZ:</span> W1ABC, W2XYZ, ready to copy.
+<span class="comment">[Traffic is passed - see Radiogram article]</span>
+
+<span class="station">W1ABC:</span> W1ABC back to net.
+<span class="station">W2XYZ:</span> W2XYZ back to net, traffic received.
+
+<span class="ncs">NCS:</span> Roger, W1ABC and W2XYZ. Thank you.
+      Next, W3DEF has traffic for Boston...
+        </div>
+
+        <h3>Formal Net Closing</h3>
+        <div class="net-script">
+<span class="ncs">NCS:</span> Are there any late check-ins?
+<span class="comment">[Take any late arrivals]</span>
+
+<span class="ncs">NCS:</span> Is there any further business for this net?
+<span class="comment">[Handle any remaining items]</span>
+
+<span class="ncs">NCS:</span> Hearing none, this concludes tonight's session of the 
+[NET NAME]. 
+
+We had [NUMBER] check-ins and passed [NUMBER] pieces of 
+traffic. 
+
+Thank you all for participating. This net meets every 
+[DAY] at [TIME] on this frequency.
+
+This is [CALLSIGN] closing the net and returning the 
+frequency to normal amateur use. 73.
+        </div>
+
+        <h2 id="traffic">Handling Traffic</h2>
+        
+        <h3>When You Have Traffic to Send</h3>
+        <ol>
+            <li>Check in "with traffic" and state destination</li>
+            <li>Wait for NCS to pair you with a receiving station</li>
+            <li>When directed, call the receiving station</li>
+            <li>Pass your message using proper format</li>
+            <li>Get acknowledgment</li>
+            <li>Return to net: "[CALL] back to net"</li>
+        </ol>
+
+        <h3>When You Can Receive Traffic</h3>
+        <ol>
+            <li>When NCS asks "Can anyone take [CITY] traffic?" - respond</li>
+            <li>Be ready to copy before you volunteer</li>
+            <li>Copy the message accurately</li>
+            <li>Acknowledge receipt: "Roger, number [XX]"</li>
+            <li>Return to net</li>
+            <li>Deliver or relay the message</li>
+        </ol>
+
+        <div class="tip">
+            <strong>See Also:</strong> <a href="radiogram-message-handling.html">Radiogram &amp; Message Handling</a> for detailed message format and procedures.
+        </div>
+
+        <h2 id="emcomm-nets">EmComm Net Operations</h2>
+        
+        <div class="ics-box">
+            <h3>🚨 Emergency Net Principles</h3>
+            <ul>
+                <li><strong>Strict discipline</strong> - No casual conversation</li>
+                <li><strong>Brevity</strong> - Keep transmissions short</li>
+                <li><strong>Accuracy</strong> - Get it right the first time</li>
+                <li><strong>Priority</strong> - Life safety first, always</li>
+                <li><strong>Authentication</strong> - Know who you're talking to</li>
+                <li><strong>Documentation</strong> - Log everything</li>
+            </ul>
+        </div>
+
+        <h3>EmComm Net Structure</h3>
+        <div class="net-script">
+                    ┌─────────────────────┐
+                    │   COMMAND NET       │
+                    │   (EOC/ICS)         │
+                    └─────────┬───────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          │                   │                   │
+    ┌─────┴─────┐      ┌──────┴──────┐     ┌─────┴─────┐
+    │ TACTICAL  │      │  RESOURCE   │     │  LOGISTICS │
+    │   NET     │      │    NET      │     │    NET     │
+    │(Field Ops)│      │ (Personnel) │     │ (Supplies) │
+    └───────────┘      └─────────────┘     └────────────┘
+        </div>
+
+        <h3>Tactical vs. Formal Traffic</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Tactical</th><th>Formal</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Short, immediate info</td>
+                    <td>Written radiograms</td>
+                </tr>
+                <tr>
+                    <td>"Shelter 1 needs water"</td>
+                    <td>Detailed supply requests</td>
+                </tr>
+                <tr>
+                    <td>May use tactical calls</td>
+                    <td>Uses FCC callsigns</td>
+                </tr>
+                <tr>
+                    <td>Verbal acknowledgment OK</td>
+                    <td>Written confirmation</td>
+                </tr>
+                <tr>
+                    <td>For time-critical info</td>
+                    <td>For record-keeping</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Tactical Callsigns</h3>
+        <p>During events, tactical calls identify <em>function</em>, not person:</p>
+        <ul>
+            <li><strong>Net Control</strong> - NCS position</li>
+            <li><strong>Command</strong> - EOC or incident commander</li>
+            <li><strong>Shelter 1, Shelter 2</strong> - Shelter locations</li>
+            <li><strong>Aid 1, Aid 2</strong> - Medical aid stations</li>
+            <li><strong>Mobile 1, Mobile 2</strong> - Roving units</li>
+            <li><strong>Shadow</strong> - Official following served agency person</li>
+        </ul>
+
+        <div class="warning">
+            <strong>FCC Requirement:</strong> You must still ID with your FCC callsign every 10 minutes and at the end of communication, even when using tactical calls.
+        </div>
+
+        <div class="example">
+            <strong>Proper tactical use:</strong><br>
+            "Shelter 1, Net Control."<br>
+            "Net Control, Shelter 1, go ahead."<br>
+            "Shelter 1, requesting status update."<br>
+            "Net Control, Shelter 1, currently have 45 evacuees, all stable. Shelter 1, W1ABC."<br>
+            <em>(FCC call given at end)</em>
+        </div>
+
+        <h2 id="ics">ICS Integration</h2>
+        
+        <p>During official emergencies, amateur radio often integrates with the Incident Command System (ICS):</p>
+
+        <table class="freq-table">
+            <thead>
+                <tr><th>ICS Position</th><th>Radio Support</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Incident Commander</td>
+                    <td>Command net liaison</td>
+                </tr>
+                <tr>
+                    <td>Operations Section</td>
+                    <td>Tactical nets for field teams</td>
+                </tr>
+                <tr>
+                    <td>Planning Section</td>
+                    <td>Status/resource tracking</td>
+                </tr>
+                <tr>
+                    <td>Logistics Section</td>
+                    <td>Supply and personnel requests</td>
+                </tr>
+                <tr>
+                    <td>Finance/Admin</td>
+                    <td>Documentation support</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>ICS Training:</strong> Take FEMA courses IS-100, IS-200, IS-700, and IS-800 online for free at <a href="https://training.fema.gov/is/">training.fema.gov</a>. Many ARES/RACES groups require these.
+        </div>
+
+        <h2 id="frequencies">Common Net Frequencies</h2>
+        
+        <h3>HF Traffic &amp; EmComm</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Band</th><th>Net/Purpose</th></tr>
+            </thead>
+            <tbody>
+                <tr class="highlight"><td>3.860 MHz</td><td>80m</td><td>Regional traffic nets (night)</td></tr>
+                <tr><td>3.923 MHz</td><td>80m</td><td>ARES/EmComm</td></tr>
+                <tr><td>3.993 MHz</td><td>80m</td><td>NTS Region nets</td></tr>
+                <tr><td>5.330.5 MHz</td><td>60m</td><td>National calling (Ch 1)</td></tr>
+                <tr><td>5.346.5 MHz</td><td>60m</td><td>EmComm (Ch 2)</td></tr>
+                <tr class="highlight"><td>7.185 MHz</td><td>40m</td><td>SATERN (Salvation Army)</td></tr>
+                <tr class="highlight"><td>7.232 MHz</td><td>40m</td><td>ARES HF (Region 1)</td></tr>
+                <tr><td>7.240 MHz</td><td>40m</td><td>Traffic / EmComm</td></tr>
+                <tr><td>7.290 MHz</td><td>40m</td><td>NTS/Traffic</td></tr>
+                <tr class="highlight"><td>14.300 MHz</td><td>20m</td><td>Maritime Mobile Service Net</td></tr>
+                <tr><td>14.303 MHz</td><td>20m</td><td>InterAmerican Net</td></tr>
+                <tr><td>14.346 MHz</td><td>20m</td><td>NTS (day)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>VHF/UHF</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Band</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+                <tr class="highlight"><td>146.520 MHz</td><td>2m</td><td>National simplex calling</td></tr>
+                <tr><td>146.550 MHz</td><td>2m</td><td>Simplex (common alternate)</td></tr>
+                <tr><td>146.580 MHz</td><td>2m</td><td>Simplex</td></tr>
+                <tr><td>147.420 MHz</td><td>2m</td><td>Simplex</td></tr>
+                <tr><td>147.450 MHz</td><td>2m</td><td>Simplex</td></tr>
+                <tr><td>147.555 MHz</td><td>2m</td><td>Simplex</td></tr>
+                <tr class="highlight"><td>446.000 MHz</td><td>70cm</td><td>National simplex calling</td></tr>
+                <tr><td>Local repeaters</td><td>—</td><td>Check with local ARES/RACES</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="tips">Tips for Success</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>✅ DO</h4>
+                <ul>
+                    <li>Listen before transmitting</li>
+                    <li>Keep transmissions brief</li>
+                    <li>Speak clearly and slowly</li>
+                    <li>Use phonetics for unclear words</li>
+                    <li>Wait for acknowledgment</li>
+                    <li>Log everything</li>
+                    <li>Practice regularly</li>
+                </ul>
+            </div>
+
+            <div class="ref-card">
+                <h4>❌ DON'T</h4>
+                <ul>
+                    <li>Transmit without being recognized</li>
+                    <li>Use "CB lingo" (10-4, good buddy)</li>
+                    <li>Argue on the air</li>
+                    <li>Key up before ready to speak</li>
+                    <li>Forget your callsign</li>
+                    <li>Make assumptions - ask if unsure</li>
+                    <li>Leave frequency without telling NCS</li>
+                </ul>
+            </div>
+
+            <div class="ref-card">
+                <h4>📝 As NCS</h4>
+                <ul>
+                    <li>Be prepared and organized</li>
+                    <li>Be fair and patient</li>
+                    <li>Keep the net moving</li>
+                    <li>Don't let one station dominate</li>
+                    <li>Summarize often</li>
+                    <li>Ask for fills when conditions poor</li>
+                    <li>Thank participants</li>
+                </ul>
+            </div>
+
+            <div class="ref-card">
+                <h4>🎯 Getting Better</h4>
+                <ul>
+                    <li>Check into nets regularly</li>
+                    <li>Volunteer to handle traffic</li>
+                    <li>Offer to be assistant NCS</li>
+                    <li>Take NCS training</li>
+                    <li>Join ARES/RACES</li>
+                    <li>Participate in exercises</li>
+                    <li>Learn from experienced ops</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="radiogram-message-handling.html">Radiogram &amp; Message Handling</a></li>
+            <li><a href="ics-forms.html">ICS Forms Reference</a></li>
+            <li><a href="../reference/phonetic-alphabet.html">Phonetic Alphabet</a></li>
+            <li><a href="off-grid-power.html">Off-Grid Power</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Operating Manual, ARES Field Resources Manual</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

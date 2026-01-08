@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Grid Power &amp; Battery Calculator - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .formula-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+        .formula-box .main {
+            font-size: 1.3em;
+            color: #2c5282;
+            font-weight: bold;
+        }
+        .calculator-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .calculator-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .result {
+            background: #c6f6d5;
+            border: 2px solid #38a169;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .power-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .power-table th, .power-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .power-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .power-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .power-table .highlight {
+            background: #fefcbf;
+        }
+        .quick-calc {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .calc-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .calc-card h4 {
+            margin-top: 0;
+            color: #2d3748;
+            border-bottom: 2px solid #4299e1;
+            padding-bottom: 5px;
+        }
+        .battery-icon {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        .solar-chart {
+            background: #fffaf0;
+            border: 1px solid #ed8936;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Off-Grid Power &amp; Battery Calculator
+    </nav>
+    
+    <article>
+        <h1>Off-Grid Power &amp; Battery Calculator</h1>
+        
+        <section class="summary">
+            <p>Essential calculations for running your ham radio station off-grid. Learn how to size batteries, estimate run time, and properly size solar panels for emergency communications.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#basics">Power Basics</a></li>
+                <li><a href="#battery-runtime">Battery Runtime Calculator</a></li>
+                <li><a href="#radio-consumption">Radio Power Consumption</a></li>
+                <li><a href="#battery-types">Battery Types Compared</a></li>
+                <li><a href="#solar">Solar Panel Sizing</a></li>
+                <li><a href="#charge-controllers">Charge Controllers</a></li>
+                <li><a href="#wiring">Wiring &amp; Fuses</a></li>
+                <li><a href="#quick-reference">Quick Reference Tables</a></li>
+                <li><a href="#go-kit">Go-Kit Power Recommendations</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="basics">Power Basics</h2>
+        
+        <h3>Key Units</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Unit</th><th>Symbol</th><th>What It Measures</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Volts</td><td>V</td><td>Electrical pressure (12V, 13.8V typical for ham)</td></tr>
+                <tr><td>Amps</td><td>A</td><td>Current flow (how much electricity flowing now)</td></tr>
+                <tr><td>Watts</td><td>W</td><td>Power (rate of energy use)</td></tr>
+                <tr><td>Amp-hours</td><td>Ah</td><td>Battery capacity (current × time)</td></tr>
+                <tr><td>Watt-hours</td><td>Wh</td><td>Energy capacity (power × time)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Essential Formulas</h3>
+        <div class="formula-box">
+            <span class="main">Power (W) = Voltage (V) × Current (A)</span><br><br>
+            <span class="main">Watt-hours (Wh) = Volts (V) × Amp-hours (Ah)</span><br><br>
+            <span class="main">Amp-hours (Ah) = Watt-hours (Wh) ÷ Volts (V)</span>
+        </div>
+
+        <div class="example">
+            <strong>Example:</strong> A 12V 20Ah battery<br>
+            Energy = 12V × 20Ah = <strong>240 Wh</strong>
+        </div>
+
+        <h2 id="battery-runtime">Battery Runtime Calculator</h2>
+        
+        <h3>The Basic Formula</h3>
+        <div class="formula-box">
+            <span class="main">Runtime (hours) = Battery Capacity (Ah) × DoD × Efficiency ÷ Load (A)</span>
+        </div>
+
+        <p>Where:</p>
+        <ul>
+            <li><strong>DoD (Depth of Discharge)</strong> - How much you should drain the battery (0.5 for lead-acid, 0.8 for LiFePO4)</li>
+            <li><strong>Efficiency</strong> - Account for losses (typically 0.85-0.95)</li>
+            <li><strong>Load</strong> - Average current draw in amps</li>
+        </ul>
+
+        <h3>Simplified Formula (Conservative)</h3>
+        <div class="formula-box">
+            <span class="main">Runtime (hours) = Battery Ah × 0.5 ÷ Average Amps</span>
+        </div>
+        <p>This assumes 50% discharge (safe for lead-acid) and accounts for efficiency losses.</p>
+
+        <div class="calculator-box">
+            <h4>🔋 Quick Runtime Examples</h4>
+            
+            <p><strong>Setup:</strong> 20Ah LiFePO4 battery, IC-705 at 5W (average 1.5A with RX)</p>
+            <div class="result">
+                Runtime = 20Ah × 0.8 ÷ 1.5A = <strong>10.6 hours</strong>
+            </div>
+
+            <p><strong>Setup:</strong> 100Ah lead-acid, IC-7300 at 100W (TX 20A, RX 1A, 20% TX duty)</p>
+            <p>Average current = (20A × 0.2) + (1A × 0.8) = 4A + 0.8A = 4.8A</p>
+            <div class="result">
+                Runtime = 100Ah × 0.5 ÷ 4.8A = <strong>10.4 hours</strong>
+            </div>
+        </div>
+
+        <h3>Duty Cycle Matters!</h3>
+        <p>Most ham operations aren't 100% transmit. Calculate your <strong>average</strong> current:</p>
+        
+        <div class="formula-box">
+            <span class="main">Average Current = (TX Amps × TX%) + (RX Amps × RX%)</span>
+        </div>
+
+        <table class="power-table">
+            <thead>
+                <tr><th>Mode</th><th>Typical TX Duty Cycle</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>SSB Voice</td><td>20-30%</td></tr>
+                <tr><td>CW</td><td>40-50%</td></tr>
+                <tr><td>FT8/FT4</td><td>50%</td></tr>
+                <tr><td>JS8Call</td><td>30-50%</td></tr>
+                <tr><td>Winlink VARA</td><td>40-60%</td></tr>
+                <tr><td>FM Voice</td><td>30-50%</td></tr>
+                <tr><td>Packet/APRS</td><td>10-20%</td></tr>
+                <tr><td>Listening/Monitoring</td><td>0-5%</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="radio-consumption">Radio Power Consumption</h2>
+        
+        <h3>HF Transceivers</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Radio</th><th>RX (A)</th><th>TX 5W (A)</th><th>TX 50W (A)</th><th>TX 100W (A)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Icom IC-705</td><td>0.5</td><td>1.5</td><td>3.0 (10W max)</td><td>—</td></tr>
+                <tr><td>Icom IC-7300</td><td>1.0</td><td>5</td><td>12</td><td>20</td></tr>
+                <tr><td>Yaesu FT-991A</td><td>1.5</td><td>5</td><td>12</td><td>21</td></tr>
+                <tr><td>Yaesu FT-891</td><td>1.0</td><td>5</td><td>12</td><td>20</td></tr>
+                <tr><td>Yaesu FT-818ND</td><td>0.3</td><td>1.5</td><td>2.0 (6W max)</td><td>—</td></tr>
+                <tr><td>Xiegu G90</td><td>0.5</td><td>3</td><td>6 (20W max)</td><td>—</td></tr>
+                <tr><td>Xiegu X6100</td><td>0.5</td><td>2.5 (10W max)</td><td>—</td><td>—</td></tr>
+                <tr><td>Elecraft KX2</td><td>0.15</td><td>1.0</td><td>2.5 (15W max)</td><td>—</td></tr>
+                <tr><td>Lab599 TX-500</td><td>0.25</td><td>1.5</td><td>3.5 (10W max)</td><td>—</td></tr>
+                <tr class="highlight"><td>QRP Labs QMX</td><td>0.1</td><td>0.5 (5W max)</td><td>—</td><td>—</td></tr>
+            </tbody>
+        </table>
+
+        <h3>VHF/UHF Transceivers</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Radio</th><th>RX (A)</th><th>TX Low (A)</th><th>TX High (A)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Yaesu FT-60R (HT)</td><td>0.2</td><td>1.0</td><td>2.5</td></tr>
+                <tr><td>Baofeng UV-5R (HT)</td><td>0.1</td><td>1.5</td><td>2.5</td></tr>
+                <tr><td>Yaesu FT-2980 (Mobile)</td><td>0.5</td><td>5</td><td>15 (80W)</td></tr>
+                <tr><td>Kenwood TM-V71A</td><td>0.5</td><td>4</td><td>13 (50W)</td></tr>
+                <tr><td>Icom IC-2730A</td><td>0.6</td><td>4</td><td>11 (50W)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Support Equipment</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Device</th><th>Typical Draw (A @ 12V)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Raspberry Pi 4</td><td>0.5 - 1.0</td></tr>
+                <tr><td>Laptop (via DC-DC)</td><td>3 - 6</td></tr>
+                <tr><td>Small tablet</td><td>0.5 - 1.5</td></tr>
+                <tr><td>LED light</td><td>0.1 - 0.5</td></tr>
+                <tr><td>USB hub</td><td>0.1 - 0.3</td></tr>
+                <tr><td>SignaLink</td><td>0.1</td></tr>
+                <tr><td>Digirig Mobile</td><td>Negligible</td></tr>
+                <tr><td>Antenna tuner (manual)</td><td>0</td></tr>
+                <tr><td>Antenna tuner (auto)</td><td>0.1 - 1.0 (when tuning)</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="battery-types">Battery Types Compared</h2>
+        
+        <table class="power-table">
+            <thead>
+                <tr><th>Type</th><th>Safe DoD</th><th>Cycles</th><th>Weight</th><th>Cost</th><th>Best For</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Lead-Acid (FLA)</strong></td>
+                    <td>50%</td>
+                    <td>300-500</td>
+                    <td>Heavy</td>
+                    <td>$</td>
+                    <td>Base station, budget</td>
+                </tr>
+                <tr>
+                    <td><strong>AGM</strong></td>
+                    <td>50%</td>
+                    <td>500-800</td>
+                    <td>Heavy</td>
+                    <td>$$</td>
+                    <td>Portable, no spill</td>
+                </tr>
+                <tr>
+                    <td><strong>Gel</strong></td>
+                    <td>50%</td>
+                    <td>500-1000</td>
+                    <td>Heavy</td>
+                    <td>$$</td>
+                    <td>Deep cycle</td></tr>
+                <tr class="highlight">
+                    <td><strong>LiFePO4</strong></td>
+                    <td>80%</td>
+                    <td>2000-5000</td>
+                    <td>Light!</td>
+                    <td>$$$</td>
+                    <td>Portable, go-kit</td>
+                </tr>
+                <tr>
+                    <td><strong>Li-ion</strong></td>
+                    <td>80%</td>
+                    <td>500-1000</td>
+                    <td>Light</td>
+                    <td>$$</td>
+                    <td>Built-in (IC-705)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Recommendation:</strong> For EmComm go-kits, <strong>LiFePO4</strong> is the best choice despite higher cost. It's lighter, lasts longer, can be discharged deeper, and is safer than other lithium chemistries.
+        </div>
+
+        <h3>Popular LiFePO4 Options</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Capacity</th><th>Weight</th><th>Usable Energy</th><th>Good For</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>6Ah</td><td>~1 lb</td><td>58 Wh</td><td>QRP, short activation</td></tr>
+                <tr><td>12Ah</td><td>~2 lb</td><td>115 Wh</td><td>POTA/SOTA, half day</td></tr>
+                <tr><td>20Ah</td><td>~5 lb</td><td>192 Wh</td><td>Full day portable</td></tr>
+                <tr><td>50Ah</td><td>~13 lb</td><td>480 Wh</td><td>Extended deployment</td></tr>
+                <tr><td>100Ah</td><td>~25 lb</td><td>960 Wh</td><td>Base camp, multi-day</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="solar">Solar Panel Sizing</h2>
+        
+        <h3>Basic Solar Formula</h3>
+        <div class="formula-box">
+            <span class="main">Panel Watts = Daily Wh Needed ÷ Sun Hours ÷ 0.7</span>
+        </div>
+        <p>The 0.7 factor accounts for system losses (charge controller, wiring, angle, clouds, etc.)</p>
+
+        <div class="calculator-box">
+            <h4>☀️ Solar Sizing Example</h4>
+            
+            <p><strong>Need:</strong> Run IC-7300 for 8 hours at 20% duty cycle</p>
+            <p>Average draw = (20A × 0.2) + (1A × 0.8) = 4.8A</p>
+            <p>Daily Wh = 4.8A × 12V × 8h = 461 Wh</p>
+            <p>Assume 5 peak sun hours (average US)</p>
+            
+            <div class="result">
+                Panel = 461 Wh ÷ 5h ÷ 0.7 = <strong>132W panel minimum</strong>
+            </div>
+            <p><em>Recommendation: 150-200W panel for margin</em></p>
+        </div>
+
+        <h3>Peak Sun Hours by Region</h3>
+        <div class="solar-chart">
+            <table class="power-table">
+                <thead>
+                    <tr><th>Region</th><th>Winter</th><th>Summer</th><th>Average</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Southwest US (AZ, NM)</td><td>5</td><td>7</td><td>6</td></tr>
+                    <tr><td>Southeast US (FL, GA)</td><td>4</td><td>5.5</td><td>5</td></tr>
+                    <tr><td>Midwest US</td><td>3</td><td>5</td><td>4</td></tr>
+                    <tr><td>Northeast US / SE Canada</td><td>2.5</td><td>4.5</td><td>3.5</td></tr>
+                    <tr><td>Pacific Northwest</td><td>1.5</td><td>5</td><td>3</td></tr>
+                    <tr><td>Quebec</td><td>2</td><td>5</td><td>3.5</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <strong>Winter Warning:</strong> Solar output drops dramatically in winter, especially in northern latitudes. Plan for worst-case or have backup charging method.
+        </div>
+
+        <h3>Portable Panel Recommendations</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Panel Size</th><th>Good For</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>20-30W</td><td>Trickle charge, HT, QRP</td><td>Maintains battery during light use</td></tr>
+                <tr><td>50W</td><td>QRP station, IC-705</td><td>Sustain with light use</td></tr>
+                <tr><td>100W</td><td>50W HF station</td><td>Good for day ops with battery</td></tr>
+                <tr><td>200W</td><td>100W HF station</td><td>Full day ops, faster recharge</td></tr>
+                <tr><td>400W+</td><td>Base camp, full station</td><td>24/7 capability possible</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="charge-controllers">Charge Controllers</h2>
+        
+        <h3>PWM vs MPPT</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Type</th><th>Efficiency</th><th>Cost</th><th>Best For</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PWM</strong></td>
+                    <td>75-80%</td>
+                    <td>$</td>
+                    <td>Small panels, matched voltage (12V panel → 12V battery)</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>MPPT</strong></td>
+                    <td>94-98%</td>
+                    <td>$$-$$$</td>
+                    <td>Larger systems, mismatched voltages, max efficiency</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Rule of Thumb:</strong> For systems over 100W, MPPT pays for itself in efficiency gains. For small QRP setups, PWM is fine.
+        </div>
+
+        <h3>Controller Sizing</h3>
+        <div class="formula-box">
+            <span class="main">Controller Amps = Panel Watts ÷ Battery Voltage × 1.25</span>
+        </div>
+
+        <div class="example">
+            <strong>Example:</strong> 200W panel into 12V battery<br>
+            Controller = 200W ÷ 12V × 1.25 = <strong>21A minimum</strong> (get 30A)
+        </div>
+
+        <h2 id="wiring">Wiring &amp; Fuses</h2>
+        
+        <h3>Wire Gauge for 12V DC</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Current (A)</th><th>Up to 3ft</th><th>3-6ft</th><th>6-10ft</th><th>10-15ft</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>5A</td><td>18 AWG</td><td>16 AWG</td><td>14 AWG</td><td>12 AWG</td></tr>
+                <tr><td>10A</td><td>16 AWG</td><td>14 AWG</td><td>12 AWG</td><td>10 AWG</td></tr>
+                <tr><td>15A</td><td>14 AWG</td><td>12 AWG</td><td>10 AWG</td><td>8 AWG</td></tr>
+                <tr><td>20A</td><td>12 AWG</td><td>10 AWG</td><td>8 AWG</td><td>6 AWG</td></tr>
+                <tr><td>30A</td><td>10 AWG</td><td>8 AWG</td><td>6 AWG</td><td>4 AWG</td></tr>
+            </tbody>
+        </table>
+        <p><em>Based on 3% voltage drop maximum. Use larger wire for critical applications.</em></p>
+
+        <h3>Fuse Sizing</h3>
+        <div class="formula-box">
+            <span class="main">Fuse = Maximum Current × 1.25</span>
+        </div>
+        <p>Round up to next standard size (5A, 10A, 15A, 20A, 25A, 30A, etc.)</p>
+
+        <div class="warning">
+            <strong>Always Fuse!</strong> Install fuse as close to battery positive terminal as possible. This protects against fire if wire shorts to ground.
+        </div>
+
+        <h3>Anderson Powerpole Standard</h3>
+        <p>The ham radio standard for 12V DC connections:</p>
+        <ul>
+            <li><strong>15A/30A/45A</strong> - Common sizes</li>
+            <li><strong>Red on top</strong> (or left when horizontal) - Positive</li>
+            <li><strong>Black on bottom</strong> (or right) - Negative</li>
+            <li>Tongue on red facing up, tongue on black facing down</li>
+        </ul>
+
+        <h2 id="quick-reference">Quick Reference Tables</h2>
+        
+        <div class="quick-calc">
+            <div class="calc-card">
+                <h4>🔋 "How Long Will It Last?"</h4>
+                <table class="power-table">
+                    <tr><th>Battery</th><th>QRP 5W</th><th>50W</th><th>100W</th></tr>
+                    <tr><td>12Ah LiFePO4</td><td>6h</td><td>2h</td><td>1h</td></tr>
+                    <tr><td>20Ah LiFePO4</td><td>10h</td><td>3h</td><td>1.5h</td></tr>
+                    <tr><td>50Ah LiFePO4</td><td>26h</td><td>8h</td><td>4h</td></tr>
+                    <tr><td>100Ah LiFePO4</td><td>53h</td><td>16h</td><td>8h</td></tr>
+                </table>
+                <p><em>Assumes 30% TX duty cycle, 80% DoD</em></p>
+            </div>
+
+            <div class="calc-card">
+                <h4>☀️ Solar to Sustain Operation</h4>
+                <table class="power-table">
+                    <tr><th>Power Level</th><th>5 Sun-hrs</th><th>3 Sun-hrs</th></tr>
+                    <tr><td>QRP (5W)</td><td>30W panel</td><td>50W panel</td></tr>
+                    <tr><td>Medium (50W)</td><td>100W panel</td><td>175W panel</td></tr>
+                    <tr><td>Full (100W)</td><td>200W panel</td><td>350W panel</td></tr>
+                </table>
+                <p><em>For continuous operation during daylight</em></p>
+            </div>
+        </div>
+
+        <h3>Voltage Reference</h3>
+        <table class="power-table">
+            <thead>
+                <tr><th>Battery State</th><th>Lead-Acid</th><th>LiFePO4</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Full (100%)</td><td>12.7V</td><td>14.4V</td></tr>
+                <tr><td>75%</td><td>12.4V</td><td>13.3V</td></tr>
+                <tr><td>50%</td><td>12.2V</td><td>13.2V</td></tr>
+                <tr><td>25%</td><td>12.0V</td><td>13.0V</td></tr>
+                <tr><td>Empty (stop!)</td><td>11.8V</td><td>12.0V</td></tr>
+                <tr><td>Charging</td><td>14.4-14.8V</td><td>14.4-14.6V</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>LiFePO4 Voltage Curve:</strong> LiFePO4 holds steady ~13.2V for most of its discharge, then drops rapidly at the end. Don't rely on voltage alone - use a battery monitor with coulomb counting.
+        </div>
+
+        <h2 id="go-kit">Go-Kit Power Recommendations</h2>
+        
+        <h3>QRP Portable (5-10W)</h3>
+        <ul>
+            <li>🔋 <strong>Battery:</strong> 12Ah LiFePO4 (~2 lbs)</li>
+            <li>☀️ <strong>Solar:</strong> 30-50W foldable panel</li>
+            <li>⏱️ <strong>Runtime:</strong> 6-10 hours</li>
+            <li>📻 <strong>Radios:</strong> IC-705, KX2, QMX, TX-500, FT-818</li>
+        </ul>
+
+        <h3>Field Day / Extended Portable (50W)</h3>
+        <ul>
+            <li>🔋 <strong>Battery:</strong> 50Ah LiFePO4 (~13 lbs)</li>
+            <li>☀️ <strong>Solar:</strong> 100W panel</li>
+            <li>⏱️ <strong>Runtime:</strong> 8-10 hours heavy use</li>
+            <li>📻 <strong>Radios:</strong> IC-7300 at 50W, FT-991A, G90</li>
+        </ul>
+
+        <h3>EmComm Deployment (100W)</h3>
+        <ul>
+            <li>🔋 <strong>Battery:</strong> 100Ah LiFePO4 + backup</li>
+            <li>☀️ <strong>Solar:</strong> 200W+ panels</li>
+            <li>🔌 <strong>Backup:</strong> Generator or vehicle charging</li>
+            <li>⏱️ <strong>Runtime:</strong> 24+ hours with solar</li>
+            <li>📻 <strong>Radios:</strong> Full power HF + VHF/UHF</li>
+        </ul>
+
+        <h3>Minimum EmComm Kit</h3>
+        <div class="calculator-box">
+            <h4>🎒 VA2OPS Recommended Minimum</h4>
+            <ul>
+                <li><strong>Battery:</strong> 20Ah LiFePO4 with built-in BMS</li>
+                <li><strong>Solar:</strong> 50W foldable panel</li>
+                <li><strong>Controller:</strong> Built into battery or small PWM</li>
+                <li><strong>Cables:</strong> Anderson Powerpoles, 12AWG wire</li>
+                <li><strong>Fuse:</strong> 25A inline at battery</li>
+                <li><strong>Monitor:</strong> Voltage display or battery meter</li>
+            </ul>
+            <p>This setup runs a 10W radio all day with solar, or 8+ hours without sun.</p>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="go-kit-checklist.html">Go-Kit Checklist</a></li>
+            <li><a href="../reference/ham-radio-math.html">Ham Radio Math Formulas</a></li>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+            <p>Power consumption figures from manufacturer specifications and field testing</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
