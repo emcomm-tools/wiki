@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPQ/LinBPQ Commands Reference - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#software">Software</a> &gt; 
+        BPQ Commands Reference
+    </nav>
+    
+    <article>
+        <h1>BPQ/LinBPQ Commands Reference</h1>
+        
+        <section class="summary">
+            <p>Complete command reference for BPQ32 and LinBPQ packet node and BBS software. LinBPQ is included in EmComm-Tools for running packet radio nodes, BBS systems, and chat servers over AX.25.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#node-user">Node User Commands</a></li>
+                <li><a href="#node-sysop">Node Sysop Commands</a></li>
+                <li><a href="#port-params">Port Parameters</a></li>
+                <li><a href="#system-params">System Parameters</a></li>
+                <li><a href="#bbs-user">BBS User Commands</a></li>
+                <li><a href="#bbs-sysop">BBS Sysop Commands</a></li>
+                <li><a href="#chat">Chat Commands</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="node-user">Node User Level Commands</h2>
+        <p>These commands are available to all users connecting to the node.</p>
+
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>?</code></td>
+                    <td>Displays list of commonly used node commands, starting with sysop-defined applications, then standard ones.</td>
+                </tr>
+                <tr>
+                    <td><code>Attach [P]</code></td>
+                    <td>Get exclusive control of port before connecting (for single-user ports like WINMOR or Pactor).</td>
+                </tr>
+                <tr>
+                    <td><code>BBS</code></td>
+                    <td>[Sysop defined] Access the BBS and Mail system.</td>
+                </tr>
+                <tr>
+                    <td><code>Bye</code> or <code>Quit</code></td>
+                    <td>Disconnect from Node.</td>
+                </tr>
+                <tr>
+                    <td><code>CHAT</code></td>
+                    <td>[Sysop defined] Access the Chat system.</td>
+                </tr>
+                <tr>
+                    <td><code>Connect</code></td>
+                    <td>Initiate connection to another node or AX.25 user.<br>
+                    <code>C P CALL|ALIAS [via digi1 [digi2...]] [S]</code><br>
+                    P = port number, S = STAY connected to current node when next closes.<br>
+                    Use <code>!</code> prefix to force Level 2 connect: <code>C 1 !CALL</code></td>
+                </tr>
+                <tr>
+                    <td><code>CQ</code></td>
+                    <td>Send beacon to address CQ. Only in LISTEN mode on one port.</td>
+                </tr>
+                <tr>
+                    <td><code>IDLEtime</code></td>
+                    <td>Set idle session timeout for this session.</td>
+                </tr>
+                <tr>
+                    <td><code>Info</code></td>
+                    <td>Display information about this Node from config file.</td>
+                </tr>
+                <tr>
+                    <td><code>L4T1</code></td>
+                    <td>Display/set Level 4 (NetROM) timeout for current session.</td>
+                </tr>
+                <tr>
+                    <td><code>Links</code></td>
+                    <td>List currently active AX.25 sessions.<br>
+                    S=link state (2=connecting, 4=disconnecting, 5=connected)<br>
+                    P=port, T=link type (1=Uplink, 2=Downlink, 3=Node-Node)<br>
+                    V=AX.25 version (1 or 2)</td>
+                </tr>
+                <tr>
+                    <td><code>LISten P1...Pn</code></td>
+                    <td>Enter Listen mode on specified port(s). Type <code>LISTEN OFF</code> to exit.</td>
+                </tr>
+                <tr>
+                    <td><code>MHeard P [CALL]</code></td>
+                    <td>List stations heard recently on port P. Filter with partial call.<br>
+                    Variants: <code>MHV</code> (verbose), <code>MHU</code> (UTC), <code>MHL</code> (local time)</td>
+                </tr>
+                <tr>
+                    <td><code>Nodes [CALL|ALIAS] [T]</code></td>
+                    <td>List all known NETROM/THENET/BPQ nodes.<br>
+                    RTT=Round Trip Time, FR=frames sent, B=BPQ node + hops<br>
+                    T option shows RTT and frame counts for all nodes.</td>
+                </tr>
+                <tr>
+                    <td><code>NRR CALL</code></td>
+                    <td>Send NetROM Record Route message to specified node.</td>
+                </tr>
+                <tr>
+                    <td><code>PAClen</code></td>
+                    <td>Display/set PACLEN value for node-generated messages.</td>
+                </tr>
+                <tr>
+                    <td><code>Ports</code></td>
+                    <td>List available ports with frequency and baud rate.</td>
+                </tr>
+                <tr>
+                    <td><code>RADio</code></td>
+                    <td>Used by Rig Control Interface.</td>
+                </tr>
+                <tr>
+                    <td><code>Routes [r]</code></td>
+                    <td>List stations this node can hear. <code>r r</code> for detailed info.<br>
+                    Shows: port, quality, NODES entries, locked routes (!)</td>
+                </tr>
+                <tr>
+                    <td><code>Stats</code></td>
+                    <td>Display system counters (uptime, buffers, L4 connects, frames, etc.)<br>
+                    <code>S S</code> = system/L3/4 stats only<br>
+                    <code>S n</code> = port stats starting at port n</td>
+                </tr>
+                <tr>
+                    <td><code>SYSOP</code></td>
+                    <td>[Sysop defined] Talk to Sysop if available.</td>
+                </tr>
+                <tr>
+                    <td><code>UNproto P CALL [Digis]</code></td>
+                    <td>Enter UNPROTO mode to send UI messages. Ctrl/Z to exit.</td>
+                </tr>
+                <tr>
+                    <td><code>Users</code></td>
+                    <td>List stations currently using the node.<br>
+                    Host=internal, Circuit=node link, Uplink=user in, Downlink=user out<br>
+                    <code>&lt;--&gt;</code> = active, <code>&lt;~~&gt;</code> = setting up</td>
+                </tr>
+                <tr>
+                    <td><code>Version</code></td>
+                    <td>Display Node software version number.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="node-sysop">Node Sysop Level Commands</h2>
+        
+        <h3>Sysop Authentication</h3>
+        <p>When accessed remotely, enter <code>PASSWORD</code> followed by 5 characters from your password string corresponding to the random positions shown in the challenge prompt.</p>
+
+        <h3>System Commands</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>REBOOT</code></td>
+                    <td>Performs <code>shutdown -r -f</code> - reboots the machine.</td>
+                </tr>
+                <tr>
+                    <td><code>RESTART</code></td>
+                    <td>Instructs node software to quit immediately.</td>
+                </tr>
+                <tr>
+                    <td><code>ROUTES CALL P parms</code></td>
+                    <td>Update routes. Use <code>!</code> flag to toggle locked routes.</td>
+                </tr>
+                <tr>
+                    <td><code>SAVEMH</code></td>
+                    <td>Save and restore MH lists on shutdown/restart.</td>
+                </tr>
+                <tr>
+                    <td><code>SAVENODES</code></td>
+                    <td>Save NODES and ROUTES tables for reload on restart.</td>
+                </tr>
+                <tr>
+                    <td><code>SENDNODES</code></td>
+                    <td>Send NODES broadcast.</td>
+                </tr>
+                <tr>
+                    <td><code>STARTCMS p</code></td>
+                    <td>Enable CMS access on Telnet port p.</td>
+                </tr>
+                <tr>
+                    <td><code>STOPCMS p</code></td>
+                    <td>Disable CMS access on Telnet port p (simulate outage).</td>
+                </tr>
+                <tr>
+                    <td><code>STOPPORT n</code></td>
+                    <td>Close port n (allows TNC reconfiguration).</td>
+                </tr>
+                <tr>
+                    <td><code>STARTPORT n</code></td>
+                    <td>Reopen port n.</td>
+                </tr>
+                <tr>
+                    <td><code>TELReconfig p ALL|USERS</code></td>
+                    <td>Reconfigure Telnet port. ALL=full reconfig, USERS=re-read users.</td>
+                </tr>
+                <tr>
+                    <td><code>WL2KSYSOP [SET]</code></td>
+                    <td>Display or create Winlink 2000 SYSOP record.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="port-params">Port Parameters</h2>
+        <p>Display or update parameters for a specific port. Syntax: <code>PARAM port# [=value]</code></p>
+
+        <table>
+            <thead>
+                <tr><th>Parameter</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>BBSALIAS</code></td><td>BBS alias for this port.</td></tr>
+                <tr><td><code>DIGIFLAG=0|1|255</code></td><td>Digipeat control: 0=don't digi, 1=digi all, 255=UI frames only.</td></tr>
+                <tr><td><code>DIGIPORT=N</code></td><td>Port for digipeated frames. 0=same port.</td></tr>
+                <tr><td><code>FRACK=nnnn</code></td><td>Level 2 timeout in milliseconds.</td></tr>
+                <tr><td><code>FULLDUP=0|1</code></td><td>Full duplex mode (KISS TNC).</td></tr>
+                <tr><td><code>L3ONLY=0|1</code></td><td>If 1, prevents user downlink connects on this port.</td></tr>
+                <tr><td><code>MAXFRAME=n</code></td><td>Maximum outstanding frames.</td></tr>
+                <tr><td><code>MAXUSERS</code></td><td>Maximum users on this port.</td></tr>
+                <tr><td><code>PACLEN=nnn</code></td><td>Default maximum packet length.</td></tr>
+                <tr><td><code>PERSIST=nnn</code></td><td>Probability to transmit value (1-255).</td></tr>
+                <tr><td><code>QUALITY=nnn</code></td><td>Default quality for nodes heard. 0=suppress L3/4 activity.</td></tr>
+                <tr><td><code>RESPTIME=nnnn</code></td><td>Level 2 delayed ACK timer in ms.</td></tr>
+                <tr><td><code>RETRIES=n</code></td><td>Level 2 maximum retry value.</td></tr>
+                <tr><td><code>SOFTDCD=0|1</code></td><td>Use frame detection for DCD instead of modem signal.</td></tr>
+                <tr><td><code>TXDELAY=nnn</code></td><td>TX keyup delay in milliseconds.</td></tr>
+                <tr><td><code>TXTAIL=nnnn</code></td><td>TX tail timer in ms (KISS TNCs).</td></tr>
+                <tr><td><code>VALIDCALLS=CALLS</code></td><td>Whitelist of allowed callsigns (up to 40, comma-separated).</td></tr>
+                <tr><td><code>XMITOFF port# [1]</code></td><td>Disable transmitter on port. 0=enabled (default).</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="system-params">System Parameters</h2>
+        <p>Display or update node-wide parameters.</p>
+
+        <table>
+            <thead>
+                <tr><th>Parameter</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>BTINTERVAL</code></td><td>Beacon transmission interval.</td></tr>
+                <tr><td><code>FULLCTEXT</code></td><td>Full connect text.</td></tr>
+                <tr><td><code>HIDENODES</code></td><td>Hide nodes with alias starting with #.</td></tr>
+                <tr><td><code>IDINTERVAL</code></td><td>Station ID interval in minutes.</td></tr>
+                <tr><td><code>L3TTL</code></td><td>Maximum Level 3 hops.</td></tr>
+                <tr><td><code>L4DELAY</code></td><td>Level 4 delayed ACK timer.</td></tr>
+                <tr><td><code>L4TIMEOUT</code></td><td>Level 4 timeout.</td></tr>
+                <tr><td><code>L4RETRIES</code></td><td>Level 4 retries.</td></tr>
+                <tr><td><code>L4WINDOW</code></td><td>Level 4 window size.</td></tr>
+                <tr><td><code>LINKEDFLAG</code></td><td>Linked flag setting.</td></tr>
+                <tr><td><code>MH p CLEAR</code></td><td>Clear MHeard list for port p.</td></tr>
+                <tr><td><code>MINQUAL=NNN</code></td><td>Minimum quality for NODES broadcast inclusion.</td></tr>
+                <tr><td><code>NODEIDLETIME</code></td><td>Idle timeout before link close (seconds).</td></tr>
+                <tr><td><code>NODESINT</code></td><td>Time between NODES broadcasts (seconds).</td></tr>
+                <tr><td><code>OBSINIT</code></td><td>Initial obsolescence value.</td></tr>
+                <tr><td><code>OBSMIN</code></td><td>Minimum obsolescence for NODES broadcast.</td></tr>
+                <tr><td><code>T3</code></td><td>Link validation timer (seconds).</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="bbs-user">BBS User Level Commands</h2>
+        
+        <h3>General Commands</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>?</code> or <code>Help</code></td><td>Display list of commands.</td></tr>
+                <tr><td><code>A</code></td><td>Abort BBS output while paging.</td></tr>
+                <tr><td><code>Bye</code></td><td>Disconnect from BBS.</td></tr>
+                <tr><td><code>CMSPASS password</code></td><td>Set password for Winlink CMS access.</td></tr>
+                <tr><td><code>Home</code></td><td>Enter/modify Home BBS. Period (.) deletes current.</td></tr>
+                <tr><td><code>I</code></td><td>Display BBS information.</td></tr>
+                <tr><td><code>I callsign</code></td><td>Info on callsign from White Pages (wildcards OK).</td></tr>
+                <tr><td><code>I@ bbs</code></td><td>List users of BBS from WP database.</td></tr>
+                <tr><td><code>IH route</code></td><td>List users of hierarchical route from WP.</td></tr>
+                <tr><td><code>IZ zip</code></td><td>List users by ZIP code from WP.</td></tr>
+                <tr><td><code>N</code></td><td>Enter/modify your name (max 12 chars).</td></tr>
+                <tr><td><code>NODE</code></td><td>Exit BBS, return to Node.</td></tr>
+                <tr><td><code>OP num</code></td><td>Set paging lines. 0=disable paging.</td></tr>
+                <tr><td><code>Q</code></td><td>Enter/modify QTH.</td></tr>
+                <tr><td><code>V</code></td><td>Display BBS and Node version.</td></tr>
+                <tr><td><code>X</code></td><td>Toggle Expert Mode.</td></tr>
+                <tr><td><code>Z</code></td><td>Enter/modify ZIP code.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>List Messages (L Commands)</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>L</code></td><td>List new messages since last check.</td></tr>
+                <tr><td><code>L&lt; call</code></td><td>List messages FROM callsign.</td></tr>
+                <tr><td><code>L&gt; call</code></td><td>List messages TO callsign.</td></tr>
+                <tr><td><code>L@ bbs</code></td><td>List messages VIA BBS.</td></tr>
+                <tr><td><code>L msg#-</code></td><td>List all messages starting from msg#.</td></tr>
+                <tr><td><code>L msg#-msg#</code></td><td>List messages between numbers.</td></tr>
+                <tr><td><code>Lx</code></td><td>List by status: N=New, Y=Read, H=Held, K=Killed, F=Forwarded, D=Delivered, $=BID.</td></tr>
+                <tr><td><code>LB</code></td><td>List bulletins.</td></tr>
+                <tr><td><code>LC</code></td><td>List all bulletin categories (TO fields).</td></tr>
+                <tr><td><code>LL n</code></td><td>List last n messages.</td></tr>
+                <tr><td><code>LM</code></td><td>List messages TO you.</td></tr>
+                <tr><td><code>LP</code></td><td>List personal messages.</td></tr>
+                <tr><td><code>LR</code></td><td>List in reverse order.</td></tr>
+                <tr><td><code>LT</code></td><td>List NTS traffic messages.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Read Messages (R Commands)</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>R msg# [msg#...]</code></td><td>Read messages by number.</td></tr>
+                <tr><td><code>RM</code></td><td>Read new messages to you.</td></tr>
+                <tr><td><code>READ name</code></td><td>Read file from Files area.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Send Messages (S Commands)</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>S call</code></td><td>Send private message.</td></tr>
+                <tr><td><code>SP call</code></td><td>Send private message (explicit).</td></tr>
+                <tr><td><code>SB call</code></td><td>Send bulletin.</td></tr>
+                <tr><td><code>S call @ BBS</code></td><td>Send message to station at another BBS.</td></tr>
+                <tr><td><code>SC msg# call @ BBS</code></td><td>Copy message to specified callsign.</td></tr>
+                <tr><td><code>SR msg#</code></td><td>Reply to message.</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Note:</strong> Terminate message with <code>Ctrl/Z</code> or <code>/EX</code> followed by Enter.</p>
+
+        <h3>Kill Messages (K Commands)</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>K msg#</code></td><td>Delete message by number.</td></tr>
+                <tr><td><code>KM</code></td><td>Delete all unread messages to you.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Other BBS Commands</h3>
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>D num</code></td><td>Flag NTS message as Delivered.</td></tr>
+                <tr><td><code>FILES</code> or <code>LISTFILES</code></td><td>List files available for download.</td></tr>
+                <tr><td><code>POLLRMS ENABLE|DISABLE</code></td><td>Enable/disable polling RMS for your messages.</td></tr>
+                <tr><td><code>POLLRMS SSID1 SSID2...</code></td><td>Set SSIDs to poll (0=base call).</td></tr>
+                <tr><td><code>YAPP name</code></td><td>Download file using YAPP protocol.</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="bbs-sysop">BBS Sysop Level Commands</h2>
+        
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>AUTH</code></td><td>Authenticate for remote SYSOP access (use BPQAUTH program).</td></tr>
+                <tr><td><code>EXPORT nnn filename</code></td><td>Export message nnn to file.</td></tr>
+                <tr><td><code>IMPORT filename</code></td><td>Import messages from file.</td></tr>
+                <tr><td><code>FWD bbscall</code></td><td>Display forwarding settings for BBS.</td></tr>
+                <tr><td><code>FWD bbscall interval</code></td><td>Set forwarding interval.</td></tr>
+                <tr><td><code>FWD bbscall REV interval</code></td><td>Set reverse forwarding interval.</td></tr>
+                <tr><td><code>FWD bbscall +- flags</code></td><td>Set flags: EN(able), RE(verse Poll), SE(nd Immediately).</td></tr>
+                <tr><td><code>FWD bbscall NOW</code></td><td>Start forwarding cycle immediately.</td></tr>
+                <tr><td><code>FWD QUEUE</code></td><td>List BBSs with queued messages.</td></tr>
+                <tr><td><code>EDITUSER call</code></td><td>Display user flags.</td></tr>
+                <tr><td><code>EDITUSER call FLAG...</code></td><td>Set flags. Use - prefix to clear.<br>
+                Flags: EXC(luded), EXP(ert), SYSOP, BBS, PMS, EMAIL, HOLD, RMS</td></tr>
+                <tr><td><code>KH</code></td><td>Kill all HELD messages.</td></tr>
+                <tr><td><code>K&lt; call</code></td><td>Kill messages FROM callsign.</td></tr>
+                <tr><td><code>K&gt; call</code></td><td>Kill messages TO callsign.</td></tr>
+                <tr><td><code>LH</code></td><td>List HELD messages.</td></tr>
+                <tr><td><code>LK</code></td><td>List KILLED messages.</td></tr>
+                <tr><td><code>UH ALL</code></td><td>Unhold all messages.</td></tr>
+                <tr><td><code>UH msg# msg#...</code></td><td>Unhold specific messages.</td></tr>
+                <tr><td><code>POLLRMS call ENABLE|DISABLE</code></td><td>Set RMS polling for other users.</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="chat">Chat User Commands</h2>
+        <p>Commands for the BPQ Chat system (all start with <code>/</code>).</p>
+
+        <table>
+            <thead>
+                <tr><th>Command</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>/A</code></td><td>Toggle alert on user join.</td></tr>
+                <tr><td><code>/Auto</code></td><td>Toggle automatic character set selection.</td></tr>
+                <tr><td><code>/B</code></td><td>Leave Chat, return to Node.</td></tr>
+                <tr><td><code>/C</code></td><td>Toggle colour mode (Console/BPQTerminal only).</td></tr>
+                <tr><td><code>/E</code></td><td>Toggle echo.</td></tr>
+                <tr><td><code>/F</code></td><td>Force all links to be made.</td></tr>
+                <tr><td><code>/J name</code></td><td>Join or create topic (not case sensitive).</td></tr>
+                <tr><td><code>/K</code></td><td>Show known nodes.</td></tr>
+                <tr><td><code>/Keepalive</code></td><td>Toggle keepalive messages every 10 minutes.</td></tr>
+                <tr><td><code>/N</code></td><td>Enter your name.</td></tr>
+                <tr><td><code>/P</code></td><td>Show ports and links.</td></tr>
+                <tr><td><code>/Q</code></td><td>Enter your QTH.</td></tr>
+                <tr><td><code>/QUIT</code></td><td>Leave Chat and disconnect from Node.</td></tr>
+                <tr><td><code>/S call text</code></td><td>Send private text to specific station.</td></tr>
+                <tr><td><code>/ShowNames</code></td><td>Toggle showing name with call on messages.</td></tr>
+                <tr><td><code>/T</code></td><td>Show topics.</td></tr>
+                <tr><td><code>/Time</code></td><td>Toggle timestamp on messages.</td></tr>
+                <tr><td><code>/U</code></td><td>Show users.</td></tr>
+                <tr><td><code>/UTF-8</code></td><td>Toggle UTF-8 or 8-bit character set.</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Quick Reference</h2>
+        
+        <h3>Most Common User Commands</h3>
+        <pre>
+?           Help
+C port CALL Connect to station
+N           List nodes
+U           List users
+P           List ports
+MH port     Heard stations
+B           Disconnect
+        </pre>
+
+        <h3>Most Common BBS Commands</h3>
+        <pre>
+L           List new messages
+LM          List my messages
+RM          Read my messages
+R 123       Read message 123
+SP CALL     Send private message
+K 123       Kill message 123
+B           Disconnect
+        </pre>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="direwolf.html">Direwolf Software TNC</a></li>
+            <li><a href="pat-winlink.html">Pat Winlink Client</a></li>
+            <li><a href="../digital-modes/ax25-packet.html">AX.25 Packet Radio</a></li>
+        </ul>
+        
+        <footer class="attribution">
+            <p>BPQ/BPQ32 system and documentation © <strong>John Wiseman, G8BPQ</strong></p>
+            <p>Cheat sheet compiled by <strong>Bill Cremerius, PY2BIL/LU7ECX</strong></p>
+            <p>Contributions by Tadd C. Torborg, KA2DEW</p>
+            <p>Source: <a href="https://cheatography.com/gcremerius/cheat-sheets/bpq-user-and-sysop-commands/">cheatography.com/gcremerius</a></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

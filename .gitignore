@@ -1,5 +1,8 @@
 # Build output
-output/*.zim
+output/*
+
+#upload to sourceforge folder scripts
+upload-zim.sh
 
 # Temporary files
 *.tmp
@@ -21,3 +24,4 @@ Thumbs.db
 
 # Logs
 *.log
+output/
