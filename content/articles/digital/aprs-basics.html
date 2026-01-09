@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APRS Basics - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .aprs-diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .freq-box {
+            background: #fff5f5;
+            border: 2px solid #c53030;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .freq-box .freq {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #c53030;
+        }
+        .freq-box .label {
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+        .packet-example {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .packet-example .callsign { color: #63b3ed; }
+        .packet-example .path { color: #f6ad55; }
+        .packet-example .symbol { color: #fc8181; }
+        .packet-example .position { color: #68d391; }
+        .packet-example .comment { color: #b794f4; }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .info-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .info-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .symbol-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .symbol-card .sym {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .setup-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .setup-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .path-table td:first-child {
+            font-family: monospace;
+            font-weight: bold;
+            background: #edf2f7;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital">Digital Modes</a> &gt; 
+        APRS Basics
+    </nav>
+    
+    <article>
+        <h1>APRS Basics</h1>
+        
+        <section class="summary">
+            <p>Introduction to the Automatic Packet Reporting System (APRS). Track positions, send messages, report weather, and share data over amateur radio.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is APRS?</a></li>
+                <li><a href="#frequency">APRS Frequencies</a></li>
+                <li><a href="#how">How APRS Works</a></li>
+                <li><a href="#packets">APRS Packets</a></li>
+                <li><a href="#paths">Digipeater Paths</a></li>
+                <li><a href="#symbols">Map Symbols</a></li>
+                <li><a href="#messaging">APRS Messaging</a></li>
+                <li><a href="#equipment">Equipment Options</a></li>
+                <li><a href="#emcomm">APRS for EmComm</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is APRS?</h2>
+        
+        <p><strong>APRS (Automatic Packet Reporting System)</strong> is a digital communications system that uses packet radio to share real-time data including:</p>
+        
+        <ul>
+            <li><strong>Position/Location</strong> - GPS coordinates on a map</li>
+            <li><strong>Messages</strong> - Short text messages between stations</li>
+            <li><strong>Weather Data</strong> - Temperature, wind, rain, barometric pressure</li>
+            <li><strong>Telemetry</strong> - Sensor data, status information</li>
+            <li><strong>Objects/Items</strong> - Mark locations on the map</li>
+            <li><strong>Bulletins</strong> - Announcements to all stations</li>
+        </ul>
+
+        <p>APRS was developed by Bob Bruninga, WB4APR (SK), and has become a worldwide network for position tracking and tactical communications.</p>
+
+        <h2 id="frequency">APRS Frequencies</h2>
+        
+        <div class="freq-box">
+            <div class="freq">144.390 MHz</div>
+            <div class="label">North America APRS (FM, 1200 baud)</div>
+        </div>
+
+        <table class="info-table">
+            <thead>
+                <tr><th>Region</th><th>Frequency</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>North America</td><td><strong>144.390 MHz</strong></td><td>Primary</td></tr>
+                <tr><td>Europe</td><td>144.800 MHz</td><td></td></tr>
+                <tr><td>Australia</td><td>145.175 MHz</td><td></td></tr>
+                <tr><td>New Zealand</td><td>144.575 MHz</td><td></td></tr>
+                <tr><td>Japan</td><td>144.640 MHz</td><td></td></tr>
+                <tr><td>South America</td><td>145.570 MHz</td><td></td></tr>
+                <tr><td>HF (worldwide)</td><td>10.1513 MHz</td><td>300 baud</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="how">How APRS Works</h2>
+        
+        <div class="aprs-diagram">
+    APRS NETWORK ARCHITECTURE
+    
+    📻 Mobile          📡 Digipeater         🌐 IGate        ☁️ APRS-IS
+    (GPS + Radio)      (Hilltop/Tower)       (Internet)      (Servers)
+         │                   │                    │              │
+         │   RF Packet       │                    │              │
+         └──────────────────►│                    │              │
+                             │   RF Repeat        │              │
+                             └───────────────────►│              │
+                                                  │   TCP/IP     │
+                                                  └─────────────►│
+                                                                 │
+                                                          ┌──────┴──────┐
+                                                          │  aprs.fi    │
+                                                          │  findu.com  │
+                                                          │  apps/maps  │
+                                                          └─────────────┘
+        </div>
+
+        <h3>Key Components</h3>
+        <table class="info-table">
+            <thead>
+                <tr><th>Component</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tracker</strong></td>
+                    <td>Mobile/portable station that transmits position (GPS + TNC + Radio)</td>
+                </tr>
+                <tr>
+                    <td><strong>Digipeater</strong></td>
+                    <td>Receives packets and retransmits them on the same frequency to extend range</td>
+                </tr>
+                <tr>
+                    <td><strong>IGate</strong></td>
+                    <td>Internet Gateway - bridges RF APRS to the internet (APRS-IS)</td>
+                </tr>
+                <tr>
+                    <td><strong>APRS-IS</strong></td>
+                    <td>Internet server network that collects and distributes APRS data worldwide</td>
+                </tr>
+                <tr>
+                    <td><strong>Web Viewers</strong></td>
+                    <td>Sites like aprs.fi that display APRS data on maps</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="packets">APRS Packets</h2>
+        
+        <h3>Packet Structure</h3>
+        <div class="packet-example">
+<span class="callsign">VA2OPS-9</span>&gt;<span class="path">APRS,WIDE1-1,WIDE2-1</span>:<span class="symbol">/</span><span class="position">092345z4532.50N/07254.30W</span><span class="symbol">></span><span class="comment">EmComm Tools Mobile /A=000150</span>
+        </div>
+
+        <table class="info-table">
+            <thead>
+                <tr><th>Part</th><th>Example</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Source</strong></td>
+                    <td>VA2OPS-9</td>
+                    <td>Callsign + SSID (-9 = mobile)</td>
+                </tr>
+                <tr>
+                    <td><strong>Destination</strong></td>
+                    <td>APRS</td>
+                    <td>Often indicates software type</td>
+                </tr>
+                <tr>
+                    <td><strong>Path</strong></td>
+                    <td>WIDE1-1,WIDE2-1</td>
+                    <td>Digipeater path request</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Type</strong></td>
+                    <td>/</td>
+                    <td>Position with timestamp</td>
+                </tr>
+                <tr>
+                    <td><strong>Timestamp</strong></td>
+                    <td>092345z</td>
+                    <td>Day 09, 23:45 UTC</td>
+                </tr>
+                <tr>
+                    <td><strong>Position</strong></td>
+                    <td>4532.50N/07254.30W</td>
+                    <td>Lat/Long (DDMM.MM format)</td>
+                </tr>
+                <tr>
+                    <td><strong>Symbol</strong></td>
+                    <td>></td>
+                    <td>Car symbol</td>
+                </tr>
+                <tr>
+                    <td><strong>Comment</strong></td>
+                    <td>EmComm Tools Mobile /A=000150</td>
+                    <td>Status text + altitude</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>SSID Conventions</h3>
+        <p>The SSID (-0 through -15) indicates station type:</p>
+        <table class="info-table">
+            <thead>
+                <tr><th>SSID</th><th>Recommended Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>-0</td><td>Home station, fixed</td></tr>
+                <tr><td>-1</td><td>Digipeater, home station alternate</td></tr>
+                <tr><td>-2</td><td>Digipeater (alternate)</td></tr>
+                <tr><td>-3</td><td>Digipeater (alternate)</td></tr>
+                <tr><td>-4</td><td>HF to VHF gateway</td></tr>
+                <tr><td>-5</td><td>Smartphone, portable</td></tr>
+                <tr><td>-6</td><td>Satellite operations</td></tr>
+                <tr><td>-7</td><td>Handheld, human portable</td></tr>
+                <tr><td>-8</td><td>Boat, maritime mobile</td></tr>
+                <tr><td><strong>-9</strong></td><td><strong>Mobile (car, truck, RV)</strong></td></tr>
+                <tr><td>-10</td><td>Internet, Echolink, Winlink</td></tr>
+                <tr><td>-11</td><td>Balloon, aircraft, spacecraft</td></tr>
+                <tr><td>-12</td><td>Tracker, one-way</td></tr>
+                <tr><td>-13</td><td>Weather station</td></tr>
+                <tr><td>-14</td><td>Trucking</td></tr>
+                <tr><td>-15</td><td>Generic, software default</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="paths">Digipeater Paths</h2>
+        
+        <div class="warning">
+            <strong>Important:</strong> Using the wrong path can cause network congestion. Use the minimum path needed to reach your destination!
+        </div>
+
+        <h3>Recommended Paths</h3>
+        <table class="info-table path-table">
+            <thead>
+                <tr><th>Path</th><th>Use Case</th><th>Hops</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WIDE1-1</td>
+                    <td>Local area, fill-in digis</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>WIDE1-1,WIDE2-1</td>
+                    <td><strong>Standard mobile path</strong> (recommended)</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>WIDE2-1</td>
+                    <td>Good signal, skip fill-ins</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>WIDE2-2</td>
+                    <td>Rural areas, limited digis</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>(none)</td>
+                    <td>Direct to IGate, no digipeating</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Golden Rule:</strong> Use <code>WIDE1-1,WIDE2-1</code> for mobile. It provides good coverage without flooding the network. Never use WIDE paths greater than 2-2 total.
+        </div>
+
+        <h3>Paths to AVOID</h3>
+        <ul>
+            <li><code>RELAY,WIDE</code> - Obsolete, causes problems</li>
+            <li><code>WIDE3-3</code> or higher - Network abuse</li>
+            <li><code>WIDE7-7</code> - Definitely don't do this!</li>
+        </ul>
+
+        <h2 id="symbols">Map Symbols</h2>
+        
+        <p>APRS uses two-character symbol codes. First character is the table (/ or \), second is the symbol.</p>
+
+        <h3>Common Symbols</h3>
+        <div class="symbol-grid">
+            <div class="symbol-card">
+                <div class="sym">/></div>
+                <div>Car</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/-</div>
+                <div>House</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/[</div>
+                <div>Human/Runner</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/b</div>
+                <div>Bicycle</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/k</div>
+                <div>Truck</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/v</div>
+                <div>Van</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/'</div>
+                <div>Aircraft</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/Y</div>
+                <div>Yacht/Boat</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/_</div>
+                <div>Weather Stn</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/r</div>
+                <div>Repeater</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">\K</div>
+                <div>School</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/+</div>
+                <div>Red Cross</div>
+            </div>
+        </div>
+
+        <h3>Emergency/EmComm Symbols</h3>
+        <div class="symbol-grid">
+            <div class="symbol-card">
+                <div class="sym">/!</div>
+                <div>Police/Sheriff</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/a</div>
+                <div>Ambulance</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/f</div>
+                <div>Fire Truck</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/c</div>
+                <div>Incident Cmd</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">/s</div>
+                <div>Shelter</div>
+            </div>
+            <div class="symbol-card">
+                <div class="sym">\e</div>
+                <div>Emergency</div>
+            </div>
+        </div>
+
+        <h2 id="messaging">APRS Messaging</h2>
+        
+        <p>APRS supports two-way text messaging between stations:</p>
+
+        <div class="packet-example">
+<span class="callsign">VA2OPS-9</span>&gt;<span class="path">APRS</span>::<span class="callsign">W1ABC    </span>:<span class="comment">Meeting at shelter 3 at 1400{123</span>
+        </div>
+
+        <h3>Message Features</h3>
+        <ul>
+            <li><strong>Addressed messages</strong> - Sent to specific callsign</li>
+            <li><strong>Acknowledgment</strong> - Recipient confirms receipt</li>
+            <li><strong>Retry</strong> - Automatic retransmission until ack'd</li>
+            <li><strong>Message number</strong> - Tracks messages ({123 in example)</li>
+            <li><strong>Max length</strong> - ~67 characters</li>
+        </ul>
+
+        <h3>Special Message Addresses</h3>
+        <table class="info-table">
+            <thead>
+                <tr><th>Address</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>BLN#</td><td>Bulletin (BLN1, BLN2, etc.) - to all</td></tr>
+                <tr><td>NWS-xxxxx</td><td>National Weather Service alerts</td></tr>
+                <tr><td>EMAIL-2</td><td>Email gateway</td></tr>
+                <tr><td>SMSGTE</td><td>SMS text message gateway</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="equipment">Equipment Options</h2>
+        
+        <div class="setup-box">
+            <h4>📻 Dedicated APRS Radios</h4>
+            <ul>
+                <li><strong>Kenwood TH-D74A/TH-D75A</strong> - HT with built-in TNC, GPS</li>
+                <li><strong>Kenwood TM-D710G</strong> - Mobile with full APRS</li>
+                <li><strong>Yaesu FTM-300DR/FTM-400XDR</strong> - Mobile with APRS</li>
+                <li><strong>Yaesu FT3DR/FT5DR</strong> - HT with APRS</li>
+            </ul>
+        </div>
+
+        <div class="setup-box">
+            <h4>🔧 TNC/Tracker + Radio</h4>
+            <ul>
+                <li><strong>Mobilinkd TNC3/TNC4</strong> - Bluetooth TNC, works with any radio</li>
+                <li><strong>Byonics TinyTrak</strong> - Compact tracker</li>
+                <li><strong>Argent Data Tracker</strong> - Various models</li>
+                <li><strong>Dire Wolf</strong> - Software TNC (computer sound card)</li>
+            </ul>
+        </div>
+
+        <div class="setup-box">
+            <h4>📱 Smartphone Options</h4>
+            <ul>
+                <li><strong>APRSdroid</strong> (Android) - With Mobilinkd or audio cable</li>
+                <li><strong>aprs.fi app</strong> - View only (no transmit)</li>
+                <li><strong>APRS.is apps</strong> - Internet-only APRS (not RF)</li>
+            </ul>
+        </div>
+
+        <div class="setup-box">
+            <h4>💻 Software (with TNC)</h4>
+            <ul>
+                <li><strong>YAAC</strong> - Yet Another APRS Client (cross-platform)</li>
+                <li><strong>Xastir</strong> - Linux APRS client</li>
+                <li><strong>APRSIS32</strong> - Windows APRS client</li>
+                <li><strong>PinPoint APRS</strong> - Windows</li>
+            </ul>
+        </div>
+
+        <h2 id="emcomm">APRS for EmComm</h2>
+        
+        <div class="note">
+            <strong>EmComm Applications:</strong> APRS is extremely valuable for emergency communications - it provides real-time situational awareness that voice communications cannot match.
+        </div>
+
+        <h3>EmComm Uses</h3>
+        <table class="info-table">
+            <thead>
+                <tr><th>Application</th><th>How APRS Helps</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Asset Tracking</strong></td>
+                    <td>Track vehicles, teams, resources on map in real-time</td>
+                </tr>
+                <tr>
+                    <td><strong>Route Planning</strong></td>
+                    <td>See where units are, optimize dispatch</td>
+                </tr>
+                <tr>
+                    <td><strong>Weather Reporting</strong></td>
+                    <td>Weather stations feed current conditions</td>
+                </tr>
+                <tr>
+                    <td><strong>Object Placement</strong></td>
+                    <td>Mark shelters, incidents, hazards on map</td>
+                </tr>
+                <tr>
+                    <td><strong>Messaging</strong></td>
+                    <td>Text messages don't tie up voice channels</td>
+                </tr>
+                <tr>
+                    <td><strong>Status Reporting</strong></td>
+                    <td>Automatic position + status updates</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Tactical APRS Setup</h3>
+        <ul>
+            <li>Use consistent SSIDs across your team</li>
+            <li>Pre-program symbols for different unit types</li>
+            <li>Use objects to mark fixed locations (shelters, EOC, etc.)</li>
+            <li>Consider local digipeater if coverage is poor</li>
+            <li>Have an IGate to bridge RF to internet for wide visibility</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Object Example:</strong> Place an object called "SHELTER1" at the shelter location so everyone can see it on the map, even if no one is transmitting from there yet.
+        </div>
+
+        <h3>APRS Beacon Rates</h3>
+        <table class="info-table">
+            <thead>
+                <tr><th>Situation</th><th>Rate</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mobile (moving)</td>
+                    <td>Smart beaconing or 2-3 min</td>
+                    <td>Track movement</td>
+                </tr>
+                <tr>
+                    <td>Mobile (stopped)</td>
+                    <td>10-30 min</td>
+                    <td>Reduce congestion</td>
+                </tr>
+                <tr>
+                    <td>Fixed station</td>
+                    <td>30 min - 1 hour</td>
+                    <td>Just show presence</td>
+                </tr>
+                <tr>
+                    <td>Weather station</td>
+                    <td>10-15 min</td>
+                    <td>Current conditions</td>
+                </tr>
+                <tr>
+                    <td>EmComm tactical</td>
+                    <td>1-5 min</td>
+                    <td>Real-time tracking</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>APRS Web Resources</h3>
+        <ul>
+            <li><strong>aprs.fi</strong> - Best map viewer, worldwide</li>
+            <li><strong>findu.com</strong> - Station lookup, history</li>
+            <li><strong>aprsdirect.com</strong> - Live map</li>
+            <li><strong>aprs.to</strong> - APRS-IS passcode generator</li>
+        </ul>
+
+        <h2>Quick Setup Checklist</h2>
+        
+        <ol>
+            <li>Program radio to <strong>144.390 MHz</strong> (North America)</li>
+            <li>Set callsign with appropriate <strong>SSID</strong> (-9 for mobile)</li>
+            <li>Configure path: <strong>WIDE1-1,WIDE2-1</strong></li>
+            <li>Select appropriate <strong>symbol</strong></li>
+            <li>Set reasonable <strong>beacon rate</strong></li>
+            <li>Enter <strong>status text/comment</strong></li>
+            <li>Verify GPS lock before transmitting</li>
+            <li>Check <strong>aprs.fi</strong> to confirm you're being heard</li>
+        </ol>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../software/yaac.html">YAAC Setup Guide</a></li>
+            <li><a href="../software/direwolf.html">Dire Wolf TNC</a></li>
+            <li><a href="simplex-operations.html">Simplex Operations</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: APRS Protocol Reference (APRS101.PDF), aprs.org</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

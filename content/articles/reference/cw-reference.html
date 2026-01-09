@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic CW Reference - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .morse-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .morse-table th, .morse-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .morse-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .morse-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .morse-table .char {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .morse-table .code {
+            font-family: monospace;
+            font-size: 1.3em;
+            letter-spacing: 3px;
+            color: #c53030;
+        }
+        .morse-table .mnemonic {
+            font-style: italic;
+            color: #718096;
+            font-size: 0.9em;
+        }
+        .prosign-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .prosign-table th, .prosign-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .prosign-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .prosign-table .prosign {
+            font-family: monospace;
+            font-weight: bold;
+            color: #d53f8c;
+        }
+        .prosign-table .code {
+            font-family: monospace;
+            color: #c53030;
+        }
+        .qso-example {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.6;
+        }
+        .qso-example .cq { color: #f6ad55; }
+        .qso-example .call { color: #63b3ed; }
+        .qso-example .info { color: #68d391; }
+        .qso-example .prosign { color: #fc8181; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .abbrev-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .abbrev-table th, .abbrev-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .abbrev-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .abbrev-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .abbrev-table .abbr {
+            font-weight: bold;
+            font-family: monospace;
+            color: #2c5282;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .letter-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .letter-card .letter {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .letter-card .morse {
+            font-family: monospace;
+            font-size: 1.2em;
+            color: #c53030;
+            letter-spacing: 2px;
+        }
+        .timing-diagram {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+        }
+        .learning-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .learning-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Basic CW Reference
+    </nav>
+    
+    <article>
+        <h1>Basic CW Reference</h1>
+        
+        <section class="summary">
+            <p>Quick reference for Morse code (CW), prosigns, Q-signals, and common abbreviations used in amateur radio CW operations.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#alphabet">Morse Code Alphabet</a></li>
+                <li><a href="#numbers">Numbers</a></li>
+                <li><a href="#punctuation">Punctuation</a></li>
+                <li><a href="#prosigns">Prosigns</a></li>
+                <li><a href="#qsignals">Q-Signals</a></li>
+                <li><a href="#abbreviations">Common Abbreviations</a></li>
+                <li><a href="#qso">Sample QSO</a></li>
+                <li><a href="#timing">Timing</a></li>
+                <li><a href="#learning">Learning CW</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="alphabet">Morse Code Alphabet</h2>
+        
+        <div class="quick-ref">
+            <div class="letter-card"><div class="letter">A</div><div class="morse">·−</div></div>
+            <div class="letter-card"><div class="letter">B</div><div class="morse">−···</div></div>
+            <div class="letter-card"><div class="letter">C</div><div class="morse">−·−·</div></div>
+            <div class="letter-card"><div class="letter">D</div><div class="morse">−··</div></div>
+            <div class="letter-card"><div class="letter">E</div><div class="morse">·</div></div>
+            <div class="letter-card"><div class="letter">F</div><div class="morse">··−·</div></div>
+            <div class="letter-card"><div class="letter">G</div><div class="morse">−−·</div></div>
+            <div class="letter-card"><div class="letter">H</div><div class="morse">····</div></div>
+            <div class="letter-card"><div class="letter">I</div><div class="morse">··</div></div>
+            <div class="letter-card"><div class="letter">J</div><div class="morse">·−−−</div></div>
+            <div class="letter-card"><div class="letter">K</div><div class="morse">−·−</div></div>
+            <div class="letter-card"><div class="letter">L</div><div class="morse">·−··</div></div>
+            <div class="letter-card"><div class="letter">M</div><div class="morse">−−</div></div>
+            <div class="letter-card"><div class="letter">N</div><div class="morse">−·</div></div>
+            <div class="letter-card"><div class="letter">O</div><div class="morse">−−−</div></div>
+            <div class="letter-card"><div class="letter">P</div><div class="morse">·−−·</div></div>
+            <div class="letter-card"><div class="letter">Q</div><div class="morse">−−·−</div></div>
+            <div class="letter-card"><div class="letter">R</div><div class="morse">·−·</div></div>
+            <div class="letter-card"><div class="letter">S</div><div class="morse">···</div></div>
+            <div class="letter-card"><div class="letter">T</div><div class="morse">−</div></div>
+            <div class="letter-card"><div class="letter">U</div><div class="morse">··−</div></div>
+            <div class="letter-card"><div class="letter">V</div><div class="morse">···−</div></div>
+            <div class="letter-card"><div class="letter">W</div><div class="morse">·−−</div></div>
+            <div class="letter-card"><div class="letter">X</div><div class="morse">−··−</div></div>
+            <div class="letter-card"><div class="letter">Y</div><div class="morse">−·−−</div></div>
+            <div class="letter-card"><div class="letter">Z</div><div class="morse">−−··</div></div>
+        </div>
+
+        <h2 id="numbers">Numbers</h2>
+        
+        <div class="quick-ref">
+            <div class="letter-card"><div class="letter">1</div><div class="morse">·−−−−</div></div>
+            <div class="letter-card"><div class="letter">2</div><div class="morse">··−−−</div></div>
+            <div class="letter-card"><div class="letter">3</div><div class="morse">···−−</div></div>
+            <div class="letter-card"><div class="letter">4</div><div class="morse">····−</div></div>
+            <div class="letter-card"><div class="letter">5</div><div class="morse">·····</div></div>
+            <div class="letter-card"><div class="letter">6</div><div class="morse">−····</div></div>
+            <div class="letter-card"><div class="letter">7</div><div class="morse">−−···</div></div>
+            <div class="letter-card"><div class="letter">8</div><div class="morse">−−−··</div></div>
+            <div class="letter-card"><div class="letter">9</div><div class="morse">−−−−·</div></div>
+            <div class="letter-card"><div class="letter">0</div><div class="morse">−−−−−</div></div>
+        </div>
+
+        <div class="tip">
+            <strong>Number Pattern:</strong> Numbers follow a pattern. 1-5 start with dits, 6-0 start with dahs. The digit tells you how many leading dits or dahs.
+        </div>
+
+        <h2 id="punctuation">Punctuation</h2>
+        
+        <table class="morse-table">
+            <thead>
+                <tr><th>Symbol</th><th>Morse</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="char">.</td><td class="code">·−·−·−</td><td>Period (Full Stop)</td></tr>
+                <tr><td class="char">,</td><td class="code">−−··−−</td><td>Comma</td></tr>
+                <tr><td class="char">?</td><td class="code">··−−··</td><td>Question Mark</td></tr>
+                <tr><td class="char">'</td><td class="code">·−−−−·</td><td>Apostrophe</td></tr>
+                <tr><td class="char">!</td><td class="code">−·−·−−</td><td>Exclamation</td></tr>
+                <tr><td class="char">/</td><td class="code">−··−·</td><td>Slash</td></tr>
+                <tr><td class="char">(</td><td class="code">−·−−·</td><td>Open Parenthesis</td></tr>
+                <tr><td class="char">)</td><td class="code">−·−−·−</td><td>Close Parenthesis</td></tr>
+                <tr><td class="char">&</td><td class="code">·−···</td><td>Ampersand (Wait)</td></tr>
+                <tr><td class="char">:</td><td class="code">−−−···</td><td>Colon</td></tr>
+                <tr><td class="char">;</td><td class="code">−·−·−·</td><td>Semicolon</td></tr>
+                <tr><td class="char">=</td><td class="code">−···−</td><td>Equals / Break</td></tr>
+                <tr><td class="char">+</td><td class="code">·−·−·</td><td>Plus / End of Message</td></tr>
+                <tr><td class="char">−</td><td class="code">−····−</td><td>Hyphen/Minus</td></tr>
+                <tr><td class="char">_</td><td class="code">··−−·−</td><td>Underscore</td></tr>
+                <tr><td class="char">"</td><td class="code">·−··−·</td><td>Quotation Mark</td></tr>
+                <tr><td class="char">@</td><td class="code">·−−·−·</td><td>At Sign</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="prosigns">Prosigns</h2>
+        
+        <p>Prosigns are procedural signals sent as a single character (no space between letters):</p>
+
+        <table class="prosign-table">
+            <thead>
+                <tr><th>Prosign</th><th>Morse</th><th>Meaning</th><th>Usage</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">AR</span></td>
+                    <td class="code">·−·−·</td>
+                    <td>End of Message</td>
+                    <td>Signals end of transmission, your turn</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">AS</span></td>
+                    <td class="code">·−···</td>
+                    <td>Wait / Stand By</td>
+                    <td>Please wait, I'll be back</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">BK</span></td>
+                    <td class="code">−···−·−</td>
+                    <td>Break</td>
+                    <td>Interrupt, back to you for quick reply</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">BT</span></td>
+                    <td class="code">−···−</td>
+                    <td>Separator</td>
+                    <td>Separates sections of message (like new paragraph)</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">CL</span></td>
+                    <td class="code">−·−··−··</td>
+                    <td>Closing Station</td>
+                    <td>Going off the air completely</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">CT</span></td>
+                    <td class="code">−·−·−</td>
+                    <td>Attention / Start</td>
+                    <td>Start of new message</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">KN</span></td>
+                    <td class="code">−·−−·</td>
+                    <td>Over (specific)</td>
+                    <td>Only the station called should respond</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">SK</span></td>
+                    <td class="code">···−·−</td>
+                    <td>End of Contact</td>
+                    <td>Final sign-off, QSO complete</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">SN</span></td>
+                    <td class="code">···−·</td>
+                    <td>Understood</td>
+                    <td>I understand (same as VE)</td>
+                </tr>
+                <tr>
+                    <td class="prosign"><span style="text-decoration:overline">SOS</span></td>
+                    <td class="code">···−−−···</td>
+                    <td>Distress</td>
+                    <td>International distress signal</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Prosign Notation:</strong> The overline indicates letters sent without space between them, as a single character. <span style="text-decoration:overline">AR</span> is different from A R (two letters).
+        </div>
+
+        <h2 id="qsignals">Q-Signals</h2>
+        
+        <p>Q-signals are three-letter codes starting with Q. Adding ? makes it a question:</p>
+
+        <table class="abbrev-table">
+            <thead>
+                <tr><th>Q-Signal</th><th>Question (?)</th><th>Statement</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="abbr">QRL</td><td>Is the frequency busy?</td><td>The frequency is busy</td></tr>
+                <tr><td class="abbr">QRM</td><td>Is there interference?</td><td>There is interference</td></tr>
+                <tr><td class="abbr">QRN</td><td>Is there static?</td><td>There is static</td></tr>
+                <tr><td class="abbr">QRO</td><td>Shall I increase power?</td><td>Increase power</td></tr>
+                <tr><td class="abbr">QRP</td><td>Shall I decrease power?</td><td>Decrease power / Low power</td></tr>
+                <tr><td class="abbr">QRQ</td><td>Shall I send faster?</td><td>Send faster</td></tr>
+                <tr><td class="abbr">QRS</td><td>Shall I send slower?</td><td>Send slower</td></tr>
+                <tr><td class="abbr">QRT</td><td>Shall I stop sending?</td><td>Stop sending / Going off air</td></tr>
+                <tr><td class="abbr">QRU</td><td>Do you have anything?</td><td>I have nothing for you</td></tr>
+                <tr><td class="abbr">QRV</td><td>Are you ready?</td><td>I am ready</td></tr>
+                <tr><td class="abbr">QRX</td><td>When will you call again?</td><td>I will call again at...</td></tr>
+                <tr><td class="abbr">QRZ</td><td>Who is calling me?</td><td>You are being called by...</td></tr>
+                <tr><td class="abbr">QSB</td><td>Is my signal fading?</td><td>Your signal is fading</td></tr>
+                <tr><td class="abbr">QSL</td><td>Can you acknowledge?</td><td>I acknowledge receipt</td></tr>
+                <tr><td class="abbr">QSO</td><td>Can you communicate?</td><td>I can communicate with...</td></tr>
+                <tr><td class="abbr">QSP</td><td>Will you relay?</td><td>I will relay to...</td></tr>
+                <tr><td class="abbr">QST</td><td>—</td><td>General call to all amateurs</td></tr>
+                <tr><td class="abbr">QSY</td><td>Shall I change frequency?</td><td>Change frequency to...</td></tr>
+                <tr><td class="abbr">QTH</td><td>What is your location?</td><td>My location is...</td></tr>
+                <tr><td class="abbr">QTR</td><td>What is the time?</td><td>The time is...</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="abbreviations">Common Abbreviations</h2>
+        
+        <table class="abbrev-table">
+            <thead>
+                <tr><th>Abbrev</th><th>Meaning</th><th>Abbrev</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="abbr">ABT</td><td>About</td><td class="abbr">AGN</td><td>Again</td></tr>
+                <tr><td class="abbr">ANT</td><td>Antenna</td><td class="abbr">BK</td><td>Break</td></tr>
+                <tr><td class="abbr">BTU</td><td>Back to you</td><td class="abbr">CFM</td><td>Confirm</td></tr>
+                <tr><td class="abbr">CL</td><td>Call / Closing</td><td class="abbr">CQ</td><td>General call</td></tr>
+                <tr><td class="abbr">CU</td><td>See you</td><td class="abbr">CUL</td><td>See you later</td></tr>
+                <tr><td class="abbr">DE</td><td>From</td><td class="abbr">DX</td><td>Distance</td></tr>
+                <tr><td class="abbr">ES</td><td>And</td><td class="abbr">FB</td><td>Fine business (good)</td></tr>
+                <tr><td class="abbr">GA</td><td>Good afternoon/Go ahead</td><td class="abbr">GE</td><td>Good evening</td></tr>
+                <tr><td class="abbr">GM</td><td>Good morning</td><td class="abbr">GN</td><td>Good night</td></tr>
+                <tr><td class="abbr">GUD</td><td>Good</td><td class="abbr">HI</td><td>Laughter</td></tr>
+                <tr><td class="abbr">HR</td><td>Here</td><td class="abbr">HW</td><td>How</td></tr>
+                <tr><td class="abbr">K</td><td>Over (go ahead)</td><td class="abbr">MSG</td><td>Message</td></tr>
+                <tr><td class="abbr">NIL</td><td>Nothing</td><td class="abbr">NR</td><td>Number</td></tr>
+                <tr><td class="abbr">NW</td><td>Now</td><td class="abbr">OB</td><td>Old boy</td></tr>
+                <tr><td class="abbr">OM</td><td>Old man</td><td class="abbr">OP</td><td>Operator</td></tr>
+                <tr><td class="abbr">PSE</td><td>Please</td><td class="abbr">PWR</td><td>Power</td></tr>
+                <tr><td class="abbr">R</td><td>Roger (received)</td><td class="abbr">RIG</td><td>Station equipment</td></tr>
+                <tr><td class="abbr">RPT</td><td>Repeat</td><td class="abbr">RST</td><td>Signal report</td></tr>
+                <tr><td class="abbr">RX</td><td>Receiver</td><td class="abbr">SIG</td><td>Signal</td></tr>
+                <tr><td class="abbr">SRI</td><td>Sorry</td><td class="abbr">TNX</td><td>Thanks</td></tr>
+                <tr><td class="abbr">TU</td><td>Thank you</td><td class="abbr">TX</td><td>Transmitter</td></tr>
+                <tr><td class="abbr">UR</td><td>Your</td><td class="abbr">VY</td><td>Very</td></tr>
+                <tr><td class="abbr">WX</td><td>Weather</td><td class="abbr">XYL</td><td>Wife</td></tr>
+                <tr><td class="abbr">YL</td><td>Young lady</td><td class="abbr">73</td><td>Best regards</td></tr>
+                <tr><td class="abbr">88</td><td>Love and kisses</td><td class="abbr">99</td><td>Go away!</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="qso">Sample QSO</h2>
+        
+        <div class="qso-example">
+<span class="cq">CQ CQ CQ</span> <span class="prosign">DE</span> <span class="call">VA2OPS VA2OPS VA2OPS</span> <span class="prosign">K</span>
+
+<span class="call">VA2OPS</span> <span class="prosign">DE</span> <span class="call">W1ABC W1ABC</span> <span class="prosign">KN</span>
+
+<span class="call">W1ABC</span> <span class="prosign">DE</span> <span class="call">VA2OPS</span> <span class="info">GM ES TNX FER CALL</span>
+<span class="info">UR RST 579 579 QTH GRANBY QC</span>
+<span class="info">NAME SYLVAIN SYLVAIN HW CPY?</span> <span class="prosign">BT</span>
+<span class="call">W1ABC</span> <span class="prosign">DE</span> <span class="call">VA2OPS</span> <span class="prosign">KN</span>
+
+<span class="call">VA2OPS</span> <span class="prosign">DE</span> <span class="call">W1ABC</span> <span class="info">R R TNX FER RPT</span>
+<span class="info">UR RST 569 569 QTH BOSTON MA</span>
+<span class="info">NAME JOHN JOHN RIG ICOM PWR 100W ANT DIPOLE</span>
+<span class="info">WX HR SUNNY ES WARM</span> <span class="prosign">BT</span>
+<span class="call">VA2OPS</span> <span class="prosign">DE</span> <span class="call">W1ABC</span> <span class="prosign">KN</span>
+
+<span class="call">W1ABC</span> <span class="prosign">DE</span> <span class="call">VA2OPS</span> <span class="info">R R FB JOHN</span>
+<span class="info">RIG HR YAESU 100W ANT EFHW</span>
+<span class="info">VY GUD TO MEET U</span>
+<span class="info">TNX FER QSO 73 ES GUD DX</span> <span class="prosign">BT</span>
+<span class="call">W1ABC</span> <span class="prosign">DE</span> <span class="call">VA2OPS</span> <span class="prosign">SK</span>
+
+<span class="call">VA2OPS</span> <span class="prosign">DE</span> <span class="call">W1ABC</span> <span class="info">TU FER FB QSO SYLVAIN</span>
+<span class="info">73 ES HPE CUAGN</span> <span class="prosign">SK</span>
+<span class="call">VA2OPS</span> <span class="prosign">DE</span> <span class="call">W1ABC</span> <span class="prosign">CL</span>
+        </div>
+
+        <h2 id="timing">Timing</h2>
+        
+        <div class="timing-diagram">
+MORSE TIMING (in dit units):
+
+Dit  = 1 unit     ·
+Dah  = 3 units    ───
+
+Intra-character gap = 1 unit (between dits/dahs of same letter)
+Inter-character gap = 3 units (between letters)
+Inter-word gap      = 7 units (between words)
+
+Example: "CW" at 20 WPM
+
+C          W
+─·─·   ·──
+|||│|||│   │││
+321 1 321 7 1 3 3
+
+DAH dit DAH dit [3 units] dit DAH DAH
+        </div>
+
+        <h3>Speed Reference</h3>
+        <table class="abbrev-table">
+            <thead>
+                <tr><th>WPM</th><th>Character</th><th>Typical Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>5</td><td>Beginner</td><td>Learning code</td></tr>
+                <tr><td>10-13</td><td>Slow</td><td>Relaxed QSO, QRS</td></tr>
+                <tr><td>15-18</td><td>Medium</td><td>Comfortable QSO</td></tr>
+                <tr><td>20-25</td><td>Standard</td><td>Normal operating</td></tr>
+                <tr><td>30-40</td><td>Fast</td><td>Experienced ops, contests</td></tr>
+                <tr><td>40+</td><td>Very Fast</td><td>Contests, traffic handling</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="learning">Learning CW</h2>
+        
+        <div class="learning-box">
+            <h4>📚 Learning Resources</h4>
+            <ul>
+                <li><strong>LCWO.net</strong> - Learn CW Online (Koch method)</li>
+                <li><strong>Morse Mania</strong> - Mobile app</li>
+                <li><strong>Just Learn Morse Code</strong> - Windows software</li>
+                <li><strong>CW Academy</strong> - CWops classes (free)</li>
+                <li><strong>Long Island CW Club</strong> - Zoom classes</li>
+                <li><strong>Morse Code Ninja</strong> - YouTube practice</li>
+            </ul>
+        </div>
+
+        <h3>Learning Tips</h3>
+        <ul>
+            <li><strong>Learn by sound</strong> - Don't count dits and dahs</li>
+            <li><strong>Start at target speed</strong> - Use Farnsworth spacing</li>
+            <li><strong>Practice daily</strong> - 15-30 minutes consistent beats marathon sessions</li>
+            <li><strong>Copy on paper</strong> - Then verify</li>
+            <li><strong>Listen to real QSOs</strong> - WebSDRs, on-air practice</li>
+            <li><strong>Send what you copy</strong> - Reinforces learning</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Koch Method:</strong> Learn two characters at full speed, add one character when you reach 90% accuracy. Don't memorize lookup tables!
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="phonetic-alphabet.html">Phonetic Alphabet & Prowords</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Handbook, ITU Morse Code Standard</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

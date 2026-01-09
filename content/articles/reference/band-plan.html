@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Plan Quick Reference - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .band-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .band-table th, .band-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .band-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .band-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .band-table .cw { background: #fed7d7; }
+        .band-table .digital { background: #fefcbf; }
+        .band-table .phone { background: #c6f6d5; }
+        .band-table .all { background: #bee3f8; }
+        .band-table .satellite { background: #e9d8fd; }
+        .band-header {
+            background: #4a5568 !important;
+            color: white;
+            font-weight: bold;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+        }
+        .calling-freq {
+            background: #fff5f5;
+            border: 2px solid #c53030;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .calling-freq h4 {
+            margin-top: 0;
+            color: #c53030;
+        }
+        .freq-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .freq-card h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .mode-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        @media (max-width: 600px) {
+            .mode-list { columns: 1; }
+            .band-table { font-size: 0.8em; }
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .quick-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .quick-card .band {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .quick-card .range {
+            font-size: 0.85em;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Band Plan Quick Reference
+    </nav>
+    
+    <article>
+        <h1>Band Plan Quick Reference</h1>
+        
+        <section class="summary">
+            <p>Quick reference for amateur radio band plans. Know where to operate for each mode and license class. Based on ARRL band plans for ITU Region 2 (Americas).</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#hf">HF Bands (160m - 10m)</a></li>
+                <li><a href="#vhf">VHF Bands (6m, 2m, 1.25m)</a></li>
+                <li><a href="#uhf">UHF Bands (70cm, 33cm, 23cm)</a></li>
+                <li><a href="#calling">Calling Frequencies</a></li>
+                <li><a href="#emcomm">EmComm Frequencies</a></li>
+                <li><a href="#modes">Mode Reference</a></li>
+            </ul>
+        </nav>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-box cw"></div> CW Only</div>
+            <div class="legend-item"><div class="legend-box digital"></div> CW + Digital</div>
+            <div class="legend-item"><div class="legend-box phone"></div> Phone (Voice)</div>
+            <div class="legend-item"><div class="legend-box all"></div> All Modes</div>
+            <div class="legend-item"><div class="legend-box satellite"></div> Satellite</div>
+        </div>
+
+        <h2 id="hf">HF Bands</h2>
+        
+        <h3>160 Meters (1.8 - 2.0 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>1.800 - 1.900</td><td>E, A, G</td><td>CW</td><td></td></tr>
+                <tr class="phone"><td>1.800 - 2.000</td><td>E, A, G</td><td>CW, Phone, Digital</td><td>Phone ≥1.843</td></tr>
+            </tbody>
+        </table>
+
+        <h3>80 Meters (3.5 - 4.0 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>3.500 - 3.600</td><td>E, A, G</td><td>CW, Digital</td><td></td></tr>
+                <tr class="cw"><td>3.525 - 3.600</td><td>T (CW only)</td><td>CW</td><td>Tech CW segment</td></tr>
+                <tr class="phone"><td>3.600 - 3.700</td><td>E, A</td><td>CW, Phone, Digital</td><td></td></tr>
+                <tr class="phone"><td>3.700 - 3.800</td><td>E, A</td><td>CW, Phone, Digital</td><td></td></tr>
+                <tr class="phone"><td>3.800 - 4.000</td><td>E, A, G</td><td>CW, Phone, Digital</td><td>General+ phone</td></tr>
+            </tbody>
+        </table>
+        <p><em>80m primary use: Regional/local night, NVIS, EmComm nets</em></p>
+
+        <h3>60 Meters (5 MHz Channels)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Channel</th><th>Frequency</th><th>License</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="all"><td>1</td><td>5.330.5 kHz</td><td>G, A, E</td><td>Calling frequency</td></tr>
+                <tr class="all"><td>2</td><td>5.346.5 kHz</td><td>G, A, E</td><td>EmComm secondary</td></tr>
+                <tr class="all"><td>3</td><td>5.357.0 kHz</td><td>G, A, E</td><td></td></tr>
+                <tr class="all"><td>4</td><td>5.371.5 kHz</td><td>G, A, E</td><td></td></tr>
+                <tr class="all"><td>5</td><td>5.403.5 kHz</td><td>G, A, E</td><td></td></tr>
+            </tbody>
+        </table>
+        <p><em>60m: Shared with government, USB only, 100W ERP max, 2.8 kHz bandwidth</em></p>
+
+        <h3>40 Meters (7.0 - 7.3 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>7.000 - 7.025</td><td>E, A, G</td><td>CW, Digital</td><td>DX window</td></tr>
+                <tr class="cw"><td>7.025 - 7.125</td><td>E, A, G, T(CW)</td><td>CW, Digital</td><td></td></tr>
+                <tr class="phone"><td>7.125 - 7.175</td><td>E, A</td><td>CW, Phone, Digital</td><td></td></tr>
+                <tr class="phone"><td>7.175 - 7.300</td><td>E, A, G</td><td>CW, Phone, Digital</td><td>General+ phone</td></tr>
+            </tbody>
+        </table>
+        <p><em>40m primary use: Day/night workhorse, EmComm, regional nets, NVIS day</em></p>
+
+        <h3>30 Meters (10.1 - 10.15 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="digital"><td>10.100 - 10.150</td><td>E, A, G</td><td>CW, Digital</td><td>200W max, no phone</td></tr>
+            </tbody>
+        </table>
+        <p><em>30m: WARC band, no contests, excellent for digital modes</em></p>
+
+        <h3>20 Meters (14.0 - 14.35 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>14.000 - 14.025</td><td>E, A, G</td><td>CW</td><td>DX window</td></tr>
+                <tr class="digital"><td>14.025 - 14.150</td><td>E, A, G</td><td>CW, Digital</td><td>FT8: 14.074</td></tr>
+                <tr class="phone"><td>14.150 - 14.175</td><td>E</td><td>CW, Phone, Digital</td><td>Extra only</td></tr>
+                <tr class="phone"><td>14.175 - 14.225</td><td>E, A</td><td>CW, Phone, Digital</td><td></td></tr>
+                <tr class="phone"><td>14.225 - 14.350</td><td>E, A, G</td><td>CW, Phone, Digital</td><td>General+ phone</td></tr>
+            </tbody>
+        </table>
+        <p><em>20m primary use: DX, daytime long-distance, primary HF band</em></p>
+
+        <h3>17 Meters (18.068 - 18.168 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>18.068 - 18.110</td><td>E, A, G</td><td>CW, Digital</td><td>FT8: 18.100</td></tr>
+                <tr class="phone"><td>18.110 - 18.168</td><td>E, A, G</td><td>CW, Phone, Digital</td><td></td></tr>
+            </tbody>
+        </table>
+        <p><em>17m: WARC band, no contests, good DX when open</em></p>
+
+        <h3>15 Meters (21.0 - 21.45 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>21.000 - 21.025</td><td>E, A, G</td><td>CW</td><td></td></tr>
+                <tr class="digital"><td>21.025 - 21.200</td><td>E, A, G, T(CW)</td><td>CW, Digital</td><td>FT8: 21.074</td></tr>
+                <tr class="phone"><td>21.200 - 21.225</td><td>E</td><td>CW, Phone, Digital</td><td>Extra only</td></tr>
+                <tr class="phone"><td>21.225 - 21.275</td><td>E, A</td><td>CW, Phone, Digital</td><td></td></tr>
+                <tr class="phone"><td>21.275 - 21.450</td><td>E, A, G</td><td>CW, Phone, Digital</td><td>General+ phone</td></tr>
+            </tbody>
+        </table>
+        <p><em>15m: Daytime DX, follows solar cycle, great during high sunspots</em></p>
+
+        <h3>12 Meters (24.89 - 24.99 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>24.890 - 24.930</td><td>E, A, G</td><td>CW, Digital</td><td>FT8: 24.915</td></tr>
+                <tr class="phone"><td>24.930 - 24.990</td><td>E, A, G</td><td>CW, Phone, Digital</td><td></td></tr>
+            </tbody>
+        </table>
+        <p><em>12m: WARC band, no contests, solar cycle dependent</em></p>
+
+        <h3>10 Meters (28.0 - 29.7 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>28.000 - 28.300</td><td>E, A, G, T(CW)</td><td>CW, Digital</td><td>FT8: 28.074</td></tr>
+                <tr class="phone"><td>28.300 - 28.500</td><td>E, A, G, T</td><td>CW, Phone, Digital</td><td>Tech+ phone!</td></tr>
+                <tr class="phone"><td>28.500 - 29.700</td><td>E, A, G, T</td><td>CW, Phone, Digital</td><td>FM: 29.6</td></tr>
+            </tbody>
+        </table>
+        <p><em>10m: Technicians have phone! Great during solar max, sporadic E openings</em></p>
+
+        <h2 id="vhf">VHF Bands</h2>
+        
+        <h3>6 Meters (50 - 54 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>License</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>50.000 - 50.100</td><td>E, A, G, T</td><td>CW</td><td>Beacons</td></tr>
+                <tr class="digital"><td>50.100 - 50.300</td><td>E, A, G, T</td><td>CW, SSB</td><td>DX window, FT8: 50.313</td></tr>
+                <tr class="all"><td>50.300 - 50.600</td><td>E, A, G, T</td><td>All</td><td></td></tr>
+                <tr class="all"><td>50.600 - 51.000</td><td>E, A, G, T</td><td>All</td><td>Digital/experimental</td></tr>
+                <tr class="all"><td>51.000 - 54.000</td><td>E, A, G, T</td><td>All</td><td>FM repeaters, simplex</td></tr>
+            </tbody>
+        </table>
+        <p><em>6m "Magic Band": Sporadic E, tropo, aurora openings - unpredictable DX!</em></p>
+
+        <h3>2 Meters (144 - 148 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>144.000 - 144.100</td><td>CW, EME</td><td>Moonbounce, beacons</td></tr>
+                <tr class="digital"><td>144.100 - 144.275</td><td>CW, SSB</td><td>Weak signal, FT8: 144.174</td></tr>
+                <tr class="all"><td>144.275 - 144.300</td><td>Beacons</td><td>Propagation beacons</td></tr>
+                <tr class="satellite"><td>144.300 - 144.500</td><td>Satellite</td><td>Satellite uplinks (new)</td></tr>
+                <tr class="digital"><td>144.500 - 144.600</td><td>Digital</td><td>Linear translator input</td></tr>
+                <tr class="all"><td>144.600 - 144.900</td><td>All</td><td>Mixed modes</td></tr>
+                <tr class="all"><td>144.900 - 145.100</td><td>Packet/Digital</td><td>Packet, Winlink</td></tr>
+                <tr class="all"><td>145.100 - 145.500</td><td>FM Repeater</td><td>Repeater inputs (−600)</td></tr>
+                <tr class="all"><td>145.500 - 145.800</td><td>Misc</td><td>Experimental, links</td></tr>
+                <tr class="satellite"><td>145.800 - 146.000</td><td>Satellite</td><td>Satellite downlinks</td></tr>
+                <tr class="all"><td>146.000 - 146.400</td><td>FM Repeater</td><td>Repeater outputs (+600)</td></tr>
+                <tr class="all"><td>146.400 - 146.600</td><td>FM Simplex</td><td><strong>146.520 = Calling</strong></td></tr>
+                <tr class="all"><td>146.600 - 147.000</td><td>FM Repeater</td><td>Repeater outputs (−600)</td></tr>
+                <tr class="all"><td>147.000 - 147.400</td><td>FM Repeater</td><td>Repeater outputs (+600)</td></tr>
+                <tr class="all"><td>147.400 - 147.600</td><td>FM Simplex</td><td>Simplex channels</td></tr>
+                <tr class="all"><td>147.600 - 148.000</td><td>FM Repeater</td><td>Repeater inputs (+600)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>1.25 Meters (222 - 225 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>222.000 - 222.150</td><td>CW, SSB</td><td>Weak signal</td></tr>
+                <tr class="all"><td>222.150 - 223.400</td><td>All</td><td>Mixed</td></tr>
+                <tr class="all"><td>223.400 - 223.520</td><td>FM Simplex</td><td>223.500 = Calling</td></tr>
+                <tr class="all"><td>223.520 - 225.000</td><td>FM Repeater</td><td>Repeaters (−1.6 MHz)</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="uhf">UHF Bands</h2>
+        
+        <h3>70 Centimeters (420 - 450 MHz)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="cw"><td>420.000 - 426.000</td><td>ATV</td><td>Amateur TV</td></tr>
+                <tr class="cw"><td>426.000 - 432.000</td><td>ATV</td><td>Amateur TV</td></tr>
+                <tr class="cw"><td>432.000 - 432.100</td><td>CW, EME</td><td>Moonbounce</td></tr>
+                <tr class="digital"><td>432.100 - 433.000</td><td>CW, SSB</td><td>Weak signal, FT8: 432.174</td></tr>
+                <tr class="all"><td>433.000 - 435.000</td><td>Mixed</td><td>Aux links, control</td></tr>
+                <tr class="satellite"><td>435.000 - 438.000</td><td>Satellite</td><td>Satellite only</td></tr>
+                <tr class="all"><td>438.000 - 444.000</td><td>ATV, Links</td><td></td></tr>
+                <tr class="all"><td>444.000 - 445.000</td><td>FM Repeater</td><td>Repeater inputs (+5)</td></tr>
+                <tr class="all"><td>445.000 - 446.000</td><td>FM Simplex</td><td><strong>446.000 = Calling</strong></td></tr>
+                <tr class="all"><td>446.000 - 447.000</td><td>FM Simplex</td><td>Simplex continues</td></tr>
+                <tr class="all"><td>447.000 - 450.000</td><td>FM Repeater</td><td>Repeater outputs (+5)</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="calling">Calling Frequencies</h2>
+        
+        <div class="calling-freq">
+            <h4>📞 National/International Calling Frequencies</h4>
+            <div class="quick-ref">
+                <div class="quick-card">
+                    <div class="band">3.860</div>
+                    <div class="range">80m SSB (LSB)</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">7.200</div>
+                    <div class="range">40m SSB (LSB)</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">14.300</div>
+                    <div class="range">20m SSB (USB)</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">52.525</div>
+                    <div class="range">6m FM</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">146.520</div>
+                    <div class="range">2m FM Simplex</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">223.500</div>
+                    <div class="range">1.25m FM</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">446.000</div>
+                    <div class="range">70cm FM Simplex</div>
+                </div>
+                <div class="quick-card">
+                    <div class="band">1294.500</div>
+                    <div class="range">23cm FM</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="emcomm">EmComm Frequencies</h2>
+        
+        <div class="freq-card">
+            <h4>🚨 Emergency/EmComm Frequencies</h4>
+            <table class="band-table">
+                <thead>
+                    <tr><th>Frequency</th><th>Band</th><th>Use</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>3.860 MHz</td><td>80m</td><td>ARES/RACES nets (night)</td></tr>
+                    <tr><td>3.923 MHz</td><td>80m</td><td>EmComm/NTS (night)</td></tr>
+                    <tr><td>5.330.5 MHz</td><td>60m Ch1</td><td>Interop calling</td></tr>
+                    <tr><td>5.346.5 MHz</td><td>60m Ch2</td><td>EmComm secondary</td></tr>
+                    <tr><td>7.185 MHz</td><td>40m</td><td>SATERN (Salvation Army)</td></tr>
+                    <tr><td>7.232 MHz</td><td>40m</td><td>ARES HF net</td></tr>
+                    <tr><td>7.240 MHz</td><td>40m</td><td>EmComm/Traffic</td></tr>
+                    <tr><td>7.290 MHz</td><td>40m</td><td>NTS Traffic net</td></tr>
+                    <tr><td>14.300 MHz</td><td>20m</td><td>Maritime Mobile/Emergency</td></tr>
+                    <tr><td>14.325 MHz</td><td>20m</td><td>Hurricane Watch Net</td></tr>
+                    <tr><td>146.520 MHz</td><td>2m</td><td>Simplex calling/emergency</td></tr>
+                    <tr><td>446.000 MHz</td><td>70cm</td><td>Simplex calling/emergency</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip">
+            <strong>Monitor These:</strong> Keep 146.520 and your local ARES/RACES repeater in your scan list. These are the first places people call during emergencies.
+        </div>
+
+        <h2 id="modes">Mode Reference</h2>
+        
+        <h3>Sideband Convention</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Frequency</th><th>Sideband</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Below 10 MHz (160m, 80m, 40m)</td><td><strong>LSB</strong> (Lower)</td></tr>
+                <tr><td>10 MHz and above (30m+)</td><td><strong>USB</strong> (Upper)</td></tr>
+                <tr><td>VHF/UHF SSB</td><td><strong>USB</strong></td></tr>
+                <tr><td>60 meters</td><td><strong>USB</strong> (required)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Digital Mode Frequencies (Common)</h3>
+        <table class="band-table">
+            <thead>
+                <tr><th>Band</th><th>FT8</th><th>FT4</th><th>JS8Call</th><th>RTTY</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>80m</td><td>3.573</td><td>3.575</td><td>3.578</td><td>3.580-3.600</td></tr>
+                <tr><td>40m</td><td>7.074</td><td>7.047.5</td><td>7.078</td><td>7.080-7.100</td></tr>
+                <tr><td>30m</td><td>10.136</td><td>10.140</td><td>10.130</td><td>10.140-10.150</td></tr>
+                <tr><td>20m</td><td>14.074</td><td>14.080</td><td>14.078</td><td>14.080-14.100</td></tr>
+                <tr><td>17m</td><td>18.100</td><td>18.104</td><td>18.104</td><td>18.100-18.110</td></tr>
+                <tr><td>15m</td><td>21.074</td><td>21.140</td><td>21.078</td><td>21.080-21.100</td></tr>
+                <tr><td>12m</td><td>24.915</td><td>24.919</td><td>24.922</td><td>24.920-24.930</td></tr>
+                <tr><td>10m</td><td>28.074</td><td>28.180</td><td>28.078</td><td>28.080-28.100</td></tr>
+                <tr><td>6m</td><td>50.313</td><td>50.318</td><td>50.318</td><td>50.300+</td></tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="simplex-operations.html">Simplex Operations Guide</a></li>
+            <li><a href="hf-propagation.html">HF Propagation Basics</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Band Plan, FCC Part 97</p>
+            <p>Note: Band plans are voluntary; regulations define legal limits</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

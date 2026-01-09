@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICS Forms Reference - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .form-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-card h3 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 10px;
+        }
+        .form-card .form-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4299e1;
+            float: right;
+            margin-left: 15px;
+        }
+        .form-sample {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "Courier New", monospace;
+            font-size: 0.9em;
+        }
+        .form-sample .header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .form-sample .field {
+            margin: 8px 0;
+            padding: 5px;
+            border-bottom: 1px dotted #ccc;
+        }
+        .form-sample .field-label {
+            font-weight: bold;
+            color: #4a5568;
+        }
+        .form-sample .field-value {
+            color: #2d3748;
+        }
+        .field-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .field-table th, .field-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .field-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .field-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .ref-card h4 {
+            margin-top: 0;
+            color: #2d3748;
+            border-bottom: 2px solid #ed8936;
+            padding-bottom: 5px;
+        }
+        .download-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        ICS Forms Reference
+    </nav>
+    
+    <article>
+        <h1>ICS Forms Reference</h1>
+        
+        <section class="summary">
+            <p>Quick reference for Incident Command System (ICS) forms commonly used by amateur radio operators during emergency communications. Learn when and how to use ICS-213, ICS-214, ICS-217A, and other essential forms.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">ICS Overview</a></li>
+                <li><a href="#ics213">ICS-213: General Message</a></li>
+                <li><a href="#ics214">ICS-214: Activity Log</a></li>
+                <li><a href="#ics217a">ICS-217A: Communications Resource Availability</a></li>
+                <li><a href="#ics205">ICS-205: Incident Radio Communications Plan</a></li>
+                <li><a href="#ics205a">ICS-205A: Communications List</a></li>
+                <li><a href="#ics309">ICS-309: Communications Log</a></li>
+                <li><a href="#other">Other Useful Forms</a></li>
+                <li><a href="#tips">Tips for Radio Operators</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">ICS Overview</h2>
+        
+        <p>The <strong>Incident Command System (ICS)</strong> is a standardized management system used by emergency responders across North America. Amateur radio operators supporting emergency operations should be familiar with ICS structure and forms.</p>
+
+        <h3>Why ICS Matters for Ham Radio</h3>
+        <ul>
+            <li><strong>Common Language</strong> - Everyone uses the same terminology</li>
+            <li><strong>Interoperability</strong> - Work seamlessly with professional responders</li>
+            <li><strong>Documentation</strong> - Proper records protect everyone</li>
+            <li><strong>Accountability</strong> - Clear chain of command</li>
+            <li><strong>Credibility</strong> - Professional approach builds trust</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Free Training:</strong> Complete FEMA IS-100, IS-200, IS-700, and IS-800 online at <a href="https://training.fema.gov/is/">training.fema.gov</a>. Many ARES/RACES groups require these courses.
+        </div>
+
+        <h3>Forms Most Used by Radio Operators</h3>
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>ICS-213</h4>
+                <p><strong>General Message</strong></p>
+                <p>The workhorse form. Use for any message between positions or locations.</p>
+            </div>
+            <div class="ref-card">
+                <h4>ICS-214</h4>
+                <p><strong>Activity Log</strong></p>
+                <p>Your personal record of activities during the incident.</p>
+            </div>
+            <div class="ref-card">
+                <h4>ICS-217A</h4>
+                <p><strong>Comm Resources</strong></p>
+                <p>Inventory of available radio resources.</p>
+            </div>
+            <div class="ref-card">
+                <h4>ICS-309</h4>
+                <p><strong>Comm Log</strong></p>
+                <p>Log of all radio traffic handled.</p>
+            </div>
+        </div>
+
+        <h2 id="ics213">ICS-213: General Message</h2>
+        
+        <div class="form-card">
+            <span class="form-number">213</span>
+            <h3>General Message Form</h3>
+            <p><strong>Purpose:</strong> Send and receive messages between any positions or locations within the ICS structure. This is the standard form for written communications.</p>
+            <p><strong>When to Use:</strong></p>
+            <ul>
+                <li>Resource requests</li>
+                <li>Status reports</li>
+                <li>Information sharing between positions</li>
+                <li>Any message needing documentation</li>
+                <li>When radiogram format isn't required</li>
+            </ul>
+        </div>
+
+        <h3>ICS-213 Fields</h3>
+        <table class="field-table">
+            <thead>
+                <tr><th>Field</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Incident Name</strong></td><td>Official name of incident</td><td>Hurricane Maria Response</td></tr>
+                <tr><td><strong>To (Position/Location)</strong></td><td>Recipient's ICS position</td><td>Logistics Section Chief</td></tr>
+                <tr><td><strong>From (Position/Location)</strong></td><td>Sender's ICS position</td><td>Shelter Manager, Shelter 3</td></tr>
+                <tr><td><strong>Subject</strong></td><td>Brief topic description</td><td>Water Supply Request</td></tr>
+                <tr><td><strong>Date/Time</strong></td><td>When message created</td><td>2025-01-08 / 1430</td></tr>
+                <tr><td><strong>Message</strong></td><td>The actual content</td><td>(See below)</td></tr>
+                <tr><td><strong>Approved By</strong></td><td>Authorizing signature</td><td>Signature + Position</td></tr>
+                <tr><td><strong>Reply</strong></td><td>Response section</td><td>Used for written reply</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Sample ICS-213</h3>
+        <div class="form-sample">
+            <div class="header">GENERAL MESSAGE (ICS-213)</div>
+            <div class="field"><span class="field-label">1. Incident Name:</span> <span class="field-value">Winter Storm Atlas</span></div>
+            <div class="field"><span class="field-label">2. To:</span> <span class="field-value">Logistics Section Chief</span></div>
+            <div class="field"><span class="field-label">3. From:</span> <span class="field-value">Shelter Manager, Lincoln School Shelter</span></div>
+            <div class="field"><span class="field-label">4. Subject:</span> <span class="field-value">Emergency Supply Request</span></div>
+            <div class="field"><span class="field-label">5. Date:</span> <span class="field-value">2025-01-08</span> <span class="field-label">Time:</span> <span class="field-value">1430</span></div>
+            <div class="field"><span class="field-label">6. Message:</span><br>
+                <span class="field-value">
+                Current population: 127 evacuees<br><br>
+                Request the following supplies:<br>
+                - 50 blankets (current supply exhausted)<br>
+                - 200 bottles of water<br>
+                - 50 MREs or equivalent meals<br>
+                - 1 case of infant formula<br><br>
+                Priority: HIGH - Expecting 50 additional evacuees by 1800.
+                </span>
+            </div>
+            <div class="field"><span class="field-label">7. Approved By:</span> <span class="field-value">J. Smith, Shelter Manager</span></div>
+            <div class="field"><span class="field-label">8. Date/Time:</span> <span class="field-value">2025-01-08 / 1435</span></div>
+        </div>
+
+        <h3>ICS-213 vs Radiogram</h3>
+        <table class="field-table">
+            <thead>
+                <tr><th>ICS-213</th><th>ARRL Radiogram</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ICS/FEMA standard</td><td>Amateur radio standard</td></tr>
+                <tr><td>Position-based addressing</td><td>Name/address-based</td></tr>
+                <tr><td>Free-form message text</td><td>Counted word format</td></tr>
+                <tr><td>Used within incident</td><td>Used for NTS/outside traffic</td></tr>
+                <tr><td>No word count required</td><td>Strict word count (check)</td></tr>
+                <tr><td>Reply section included</td><td>Separate reply message</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>When to Use Which:</strong> Use ICS-213 for internal incident communications. Use radiogram format for NTS traffic or messages leaving the incident area through amateur radio networks.
+        </div>
+
+        <h2 id="ics214">ICS-214: Activity Log</h2>
+        
+        <div class="form-card">
+            <span class="form-number">214</span>
+            <h3>Activity Log</h3>
+            <p><strong>Purpose:</strong> Document individual or unit activities during an operational period. Your personal record of what you did.</p>
+            <p><strong>When to Use:</strong></p>
+            <ul>
+                <li>Throughout your entire deployment</li>
+                <li>Document arrival and departure times</li>
+                <li>Record significant events and actions</li>
+                <li>Note any safety issues or incidents</li>
+                <li>Track resources used or requested</li>
+            </ul>
+        </div>
+
+        <h3>ICS-214 Fields</h3>
+        <table class="field-table">
+            <thead>
+                <tr><th>Field</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Incident Name</strong></td><td>Official incident name</td></tr>
+                <tr><td><strong>Operational Period</strong></td><td>Date/time range of this log</td></tr>
+                <tr><td><strong>Name</strong></td><td>Your name</td></tr>
+                <tr><td><strong>ICS Position</strong></td><td>Your assigned position</td></tr>
+                <tr><td><strong>Home Agency</strong></td><td>ARES, RACES, Club name, etc.</td></tr>
+                <tr><td><strong>Activity Log</strong></td><td>Time-stamped list of activities</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Sample ICS-214 Entries</h3>
+        <div class="form-sample">
+            <div class="header">ACTIVITY LOG (ICS-214)</div>
+            <div class="field"><span class="field-label">Name:</span> <span class="field-value">Sylvain Deguire</span></div>
+            <div class="field"><span class="field-label">ICS Position:</span> <span class="field-value">Radio Operator, Shelter 3</span></div>
+            <div class="field"><span class="field-label">Home Agency:</span> <span class="field-value">ARES Granby (VA2GCU)</span></div>
+            <div class="field"><span class="field-label">Operational Period:</span> <span class="field-value">2025-01-08 0800 to 2025-01-08 2000</span></div>
+            <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="border-bottom: 1px solid #ccc;">
+                    <th style="text-align:left; padding: 5px;">Time</th>
+                    <th style="text-align:left; padding: 5px;">Activity</th>
+                </tr>
+                <tr><td style="padding: 5px;">0745</td><td style="padding: 5px;">Arrived at Shelter 3, checked in with Shelter Manager</td></tr>
+                <tr><td style="padding: 5px;">0800</td><td style="padding: 5px;">Established radio station on 146.940 repeater, checked into County ARES net</td></tr>
+                <tr><td style="padding: 5px;">0815</td><td style="padding: 5px;">Transmitted shelter status: 45 evacuees, all stable</td></tr>
+                <tr><td style="padding: 5px;">0900</td><td style="padding: 5px;">Received supply request from Shelter Manager, transmitted ICS-213 to Logistics</td></tr>
+                <tr><td style="padding: 5px;">0930</td><td style="padding: 5px;">Confirmed supply delivery ETA 1100</td></tr>
+                <tr><td style="padding: 5px;">1100</td><td style="padding: 5px;">Supplies arrived, confirmed receipt to Logistics</td></tr>
+                <tr><td style="padding: 5px;">1200</td><td style="padding: 5px;">Transmitted updated shelter count: 67 evacuees</td></tr>
+                <tr><td style="padding: 5px;">...</td><td style="padding: 5px;">...</td></tr>
+            </table>
+        </div>
+
+        <div class="warning">
+            <strong>Keep Your Log!</strong> Your ICS-214 is a legal document. It protects you and documents the incident. Be accurate, be thorough, and keep a copy.
+        </div>
+
+        <h2 id="ics217a">ICS-217A: Communications Resource Availability</h2>
+        
+        <div class="form-card">
+            <span class="form-number">217A</span>
+            <h3>Communications Resource Availability Worksheet</h3>
+            <p><strong>Purpose:</strong> Inventory of available radio channels, frequencies, and capabilities. Helps planning section know what communications resources exist.</p>
+            <p><strong>When to Use:</strong></p>
+            <ul>
+                <li>Initial incident setup</li>
+                <li>When asked to inventory comms resources</li>
+                <li>Planning for multi-agency operations</li>
+                <li>Documenting repeater/frequency availability</li>
+            </ul>
+        </div>
+
+        <h3>ICS-217A Sample</h3>
+        <table class="freq-table">
+            <thead>
+                <tr>
+                    <th>Ch#</th>
+                    <th>Function</th>
+                    <th>Frequency</th>
+                    <th>Tone</th>
+                    <th>Assignment</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Command</td>
+                    <td>146.940 (-)</td>
+                    <td>100.0</td>
+                    <td>County EOC Net</td>
+                    <td>Primary, linked</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Tactical 1</td>
+                    <td>146.520</td>
+                    <td>—</td>
+                    <td>Shelter Ops</td>
+                    <td>Simplex, backup</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tactical 2</td>
+                    <td>147.450</td>
+                    <td>—</td>
+                    <td>Mobile Units</td>
+                    <td>Simplex</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Logistics</td>
+                    <td>442.100 (+)</td>
+                    <td>88.5</td>
+                    <td>Supply/Transport</td>
+                    <td>UHF repeater</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>HF Primary</td>
+                    <td>3.860 MHz</td>
+                    <td>LSB</td>
+                    <td>Region Net</td>
+                    <td>80m, night</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>HF Alternate</td>
+                    <td>7.232 MHz</td>
+                    <td>LSB</td>
+                    <td>ARES HF</td>
+                    <td>40m, day</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Winlink</td>
+                    <td>7.102.5 MHz</td>
+                    <td>VARA</td>
+                    <td>Message Traffic</td>
+                    <td>Digital</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="ics205">ICS-205: Incident Radio Communications Plan</h2>
+        
+        <div class="form-card">
+            <span class="form-number">205</span>
+            <h3>Incident Radio Communications Plan</h3>
+            <p><strong>Purpose:</strong> Master plan for all radio communications during the incident. Created by the Communications Unit Leader (COML).</p>
+            <p><strong>For Radio Operators:</strong> You'll receive this form - it tells you what frequencies to use for what purpose. Keep it handy!</p>
+            <p><strong>Contains:</strong></p>
+            <ul>
+                <li>All assigned frequencies/channels</li>
+                <li>Function of each channel</li>
+                <li>Who uses what</li>
+                <li>Special instructions</li>
+            </ul>
+        </div>
+
+        <h2 id="ics205a">ICS-205A: Communications List</h2>
+        
+        <div class="form-card">
+            <span class="form-number">205A</span>
+            <h3>Communications List</h3>
+            <p><strong>Purpose:</strong> Contact information for incident personnel. Phone numbers, radio callsigns, assignments.</p>
+            <p><strong>For Radio Operators:</strong> Use this to know who to contact and how.</p>
+        </div>
+
+        <h3>Sample Entry</h3>
+        <table class="field-table">
+            <thead>
+                <tr><th>Position</th><th>Name</th><th>Phone</th><th>Radio Call</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Incident Commander</td><td>J. Smith</td><td>555-0100</td><td>Command</td></tr>
+                <tr><td>Operations Chief</td><td>M. Jones</td><td>555-0101</td><td>Ops</td></tr>
+                <tr><td>Logistics Chief</td><td>R. Brown</td><td>555-0102</td><td>Logistics</td></tr>
+                <tr><td>COML</td><td>S. Deguire (VA2OPS)</td><td>555-0110</td><td>Radio</td></tr>
+                <tr><td>Shelter 1 Radio</td><td>T. Wilson (W1ABC)</td><td>—</td><td>Shelter 1</td></tr>
+                <tr><td>Shelter 2 Radio</td><td>P. Davis (W2XYZ)</td><td>—</td><td>Shelter 2</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="ics309">ICS-309: Communications Log</h2>
+        
+        <div class="form-card">
+            <span class="form-number">309</span>
+            <h3>Communications Log</h3>
+            <p><strong>Purpose:</strong> Log of all radio traffic. More detailed than ICS-214 for communications specifically.</p>
+            <p><strong>When to Use:</strong> High-traffic operations where detailed message tracking is needed.</p>
+        </div>
+
+        <h3>ICS-309 Columns</h3>
+        <table class="field-table">
+            <thead>
+                <tr><th>Column</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Time</strong></td><td>Time of transmission</td></tr>
+                <tr><td><strong>From</strong></td><td>Transmitting station/position</td></tr>
+                <tr><td><strong>To</strong></td><td>Receiving station/position</td></tr>
+                <tr><td><strong>Subject/Message</strong></td><td>Brief description or full message</td></tr>
+                <tr><td><strong>Method</strong></td><td>Radio, phone, runner, etc.</td></tr>
+                <tr><td><strong>Operator</strong></td><td>Your initials</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="other">Other Useful Forms</h2>
+        
+        <table class="field-table">
+            <thead>
+                <tr><th>Form</th><th>Name</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>ICS-201</strong></td><td>Incident Briefing</td><td>Initial incident overview</td></tr>
+                <tr><td><strong>ICS-202</strong></td><td>Incident Objectives</td><td>Goals for operational period</td></tr>
+                <tr><td><strong>ICS-203</strong></td><td>Organization Assignment</td><td>Who's in what position</td></tr>
+                <tr><td><strong>ICS-204</strong></td><td>Assignment List</td><td>Detailed work assignments</td></tr>
+                <tr><td><strong>ICS-206</strong></td><td>Medical Plan</td><td>Medical resources/procedures</td></tr>
+                <tr><td><strong>ICS-208</strong></td><td>Safety Message</td><td>Safety briefing</td></tr>
+                <tr><td><strong>ICS-211</strong></td><td>Check-In List</td><td>Personnel accountability</td></tr>
+                <tr><td><strong>ICS-215</strong></td><td>Operational Planning</td><td>Resource needs planning</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="tips">Tips for Radio Operators</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>📝 Documentation</h4>
+                <ul>
+                    <li>Always keep your ICS-214</li>
+                    <li>Log EVERY message</li>
+                    <li>Use 24-hour time</li>
+                    <li>Be specific and factual</li>
+                    <li>Keep copies of forms you send</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📋 Form Handling</h4>
+                <ul>
+                    <li>Write legibly (print!)</li>
+                    <li>Use ink, not pencil</li>
+                    <li>Don't erase - strike through errors</li>
+                    <li>Initial any corrections</li>
+                    <li>Fill in ALL fields (or N/A)</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>🔄 Message Flow</h4>
+                <ul>
+                    <li>ICS-213 for formal messages</li>
+                    <li>Read back critical info</li>
+                    <li>Get confirmation of receipt</li>
+                    <li>Track message numbers</li>
+                    <li>Follow up on unanswered messages</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>⚠️ Common Mistakes</h4>
+                <ul>
+                    <li>Not logging routine messages</li>
+                    <li>Illegible handwriting</li>
+                    <li>Missing date/time stamps</li>
+                    <li>Not using official incident name</li>
+                    <li>Forgetting to sign forms</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="download-box">
+            <h4>📥 Download Official Forms</h4>
+            <p>Get official ICS forms from FEMA:</p>
+            <p><a href="https://training.fema.gov/icsresource/icsforms.aspx">https://training.fema.gov/icsresource/icsforms.aspx</a></p>
+            <p><em>Forms are available in fillable PDF format</em></p>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="radiogram-message-handling.html">Radiogram &amp; Message Handling</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="go-kit-checklist.html">Go-Kit Checklist</a></li>
+            <li><a href="../reference/phonetic-alphabet.html">Phonetic Alphabet &amp; Prowords</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: FEMA ICS Forms, ARES Field Resources Manual</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

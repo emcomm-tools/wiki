@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HF Propagation Basics - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .prop-diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .band-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .band-card h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 8px;
+        }
+        .band-card .best {
+            color: #276749;
+            font-weight: bold;
+        }
+        .band-card .fair {
+            color: #c05621;
+        }
+        .band-card .poor {
+            color: #c53030;
+        }
+        .layer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .layer-table th, .layer-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .layer-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .layer-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .time-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .time-chart th, .time-chart td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .time-chart th {
+            background: #4a5568;
+            color: white;
+        }
+        .time-chart .day { background: #fefcbf; }
+        .time-chart .night { background: #2d3748; color: #fff; }
+        .time-chart .transition { background: #fed7d7; }
+        .time-chart .good { background: #c6f6d5; }
+        .time-chart .fair { background: #feebc8; }
+        .time-chart .poor { background: #fed7d7; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .nvis-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .nvis-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .solar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .solar-table th, .solar-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .solar-table th {
+            background: #744210;
+            color: white;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .ref-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        HF Propagation Basics
+    </nav>
+    
+    <article>
+        <h1>HF Propagation Basics</h1>
+        
+        <section class="summary">
+            <p>Understanding how HF radio waves travel and when bands are "open." Essential knowledge for making contacts beyond line-of-sight and planning EmComm operations.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">How HF Propagation Works</a></li>
+                <li><a href="#ionosphere">The Ionosphere</a></li>
+                <li><a href="#modes">Propagation Modes</a></li>
+                <li><a href="#bands">Band-by-Band Guide</a></li>
+                <li><a href="#time">Time of Day Effects</a></li>
+                <li><a href="#nvis">NVIS for EmComm</a></li>
+                <li><a href="#solar">Solar Conditions</a></li>
+                <li><a href="#tools">Propagation Tools</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">How HF Propagation Works</h2>
+        
+        <div class="prop-diagram">
+                          IONOSPHERE (50-400 km)
+    ════════════════════════════════════════════════════════
+         ↗        F2 Layer (250-400 km) ← Long distance
+        ↗         F1 Layer (150-250 km) ← Daytime
+       ↗          E Layer (90-150 km)   ← Sporadic E
+      ↗           D Layer (50-90 km)    ← Absorbs, daytime only
+     ↗
+    📻 ═══════════════════════════════════════════════════► 📻
+    TX        Ground Wave (short range)                    RX
+    
+    Sky Wave: Radio waves bounce off ionosphere layers
+    Ground Wave: Follows earth's surface (limited range)
+        </div>
+
+        <p>HF radio waves can travel long distances by bouncing (refracting) off the ionosphere. This is called <strong>sky wave propagation</strong>. The ionosphere changes constantly based on:</p>
+        <ul>
+            <li><strong>Time of day</strong> - Sunlight ionizes the atmosphere</li>
+            <li><strong>Season</strong> - Sun angle affects ionization</li>
+            <li><strong>Solar activity</strong> - Sunspots, flares, CMEs</li>
+            <li><strong>Frequency</strong> - Different bands behave differently</li>
+        </ul>
+
+        <h2 id="ionosphere">The Ionosphere</h2>
+        
+        <table class="layer-table">
+            <thead>
+                <tr><th>Layer</th><th>Height</th><th>Present</th><th>Effect on HF</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>D Layer</strong></td>
+                    <td>50-90 km</td>
+                    <td>Day only</td>
+                    <td>Absorbs lower HF (160m, 80m). Disappears at night, allowing these bands to open.</td>
+                </tr>
+                <tr>
+                    <td><strong>E Layer</strong></td>
+                    <td>90-150 km</td>
+                    <td>Day (+ sporadic)</td>
+                    <td>Short skip (500-1500 km). Sporadic E can open VHF!</td>
+                </tr>
+                <tr>
+                    <td><strong>F1 Layer</strong></td>
+                    <td>150-250 km</td>
+                    <td>Day only</td>
+                    <td>Merges with F2 at night. Medium distance.</td>
+                </tr>
+                <tr>
+                    <td><strong>F2 Layer</strong></td>
+                    <td>250-400 km</td>
+                    <td>Day and night</td>
+                    <td>Primary layer for long-distance HF. Most important for DX.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Key Concepts</h3>
+        <ul>
+            <li><strong>MUF (Maximum Usable Frequency)</strong> - Highest frequency that will refract back. Above MUF, signals pass through to space.</li>
+            <li><strong>LUF (Lowest Usable Frequency)</strong> - Lowest frequency usable. Below LUF, absorption is too high.</li>
+            <li><strong>Skip Zone</strong> - Area between ground wave and first sky wave return where no signal is heard.</li>
+            <li><strong>Skip Distance</strong> - Distance to first sky wave return point.</li>
+        </ul>
+
+        <div class="prop-diagram">
+    SKIP ZONE ILLUSTRATION
+    
+              ╱ Sky Wave ╲
+             ╱            ╲
+            ╱              ╲
+           ╱                ╲
+          ╱                  ╲
+         ╱                    ╲
+    📻══════════════════════════════════════📻
+    TX   │← Ground Wave →│     │← Sky Wave →│
+         │   (20-100mi)  │     │  Return    │
+         └───────────────┘     └────────────┘
+              SKIP ZONE
+           (No signal here!)
+        </div>
+
+        <h2 id="modes">Propagation Modes</h2>
+        
+        <table class="layer-table">
+            <thead>
+                <tr><th>Mode</th><th>Range</th><th>Best Bands</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ground Wave</strong></td>
+                    <td>10-100 miles</td>
+                    <td>160m, 80m</td>
+                    <td>Surface wave, reliable, short range. Always works.</td>
+                </tr>
+                <tr>
+                    <td><strong>NVIS</strong></td>
+                    <td>0-300 miles</td>
+                    <td>80m, 60m, 40m</td>
+                    <td>Near Vertical, fills skip zone. Critical for EmComm!</td>
+                </tr>
+                <tr>
+                    <td><strong>Sky Wave (F2)</strong></td>
+                    <td>500-3000+ miles</td>
+                    <td>40m-10m</td>
+                    <td>Classic DX propagation. Multiple hops possible.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sporadic E</strong></td>
+                    <td>500-1500 miles</td>
+                    <td>10m, 6m, 2m</td>
+                    <td>Unpredictable, intense, short duration. Summer peaks.</td>
+                </tr>
+                <tr>
+                    <td><strong>Gray Line</strong></td>
+                    <td>Global</td>
+                    <td>All HF</td>
+                    <td>Enhanced propagation along sunrise/sunset terminator.</td>
+                </tr>
+                <tr>
+                    <td><strong>Long Path</strong></td>
+                    <td>Global</td>
+                    <td>20m-10m</td>
+                    <td>Signal goes "the long way around" the earth.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="bands">Band-by-Band Guide</h2>
+        
+        <div class="band-card">
+            <h4>160 Meters (1.8 MHz) - "Top Band"</h4>
+            <p><span class="best">Best:</span> Night, winter, low solar activity</p>
+            <p><span class="poor">Poor:</span> Daytime (D-layer absorption), summer static</p>
+            <ul>
+                <li>Primarily ground wave (50-100 miles)</li>
+                <li>Night: regional sky wave (500-1000 miles)</li>
+                <li>Very susceptible to atmospheric noise</li>
+                <li>Winter nights best for DX</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>80 Meters (3.5 MHz) - Regional Workhorse</h4>
+            <p><span class="best">Best:</span> Night (regional nets), NVIS daytime</p>
+            <p><span class="poor">Poor:</span> Summer daytime, high noise</p>
+            <ul>
+                <li>Day: NVIS 0-300 miles, heavy absorption limits DX</li>
+                <li>Night: Opens for regional/continental (500-2000 mi)</li>
+                <li>Primary EmComm band for night operations</li>
+                <li>QRN (static) can be severe in summer</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>60 Meters (5 MHz) - EmComm Band</h4>
+            <p><span class="best">Best:</span> Day and night, transitional</p>
+            <p><span class="fair">Fair:</span> Limited bandwidth channels</p>
+            <ul>
+                <li>Excellent for NVIS day and night</li>
+                <li>Less affected by D-layer than 80m</li>
+                <li>Shared with government - follow rules carefully</li>
+                <li>Good emergency interoperability band</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>40 Meters (7 MHz) - Day/Night Transition</h4>
+            <p><span class="best">Best:</span> Dawn/dusk, daytime NVIS, night regional</p>
+            <p><span class="fair">Fair:</span> Crowded, broadcast interference</p>
+            <ul>
+                <li>Day: NVIS (regional), some skip</li>
+                <li>Night: Opens for DX (1000-5000 mi)</li>
+                <li>Most versatile HF band for EmComm</li>
+                <li>Works almost 24 hours in some form</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>30 Meters (10 MHz) - WARC Band</h4>
+            <p><span class="best">Best:</span> Daytime, transition periods</p>
+            <p><span class="fair">Fair:</span> No phone allowed, narrow</p>
+            <ul>
+                <li>Excellent for digital modes</li>
+                <li>Less crowded (no contests)</li>
+                <li>Good transition band day/night</li>
+                <li>200W max power limit</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>20 Meters (14 MHz) - DX Workhorse</h4>
+            <p><span class="best">Best:</span> Daytime, worldwide DX</p>
+            <p><span class="poor">Poor:</span> Night (often closes)</p>
+            <ul>
+                <li>Primary daytime DX band</li>
+                <li>Often open all day during high solar activity</li>
+                <li>Closes at night (except gray line)</li>
+                <li>First band to check for long-distance</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>17 Meters (18 MHz) - WARC Band</h4>
+            <p><span class="best">Best:</span> Daytime, high solar activity</p>
+            <ul>
+                <li>Similar to 20m but less crowded</li>
+                <li>No contests</li>
+                <li>Good DX when conditions support</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>15 Meters (21 MHz) - Solar Dependent</h4>
+            <p><span class="best">Best:</span> Daytime, solar max years</p>
+            <p><span class="poor">Poor:</span> Solar minimum - may not open</p>
+            <ul>
+                <li>Excellent DX during high sunspot numbers</li>
+                <li>Often dead during solar minimum</li>
+                <li>When open, less crowded than 20m</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>12 Meters (24 MHz) - WARC Band</h4>
+            <p><span class="best">Best:</span> Solar max, daytime</p>
+            <p><span class="poor">Poor:</span> Often closed during solar minimum</p>
+            <ul>
+                <li>Follows solar cycle closely</li>
+                <li>No contests, less crowded</li>
+                <li>Great DX when open</li>
+            </ul>
+        </div>
+
+        <div class="band-card">
+            <h4>10 Meters (28 MHz) - Magic Band Gateway</h4>
+            <p><span class="best">Best:</span> Solar max, sporadic E season (summer)</p>
+            <p><span class="poor">Poor:</span> Solar minimum - very quiet</p>
+            <ul>
+                <li>Wide open during solar max - worldwide DX</li>
+                <li>Sporadic E openings (even at solar min)</li>
+                <li>Technicians have phone privileges!</li>
+                <li>FM repeaters and simplex (29.6 MHz)</li>
+            </ul>
+        </div>
+
+        <h2 id="time">Time of Day Effects</h2>
+        
+        <table class="time-chart">
+            <thead>
+                <tr>
+                    <th>Band</th>
+                    <th>Night</th>
+                    <th>Sunrise</th>
+                    <th>Morning</th>
+                    <th>Midday</th>
+                    <th>Afternoon</th>
+                    <th>Sunset</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>160m</strong></td>
+                    <td class="good">Good</td>
+                    <td class="fair">Fair</td>
+                    <td class="poor">Poor</td>
+                    <td class="poor">Poor</td>
+                    <td class="poor">Poor</td>
+                    <td class="fair">Fair</td>
+                </tr>
+                <tr>
+                    <td><strong>80m</strong></td>
+                    <td class="good">DX</td>
+                    <td class="good">Gray</td>
+                    <td class="fair">NVIS</td>
+                    <td class="fair">NVIS</td>
+                    <td class="fair">NVIS</td>
+                    <td class="good">Gray</td>
+                </tr>
+                <tr>
+                    <td><strong>40m</strong></td>
+                    <td class="good">DX</td>
+                    <td class="good">Gray</td>
+                    <td class="good">Good</td>
+                    <td class="good">NVIS/DX</td>
+                    <td class="good">Good</td>
+                    <td class="good">Gray</td>
+                </tr>
+                <tr>
+                    <td><strong>20m</strong></td>
+                    <td class="poor">Closed*</td>
+                    <td class="good">Opens</td>
+                    <td class="good">DX</td>
+                    <td class="good">DX</td>
+                    <td class="good">DX</td>
+                    <td class="fair">Closing</td>
+                </tr>
+                <tr>
+                    <td><strong>15m</strong></td>
+                    <td class="poor">Closed</td>
+                    <td class="fair">Opens</td>
+                    <td class="good">DX</td>
+                    <td class="good">DX</td>
+                    <td class="fair">Fading</td>
+                    <td class="poor">Closed</td>
+                </tr>
+                <tr>
+                    <td><strong>10m</strong></td>
+                    <td class="poor">Closed</td>
+                    <td class="fair">May open</td>
+                    <td class="good">DX**</td>
+                    <td class="good">DX**</td>
+                    <td class="fair">Fading</td>
+                    <td class="poor">Closed</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>*20m may stay open during high solar activity</em><br>
+        <em>**10m highly dependent on solar conditions</em></p>
+
+        <h3>Gray Line Propagation</h3>
+        <p>The <strong>gray line</strong> (or terminator) is the boundary between day and night on Earth. Enhanced propagation occurs along this line because:</p>
+        <ul>
+            <li>D-layer absorption is reduced</li>
+            <li>F-layer is still ionized</li>
+            <li>Signals can travel along the terminator</li>
+        </ul>
+        <div class="tip">
+            <strong>Gray Line Tip:</strong> Check propagation at your local sunrise and sunset for potential DX on bands that are normally challenging.
+        </div>
+
+        <h2 id="nvis">NVIS for EmComm</h2>
+        
+        <div class="nvis-box">
+            <h4>📡 Near Vertical Incidence Skywave (NVIS)</h4>
+            <p>NVIS sends signals nearly straight up to bounce back down, providing <strong>0-300 mile coverage</strong> with no skip zone. Perfect for regional EmComm!</p>
+        </div>
+
+        <div class="prop-diagram">
+    NVIS PROPAGATION
+    
+                    Ionosphere
+    ═══════════════════╗═══════════════════════
+                       ║
+                   ↗   ↓   ↖
+                  ↗    ↓    ↖
+                 ↗     ↓     ↖
+                ↗      ↓      ↖
+               ↗       ↓       ↖
+    ══════════════════════════════════════════
+         📻          📻          📻
+       Station     Station     Station
+       50 miles   100 miles   200 miles
+    
+    All stations in coverage - NO skip zone!
+        </div>
+
+        <h3>NVIS Best Practices</h3>
+        <table class="layer-table">
+            <thead>
+                <tr><th>Parameter</th><th>Recommendation</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Best Bands</strong></td>
+                    <td>80m (night), 60m (day/night), 40m (day)</td>
+                </tr>
+                <tr>
+                    <td><strong>Antenna Height</strong></td>
+                    <td>LOW! 1/10λ to 1/4λ (8-35 ft for 40m)</td>
+                </tr>
+                <tr>
+                    <td><strong>Antenna Type</strong></td>
+                    <td>Horizontal dipole, inverted-V</td>
+                </tr>
+                <tr>
+                    <td><strong>Frequency Choice</strong></td>
+                    <td>Below MUF for your area</td>
+                </tr>
+                <tr>
+                    <td><strong>Daytime</strong></td>
+                    <td>40m (7 MHz), 60m</td>
+                </tr>
+                <tr>
+                    <td><strong>Nighttime</strong></td>
+                    <td>80m (3.5-4 MHz), 60m</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>EmComm Application:</strong> NVIS is crucial for statewide or regional emergency networks. It provides coverage over mountainous terrain where VHF/UHF can't reach.
+        </div>
+
+        <h2 id="solar">Solar Conditions</h2>
+        
+        <h3>Solar Indices</h3>
+        <table class="solar-table">
+            <thead>
+                <tr><th>Index</th><th>What It Means</th><th>Good Values</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SFI (Solar Flux)</strong></td>
+                    <td>Solar radio emissions at 10.7cm. Higher = better HF propagation</td>
+                    <td>100+ is good, 150+ is excellent</td>
+                </tr>
+                <tr>
+                    <td><strong>SN (Sunspot Number)</strong></td>
+                    <td>Count of sunspots. Correlates with ionization</td>
+                    <td>Higher = better high bands</td>
+                </tr>
+                <tr>
+                    <td><strong>A Index</strong></td>
+                    <td>Geomagnetic activity (daily average)</td>
+                    <td>Below 10 is quiet, good</td>
+                </tr>
+                <tr>
+                    <td><strong>K Index</strong></td>
+                    <td>Geomagnetic activity (3-hour)</td>
+                    <td>0-2 is quiet, 5+ is storm</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Solar Cycle</h3>
+        <p>The sun follows an approximately 11-year cycle:</p>
+        <ul>
+            <li><strong>Solar Maximum:</strong> Many sunspots, high SFI, excellent high-band propagation (10m, 15m, 12m)</li>
+            <li><strong>Solar Minimum:</strong> Few sunspots, low SFI, high bands often dead, rely on 40m/80m</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Current Cycle:</strong> We are in Solar Cycle 25, which began in December 2019. Check current conditions at <a href="https://www.spaceweather.com">spaceweather.com</a> or <a href="https://www.hamqsl.com/solar.html">hamqsl.com/solar.html</a>
+        </div>
+
+        <h3>Disturbances</h3>
+        <table class="layer-table">
+            <thead>
+                <tr><th>Event</th><th>Effect</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Solar Flare</strong></td>
+                    <td>Sudden increased D-layer absorption, HF blackout on sunlit side</td>
+                    <td>Minutes to hours</td>
+                </tr>
+                <tr>
+                    <td><strong>CME (Coronal Mass Ejection)</strong></td>
+                    <td>Geomagnetic storm 1-3 days later, disrupted propagation</td>
+                    <td>Hours to days</td>
+                </tr>
+                <tr>
+                    <td><strong>Geomagnetic Storm</strong></td>
+                    <td>Depressed MUF, auroral absorption, poor HF</td>
+                    <td>Hours to days</td>
+                </tr>
+                <tr>
+                    <td><strong>Proton Event</strong></td>
+                    <td>Polar cap absorption, high-latitude paths affected</td>
+                    <td>Days</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="tools">Propagation Tools</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>🌐 Online Tools</h4>
+                <ul style="text-align: left; padding-left: 20px; font-size: 0.9em;">
+                    <li>VOACAP Online</li>
+                    <li>DX Heat Map</li>
+                    <li>PSK Reporter</li>
+                    <li>WSPRnet</li>
+                    <li>DX Summit</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📊 Condition Reports</h4>
+                <ul style="text-align: left; padding-left: 20px; font-size: 0.9em;">
+                    <li>spaceweather.com</li>
+                    <li>hamqsl.com/solar</li>
+                    <li>N0NBH banners</li>
+                    <li>WWV broadcasts</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📻 On-Air Indicators</h4>
+                <ul style="text-align: left; padding-left: 20px; font-size: 0.9em;">
+                    <li>Beacons (NCDXF/IARU)</li>
+                    <li>FT8 activity</li>
+                    <li>WSPR spots</li>
+                    <li>Reverse beacon network</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>💻 Software</h4>
+                <ul style="text-align: left; padding-left: 20px; font-size: 0.9em;">
+                    <li>VOACAP (offline)</li>
+                    <li>W6ELprop</li>
+                    <li>HamCAP</li>
+                    <li>PropView</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>WWV Propagation Broadcasts</h3>
+        <p>WWV (Fort Collins, CO) broadcasts solar and geomagnetic information at 18 minutes past each hour on 2.5, 5, 10, 15, and 20 MHz.</p>
+
+        <h2>Quick Reference Summary</h2>
+        
+        <table class="time-chart">
+            <thead>
+                <tr><th>Need</th><th>Best Band</th><th>Best Time</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Regional EmComm (day)</td>
+                    <td class="good">40m, 60m</td>
+                    <td>Daytime</td>
+                </tr>
+                <tr>
+                    <td>Regional EmComm (night)</td>
+                    <td class="good">80m, 60m</td>
+                    <td>Night</td>
+                </tr>
+                <tr>
+                    <td>Statewide NVIS</td>
+                    <td class="good">40m day, 80m night</td>
+                    <td>Anytime (right band)</td>
+                </tr>
+                <tr>
+                    <td>Cross-country US</td>
+                    <td class="good">20m, 40m</td>
+                    <td>Day (20m), Night (40m)</td>
+                </tr>
+                <tr>
+                    <td>DX/International</td>
+                    <td class="good">20m, 17m, 15m</td>
+                    <td>Daytime</td>
+                </tr>
+                <tr>
+                    <td>Technician long-distance</td>
+                    <td class="good">10m</td>
+                    <td>When open (solar dependent)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a> (NVIS antennas)</li>
+            <li><a href="ham-radio-math.html">Ham Radio Math</a></li>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Handbook, ARRL Antenna Book</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

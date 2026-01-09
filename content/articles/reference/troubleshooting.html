@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Troubleshooting - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .problem-card {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .problem-card .header {
+            background: #c53030;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .problem-card .header.warning {
+            background: #dd6b20;
+        }
+        .problem-card .header.info {
+            background: #3182ce;
+        }
+        .problem-card .content {
+            padding: 15px;
+        }
+        .problem-card h4 {
+            color: #2d3748;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .problem-card h4:first-child {
+            margin-top: 0;
+        }
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .check-list li:last-child {
+            border-bottom: none;
+        }
+        .check-list li::before {
+            content: "→";
+            position: absolute;
+            left: 5px;
+            color: #4299e1;
+            font-weight: bold;
+        }
+        .solution {
+            background: #c6f6d5;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .solution::before {
+            content: "✓ ";
+            color: #276749;
+            font-weight: bold;
+        }
+        .flowchart {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.5;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .quick-check {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .quick-check h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .tool-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .tool-table th, .tool-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .tool-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .symptom-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .symptom-card h4 {
+            margin-top: 0;
+            color: #c53030;
+            font-size: 0.95em;
+        }
+        .symptom-card ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Basic Troubleshooting
+    </nav>
+    
+    <article>
+        <h1>Basic Troubleshooting</h1>
+        
+        <section class="summary">
+            <p>Quick diagnostic guide for common amateur radio problems in the field. When something doesn't work, start here!</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#methodology">Troubleshooting Methodology</a></li>
+                <li><a href="#no-power">Radio Won't Power On</a></li>
+                <li><a href="#no-transmit">Can't Transmit</a></li>
+                <li><a href="#no-receive">Can't Receive</a></li>
+                <li><a href="#high-swr">High SWR</a></li>
+                <li><a href="#audio">Audio Problems</a></li>
+                <li><a href="#digital">Digital Mode Issues</a></li>
+                <li><a href="#interference">Interference (RFI)</a></li>
+                <li><a href="#tools">Diagnostic Tools</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="methodology">Troubleshooting Methodology</h2>
+        
+        <div class="flowchart">
+    ┌─────────────────────────────────────────┐
+    │         TROUBLESHOOTING STEPS           │
+    └─────────────────────────────────────────┘
+                      │
+                      ▼
+    ┌─────────────────────────────────────────┐
+    │ 1. STOP - Don't make it worse           │
+    │    - Power off if needed                │
+    │    - Note what happened                 │
+    └─────────────────────────────────────────┘
+                      │
+                      ▼
+    ┌─────────────────────────────────────────┐
+    │ 2. OBSERVE - What exactly is wrong?     │
+    │    - What works? What doesn't?          │
+    │    - Any error messages/indicators?     │
+    └─────────────────────────────────────────┘
+                      │
+                      ▼
+    ┌─────────────────────────────────────────┐
+    │ 3. SIMPLIFY - Reduce to minimum setup   │
+    │    - Remove accessories                 │
+    │    - Try known-good components          │
+    └─────────────────────────────────────────┘
+                      │
+                      ▼
+    ┌─────────────────────────────────────────┐
+    │ 4. ISOLATE - Find the faulty component  │
+    │    - Substitute one thing at a time     │
+    │    - Test each component individually   │
+    └─────────────────────────────────────────┘
+                      │
+                      ▼
+    ┌─────────────────────────────────────────┐
+    │ 5. FIX - Repair or replace              │
+    │    - Fix the root cause                 │
+    │    - Verify the fix works               │
+    └─────────────────────────────────────────┘
+        </div>
+
+        <div class="tip">
+            <strong>The Golden Rule:</strong> Change only ONE thing at a time, then test. Otherwise you won't know what fixed it (or what made it worse).
+        </div>
+
+        <h2 id="no-power">Radio Won't Power On</h2>
+        
+        <div class="problem-card">
+            <div class="header">🔴 Radio is Dead - No Display, No Lights</div>
+            <div class="content">
+                <h4>Quick Checks</h4>
+                <ul class="check-list">
+                    <li>Is the power switch ON? (Seriously, check it!)</li>
+                    <li>Is the power cable connected at BOTH ends?</li>
+                    <li>Is the fuse blown? Check inline fuse at battery.</li>
+                    <li>Is the battery charged? Check voltage with meter.</li>
+                    <li>Are Powerpole connectors fully seated?</li>
+                    <li>Is polarity correct? (Red to +, Black to -)</li>
+                </ul>
+                
+                <h4>Diagnosis Steps</h4>
+                <ul class="check-list">
+                    <li>Measure battery voltage: Should be 12-14V</li>
+                    <li>Measure voltage AT THE RADIO power connector</li>
+                    <li>Check for voltage drop in cable (should be < 0.5V)</li>
+                    <li>Try different power cable if available</li>
+                    <li>Try different battery/power source</li>
+                </ul>
+                
+                <div class="solution">Most common cause: Blown fuse or loose Powerpole connection</div>
+            </div>
+        </div>
+
+        <div class="problem-card">
+            <div class="header warning">⚠️ Radio Powers On Then Shuts Off</div>
+            <div class="content">
+                <h4>Likely Causes</h4>
+                <ul class="check-list">
+                    <li><strong>Undervoltage:</strong> Battery too weak, voltage drops on TX</li>
+                    <li><strong>Overcurrent:</strong> Power source can't supply enough current</li>
+                    <li><strong>Thermal:</strong> Radio overheating, thermal protection</li>
+                    <li><strong>Cable too thin:</strong> Voltage drop in undersized wires</li>
+                </ul>
+                
+                <div class="solution">Charge battery fully, use heavier gauge power cable, check connections</div>
+            </div>
+        </div>
+
+        <h2 id="no-transmit">Can't Transmit</h2>
+        
+        <div class="problem-card">
+            <div class="header">🔴 PTT Pressed But Radio Won't Transmit</div>
+            <div class="content">
+                <h4>Quick Checks</h4>
+                <ul class="check-list">
+                    <li>Is the antenna connected?</li>
+                    <li>Is SWR protection kicking in? (Check SWR)</li>
+                    <li>Is TX inhibit/lock enabled?</li>
+                    <li>Are you on a frequency you're licensed for?</li>
+                    <li>Is there a "TX" indicator when you key?</li>
+                    <li>Is power set to something (not 0W)?</li>
+                    <li>For FM: Is CTCSS/tone set if needed?</li>
+                    <li>Is VOX enabled but not triggering?</li>
+                </ul>
+                
+                <h4>For Repeater Operation</h4>
+                <ul class="check-list">
+                    <li>Is offset correct (+/−)?</li>
+                    <li>Is CTCSS tone correct?</li>
+                    <li>Are you in range of repeater?</li>
+                    <li>Can you hear the repeater?</li>
+                </ul>
+                
+                <div class="solution">Most common: Wrong offset, wrong tone, or antenna disconnected</div>
+            </div>
+        </div>
+
+        <div class="problem-card">
+            <div class="header warning">⚠️ Radio Transmits But No One Responds</div>
+            <div class="content">
+                <h4>Check These</h4>
+                <ul class="check-list">
+                    <li>Is your signal actually getting out? (Ask for signal report)</li>
+                    <li>SWR OK? High SWR = weak signal</li>
+                    <li>Are you on the right frequency?</li>
+                    <li>For HF: Is propagation supporting your path?</li>
+                    <li>Is the antenna resonant for this band?</li>
+                    <li>Is power output what you expect?</li>
+                </ul>
+                
+                <div class="solution">Try a local repeater or known station to verify your signal</div>
+            </div>
+        </div>
+
+        <h2 id="no-receive">Can't Receive</h2>
+        
+        <div class="problem-card">
+            <div class="header">🔴 No Audio / Dead Receiver</div>
+            <div class="content">
+                <h4>Quick Checks</h4>
+                <ul class="check-list">
+                    <li>Is volume turned up?</li>
+                    <li>Is squelch set too high?</li>
+                    <li>Is antenna connected?</li>
+                    <li>Is external speaker plugged in but not connected?</li>
+                    <li>Is headphone jack engaged?</li>
+                    <li>Is AF gain (volume) up?</li>
+                    <li>Is monitor/SQL button helping?</li>
+                </ul>
+                
+                <h4>For FM</h4>
+                <ul class="check-list">
+                    <li>Is CTCSS/DCS tone set that shouldn't be?</li>
+                    <li>Are you on correct frequency? (Check offset if repeater)</li>
+                </ul>
+                
+                <h4>For SSB/HF</h4>
+                <ul class="check-list">
+                    <li>Is mode correct (USB vs LSB)?</li>
+                    <li>Is RIT/XIT accidentally enabled?</li>
+                    <li>Is bandwidth filter too narrow?</li>
+                    <li>Is ATT (attenuator) or preamp wrong setting?</li>
+                </ul>
+                
+                <div class="solution">Open squelch to check for noise. If noise present, receiver works - check frequency/tone</div>
+            </div>
+        </div>
+
+        <div class="problem-card">
+            <div class="header warning">⚠️ Receiving But Audio Distorted/Weak</div>
+            <div class="content">
+                <ul class="check-list">
+                    <li>Is signal just weak? Check S-meter</li>
+                    <li>Interference on frequency?</li>
+                    <li>For SSB: Are you tuned exactly? (± a few Hz matters)</li>
+                    <li>Is AGC set appropriately?</li>
+                    <li>Is NB (noise blanker) or NR (noise reduction) causing issues?</li>
+                    <li>Speaker/headphone issue?</li>
+                </ul>
+                
+                <div class="solution">For SSB, slowly tune ±100Hz while listening for improvement</div>
+            </div>
+        </div>
+
+        <h2 id="high-swr">High SWR</h2>
+        
+        <div class="problem-card">
+            <div class="header">🔴 SWR Very High (>3:1) or Infinite</div>
+            <div class="content">
+                <h4>Immediate Checks</h4>
+                <ul class="check-list">
+                    <li><strong>Is antenna connected?</strong> (Most common!)</li>
+                    <li>Is coax connected at both ends?</li>
+                    <li>Is coax damaged? (Look for kinks, cuts)</li>
+                    <li>Are connectors tight?</li>
+                    <li>Is connector center pin making contact?</li>
+                </ul>
+                
+                <h4>If Connections Look Good</h4>
+                <ul class="check-list">
+                    <li>Is antenna designed for this band?</li>
+                    <li>Is antenna tuned? (Did it work before?)</li>
+                    <li>Did antenna move/fall/get damaged?</li>
+                    <li>Is there water in coax or connector?</li>
+                    <li>Test coax with dummy load - should be 1:1</li>
+                </ul>
+                
+                <div class="solution">Disconnect coax at antenna. Measure SWR into dummy load. If 1:1, problem is antenna. If still high, problem is coax.</div>
+            </div>
+        </div>
+
+        <div class="quick-check">
+            <h4>🔧 SWR Diagnostic Flowchart</h4>
+            <div class="flowchart">
+HIGH SWR?
+    │
+    ├─► Check antenna connection ─► Loose? ─► TIGHTEN
+    │
+    ├─► Put dummy load on radio ─► SWR 1:1? 
+    │       │                          │
+    │       │ YES                      │ NO
+    │       ▼                          ▼
+    │   Coax/antenna problem      Radio problem
+    │       │
+    │       ▼
+    ├─► Check coax with dummy load at antenna end
+    │       │
+    │       ├─► SWR 1:1? ─► YES ─► Antenna problem
+    │       │
+    │       └─► SWR high? ─► Coax problem
+    │
+    └─► Check antenna with known-good coax
+            </div>
+        </div>
+
+        <h2 id="audio">Audio Problems</h2>
+        
+        <div class="symptom-grid">
+            <div class="symptom-card">
+                <h4>Reports of "Muffled" Audio</h4>
+                <ul>
+                    <li>Mic too far from mouth</li>
+                    <li>Mic gain too low</li>
+                    <li>Compression too high</li>
+                    <li>Dirty/blocked mic element</li>
+                </ul>
+            </div>
+            <div class="symptom-card">
+                <h4>Reports of "Distorted" Audio</h4>
+                <ul>
+                    <li>Mic gain too high</li>
+                    <li>Speaking too loud/close</li>
+                    <li>Over-deviation (FM)</li>
+                    <li>ALC hitting hard (SSB)</li>
+                </ul>
+            </div>
+            <div class="symptom-card">
+                <h4>Reports of "Hum" in Audio</h4>
+                <ul>
+                    <li>Ground loop</li>
+                    <li>Power supply issue</li>
+                    <li>Shielding problem</li>
+                    <li>Bad mic cable</li>
+                </ul>
+            </div>
+            <div class="symptom-card">
+                <h4>No TX Audio</h4>
+                <ul>
+                    <li>Mic not plugged in fully</li>
+                    <li>Wrong mic type selected</li>
+                    <li>Mic gain at zero</li>
+                    <li>VOX not triggering</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="digital">Digital Mode Issues</h2>
+        
+        <div class="problem-card">
+            <div class="header info">🔵 Digital Mode Not Decoding</div>
+            <div class="content">
+                <h4>Quick Checks</h4>
+                <ul class="check-list">
+                    <li>Is audio coming into the computer?</li>
+                    <li>Check audio levels - not too high, not too low</li>
+                    <li>Is software set to correct audio device?</li>
+                    <li>Is radio in correct mode? (Usually USB for digital)</li>
+                    <li>Is radio tuned to correct frequency?</li>
+                    <li>Is computer time accurate? (Critical for FT8/JS8)</li>
+                </ul>
+                
+                <h4>Audio Level Issues</h4>
+                <ul class="check-list">
+                    <li>Check waterfall - should see signals</li>
+                    <li>If waterfall is blank - no audio input</li>
+                    <li>If waterfall is solid color - audio too high/clipping</li>
+                    <li>Adjust levels until signals visible but not clipping</li>
+                </ul>
+                
+                <div class="solution">For FT8/WSJT-X: Sync computer time with internet time server. Even 1-2 seconds off causes decode failures.</div>
+            </div>
+        </div>
+
+        <div class="problem-card">
+            <div class="header info">🔵 Digital Mode Not Transmitting</div>
+            <div class="content">
+                <h4>Check These</h4>
+                <ul class="check-list">
+                    <li>Is PTT/CAT control configured?</li>
+                    <li>Is CAT cable connected?</li>
+                    <li>Is correct COM port selected?</li>
+                    <li>Does radio go into TX when software keys?</li>
+                    <li>Is audio going to radio? (Check with headphones on line out)</li>
+                    <li>Is radio DATA mode enabled (if required)?</li>
+                    <li>Is VOX enabled (if using VOX for PTT)?</li>
+                </ul>
+                
+                <h4>Power/ALC Issues</h4>
+                <ul class="check-list">
+                    <li>Is TX audio level appropriate?</li>
+                    <li>Is ALC barely moving? (Should be minimal)</li>
+                    <li>Is power output what you expect?</li>
+                </ul>
+                
+                <div class="solution">If using VOX: Make sure radio VOX is enabled and gain is set to trigger on digital audio</div>
+            </div>
+        </div>
+
+        <h2 id="interference">Interference (RFI)</h2>
+        
+        <div class="problem-card">
+            <div class="header warning">⚠️ RF Getting Into Equipment</div>
+            <div class="content">
+                <h4>Symptoms</h4>
+                <ul>
+                    <li>Computer resets when transmitting</li>
+                    <li>Audio feedback/oscillation on TX</li>
+                    <li>Erratic behavior of connected devices</li>
+                    <li>USB disconnects during TX</li>
+                    <li>"Hot" mic or chassis</li>
+                </ul>
+                
+                <h4>Common Solutions</h4>
+                <ul class="check-list">
+                    <li>Add ferrite chokes to cables (USB, audio, power)</li>
+                    <li>Use shorter cables</li>
+                    <li>Improve station grounding</li>
+                    <li>Lower power</li>
+                    <li>Move antenna farther from station</li>
+                    <li>Add common-mode choke to feedline</li>
+                    <li>Check antenna system for RF on shield</li>
+                </ul>
+                
+                <div class="solution">Ferrite chokes (snap-on type) on ALL cables near the radio often fixes RFI issues</div>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>RFI Prevention:</strong> Add ferrites during initial setup, not after problems appear. A few dollars of ferrites saves hours of troubleshooting.
+        </div>
+
+        <h2 id="tools">Diagnostic Tools</h2>
+        
+        <table class="tool-table">
+            <thead>
+                <tr><th>Tool</th><th>What It Checks</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Multimeter</strong></td>
+                    <td>Voltage, continuity, resistance</td>
+                    <td>Essential</td>
+                </tr>
+                <tr>
+                    <td><strong>SWR Meter</strong></td>
+                    <td>Antenna match, power output</td>
+                    <td>Essential</td>
+                </tr>
+                <tr>
+                    <td><strong>Dummy Load</strong></td>
+                    <td>Test TX without antenna</td>
+                    <td>Essential</td>
+                </tr>
+                <tr>
+                    <td><strong>Antenna Analyzer</strong></td>
+                    <td>SWR across band, impedance</td>
+                    <td>Very Useful</td>
+                </tr>
+                <tr>
+                    <td><strong>Coax Adapters</strong></td>
+                    <td>Connect test equipment</td>
+                    <td>Essential</td>
+                </tr>
+                <tr>
+                    <td><strong>Spare Fuses</strong></td>
+                    <td>Replace blown fuses</td>
+                    <td>Essential</td>
+                </tr>
+                <tr>
+                    <td><strong>Known-Good Coax</strong></td>
+                    <td>Substitute to isolate</td>
+                    <td>Very Useful</td>
+                </tr>
+                <tr>
+                    <td><strong>HT (as receiver)</strong></td>
+                    <td>Listen to your own signal</td>
+                    <td>Very Useful</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="quick-check">
+            <h4>🎒 Field Troubleshooting Kit</h4>
+            <ul>
+                <li>Multimeter</li>
+                <li>SWR meter (or use radio's built-in)</li>
+                <li>50Ω dummy load</li>
+                <li>Spare fuses (assorted)</li>
+                <li>Barrel connectors (PL-259, BNC)</li>
+                <li>Short test coax (known good)</li>
+                <li>Adapters (BNC-to-PL-259, etc.)</li>
+                <li>Ferrite snap-ons</li>
+                <li>Electrical tape</li>
+                <li>Notepad and pen</li>
+            </ul>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="coax-connectors.html">Coax &amp; Connectors Guide</a></li>
+            <li><a href="go-kit-checklist.html">Go-Kit Checklist</a></li>
+            <li><a href="off-grid-power.html">Off-Grid Power</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+            <p>Based on field experience and common issues</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS8Call Operations - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .js8-diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .speed-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .speed-table th, .speed-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .speed-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .speed-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .speed-table .recommended {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .command-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .command-box .cmd {
+            color: #f6ad55;
+            font-weight: bold;
+        }
+        .command-box .param {
+            color: #68d391;
+        }
+        .command-box .comment {
+            color: #a0aec0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .feature-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .feature-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .freq-table .primary {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .message-example {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .message-example .from { color: #3182ce; }
+        .message-example .to { color: #38a169; }
+        .message-example .msg { color: #2d3748; }
+        .message-example .special { color: #d53f8c; }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .ref-card h4 {
+            margin-top: 0;
+            color: #2d3748;
+            border-bottom: 2px solid #ed8936;
+            padding-bottom: 5px;
+        }
+        .ref-card code {
+            background: #edf2f7;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital">Digital Modes</a> &gt; 
+        JS8Call Operations
+    </nav>
+    
+    <article>
+        <h1>JS8Call Operations</h1>
+        
+        <section class="summary">
+            <p>Comprehensive guide to JS8Call - the weak-signal keyboard-to-keyboard digital mode designed for EmComm. Beyond basic setup: messaging, relaying, groups, and operational techniques.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is JS8Call?</a></li>
+                <li><a href="#speeds">Speed Modes</a></li>
+                <li><a href="#frequencies">Frequencies</a></li>
+                <li><a href="#commands">Directed Commands</a></li>
+                <li><a href="#messaging">Messaging</a></li>
+                <li><a href="#relay">Store & Forward / Relay</a></li>
+                <li><a href="#groups">Groups (@ALLCALL, etc.)</a></li>
+                <li><a href="#heartbeat">Heartbeat Network</a></li>
+                <li><a href="#emcomm">EmComm Operations</a></li>
+                <li><a href="#tips">Operational Tips</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is JS8Call?</h2>
+        
+        <p><strong>JS8Call</strong> is a weak-signal digital mode based on FT8's modulation, but designed for actual conversations and messaging rather than just quick signal reports. It's optimized for:</p>
+
+        <ul>
+            <li><strong>Keyboard-to-keyboard chat</strong> - Real conversations</li>
+            <li><strong>Store and forward messaging</strong> - Messages held for offline stations</li>
+            <li><strong>Automatic relaying</strong> - Multi-hop message delivery</li>
+            <li><strong>Weak signal performance</strong> - Works at -24dB SNR</li>
+            <li><strong>Automated queries</strong> - Grid, info, status requests</li>
+            <li><strong>Group calls</strong> - @ALLCALL, custom groups</li>
+        </ul>
+
+        <div class="js8-diagram">
+    JS8Call vs FT8 Comparison
+    
+    FT8:                              JS8Call:
+    ├── 15-second cycles              ├── Continuous transmission
+    ├── Fixed message formats         ├── Free-form text
+    ├── Signal reports only           ├── Full conversations
+    ├── No store/forward              ├── Store & forward messaging
+    ├── No relay                      ├── Automatic relay network
+    └── Contest/DX focused            └── EmComm/ragchew focused
+        </div>
+
+        <h2 id="speeds">Speed Modes</h2>
+        
+        <table class="speed-table">
+            <thead>
+                <tr>
+                    <th>Mode</th>
+                    <th>Speed</th>
+                    <th>Frame</th>
+                    <th>SNR Threshold</th>
+                    <th>Best Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Slow</strong></td>
+                    <td>~8 WPM</td>
+                    <td>30 sec</td>
+                    <td>-28 dB</td>
+                    <td>Extreme weak signal, LF/MF</td>
+                </tr>
+                <tr class="recommended">
+                    <td><strong>Normal</strong></td>
+                    <td>~16 WPM</td>
+                    <td>15 sec</td>
+                    <td>-24 dB</td>
+                    <td>Standard operations (default)</td>
+                </tr>
+                <tr>
+                    <td><strong>Fast</strong></td>
+                    <td>~24 WPM</td>
+                    <td>10 sec</td>
+                    <td>-20 dB</td>
+                    <td>Good conditions, local</td>
+                </tr>
+                <tr>
+                    <td><strong>Turbo</strong></td>
+                    <td>~40 WPM</td>
+                    <td>6 sec</td>
+                    <td>-18 dB</td>
+                    <td>Strong signals, VHF</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Speed Selection:</strong> Start with Normal. Only use Slow when signals are extremely weak. Fast/Turbo require stronger signals but allow quicker exchanges.
+        </div>
+
+        <h2 id="frequencies">Frequencies</h2>
+        
+        <table class="freq-table">
+            <thead>
+                <tr><th>Band</th><th>Dial Freq (USB)</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>160m</td>
+                    <td>1.842 MHz</td>
+                    <td>Night, regional</td>
+                </tr>
+                <tr>
+                    <td>80m</td>
+                    <td>3.578 MHz</td>
+                    <td>Night, regional/NVIS</td>
+                </tr>
+                <tr class="primary">
+                    <td>40m</td>
+                    <td>7.078 MHz</td>
+                    <td><strong>Primary - most activity</strong></td>
+                </tr>
+                <tr>
+                    <td>30m</td>
+                    <td>10.130 MHz</td>
+                    <td>Good propagation band</td>
+                </tr>
+                <tr class="primary">
+                    <td>20m</td>
+                    <td>14.078 MHz</td>
+                    <td><strong>Daytime DX</strong></td>
+                </tr>
+                <tr>
+                    <td>17m</td>
+                    <td>18.104 MHz</td>
+                    <td>Daytime</td>
+                </tr>
+                <tr>
+                    <td>15m</td>
+                    <td>21.078 MHz</td>
+                    <td>Solar dependent</td>
+                </tr>
+                <tr>
+                    <td>12m</td>
+                    <td>24.922 MHz</td>
+                    <td>Solar dependent</td>
+                </tr>
+                <tr>
+                    <td>10m</td>
+                    <td>28.078 MHz</td>
+                    <td>Solar dependent / Es</td>
+                </tr>
+                <tr>
+                    <td>6m</td>
+                    <td>50.318 MHz</td>
+                    <td>Sporadic E openings</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="commands">Directed Commands</h2>
+        
+        <p>JS8Call supports special commands sent to other stations:</p>
+
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>Information Queries</h4>
+                <ul>
+                    <li><code>SNR?</code> - Request signal report</li>
+                    <li><code>INFO?</code> - Request station info</li>
+                    <li><code>GRID?</code> - Request grid square</li>
+                    <li><code>STATUS?</code> - Request status message</li>
+                    <li><code>HEARING?</code> - Who are they hearing?</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>Network Commands</h4>
+                <ul>
+                    <li><code>QUERY CALL [call]?</code> - Have you heard [call]?</li>
+                    <li><code>RELAY [call] [msg]</code> - Relay message</li>
+                    <li><code>CMD [command]</code> - Send command</li>
+                    <li><code>MSG [text]</code> - Store message</li>
+                    <li><code>MSG TO:[call] [text]</code> - Message for relay</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>Responses</h4>
+                <ul>
+                    <li><code>SNR [value]</code> - Signal report</li>
+                    <li><code>INFO [text]</code> - Station info</li>
+                    <li><code>GRID [grid]</code> - Grid square</li>
+                    <li><code>STATUS [text]</code> - Status message</li>
+                    <li><code>ACK</code> - Acknowledge</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>Special</h4>
+                <ul>
+                    <li><code>HB</code> - Heartbeat</li>
+                    <li><code>CQ CQ CQ</code> - General call</li>
+                    <li><code>AGN?</code> - Say again</li>
+                    <li><code>QSL</code> - Confirmed</li>
+                    <li><code>73</code> - End of contact</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Command Examples</h3>
+        <div class="message-example">
+<span class="comment">// Requesting signal report from W1ABC</span>
+<span class="from">VA2OPS:</span> <span class="to">W1ABC</span> <span class="special">SNR?</span>
+
+<span class="comment">// W1ABC's response</span>
+<span class="from">W1ABC:</span> <span class="to">VA2OPS</span> <span class="special">SNR</span> <span class="msg">-15</span>
+
+<span class="comment">// Querying if W1ABC has heard W2XYZ</span>
+<span class="from">VA2OPS:</span> <span class="to">W1ABC</span> <span class="special">QUERY CALL W2XYZ?</span>
+
+<span class="comment">// Sending free-form message</span>
+<span class="from">VA2OPS:</span> <span class="to">W1ABC</span> <span class="msg">HOW COPY? QTH GRANBY QC</span>
+        </div>
+
+        <h2 id="messaging">Messaging</h2>
+        
+        <div class="feature-box">
+            <h4>📬 JS8Call Inbox/Outbox</h4>
+            <p>JS8Call has built-in store-and-forward messaging:</p>
+            <ul>
+                <li>Messages stored locally until delivered</li>
+                <li>Automatic retry when station heard</li>
+                <li>Works even when recipient offline</li>
+                <li>Messages can be relayed via other stations</li>
+            </ul>
+        </div>
+
+        <h3>Sending a Stored Message</h3>
+        <ol>
+            <li>Open <strong>File → Show Message Inbox</strong></li>
+            <li>Click <strong>Compose</strong></li>
+            <li>Enter destination callsign</li>
+            <li>Type message (keep it short!)</li>
+            <li>Click <strong>Send Later</strong> (queued) or <strong>Send Now</strong></li>
+        </ol>
+
+        <h3>Retrieving Messages for You</h3>
+        <p>When you come on the air, other stations may have messages stored for you:</p>
+        <div class="command-box">
+<span class="comment">// Query all hearing stations for messages</span>
+<span class="cmd">@ALLCALL</span> <span class="param">QUERY MSGS?</span>
+
+<span class="comment">// Stations with messages respond with MSG count</span>
+        </div>
+
+        <h2 id="relay">Store & Forward / Relay</h2>
+        
+        <div class="js8-diagram">
+    MESSAGE RELAY NETWORK
+    
+    VA2OPS                W1ABC                 W2XYZ
+    (Origin)              (Relay)               (Destination)
+       │                     │                      │
+       │  MSG TO:W2XYZ       │                      │
+       │  HELLO FROM QC      │                      │
+       └────────────────────►│                      │
+                             │   MSG W2XYZ          │
+                             │   HELLO FROM QC      │
+                             │   DE VA2OPS          │
+                             └─────────────────────►│
+                                                    │
+       Message delivered even though VA2OPS        │
+       cannot hear W2XYZ directly!                 │
+        </div>
+
+        <h3>Enabling Relay</h3>
+        <p>In JS8Call settings (<strong>File → Settings → General</strong>):</p>
+        <ul>
+            <li><strong>Enable Auto-Reply</strong> - Respond to queries</li>
+            <li><strong>Enable Relay</strong> - Forward messages for others</li>
+            <li><strong>Store Messages</strong> - Hold messages for offline stations</li>
+        </ul>
+
+        <div class="note">
+            <strong>Be a Good Citizen:</strong> Enable relay and message storage if you can monitor the frequency. This builds the network and helps messages get delivered.
+        </div>
+
+        <h2 id="groups">Groups (@ALLCALL, etc.)</h2>
+        
+        <p>JS8Call supports group calls using @ prefix:</p>
+
+        <table class="speed-table">
+            <thead>
+                <tr><th>Group</th><th>Meaning</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>@ALLCALL</code></td>
+                    <td>All stations</td>
+                    <td>General queries, announcements</td>
+                </tr>
+                <tr>
+                    <td><code>@HB</code></td>
+                    <td>Heartbeat group</td>
+                    <td>Network presence</td>
+                </tr>
+                <tr>
+                    <td><code>@APRSIS</code></td>
+                    <td>APRS-IS gateway</td>
+                    <td>APRS position reports</td>
+                </tr>
+                <tr>
+                    <td><code>@GROUPNAME</code></td>
+                    <td>Custom group</td>
+                    <td>EmComm nets, clubs, etc.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Creating Custom Groups</h3>
+        <ol>
+            <li>Go to <strong>File → Settings → General</strong></li>
+            <li>In "Groups" field, add your groups (comma-separated)</li>
+            <li>Example: <code>@ARES,@EMCOMM,@VA2GCU</code></li>
+            <li>Now you'll respond to calls to those groups</li>
+        </ol>
+
+        <div class="message-example">
+<span class="comment">// Calling all ARES members</span>
+<span class="from">VA2OPS:</span> <span class="special">@ARES</span> <span class="msg">NET CHECKIN - QRV FOR TRAFFIC</span>
+
+<span class="comment">// All stations subscribed to @ARES will decode this</span>
+        </div>
+
+        <h2 id="heartbeat">Heartbeat Network</h2>
+        
+        <div class="feature-box">
+            <h4>💓 Heartbeat (HB)</h4>
+            <p>Automatic beacon that announces your presence:</p>
+            <ul>
+                <li>Sends brief transmission every few minutes</li>
+                <li>Includes your grid square</li>
+                <li>Lets others know you're monitoring</li>
+                <li>Builds network map automatically</li>
+            </ul>
+        </div>
+
+        <h3>Enabling Heartbeat</h3>
+        <ol>
+            <li><strong>File → Settings → General</strong></li>
+            <li>Check <strong>Enable Heartbeat Networking</strong></li>
+            <li>Set interval (10-30 min typical)</li>
+            <li>Set sub-modes (Normal, Fast, etc.)</li>
+        </ol>
+
+        <h3>Heartbeat Acknowledgment</h3>
+        <p>When you see another station's heartbeat, you can:</p>
+        <ul>
+            <li><strong>HB ACK</strong> - Acknowledge their heartbeat</li>
+            <li>This tells them you can hear them</li>
+            <li>Builds bi-directional path knowledge</li>
+        </ul>
+
+        <h2 id="emcomm">EmComm Operations</h2>
+        
+        <div class="feature-box">
+            <h4>🚨 JS8Call for Emergency Communications</h4>
+            <p>JS8Call excels for EmComm because:</p>
+            <ul>
+                <li>Works at very weak signal levels</li>
+                <li>Store-and-forward bridges timing gaps</li>
+                <li>Relay extends range beyond direct propagation</li>
+                <li>Groups allow targeted announcements</li>
+                <li>Automatic queries reduce coordination overhead</li>
+            </ul>
+        </div>
+
+        <h3>EmComm Setup Recommendations</h3>
+        <ul>
+            <li><strong>Create local group:</strong> @YOURARESGROUP, @YOURCLUB</li>
+            <li><strong>Enable relay and message storage</strong></li>
+            <li><strong>Set meaningful INFO:</strong> "VA2OPS John - Granby QC - EmComm"</li>
+            <li><strong>Set STATUS:</strong> "QRV for traffic" or current situation</li>
+            <li><strong>Enable heartbeat</strong> so others know you're monitoring</li>
+        </ul>
+
+        <h3>Emergency Checkin Example</h3>
+        <div class="message-example">
+<span class="comment">// Net control opens net</span>
+<span class="from">W1NCS:</span> <span class="special">@ARES</span> <span class="msg">ARES NET OPEN - CHECK IN WITH STATUS</span>
+
+<span class="comment">// Station checks in</span>
+<span class="from">VA2OPS:</span> <span class="to">W1NCS</span> <span class="msg">QRV PWR OK SHELTER 3</span>
+
+<span class="comment">// NCS acknowledges</span>
+<span class="from">W1NCS:</span> <span class="to">VA2OPS</span> <span class="msg">RR SHELTER 3 LOGGED</span>
+        </div>
+
+        <h3>Sending Traffic via JS8Call</h3>
+        <div class="command-box">
+<span class="comment">// Direct message to specific station</span>
+<span class="cmd">W1EOC</span>: <span class="param">MSG</span> SHELTER 3 NEEDS 50 BLANKETS - POPULATION 127
+
+<span class="comment">// Message via relay</span>
+<span class="cmd">W1ABC</span>: <span class="param">MSG TO:W1EOC</span> SHELTER 3 NEEDS 50 BLANKETS DE VA2OPS
+
+<span class="comment">// Query if message was delivered</span>
+<span class="cmd">@ALLCALL</span>: <span class="param">QUERY CALL W1EOC?</span>
+        </div>
+
+        <h2 id="tips">Operational Tips</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>📡 Best Practices</h4>
+                <ul>
+                    <li>Keep messages SHORT</li>
+                    <li>Use standard abbreviations</li>
+                    <li>Enable relay when monitoring</li>
+                    <li>Use appropriate speed mode</li>
+                    <li>Set accurate grid square</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>⚙️ Settings</h4>
+                <ul>
+                    <li>Set TX power for ALC barely moving</li>
+                    <li>Use correct audio levels</li>
+                    <li>Enable heartbeat (10-30 min)</li>
+                    <li>Join relevant groups</li>
+                    <li>Update INFO and STATUS</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>🔧 Troubleshooting</h4>
+                <ul>
+                    <li>No decodes? Check audio levels</li>
+                    <li>Time must be accurate (±2 sec)</li>
+                    <li>USB mode only (not LSB)</li>
+                    <li>Verify dial frequency</li>
+                    <li>Check waterfall for signals</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📝 Abbreviations</h4>
+                <ul>
+                    <li><code>QRV</code> = Ready</li>
+                    <li><code>QRT</code> = Signing off</li>
+                    <li><code>QSL</code> = Confirmed</li>
+                    <li><code>RR</code> = Roger</li>
+                    <li><code>DE</code> = From</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>Time Sync Critical:</strong> JS8Call requires accurate computer time. Sync to internet time server or GPS. Even 2-3 seconds off causes decode problems.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+            <li><a href="hf-propagation.html">HF Propagation</a></li>
+            <li><a href="winlink-setup.html">Winlink Setup Guide</a></li>
+            <li><a href="../emcomm/net-operations.html">Net Operations Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: JS8Call documentation, KN4CRD (JS8Call author)</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

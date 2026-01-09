@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coax &amp; Connectors Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .coax-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        .coax-table th, .coax-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .coax-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .coax-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .coax-table .highlight {
+            background: #c6f6d5;
+        }
+        .coax-table .good {
+            color: #276749;
+            font-weight: bold;
+        }
+        .coax-table .poor {
+            color: #c53030;
+        }
+        .connector-card {
+            display: inline-block;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            vertical-align: top;
+            text-align: center;
+        }
+        .connector-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+        .connector-card .image {
+            font-size: 3em;
+            margin: 10px 0;
+        }
+        .connector-card ul {
+            text-align: left;
+            padding-left: 20px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .loss-chart {
+            background: #fff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .quick-pick {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .quick-pick h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .formula-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Coax &amp; Connectors Guide
+    </nav>
+    
+    <article>
+        <h1>Coax &amp; Connectors Guide</h1>
+        
+        <section class="summary">
+            <p>Reference guide for coaxial cable types, specifications, loss calculations, and RF connectors used in amateur radio. Choose the right cable for your application!</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#basics">Coax Basics</a></li>
+                <li><a href="#types">Common Coax Types</a></li>
+                <li><a href="#loss">Loss Charts</a></li>
+                <li><a href="#choosing">Choosing Coax</a></li>
+                <li><a href="#connectors">RF Connectors</a></li>
+                <li><a href="#installation">Installation Tips</a></li>
+                <li><a href="#testing">Testing Coax</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="basics">Coax Basics</h2>
+        
+        <div class="diagram">
+        COAXIAL CABLE CROSS-SECTION
+        
+              ┌─────────────────────────┐
+              │      OUTER JACKET       │  Protection
+              │  ┌─────────────────┐    │
+              │  │   SHIELD/BRAID  │    │  Ground return, shielding
+              │  │  ┌───────────┐  │    │
+              │  │  │ DIELECTRIC │  │    │  Insulation (foam or solid)
+              │  │  │  ┌─────┐  │  │    │
+              │  │  │  │CENTER│  │  │    │  Signal conductor
+              │  │  │  │ WIRE │  │  │    │
+              │  │  │  └─────┘  │  │    │
+              │  │  └───────────┘  │    │
+              │  └─────────────────┘    │
+              └─────────────────────────┘
+        </div>
+
+        <h3>Key Specifications</h3>
+        <table class="coax-table">
+            <thead>
+                <tr><th>Spec</th><th>What It Means</th><th>Why It Matters</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Impedance</strong></td>
+                    <td>Characteristic impedance (ohms)</td>
+                    <td>Must match system (50Ω for ham radio)</td>
+                </tr>
+                <tr>
+                    <td><strong>Loss (dB/100ft)</strong></td>
+                    <td>Signal attenuation per length</td>
+                    <td>Lower is better - your signal!</td>
+                </tr>
+                <tr>
+                    <td><strong>Velocity Factor</strong></td>
+                    <td>Signal speed vs. light (0.66-0.85)</td>
+                    <td>Affects antenna matching length</td>
+                </tr>
+                <tr>
+                    <td><strong>Power Handling</strong></td>
+                    <td>Maximum power (watts)</td>
+                    <td>Don't exceed - causes heating</td>
+                </tr>
+                <tr>
+                    <td><strong>Diameter</strong></td>
+                    <td>Physical size</td>
+                    <td>Routing, connectors, flexibility</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="types">Common Coax Types</h2>
+        
+        <h3>50Ω Coax (Standard for Ham Radio)</h3>
+        <table class="coax-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Diameter</th>
+                    <th>Loss @30MHz</th>
+                    <th>Loss @150MHz</th>
+                    <th>Loss @450MHz</th>
+                    <th>VF</th>
+                    <th>Power</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight">
+                    <td><strong>RG-58</strong></td>
+                    <td>0.195"</td>
+                    <td>1.4 dB</td>
+                    <td>3.3 dB</td>
+                    <td>5.4 dB</td>
+                    <td>0.66</td>
+                    <td>300W</td>
+                    <td>Short runs, portable, HF</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>RG-8X</strong></td>
+                    <td>0.242"</td>
+                    <td>1.0 dB</td>
+                    <td>2.5 dB</td>
+                    <td>4.5 dB</td>
+                    <td>0.82</td>
+                    <td>600W</td>
+                    <td>Good portable compromise</td>
+                </tr>
+                <tr>
+                    <td><strong>RG-8/U</strong></td>
+                    <td>0.405"</td>
+                    <td>0.6 dB</td>
+                    <td>1.6 dB</td>
+                    <td>3.0 dB</td>
+                    <td>0.66</td>
+                    <td>1500W</td>
+                    <td>Base station HF</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>RG-213</strong></td>
+                    <td>0.405"</td>
+                    <td>0.6 dB</td>
+                    <td>1.5 dB</td>
+                    <td>2.8 dB</td>
+                    <td>0.66</td>
+                    <td>1500W</td>
+                    <td>Base station, better RG-8</td>
+                </tr>
+                <tr>
+                    <td><strong>LMR-240</strong></td>
+                    <td>0.240"</td>
+                    <td>0.7 dB</td>
+                    <td>1.6 dB</td>
+                    <td>2.9 dB</td>
+                    <td>0.84</td>
+                    <td>500W</td>
+                    <td>VHF/UHF, flex portable</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>LMR-400</strong></td>
+                    <td>0.405"</td>
+                    <td>0.4 dB</td>
+                    <td>0.9 dB</td>
+                    <td>1.5 dB</td>
+                    <td>0.85</td>
+                    <td>2000W</td>
+                    <td>VHF/UHF base, low loss</td>
+                </tr>
+                <tr>
+                    <td><strong>LMR-600</strong></td>
+                    <td>0.590"</td>
+                    <td>0.3 dB</td>
+                    <td>0.6 dB</td>
+                    <td>1.0 dB</td>
+                    <td>0.87</td>
+                    <td>4000W</td>
+                    <td>Long runs, repeater sites</td>
+                </tr>
+                <tr>
+                    <td><strong>Hardline (7/8")</strong></td>
+                    <td>0.875"</td>
+                    <td>0.1 dB</td>
+                    <td>0.2 dB</td>
+                    <td>0.4 dB</td>
+                    <td>0.81</td>
+                    <td>10kW+</td>
+                    <td>Commercial, tower runs</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Loss figures are per 100 feet. Actual loss varies by manufacturer.</em></p>
+
+        <h3>75Ω Coax (TV/Video - NOT for transmit!)</h3>
+        <table class="coax-table">
+            <thead>
+                <tr><th>Type</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>RG-59</strong></td>
+                    <td>TV cable - DO NOT use for transmitting</td>
+                </tr>
+                <tr>
+                    <td><strong>RG-6</strong></td>
+                    <td>Modern TV/Satellite - 75Ω, not for ham TX</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>75Ω Warning:</strong> RG-59 and RG-6 are 75Ω and cause significant SWR mismatch with 50Ω ham equipment. They can be used for receiving only, but NEVER for transmitting!
+        </div>
+
+        <h2 id="loss">Loss Charts</h2>
+        
+        <div class="loss-chart">
+            <h4>📉 Coax Loss at Common Frequencies (dB per 100 feet)</h4>
+            <table class="coax-table">
+                <thead>
+                    <tr>
+                        <th>Cable</th>
+                        <th>HF (10 MHz)</th>
+                        <th>6m (50 MHz)</th>
+                        <th>2m (146 MHz)</th>
+                        <th>70cm (440 MHz)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RG-58</td>
+                        <td>0.9 dB</td>
+                        <td>2.2 dB</td>
+                        <td>3.8 dB</td>
+                        <td class="poor">6.8 dB</td>
+                    </tr>
+                    <tr>
+                        <td>RG-8X</td>
+                        <td>0.7 dB</td>
+                        <td>1.6 dB</td>
+                        <td>2.8 dB</td>
+                        <td>5.2 dB</td>
+                    </tr>
+                    <tr>
+                        <td>RG-213</td>
+                        <td>0.4 dB</td>
+                        <td>1.0 dB</td>
+                        <td>1.8 dB</td>
+                        <td>3.2 dB</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>LMR-400</td>
+                        <td class="good">0.2 dB</td>
+                        <td class="good">0.6 dB</td>
+                        <td class="good">1.0 dB</td>
+                        <td class="good">1.8 dB</td>
+                    </tr>
+                    <tr>
+                        <td>LMR-600</td>
+                        <td class="good">0.2 dB</td>
+                        <td class="good">0.4 dB</td>
+                        <td class="good">0.7 dB</td>
+                        <td class="good">1.2 dB</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>What Does dB Loss Mean?</h3>
+        <table class="coax-table">
+            <thead>
+                <tr><th>Loss (dB)</th><th>Power Lost</th><th>Power Reaching Antenna</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1 dB</td><td>21%</td><td>79%</td></tr>
+                <tr><td>2 dB</td><td>37%</td><td>63%</td></tr>
+                <tr class="highlight"><td>3 dB</td><td>50%</td><td>50% (half!)</td></tr>
+                <tr><td>4 dB</td><td>60%</td><td>40%</td></tr>
+                <tr><td>5 dB</td><td>68%</td><td>32%</td></tr>
+                <tr class="poor"><td>6 dB</td><td>75%</td><td>25% (quarter!)</td></tr>
+                <tr><td>10 dB</td><td>90%</td><td>10%</td></tr>
+            </tbody>
+        </table>
+
+        <div class="example">
+            <strong>Example:</strong> 100W into 50 feet of RG-58 at 440 MHz:<br>
+            Loss = 6.8 dB × 0.5 = 3.4 dB<br>
+            Power at antenna = 100W × 0.46 = <strong>46W</strong> (54W lost in the coax!)
+        </div>
+
+        <h2 id="choosing">Choosing Coax</h2>
+        
+        <div class="quick-pick">
+            <h4>🎯 Quick Selection Guide</h4>
+            <table class="coax-table">
+                <thead>
+                    <tr><th>Application</th><th>Recommended</th><th>Why</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HF Base Station</td>
+                        <td><strong>RG-213</strong> or <strong>LMR-400</strong></td>
+                        <td>Low loss, handles power</td>
+                    </tr>
+                    <tr>
+                        <td>HF Portable/POTA</td>
+                        <td><strong>RG-8X</strong></td>
+                        <td>Good balance of loss/weight</td>
+                    </tr>
+                    <tr>
+                        <td>VHF/UHF Base</td>
+                        <td><strong>LMR-400</strong></td>
+                        <td>Low loss critical at VHF+</td>
+                    </tr>
+                    <tr>
+                        <td>VHF/UHF Mobile</td>
+                        <td><strong>RG-8X</strong> or <strong>LMR-240</strong></td>
+                        <td>Flexible, reasonable loss</td>
+                    </tr>
+                    <tr>
+                        <td>Short Jumpers (< 6ft)</td>
+                        <td><strong>RG-58</strong> OK</td>
+                        <td>Loss minimal in short runs</td>
+                    </tr>
+                    <tr>
+                        <td>Repeater Site</td>
+                        <td><strong>LMR-600</strong> or <strong>Hardline</strong></td>
+                        <td>Lowest loss for long vertical runs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip">
+            <strong>Rule of Thumb:</strong> For VHF/UHF, spend money on good coax (LMR-400). The loss savings are worth more than an amplifier that just compensates for coax loss!
+        </div>
+
+        <h2 id="connectors">RF Connectors</h2>
+        
+        <h3>Common Connector Types</h3>
+        
+        <div style="margin: 20px 0;">
+            <div class="connector-card">
+                <h4>PL-259 / SO-239</h4>
+                <div class="image">🔌</div>
+                <ul>
+                    <li><strong>Also called:</strong> UHF connector</li>
+                    <li><strong>Impedance:</strong> Not constant</li>
+                    <li><strong>Good for:</strong> HF, 6m</li>
+                    <li><strong>Not great:</strong> VHF/UHF</li>
+                    <li><strong>Note:</strong> Most common ham connector</li>
+                </ul>
+            </div>
+            
+            <div class="connector-card">
+                <h4>N Connector</h4>
+                <div class="image">⚫</div>
+                <ul>
+                    <li><strong>Impedance:</strong> 50Ω constant</li>
+                    <li><strong>Good for:</strong> All freqs to 11 GHz</li>
+                    <li><strong>Weatherproof:</strong> Yes</li>
+                    <li><strong>Note:</strong> Best for VHF/UHF</li>
+                </ul>
+            </div>
+            
+            <div class="connector-card">
+                <h4>BNC</h4>
+                <div class="image">🔘</div>
+                <ul>
+                    <li><strong>Impedance:</strong> 50Ω</li>
+                    <li><strong>Good for:</strong> Quick connect</li>
+                    <li><strong>Max freq:</strong> ~4 GHz</li>
+                    <li><strong>Note:</strong> Bayonet lock, handy</li>
+                </ul>
+            </div>
+            
+            <div class="connector-card">
+                <h4>SMA</h4>
+                <div class="image">📍</div>
+                <ul>
+                    <li><strong>Impedance:</strong> 50Ω</li>
+                    <li><strong>Size:</strong> Small/compact</li>
+                    <li><strong>Good for:</strong> HTs, handhelds</li>
+                    <li><strong>Max freq:</strong> 18 GHz</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Connector Comparison</h3>
+        <table class="coax-table">
+            <thead>
+                <tr>
+                    <th>Connector</th>
+                    <th>Impedance</th>
+                    <th>Max Freq</th>
+                    <th>Weatherproof</th>
+                    <th>Best Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PL-259/SO-239</td>
+                    <td>Variable</td>
+                    <td>~150 MHz</td>
+                    <td>No*</td>
+                    <td>HF base/mobile</td>
+                </tr>
+                <tr class="highlight">
+                    <td>N Type</td>
+                    <td>50Ω</td>
+                    <td>11 GHz</td>
+                    <td>Yes</td>
+                    <td>VHF/UHF, outdoor</td>
+                </tr>
+                <tr>
+                    <td>BNC</td>
+                    <td>50Ω</td>
+                    <td>4 GHz</td>
+                    <td>No</td>
+                    <td>Test equipment, quick</td>
+                </tr>
+                <tr>
+                    <td>SMA</td>
+                    <td>50Ω</td>
+                    <td>18 GHz</td>
+                    <td>No</td>
+                    <td>HTs, small equipment</td>
+                </tr>
+                <tr>
+                    <td>TNC</td>
+                    <td>50Ω</td>
+                    <td>11 GHz</td>
+                    <td>Some</td>
+                    <td>Threaded BNC</td>
+                </tr>
+                <tr>
+                    <td>F Type</td>
+                    <td>75Ω</td>
+                    <td>1 GHz</td>
+                    <td>Yes</td>
+                    <td>TV/RX only!</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>*PL-259 can be weatherproofed with tape/sealant</em></p>
+
+        <h3>Adapter Basics</h3>
+        <p>Common adapters to keep in your kit:</p>
+        <ul>
+            <li>PL-259 to BNC (both male and female)</li>
+            <li>BNC to SMA</li>
+            <li>N to PL-259</li>
+            <li>SMA to BNC</li>
+            <li>Barrel connectors (same type both ends)</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Adapter Loss:</strong> Each adapter adds a small amount of loss and another potential failure point. Minimize adapters when possible, especially at VHF/UHF.
+        </div>
+
+        <h2 id="installation">Installation Tips</h2>
+        
+        <h3>Connector Installation</h3>
+        <ol>
+            <li><strong>Measure twice, cut once</strong></li>
+            <li><strong>Use proper stripping dimensions</strong> for your connector</li>
+            <li><strong>Don't nick the center conductor</strong></li>
+            <li><strong>Ensure shield doesn't touch center conductor</strong></li>
+            <li><strong>Solder properly</strong> - hot and quick, don't melt dielectric</li>
+            <li><strong>Inspect before use</strong></li>
+        </ol>
+
+        <h3>Weatherproofing</h3>
+        <ul>
+            <li><strong>Coax Seal:</strong> Moldable putty, easy to remove</li>
+            <li><strong>Self-fusing tape:</strong> Stretchy, fuses to itself</li>
+            <li><strong>Heat shrink:</strong> With adhesive lining</li>
+            <li><strong>Drip loop:</strong> Let water run off before entering</li>
+            <li><strong>Point connectors down</strong> when possible</li>
+        </ul>
+
+        <h3>Routing Best Practices</h3>
+        <ul>
+            <li>Avoid sharp bends (minimum bend radius = 10× diameter)</li>
+            <li>Don't crush or kink coax</li>
+            <li>Support coax on long vertical runs</li>
+            <li>Keep away from power lines</li>
+            <li>Use grommets through walls</li>
+            <li>Ground shield at entry point</li>
+        </ul>
+
+        <h2 id="testing">Testing Coax</h2>
+        
+        <h3>Basic Tests</h3>
+        <table class="coax-table">
+            <thead>
+                <tr><th>Test</th><th>Tool</th><th>What You're Checking</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Continuity</td>
+                    <td>Multimeter</td>
+                    <td>Center conductor continuous, shield continuous, no shorts</td>
+                </tr>
+                <tr>
+                    <td>SWR</td>
+                    <td>SWR meter + dummy load</td>
+                    <td>Should be 1:1 with 50Ω load</td>
+                </tr>
+                <tr>
+                    <td>Loss</td>
+                    <td>Antenna analyzer</td>
+                    <td>Compare to spec sheet</td>
+                </tr>
+                <tr>
+                    <td>TDR</td>
+                    <td>Time Domain Reflectometer</td>
+                    <td>Find faults, measure length</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Signs of Bad Coax</h3>
+        <ul>
+            <li>❌ High SWR with known good antenna</li>
+            <li>❌ Intermittent connection when flexed</li>
+            <li>❌ Visible damage, kinks, or cuts</li>
+            <li>❌ Water inside jacket</li>
+            <li>❌ Corroded connectors</li>
+            <li>❌ Melted or discolored spots (overheating)</li>
+        </ul>
+
+        <div class="formula-box">
+            <strong>Velocity Factor Cable Length:</strong><br><br>
+            Physical Length = Electrical Length × Velocity Factor<br><br>
+            Example: Need 1/4λ at 146 MHz with RG-8X (VF=0.82):<br>
+            Electrical 1/4λ = 234 ÷ 146 = 1.60 ft<br>
+            Physical length = 1.60 × 0.82 = <strong>1.31 ft</strong>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="ham-radio-math.html">Ham Radio Math Formulas</a></li>
+            <li><a href="troubleshooting.html">Basic Troubleshooting</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Antenna Book, manufacturer specifications</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

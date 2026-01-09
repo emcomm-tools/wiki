@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grounding &amp; Lightning Safety - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .safety-warning {
+            background: #fff5f5;
+            border: 3px solid #c53030;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .safety-warning h3 {
+            color: #c53030;
+            margin-top: 0;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .ground-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .ground-table th, .ground-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .ground-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .ground-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .checklist {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .checklist h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .checklist li {
+            padding: 5px 0;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .code-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .code-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .product-table th, .product-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .product-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .wire-gauge {
+            font-family: monospace;
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Grounding &amp; Lightning Safety
+    </nav>
+    
+    <article>
+        <h1>Grounding &amp; Lightning Safety</h1>
+        
+        <section class="summary">
+            <p>Proper grounding protects you, your equipment, and your home from lightning and RF hazards. This guide covers station grounding, lightning protection, and safety best practices.</p>
+        </section>
+
+        <div class="safety-warning">
+            <h3>⚡ LIGHTNING KILLS ⚡</h3>
+            <p>No grounding system provides 100% protection from a direct lightning strike. The best protection is <strong>disconnecting antennas and power</strong> during electrical storms.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#why">Why Grounding Matters</a></li>
+                <li><a href="#types">Types of Grounds</a></li>
+                <li><a href="#station">Station Grounding</a></li>
+                <li><a href="#lightning">Lightning Protection</a></li>
+                <li><a href="#bonding">Bonding &amp; Single Point Ground</a></li>
+                <li><a href="#portable">Portable/Field Operations</a></li>
+                <li><a href="#installation">Installation Guide</a></li>
+                <li><a href="#testing">Testing Your Ground</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="why">Why Grounding Matters</h2>
+        
+        <h3>Grounding Serves Multiple Purposes</h3>
+        <table class="ground-table">
+            <thead>
+                <tr><th>Purpose</th><th>What It Does</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Safety (Electrical)</strong></td>
+                    <td>Provides path for fault currents, prevents shock</td>
+                </tr>
+                <tr>
+                    <td><strong>Lightning Protection</strong></td>
+                    <td>Diverts lightning energy to earth (not through your house)</td>
+                </tr>
+                <tr>
+                    <td><strong>RF Ground</strong></td>
+                    <td>Provides return path for antenna systems, reduces RFI</td>
+                </tr>
+                <tr>
+                    <td><strong>Static Discharge</strong></td>
+                    <td>Bleeds off static buildup before it damages equipment</td>
+                </tr>
+                <tr>
+                    <td><strong>Noise Reduction</strong></td>
+                    <td>Reduces received noise and interference</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="types">Types of Grounds</h2>
+        
+        <h3>Different Grounds for Different Purposes</h3>
+        <table class="ground-table">
+            <thead>
+                <tr><th>Type</th><th>Purpose</th><th>Requirements</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>AC Safety Ground</strong></td>
+                    <td>Electrical code safety</td>
+                    <td>Per NEC, green wire in outlet</td>
+                </tr>
+                <tr>
+                    <td><strong>Lightning Ground</strong></td>
+                    <td>Divert lightning energy</td>
+                    <td>Low impedance, short path to earth</td>
+                </tr>
+                <tr>
+                    <td><strong>RF Ground</strong></td>
+                    <td>Antenna system reference</td>
+                    <td>Low RF impedance (may be radials)</td>
+                </tr>
+                <tr>
+                    <td><strong>Equipment Ground</strong></td>
+                    <td>Common reference for gear</td>
+                    <td>Bond all equipment together</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Critical:</strong> All grounds must ultimately connect together (bonding). Separate, unconnected grounds can create dangerous potential differences during a lightning strike.
+        </div>
+
+        <h2 id="station">Station Grounding</h2>
+        
+        <div class="diagram">
+    STATION GROUNDING OVERVIEW
+    
+              Antenna
+                 │
+                 │ Coax
+                 │
+    ┌────────────┴────────────┐
+    │   Lightning Arrestor    │←── At building entry
+    └────────────┬────────────┘
+                 │
+                 │ Coax (inside)
+                 │
+    ┌────────────┴────────────┐
+    │        RADIO            │
+    │    ┌──────────┐        │
+    │    │ Ground   │        │
+    │    │ Terminal │        │
+    └────┴────┬─────┴────────┘
+              │
+              │ Heavy strap/wire
+              │ (as short as possible)
+              │
+    ┌─────────┴─────────┐
+    │  Ground Bus Bar   │←── Single Point Ground
+    │  (copper)         │
+    └────┬────┬────┬────┘
+         │    │    │
+         │    │    └──► To electrical panel ground
+         │    │
+         │    └──► To exterior ground rod(s)
+         │
+         └──► To cold water pipe (if metal)
+        </div>
+
+        <h3>Station Ground Components</h3>
+        <table class="ground-table">
+            <thead>
+                <tr><th>Component</th><th>Specification</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ground Rod</strong></td>
+                    <td>8 ft copper-clad steel, 5/8" diameter minimum</td>
+                    <td>Earth connection</td>
+                </tr>
+                <tr>
+                    <td><strong>Ground Wire</strong></td>
+                    <td><span class="wire-gauge">#6 AWG</span> copper minimum, <span class="wire-gauge">#4 AWG</span> better</td>
+                    <td>Connect rod to system</td>
+                </tr>
+                <tr>
+                    <td><strong>Ground Strap</strong></td>
+                    <td>Copper strap 1" wide or wider</td>
+                    <td>Lower inductance than wire</td>
+                </tr>
+                <tr>
+                    <td><strong>Ground Bus Bar</strong></td>
+                    <td>Copper bar with multiple connection points</td>
+                    <td>Single Point Ground panel</td>
+                </tr>
+                <tr>
+                    <td><strong>Ground Clamps</strong></td>
+                    <td>Bronze or copper, UL listed</td>
+                    <td>Connect wire to rod</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Ground Wire Sizing</h3>
+        <table class="ground-table">
+            <thead>
+                <tr><th>Application</th><th>Minimum Size</th><th>Recommended</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Equipment to bus bar</td>
+                    <td><span class="wire-gauge">#10 AWG</span></td>
+                    <td><span class="wire-gauge">#6 AWG</span> or strap</td>
+                </tr>
+                <tr>
+                    <td>Bus bar to ground rod</td>
+                    <td><span class="wire-gauge">#6 AWG</span></td>
+                    <td><span class="wire-gauge">#4 AWG</span></td>
+                </tr>
+                <tr>
+                    <td>Lightning protection</td>
+                    <td><span class="wire-gauge">#6 AWG</span></td>
+                    <td><span class="wire-gauge">#2 AWG</span> or strap</td>
+                </tr>
+                <tr>
+                    <td>Tower/mast ground</td>
+                    <td><span class="wire-gauge">#6 AWG</span></td>
+                    <td><span class="wire-gauge">#2 AWG</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Tip:</strong> Use copper strap instead of round wire for ground connections whenever possible. Strap has lower inductance at RF and lightning frequencies.
+        </div>
+
+        <h2 id="lightning">Lightning Protection</h2>
+        
+        <div class="diagram">
+    LIGHTNING PROTECTION SYSTEM
+    
+                    ⚡ Lightning
+                       │
+                       ▼
+              ┌────────────────┐
+              │  Air Terminal  │  ←── Lightning rod (if used)
+              │   (optional)   │
+              └───────┬────────┘
+                      │
+              ┌───────┴────────┐
+              │    ANTENNA     │
+              └───────┬────────┘
+                      │
+                      │ Down conductor
+                      │ (as straight as possible)
+                      │
+    ════════════════════════════════  ←── Building Entry Point
+                      │
+              ┌───────┴────────┐
+              │   Lightning    │  ←── Coax arrestor
+              │   Arrestor     │
+              └───────┬────────┘
+                      │
+                      ├──────────────► To Ground Rod(s)
+                      │                (shortest path!)
+                      │
+              ┌───────┴────────┐
+              │   To Radio     │
+              └────────────────┘
+        </div>
+
+        <h3>Lightning Protection Components</h3>
+        <table class="product-table">
+            <thead>
+                <tr><th>Device</th><th>Function</th><th>Installation</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Coax Surge Arrestor</strong></td>
+                    <td>Shorts lightning to ground, passes RF</td>
+                    <td>At building entry, grounded</td>
+                </tr>
+                <tr>
+                    <td><strong>Gas Discharge Tube</strong></td>
+                    <td>Fires at high voltage, diverts surge</td>
+                    <td>Inside arrestors</td>
+                </tr>
+                <tr>
+                    <td><strong>Polyphaser/MOV</strong></td>
+                    <td>Multi-stage protection</td>
+                    <td>At entry point</td>
+                </tr>
+                <tr>
+                    <td><strong>Antenna Disconnect</strong></td>
+                    <td>Physical disconnect from feedline</td>
+                    <td>When not in use</td>
+                </tr>
+                <tr>
+                    <td><strong>Ground Rod</strong></td>
+                    <td>Conducts energy to earth</td>
+                    <td>Near entry point</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Lightning Arrestor Installation</h3>
+        <div class="checklist">
+            <h4>✅ Arrestor Checklist</h4>
+            <ul>
+                <li>☐ Mount at or before building entry</li>
+                <li>☐ Use bulkhead/panel mount type</li>
+                <li>☐ Ground connection as SHORT as possible</li>
+                <li>☐ Use <span class="wire-gauge">#6 AWG</span> minimum to ground rod</li>
+                <li>☐ NO sharp bends in ground wire</li>
+                <li>☐ Ground rod within 2 feet of arrestor</li>
+                <li>☐ Bond to electrical service ground</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>Sharp Bends:</strong> Lightning follows the path of least inductance, not resistance. Sharp bends in ground wires increase inductance and can cause lightning to jump to other paths (like your equipment!).
+        </div>
+
+        <h3>Multiple Ground Rods</h3>
+        <p>For better lightning protection, use multiple ground rods:</p>
+        <ul>
+            <li>Space rods at least 8 feet apart (equal to rod length)</li>
+            <li>Bond all rods together with <span class="wire-gauge">#6 AWG</span> or larger</li>
+            <li>Create a ring around the tower base if possible</li>
+            <li>Bury connecting wire 6-12 inches deep</li>
+        </ul>
+
+        <h2 id="bonding">Bonding &amp; Single Point Ground</h2>
+        
+        <div class="code-box">
+            <h4>⚠️ NEC Requirements</h4>
+            <p>Per National Electrical Code (NEC) Article 810:</p>
+            <ul>
+                <li>Antenna discharge units (arrestors) required</li>
+                <li>All grounds must bond to electrical service ground</li>
+                <li>Minimum <span class="wire-gauge">#10 AWG</span> copper for antenna ground</li>
+                <li>Ground electrode conductor per NEC 250</li>
+            </ul>
+        </div>
+
+        <h3>Single Point Ground Panel</h3>
+        <div class="diagram">
+    SINGLE POINT GROUND PANEL
+    
+    ┌────────────────────────────────────────────┐
+    │           COPPER BUS BAR                   │
+    │  ┌──┐  ┌──┐  ┌──┐  ┌──┐  ┌──┐  ┌──┐      │
+    │  │  │  │  │  │  │  │  │  │  │  │  │      │
+    │  └┬─┘  └┬─┘  └┬─┘  └┬─┘  └┬─┘  └┬─┘      │
+    │   │     │     │     │     │     │        │
+    └───┼─────┼─────┼─────┼─────┼─────┼────────┘
+        │     │     │     │     │     │
+        │     │     │     │     │     └─► AC Safety Ground
+        │     │     │     │     │
+        │     │     │     │     └─► Cold Water Pipe
+        │     │     │     │
+        │     │     │     └─► Tower/Mast Ground
+        │     │     │
+        │     │     └─► Coax Arrestor Ground
+        │     │
+        │     └─► Ground Rod(s)
+        │
+        └─► Equipment Ground Bus
+        </div>
+
+        <div class="note">
+            <strong>Key Principle:</strong> Everything connects to ONE point, and that point connects to earth. This prevents ground loops and ensures all equipment rises to the same potential during a surge.
+        </div>
+
+        <h2 id="portable">Portable/Field Operations</h2>
+        
+        <h3>Field Station Grounding</h3>
+        <p>Portable stations have different grounding considerations:</p>
+
+        <table class="ground-table">
+            <thead>
+                <tr><th>Situation</th><th>Grounding Approach</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>POTA/SOTA</td>
+                    <td>Counterpoise wires, vehicle chassis, ground stake</td>
+                </tr>
+                <tr>
+                    <td>EmComm Field</td>
+                    <td>Ground rod + counterpoise, generator grounding</td>
+                </tr>
+                <tr>
+                    <td>Vehicle Mobile</td>
+                    <td>Vehicle chassis is the ground plane</td>
+                </tr>
+                <tr>
+                    <td>Temporary Base</td>
+                    <td>Ground rod(s), bond to building if possible</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Field Ground Kit</h3>
+        <ul>
+            <li>4-foot copper ground rod (portable)</li>
+            <li>Ground rod driver or hammer</li>
+            <li><span class="wire-gauge">#10 AWG</span> stranded wire (25+ feet)</li>
+            <li>Alligator clips or clamps</li>
+            <li>Counterpoise wires (quarter-wave lengths)</li>
+            <li>Ground strap for equipment bonding</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Field Lightning Safety:</strong> During thunderstorms, STOP operating, disconnect antennas, and seek shelter. A portable mast is a lightning rod!
+        </div>
+
+        <h3>Thunderstorm Safety Procedure</h3>
+        <ol>
+            <li>Monitor weather - stop operating when storms approach</li>
+            <li>Disconnect antenna feedlines from equipment</li>
+            <li>Move away from antenna/mast</li>
+            <li>Seek shelter in vehicle or building</li>
+            <li>Wait 30 minutes after last lightning before resuming</li>
+        </ol>
+
+        <h2 id="installation">Installation Guide</h2>
+        
+        <h3>Ground Rod Installation</h3>
+        <ol>
+            <li>Choose location near antenna entry point</li>
+            <li>Check for underground utilities before digging!</li>
+            <li>Drive rod until only 4-6" remains above ground</li>
+            <li>If rock prevents full depth, use two rods at angle or horizontal</li>
+            <li>Attach ground clamp securely</li>
+            <li>Apply anti-oxidant compound to connections</li>
+            <li>Run ground wire with no sharp bends</li>
+            <li>Connect to single point ground</li>
+            <li>Bond to electrical service ground</li>
+        </ol>
+
+        <h3>Improving Ground Conductivity</h3>
+        <p>If soil is dry or rocky:</p>
+        <ul>
+            <li>Use longer ground rods (10 ft)</li>
+            <li>Use multiple rods, bonded together</li>
+            <li>Add ground radials buried 6-12"</li>
+            <li>Treat soil with ground enhancement compound</li>
+            <li>Water the ground rod area (temporary help)</li>
+        </ul>
+
+        <h2 id="testing">Testing Your Ground</h2>
+        
+        <h3>Ground Resistance Testing</h3>
+        <table class="ground-table">
+            <thead>
+                <tr><th>Application</th><th>Target Resistance</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Commercial/Industrial</td>
+                    <td>&lt; 5 ohms</td>
+                </tr>
+                <tr>
+                    <td>Residential (NEC)</td>
+                    <td>&lt; 25 ohms</td>
+                </tr>
+                <tr>
+                    <td>Amateur Station (goal)</td>
+                    <td>&lt; 10 ohms</td>
+                </tr>
+                <tr>
+                    <td>Lightning Protection</td>
+                    <td>&lt; 10 ohms</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Testing Methods</h3>
+        <ul>
+            <li><strong>Fall-of-Potential:</strong> Professional 3-point test (most accurate)</li>
+            <li><strong>Clamp-on Meter:</strong> Measures ground loop resistance</li>
+            <li><strong>Simple Ohmmeter:</strong> Between ground rod and distant point (rough estimate)</li>
+        </ul>
+
+        <h3>Visual Inspection Checklist</h3>
+        <div class="checklist">
+            <h4>✅ Annual Ground Inspection</h4>
+            <ul>
+                <li>☐ Check all connections for corrosion</li>
+                <li>☐ Verify clamps are tight</li>
+                <li>☐ Look for damaged or frayed wire</li>
+                <li>☐ Ensure ground rods haven't loosened</li>
+                <li>☐ Check arrestors for damage/burn marks</li>
+                <li>☐ Verify bonding connections intact</li>
+                <li>☐ Test continuity with meter</li>
+            </ul>
+        </div>
+
+        <h2>Quick Reference Summary</h2>
+        
+        <div class="checklist">
+            <h4>✅ Station Grounding Essentials</h4>
+            <ul>
+                <li>☐ 8-foot ground rod(s) at antenna entry</li>
+                <li>☐ Lightning arrestor on all feedlines</li>
+                <li>☐ Single point ground panel</li>
+                <li>☐ All grounds bonded together</li>
+                <li>☐ Bonded to electrical service ground</li>
+                <li>☐ <span class="wire-gauge">#6 AWG</span> minimum ground wire</li>
+                <li>☐ No sharp bends in ground conductors</li>
+                <li>☐ Antenna disconnect for storms</li>
+            </ul>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="coax-connectors.html">Coax &amp; Connectors Guide</a></li>
+            <li><a href="troubleshooting.html">Basic Troubleshooting</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Handbook, NEC Article 810, Polyphaser Lightning Protection</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+            <p><em>This guide is educational. Consult a licensed electrician for electrical code compliance.</em></p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

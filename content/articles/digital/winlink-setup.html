@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winlink Setup Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .setup-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .setup-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .config-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .config-table code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .freq-table .recommended {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .step-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .command-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .command-box .prompt {
+            color: #68d391;
+        }
+        .command-box .comment {
+            color: #a0aec0;
+        }
+        .mode-card {
+            display: inline-block;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            vertical-align: top;
+        }
+        .mode-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+            border-bottom: 2px solid #4299e1;
+            padding-bottom: 5px;
+        }
+        .mode-card .speed {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital">Digital Modes</a> &gt; 
+        Winlink Setup Guide
+    </nav>
+    
+    <article>
+        <h1>Winlink Setup Guide</h1>
+        
+        <section class="summary">
+            <p>Complete guide to setting up Winlink for email over radio. Covers Pat (the Linux/cross-platform client), VARA modem configuration, and gateway selection for EmComm operations.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is Winlink?</a></li>
+                <li><a href="#modes">Connection Modes</a></li>
+                <li><a href="#pat">Pat Client Setup</a></li>
+                <li><a href="#vara">VARA Modem Setup</a></li>
+                <li><a href="#gateways">Gateway Selection</a></li>
+                <li><a href="#frequencies">Winlink Frequencies</a></li>
+                <li><a href="#operation">Basic Operation</a></li>
+                <li><a href="#emcomm">EmComm Forms</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is Winlink?</h2>
+        
+        <div class="diagram">
+    WINLINK NETWORK ARCHITECTURE
+    
+    📻 Your Station          📡 RMS Gateway         ☁️ Winlink CMS
+    (Pat + Modem)            (Internet-connected)    (Cloud Servers)
+         │                         │                      │
+         │    RF Connection        │                      │
+         │   (HF/VHF packet)       │                      │
+         └────────────────────────►│                      │
+                                   │   Internet           │
+                                   └─────────────────────►│
+                                                          │
+                                                    ┌─────┴─────┐
+                                                    │  Email    │
+                                                    │  Internet │
+                                                    │  ◄──────► │
+                                                    └───────────┘
+        </div>
+
+        <p><strong>Winlink</strong> is a worldwide radio email system that allows you to send and receive email via amateur radio. It's a critical tool for emergency communications when internet is unavailable.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Email via RF</strong> - Send/receive email without internet</li>
+            <li><strong>Store and Forward</strong> - Messages held until retrieved</li>
+            <li><strong>Forms/Templates</strong> - Standardized EmComm forms (ICS, etc.)</li>
+            <li><strong>Attachments</strong> - Small files, images (compressed)</li>
+            <li><strong>Position Reporting</strong> - GPS location in messages</li>
+            <li><strong>Peer-to-Peer</strong> - Direct station-to-station without gateway</li>
+        </ul>
+
+        <h2 id="modes">Connection Modes</h2>
+        
+        <div style="margin: 20px 0;">
+            <div class="mode-card">
+                <h4>VARA HF</h4>
+                <div class="speed">~8 kbps</div>
+                <p>Fastest HF mode</p>
+                <ul>
+                    <li>Worldwide range</li>
+                    <li>Adaptive speed</li>
+                    <li>Requires VARA license*</li>
+                </ul>
+            </div>
+            
+            <div class="mode-card">
+                <h4>VARA FM</h4>
+                <div class="speed">~25 kbps</div>
+                <p>VHF/UHF mode</p>
+                <ul>
+                    <li>Local/regional</li>
+                    <li>Very fast</li>
+                    <li>Requires VARA license*</li>
+                </ul>
+            </div>
+            
+            <div class="mode-card">
+                <h4>ARDOP</h4>
+                <div class="speed">~500 bps</div>
+                <p>Open source HF</p>
+                <ul>
+                    <li>Free, no license</li>
+                    <li>Slower than VARA</li>
+                    <li>Good backup</li>
+                </ul>
+            </div>
+            
+            <div class="mode-card">
+                <h4>Packet</h4>
+                <div class="speed">1200/9600 bps</div>
+                <p>AX.25 VHF/UHF</p>
+                <ul>
+                    <li>Free, proven</li>
+                    <li>Widely available</li>
+                    <li>Requires TNC</li>
+                </ul>
+            </div>
+            
+            <div class="mode-card">
+                <h4>PACTOR</h4>
+                <div class="speed">~5 kbps</div>
+                <p>Commercial HF</p>
+                <ul>
+                    <li>Very robust</li>
+                    <li>Expensive hardware</li>
+                    <li>SCS modem required</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p><em>*VARA free version limited to ~175 bps. Full speed requires paid license.</em></p>
+
+        <h2 id="pat">Pat Client Setup</h2>
+        
+        <div class="setup-box">
+            <h4>📦 What is Pat?</h4>
+            <p><strong>Pat</strong> is a cross-platform Winlink client that runs on Linux, Windows, macOS, and Raspberry Pi. It's the recommended client for EmComm-Tools.</p>
+            <ul>
+                <li>Web-based interface (browser)</li>
+                <li>Command-line interface</li>
+                <li>Works with VARA, ARDOP, Packet, PACTOR</li>
+                <li>Free and open source</li>
+            </ul>
+        </div>
+
+        <h3>Installation (Linux/EmComm-Tools)</h3>
+        <div class="command-box">
+<span class="comment"># Pat is pre-installed in EmComm-Tools</span>
+<span class="comment"># To verify installation:</span>
+<span class="prompt">$</span> pat version
+
+<span class="comment"># To start Pat web interface:</span>
+<span class="prompt">$</span> pat http
+
+<span class="comment"># Then open browser to:</span>
+<span class="comment"># http://localhost:8080</span>
+        </div>
+
+        <h3>Initial Configuration</h3>
+        <p>Pat configuration is stored in <code>~/.config/pat/config.json</code></p>
+
+        <div class="step-box">
+            <h4>Step 1: Set Your Callsign</h4>
+            <div class="command-box">
+<span class="prompt">$</span> pat configure
+            </div>
+            <p>Or edit config.json directly:</p>
+            <div class="command-box">
+{
+  "mycall": "VA2OPS",
+  "secure_login_password": "YOUR_WINLINK_PASSWORD",
+  "locator": "FN35",
+  ...
+}
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h4>Step 2: Register with Winlink</h4>
+            <p>Before using Winlink, register your callsign:</p>
+            <ol>
+                <li>Go to <a href="https://winlink.org">winlink.org</a></li>
+                <li>Click "Create Account"</li>
+                <li>Enter callsign and email</li>
+                <li>Set a secure password</li>
+                <li>Add password to Pat config</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h4>Step 3: Configure Audio Device</h4>
+            <p>Pat needs to know which sound card to use for digital modes:</p>
+            <div class="command-box">
+<span class="comment"># List audio devices</span>
+<span class="prompt">$</span> aplay -l
+<span class="prompt">$</span> arecord -l
+
+<span class="comment"># In config.json, set ax25 or ardop sections:</span>
+"ardop": {
+  "addr": "localhost:8515",
+  "arq_bandwidth": 500,
+  ...
+}
+            </div>
+        </div>
+
+        <h3>Pat Configuration Reference</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Setting</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>mycall</code></td>
+                    <td>Your callsign</td>
+                    <td><code>"VA2OPS"</code></td>
+                </tr>
+                <tr>
+                    <td><code>secure_login_password</code></td>
+                    <td>Winlink account password</td>
+                    <td><code>"MySecurePass123"</code></td>
+                </tr>
+                <tr>
+                    <td><code>locator</code></td>
+                    <td>Maidenhead grid square</td>
+                    <td><code>"FN35"</code></td>
+                </tr>
+                <tr>
+                    <td><code>http_addr</code></td>
+                    <td>Web interface address</td>
+                    <td><code>"localhost:8080"</code></td>
+                </tr>
+                <tr>
+                    <td><code>auxiliary_addresses</code></td>
+                    <td>Additional addresses to check</td>
+                    <td><code>["PRIOR:VA2GCU"]</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="vara">VARA Modem Setup</h2>
+        
+        <div class="note">
+            <strong>VARA License:</strong> VARA HF and VARA FM are proprietary modems. The free version works but is speed-limited (~175 bps). Full speed requires purchasing a license from EA5HVK.
+        </div>
+
+        <h3>VARA HF Configuration</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Setting</th><th>Recommended Value</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Soundcard Input</td>
+                    <td>Your interface (SignaLink, etc.)</td>
+                    <td>Must match radio connection</td>
+                </tr>
+                <tr>
+                    <td>Soundcard Output</td>
+                    <td>Same as input (usually)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PTT Method</td>
+                    <td>CAT or VOX</td>
+                    <td>CAT preferred</td>
+                </tr>
+                <tr>
+                    <td>Drive Level</td>
+                    <td>Start at 50%</td>
+                    <td>Adjust for ALC</td>
+                </tr>
+                <tr>
+                    <td>Bandwidth</td>
+                    <td>2300 Hz (default)</td>
+                    <td>500 Hz for narrow</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>VARA + Pat Integration</h3>
+        <p>In Pat's config.json:</p>
+        <div class="command-box">
+"varahf": {
+  "host": "localhost",
+  "cmdPort": 8300,
+  "dataPort": 8301
+},
+"varafm": {
+  "host": "localhost", 
+  "cmdPort": 8300,
+  "dataPort": 8301
+}
+        </div>
+
+        <div class="tip">
+            <strong>Audio Levels:</strong> Set VARA drive level so your radio's ALC meter barely moves. Over-driving causes distortion and failed connections.
+        </div>
+
+        <h2 id="gateways">Gateway Selection</h2>
+        
+        <h3>Finding Gateways</h3>
+        <p>Use these resources to find active RMS gateways:</p>
+        <ul>
+            <li><strong>Pat Gateway List:</strong> Built into Pat, auto-updated</li>
+            <li><strong>winlink.org/RMSChannels:</strong> Official gateway list</li>
+            <li><strong>In Pat:</strong> Click "Connect" → shows nearby gateways</li>
+        </ul>
+
+        <h3>Gateway Selection Tips</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Factor</th><th>Consideration</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Distance</strong></td>
+                    <td>Match band to distance (NVIS for regional, skip for DX)</td>
+                </tr>
+                <tr>
+                    <td><strong>Mode</strong></td>
+                    <td>Choose gateway supporting your modem (VARA, ARDOP, etc.)</td>
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>Check propagation for that band/time</td>
+                </tr>
+                <tr>
+                    <td><strong>Traffic</strong></td>
+                    <td>Busy gateways may have queues</td>
+                </tr>
+                <tr>
+                    <td><strong>Reliability</strong></td>
+                    <td>Some gateways more reliable than others</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="frequencies">Winlink Frequencies</h2>
+        
+        <h3>VARA HF Center Frequencies</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Band</th><th>Dial Freq (USB)</th><th>Center Freq</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>80m</td>
+                    <td>3.597.0 kHz</td>
+                    <td>3.598.5 kHz</td>
+                    <td>Night, regional</td>
+                </tr>
+                <tr class="recommended">
+                    <td>40m</td>
+                    <td>7.101.0 kHz</td>
+                    <td>7.102.5 kHz</td>
+                    <td>Day/night workhorse</td>
+                </tr>
+                <tr>
+                    <td>30m</td>
+                    <td>10.144.0 kHz</td>
+                    <td>10.145.5 kHz</td>
+                    <td>Good transition band</td>
+                </tr>
+                <tr class="recommended">
+                    <td>20m</td>
+                    <td>14.108.0 kHz</td>
+                    <td>14.109.5 kHz</td>
+                    <td>Daytime DX</td>
+                </tr>
+                <tr>
+                    <td>17m</td>
+                    <td>18.103.0 kHz</td>
+                    <td>18.104.5 kHz</td>
+                    <td>Daytime</td>
+                </tr>
+                <tr>
+                    <td>15m</td>
+                    <td>21.103.0 kHz</td>
+                    <td>21.104.5 kHz</td>
+                    <td>Solar dependent</td>
+                </tr>
+                <tr>
+                    <td>12m</td>
+                    <td>24.923.0 kHz</td>
+                    <td>24.924.5 kHz</td>
+                    <td>Solar dependent</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Dial frequency is what you set on radio. Center frequency is where signal appears.</em></p>
+
+        <h3>VARA FM / Packet VHF</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Band</th><th>Frequency</th><th>Mode</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2m</td>
+                    <td>144.910 MHz</td>
+                    <td>Packet 1200</td>
+                    <td>Common packet freq</td>
+                </tr>
+                <tr>
+                    <td>2m</td>
+                    <td>145.010 MHz</td>
+                    <td>Packet 1200</td>
+                    <td>Alternate</td>
+                </tr>
+                <tr>
+                    <td>2m</td>
+                    <td>144.950 MHz</td>
+                    <td>VARA FM</td>
+                    <td>Check local gateways</td>
+                </tr>
+                <tr>
+                    <td>70cm</td>
+                    <td>Various</td>
+                    <td>Packet 9600</td>
+                    <td>Local gateway dependent</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="operation">Basic Operation</h2>
+        
+        <h3>Sending Email via Pat Web Interface</h3>
+        <ol>
+            <li>Start Pat: <code>pat http</code></li>
+            <li>Open browser to <code>http://localhost:8080</code></li>
+            <li>Click <strong>Compose</strong></li>
+            <li>Enter recipient (callsign or email address)</li>
+            <li>Write subject and message</li>
+            <li>Click <strong>Post to Outbox</strong></li>
+            <li>Click <strong>Connect</strong> and select gateway</li>
+            <li>Messages send/receive automatically</li>
+        </ol>
+
+        <h3>Addressing Messages</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Destination</th><th>Address Format</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Another ham</td>
+                    <td>CALLSIGN</td>
+                    <td><code>W1ABC</code></td>
+                </tr>
+                <tr>
+                    <td>Internet email</td>
+                    <td>SMTP:address</td>
+                    <td><code>SMTP:john@example.com</code></td>
+                </tr>
+                <tr>
+                    <td>Your Winlink email</td>
+                    <td>callsign@winlink.org</td>
+                    <td><code>va2ops@winlink.org</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Message Size:</strong> Keep messages short! Large attachments take a long time over HF. Compress images. Avoid unnecessary attachments during emergencies.
+        </div>
+
+        <h3>Command Line Operation</h3>
+        <div class="command-box">
+<span class="comment"># Connect to specific gateway via VARA HF</span>
+<span class="prompt">$</span> pat connect varahf:///W3ADO?freq=7101000
+
+<span class="comment"># List messages in inbox</span>
+<span class="prompt">$</span> pat inbox
+
+<span class="comment"># Read a message</span>
+<span class="prompt">$</span> pat read MESSAGE_ID
+
+<span class="comment"># Compose from command line</span>
+<span class="prompt">$</span> pat compose
+        </div>
+
+        <h2 id="emcomm">EmComm Forms</h2>
+        
+        <div class="setup-box">
+            <h4>📋 Winlink Standard Forms</h4>
+            <p>Winlink includes standardized forms for emergency communications:</p>
+            <ul>
+                <li><strong>ICS-213</strong> - General Message</li>
+                <li><strong>HICS-213</strong> - Hospital version</li>
+                <li><strong>Red Cross</strong> - Disaster Welfare Inquiry</li>
+                <li><strong>Radiogram</strong> - NTS format message</li>
+                <li><strong>Check-In</strong> - Operator status</li>
+                <li><strong>Situation Report</strong> - Field status</li>
+                <li><strong>Resource Request</strong> - ICS resource forms</li>
+            </ul>
+        </div>
+
+        <h3>Using Forms in Pat</h3>
+        <ol>
+            <li>Click <strong>Compose</strong></li>
+            <li>Click <strong>Select Template</strong></li>
+            <li>Choose form type</li>
+            <li>Fill in form fields</li>
+            <li>Post to Outbox and Connect</li>
+        </ol>
+
+        <h3>Peer-to-Peer (P2P) Mode</h3>
+        <p>Winlink can operate station-to-station without a gateway:</p>
+        <ul>
+            <li>Both stations need Pat + same modem (VARA, ARDOP)</li>
+            <li>One station initiates connection to other's callsign</li>
+            <li>Messages exchange directly</li>
+            <li>Useful when gateways unavailable</li>
+        </ul>
+
+        <h2>Quick Start Checklist</h2>
+        
+        <div class="step-box">
+            <h4>✅ Winlink Setup Checklist</h4>
+            <ul>
+                <li>☐ Register at winlink.org</li>
+                <li>☐ Install Pat</li>
+                <li>☐ Configure callsign and password in Pat</li>
+                <li>☐ Install modem (VARA or ARDOP)</li>
+                <li>☐ Configure audio interface</li>
+                <li>☐ Set radio to USB, correct frequency</li>
+                <li>☐ Test with Telnet gateway first (internet)</li>
+                <li>☐ Test with RF gateway</li>
+                <li>☐ Practice before you need it!</li>
+            </ul>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="../reference/winlink-catalog-requests.html">Winlink Catalog Requests</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+            <li><a href="hf-propagation.html">HF Propagation</a> (for band selection)</li>
+            <li><a href="../emcomm/ics-forms.html">ICS Forms Reference</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: Winlink.org, Pat documentation</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplex Operations Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .freq-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .freq-table .highlight {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .freq-table .calling {
+            background: #fed7d7;
+            font-weight: bold;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .info-box {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .info-box h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .procedure {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .procedure h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .ref-card .freq {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .ref-card .label {
+            font-size: 0.9em;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Simplex Operations Guide
+    </nav>
+    
+    <article>
+        <h1>Simplex Operations Guide</h1>
+        
+        <section class="summary">
+            <p>How to communicate on simplex (direct radio-to-radio) without repeaters. Essential for emergency communications when repeaters are down, overloaded, or out of range.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is Simplex?</a></li>
+                <li><a href="#why">Why Simplex Matters</a></li>
+                <li><a href="#frequencies">Simplex Frequencies</a></li>
+                <li><a href="#range">Range Considerations</a></li>
+                <li><a href="#procedures">Operating Procedures</a></li>
+                <li><a href="#nets">Simplex Nets</a></li>
+                <li><a href="#tips">Tips for Success</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is Simplex?</h2>
+        
+        <div class="diagram">
+     SIMPLEX (Direct)                    REPEATER (Duplex)
+     
+     📻 ─────────────────► 📻           📻 ───► 🗼 ───► 📻
+        Same frequency                    Different TX/RX
+        Both stations TX/RX               frequencies
+        on same freq                      Repeater retransmits
+        </div>
+
+        <p><strong>Simplex</strong> means transmitting and receiving on the same frequency. Both stations talk directly to each other without any infrastructure in between.</p>
+
+        <ul>
+            <li><strong>No repeater needed</strong> - Works when repeaters are down</li>
+            <li><strong>Direct path</strong> - Radio to radio</li>
+            <li><strong>Same frequency</strong> - TX and RX on identical frequency</li>
+            <li><strong>Limited range</strong> - Typically line-of-sight</li>
+        </ul>
+
+        <h2 id="why">Why Simplex Matters for EmComm</h2>
+        
+        <div class="info-box">
+            <h4>🚨 When Repeaters Fail</h4>
+            <p>During disasters, repeaters may be:</p>
+            <ul>
+                <li><strong>Destroyed</strong> - Tower/equipment damage</li>
+                <li><strong>Without power</strong> - Backup batteries depleted</li>
+                <li><strong>Overloaded</strong> - Too many users</li>
+                <li><strong>Out of range</strong> - You're beyond coverage</li>
+                <li><strong>Restricted</strong> - Access controlled during emergency</li>
+            </ul>
+            <p><strong>Simplex always works</strong> if you can hear each other!</p>
+        </div>
+
+        <h3>Simplex Advantages</h3>
+        <ul>
+            <li>✅ No infrastructure required</li>
+            <li>✅ Works in remote areas</li>
+            <li>✅ Private (shorter range = fewer listeners)</li>
+            <li>✅ Lower power often sufficient</li>
+            <li>✅ No repeater timeout to worry about</li>
+            <li>✅ Available when repeaters are down</li>
+        </ul>
+
+        <h3>Simplex Limitations</h3>
+        <ul>
+            <li>❌ Limited range (typically 5-30 miles)</li>
+            <li>❌ Terrain dependent</li>
+            <li>❌ Requires coordination (both on same freq)</li>
+            <li>❌ No "store and forward"</li>
+        </ul>
+
+        <h2 id="frequencies">Simplex Frequencies</h2>
+        
+        <h3>National Calling Frequencies</h3>
+        <div class="quick-ref">
+            <div class="ref-card">
+                <div class="freq">146.520</div>
+                <div class="label">2m National Calling</div>
+            </div>
+            <div class="ref-card">
+                <div class="freq">446.000</div>
+                <div class="label">70cm National Calling</div>
+            </div>
+            <div class="ref-card">
+                <div class="freq">52.525</div>
+                <div class="label">6m National Calling</div>
+            </div>
+            <div class="ref-card">
+                <div class="freq">223.500</div>
+                <div class="label">1.25m National Calling</div>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>Calling Frequencies:</strong> Make contact on the calling frequency, then <strong>QSY</strong> (move) to a working frequency for your conversation. Don't tie up the calling frequency!
+        </div>
+
+        <h3>2m FM Simplex Frequencies (146-148 MHz)</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Use</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="calling"><td>146.520</td><td>National Calling</td><td>Monitor this! Make contact, then QSY</td></tr>
+                <tr class="highlight"><td>146.550</td><td>Simplex</td><td>Common working frequency</td></tr>
+                <tr><td>146.580</td><td>Simplex</td><td></td></tr>
+                <tr><td>147.420</td><td>Simplex</td><td></td></tr>
+                <tr><td>147.450</td><td>Simplex</td><td></td></tr>
+                <tr class="highlight"><td>147.480</td><td>Simplex</td><td>Often used for events</td></tr>
+                <tr><td>147.510</td><td>Simplex</td><td></td></tr>
+                <tr><td>147.540</td><td>Simplex</td><td></td></tr>
+                <tr class="highlight"><td>147.555</td><td>Simplex</td><td>Popular working freq</td></tr>
+                <tr><td>147.570</td><td>Simplex</td><td></td></tr>
+                <tr><td>147.585</td><td>Simplex</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h3>70cm FM Simplex Frequencies (440-450 MHz)</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Use</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="calling"><td>446.000</td><td>National Calling</td><td>Make contact, then QSY</td></tr>
+                <tr><td>446.050</td><td>Simplex</td><td></td></tr>
+                <tr><td>446.100</td><td>Simplex</td><td></td></tr>
+                <tr><td>446.150</td><td>Simplex</td><td></td></tr>
+                <tr class="highlight"><td>446.500</td><td>Simplex</td><td>Common working frequency</td></tr>
+                <tr><td>447.000</td><td>Simplex</td><td></td></tr>
+                <tr><td>447.050</td><td>Simplex</td><td></td></tr>
+                <tr><td>447.100</td><td>Simplex</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h3>HF Simplex</h3>
+        <p>HF is inherently simplex (same frequency TX/RX). Common calling frequencies:</p>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Band</th><th>Frequency</th><th>Mode</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>80m</td><td>3.860 MHz</td><td>LSB</td><td>EmComm, nets</td></tr>
+                <tr><td>40m</td><td>7.200 MHz</td><td>LSB</td><td>General calling area</td></tr>
+                <tr><td>40m</td><td>7.232 MHz</td><td>LSB</td><td>ARES HF</td></tr>
+                <tr><td>20m</td><td>14.300 MHz</td><td>USB</td><td>Maritime Mobile, emergency</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="range">Range Considerations</h2>
+        
+        <div class="diagram">
+                          Line of Sight
+        📻─────────────────────────────────────📻
+         \                                    /
+          \    Buildings, trees, hills       /
+           \   BLOCK simplex signals        /
+            \                              /
+             ▼                            ▼
+        ═══════════════════════════════════════
+                    TERRAIN
+        </div>
+
+        <h3>Typical Simplex Range</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Setup</th><th>Typical Range</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>HT to HT (urban)</td><td>0.5 - 2 miles</td></tr>
+                <tr><td>HT to HT (suburban)</td><td>2 - 5 miles</td></tr>
+                <tr><td>HT to mobile</td><td>5 - 15 miles</td></tr>
+                <tr><td>Mobile to mobile</td><td>10 - 25 miles</td></tr>
+                <tr><td>Mobile to base (with antenna)</td><td>20 - 40 miles</td></tr>
+                <tr><td>Hilltop to hilltop</td><td>50+ miles possible</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Factors Affecting Range</h3>
+        <ul>
+            <li><strong>Antenna height</strong> - Higher is better (significantly!)</li>
+            <li><strong>Antenna type</strong> - Gain antenna vs rubber duck</li>
+            <li><strong>Power</strong> - More helps, but antenna height matters more</li>
+            <li><strong>Terrain</strong> - Hills, buildings block signals</li>
+            <li><strong>Frequency</strong> - 2m travels slightly farther than 70cm</li>
+            <li><strong>Band conditions</strong> - Tropospheric enhancement can help</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Height Wins:</strong> Raising your antenna 10 feet often does more than doubling your power. Get that antenna up!
+        </div>
+
+        <h2 id="procedures">Operating Procedures</h2>
+        
+        <div class="procedure">
+            <h4>📞 Making Contact on Calling Frequency</h4>
+            <ol>
+                <li><strong>Listen first</strong> - Is the frequency clear?</li>
+                <li><strong>Call CQ or specific station:</strong>
+                    <div class="example">"CQ CQ, this is VA2OPS, Victor Alfa Two Oscar Papa Sierra, listening on 146.52"</div>
+                </li>
+                <li><strong>Wait for response</strong></li>
+                <li><strong>When contact made, QSY:</strong>
+                    <div class="example">"W1ABC, let's move to 146.55, one four six point five five"</div>
+                </li>
+                <li><strong>Move to working frequency</strong> and continue conversation</li>
+            </ol>
+        </div>
+
+        <div class="procedure">
+            <h4>📍 Monitoring/Calling for Local Activity</h4>
+            <div class="example">
+                "Is there any mobile or base station in the Granby area? This is VA2OPS monitoring 146.52"
+            </div>
+        </div>
+
+        <div class="procedure">
+            <h4>🆘 Emergency on Simplex</h4>
+            <div class="example">
+                "BREAK BREAK - Emergency traffic - This is VA2OPS at Highway 10 mile marker 45, reporting multi-vehicle accident, requesting any station to relay to 911"
+            </div>
+            <p>Stay on the calling frequency for emergencies - that's where people are listening!</p>
+        </div>
+
+        <h3>Simplex vs Repeater Etiquette</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Simplex</th><th>Repeater</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>No timeout timer</td><td>Watch the timer!</td></tr>
+                <tr><td>Only nearby stations hear</td><td>Wide coverage</td></tr>
+                <tr><td>Longer pause between TX OK</td><td>Quick pause for breakers</td></tr>
+                <tr><td>May need higher power</td><td>Low power often works</td></tr>
+                <tr><td>No tone required (usually)</td><td>May need CTCSS tone</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="nets">Simplex Nets</h2>
+        
+        <div class="info-box">
+            <h4>Running a Simplex Net</h4>
+            <p>Simplex nets are challenging because not all stations may hear each other. Special considerations:</p>
+        </div>
+
+        <h3>Simplex Net Techniques</h3>
+        <ul>
+            <li><strong>Higher power/better antenna for NCS</strong> - Net control must reach everyone</li>
+            <li><strong>Central location for NCS</strong> - Geographically centered</li>
+            <li><strong>Relay stations</strong> - Assign stations to relay for distant participants</li>
+            <li><strong>Roll call by area</strong> - "Stations in the north sector, check in now"</li>
+            <li><strong>Signal reports</strong> - Know who can hear whom</li>
+            <li><strong>Backup NCS</strong> - In case primary NCS can't reach someone</li>
+        </ul>
+
+        <div class="diagram">
+                    NCS (Hilltop)
+                        📻
+                       /|\
+                      / | \
+                     /  |  \
+                    /   |   \
+                   /    |    \
+                  /     |     \
+               📻      📻      📻
+              Stn1    Stn2    Stn3
+              
+              Direct path from NCS to all stations
+              Stn1 and Stn3 may not hear each other!
+        </div>
+
+        <h3>Hidden Station Problem</h3>
+        <p>Two stations may both hear NCS but not hear each other. Solutions:</p>
+        <ul>
+            <li>NCS acknowledges all transmissions</li>
+            <li>Use "go ahead" permission from NCS</li>
+            <li>Assign relay stations</li>
+            <li>All stations wait for NCS before transmitting</li>
+        </ul>
+
+        <h2 id="tips">Tips for Success</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>📡 Antenna</h4>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>External antenna beats rubber duck</li>
+                    <li>Height matters most</li>
+                    <li>1/2 wave or 5/8 wave for mobile</li>
+                    <li>Mag mount on car roof helps</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>⚡ Power</h4>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Start with low power</li>
+                    <li>Increase if needed</li>
+                    <li>5W usually plenty with good antenna</li>
+                    <li>Save battery when possible</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📍 Location</h4>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Higher ground = better</li>
+                    <li>Move away from buildings</li>
+                    <li>Clear line of sight helps</li>
+                    <li>Even a small hill helps</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>🔧 Programming</h4>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Pre-program simplex freqs</li>
+                    <li>Include in your scan list</li>
+                    <li>Know calling freq by heart</li>
+                    <li>Label channels clearly</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>Practice!</strong> Try simplex contacts regularly. Know your range to various locations BEFORE you need it in an emergency.
+        </div>
+
+        <h3>Simplex Frequency Programming Template</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Channel</th><th>Name</th><th>Frequency</th><th>Tone</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>2M CALL</td><td>146.520</td><td>None</td></tr>
+                <tr><td>2</td><td>2M SX1</td><td>146.550</td><td>None</td></tr>
+                <tr><td>3</td><td>2M SX2</td><td>146.580</td><td>None</td></tr>
+                <tr><td>4</td><td>2M SX3</td><td>147.420</td><td>None</td></tr>
+                <tr><td>5</td><td>2M SX4</td><td>147.555</td><td>None</td></tr>
+                <tr><td>6</td><td>70 CALL</td><td>446.000</td><td>None</td></tr>
+                <tr><td>7</td><td>70 SX1</td><td>446.500</td><td>None</td></tr>
+                <tr><td>8</td><td>70 SX2</td><td>447.000</td><td>None</td></tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="net-operations.html">Net Operations Guide</a></li>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="off-grid-power.html">Off-Grid Power</a></li>
+            <li><a href="../reference/phonetic-alphabet.html">Phonetic Alphabet</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Band Plans, ARRL Operating Manual</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
