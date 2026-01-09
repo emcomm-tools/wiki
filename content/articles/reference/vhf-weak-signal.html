@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHF/UHF Weak Signal Operations - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .mode-card {
+            background: #f7fafc;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .mode-card h3 {
+            margin-top: 0;
+            color: #5a67d8;
+            border-bottom: 2px solid #c3dafe;
+            padding-bottom: 8px;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .freq-table .calling {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .prop-card {
+            background: #fff5f5;
+            border: 2px solid #fc8181;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .prop-card h4 {
+            margin-top: 0;
+            color: #c53030;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .equip-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .equip-card h4 {
+            margin-top: 0;
+            color: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        VHF/UHF Weak Signal Operations
+    </nav>
+    
+    <article>
+        <h1>VHF/UHF Weak Signal Operations</h1>
+        
+        <section class="summary">
+            <p>Beyond FM repeaters: SSB, CW, and digital modes on VHF/UHF for DX, tropospheric ducting, meteor scatter, EME (moonbounce), and more. Discover the exciting world of weak signal VHF!</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What is Weak Signal?</a></li>
+                <li><a href="#modes">Modes of Operation</a></li>
+                <li><a href="#frequencies">Operating Frequencies</a></li>
+                <li><a href="#propagation">VHF/UHF Propagation</a></li>
+                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#operating">Operating Practices</a></li>
+                <li><a href="#digital">Digital Modes</a></li>
+                <li><a href="#contests">Contests &amp; Awards</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What is Weak Signal?</h2>
+        
+        <p><strong>Weak signal</strong> VHF/UHF operation uses SSB, CW, and digital modes (instead of FM) to work much greater distances than repeaters allow. It's a completely different world from FM!</p>
+
+        <div class="diagram">
+    FM REPEATER WORLD              WEAK SIGNAL WORLD
+    ─────────────────              ─────────────────
+    FM mode                        SSB, CW, Digital
+    Vertical polarization          Horizontal polarization
+    Repeaters, 25-50 mile range    Simplex, 100-1000+ miles
+    Rubber duck antenna OK         Yagi/dish required
+    Local chat                     DX, contests, propagation
+    Easy, casual                   Technical, challenging
+        </div>
+
+        <h3>Why Weak Signal?</h3>
+        <ul>
+            <li><strong>DX!</strong> - Work stations 500-2000+ km away</li>
+            <li><strong>Propagation excitement</strong> - Tropo, sporadic E, meteor scatter</li>
+            <li><strong>Less crowded</strong> - Vast empty spectrum to explore</li>
+            <li><strong>Technical challenge</strong> - Antenna gain, low noise, precision</li>
+            <li><strong>EME (Moonbounce)</strong> - Bounce signals off the Moon!</li>
+            <li><strong>Grid square chasing</strong> - VUCC award</li>
+        </ul>
+
+        <h2 id="modes">Modes of Operation</h2>
+        
+        <div class="mode-card">
+            <h3>📻 SSB (Single Sideband)</h3>
+            <p>Primary voice mode for weak signal. USB on all VHF/UHF bands.</p>
+            <ul>
+                <li><strong>Bandwidth:</strong> ~2.4 kHz (much narrower than FM)</li>
+                <li><strong>Advantage:</strong> All power in one sideband</li>
+                <li><strong>Typical QSO:</strong> Callsigns + grid squares + signal report</li>
+                <li><strong>Polarization:</strong> Horizontal for terrestrial</li>
+            </ul>
+        </div>
+
+        <div class="mode-card">
+            <h3>📡 CW (Morse Code)</h3>
+            <p>Even narrower bandwidth, works in weaker conditions than SSB.</p>
+            <ul>
+                <li><strong>Bandwidth:</strong> ~100-500 Hz</li>
+                <li><strong>Advantage:</strong> Works 3-6 dB below SSB threshold</li>
+                <li><strong>Used for:</strong> EME, extreme weak signal</li>
+            </ul>
+        </div>
+
+        <div class="mode-card">
+            <h3>💻 Digital Modes</h3>
+            <p>FT8, MSK144, JT65, Q65 - computer-decoded modes for extreme conditions.</p>
+            <ul>
+                <li><strong>FT8:</strong> -20 dB SNR, 15-second cycles, popular</li>
+                <li><strong>MSK144:</strong> Meteor scatter optimized</li>
+                <li><strong>JT65/Q65:</strong> EME and extreme tropo</li>
+            </ul>
+        </div>
+
+        <h2 id="frequencies">Operating Frequencies</h2>
+        
+        <h3>2 Meters (144 MHz)</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr class="calling"><td>144.200</td><td>SSB Calling Frequency</td></tr>
+                <tr><td>144.200-144.275</td><td>SSB/CW (move off calling freq for QSO)</td></tr>
+                <tr><td>144.100</td><td>CW Calling</td></tr>
+                <tr><td>144.174</td><td>FT8</td></tr>
+                <tr><td>144.150</td><td>MSK144 (Meteor Scatter)</td></tr>
+                <tr><td>144.120</td><td>JT65/Q65 (EME)</td></tr>
+                <tr><td>144.300-144.500</td><td>EME (CW/Digital)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>70 Centimeters (432 MHz)</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr class="calling"><td>432.100</td><td>SSB/CW Calling</td></tr>
+                <tr><td>432.100-432.400</td><td>SSB/CW</td></tr>
+                <tr><td>432.065</td><td>FT8</td></tr>
+                <tr><td>432.360</td><td>MSK144</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6 Meters (50 MHz) - "The Magic Band"</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Frequency</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr class="calling"><td>50.125</td><td>SSB Calling (DX window below)</td></tr>
+                <tr><td>50.000-50.100</td><td>CW/Beacons</td></tr>
+                <tr><td>50.100-50.125</td><td>DX Window (SSB)</td></tr>
+                <tr><td>50.313</td><td>FT8</td></tr>
+                <tr><td>50.260</td><td>MSK144</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Why 6m is "Magic":</strong> It has HF-like propagation (sporadic E, F2) but also VHF characteristics. During sporadic E season (May-August), worldwide DX is possible!
+        </div>
+
+        <h2 id="propagation">VHF/UHF Propagation</h2>
+        
+        <div class="prop-card">
+            <h4>🌡️ Tropospheric Ducting ("Tropo")</h4>
+            <p>Temperature inversion traps signals in a duct, allowing long-distance propagation.</p>
+            <ul>
+                <li><strong>Bands:</strong> 2m, 70cm, higher bands</li>
+                <li><strong>Distance:</strong> 500-2000+ km</li>
+                <li><strong>When:</strong> High pressure, stable weather, coastal areas</li>
+                <li><strong>Duration:</strong> Hours to days</li>
+                <li><strong>Check:</strong> William Hepburn's tropo forecast maps</li>
+            </ul>
+        </div>
+
+        <div class="prop-card">
+            <h4>☄️ Sporadic E (Es)</h4>
+            <p>Ionized patches in E-layer reflect VHF signals. Unpredictable but exciting!</p>
+            <ul>
+                <li><strong>Bands:</strong> 6m (primary), sometimes 2m</li>
+                <li><strong>Distance:</strong> 1000-2500 km typical</li>
+                <li><strong>When:</strong> Late spring/early summer (May-August) peak</li>
+                <li><strong>Duration:</strong> Minutes to hours</li>
+                <li><strong>Signature:</strong> Sudden, strong signals, then gone</li>
+            </ul>
+        </div>
+
+        <div class="prop-card">
+            <h4>🌠 Meteor Scatter (MS)</h4>
+            <p>Meteor trails ionize briefly, reflecting VHF signals. Requires special modes.</p>
+            <ul>
+                <li><strong>Bands:</strong> 6m, 2m (best)</li>
+                <li><strong>Distance:</strong> 1000-2200 km</li>
+                <li><strong>When:</strong> Anytime, better during showers (Perseids, Geminids)</li>
+                <li><strong>Duration:</strong> Bursts of 0.1-10 seconds</li>
+                <li><strong>Mode:</strong> MSK144 designed for this!</li>
+            </ul>
+        </div>
+
+        <div class="prop-card">
+            <h4>🌙 EME (Earth-Moon-Earth / Moonbounce)</h4>
+            <p>Bounce signals off the Moon! Ultimate weak signal challenge.</p>
+            <ul>
+                <li><strong>Bands:</strong> 2m, 70cm, 23cm, higher</li>
+                <li><strong>Distance:</strong> Worldwide (via the Moon!)</li>
+                <li><strong>When:</strong> Moon above horizon at both ends</li>
+                <li><strong>Path loss:</strong> ~250 dB (need big antennas!)</li>
+                <li><strong>Mode:</strong> CW, JT65, Q65</li>
+            </ul>
+        </div>
+
+        <div class="prop-card">
+            <h4>🌈 Aurora</h4>
+            <p>Aurora borealis/australis reflects VHF signals. Distinctive "ghostly" sound.</p>
+            <ul>
+                <li><strong>Bands:</strong> 6m, 2m, sometimes 70cm</li>
+                <li><strong>Distance:</strong> 1000-2000 km</li>
+                <li><strong>When:</strong> Geomagnetic storms (K-index 5+)</li>
+                <li><strong>Sound:</strong> Raspy, "auroral flutter"</li>
+                <li><strong>Mode:</strong> CW easiest, SSB readable but rough</li>
+            </ul>
+        </div>
+
+        <h2 id="equipment">Equipment</h2>
+        
+        <div class="equipment-grid">
+            <div class="equip-card">
+                <h4>📻 All-Mode Radio</h4>
+                <ul>
+                    <li>IC-9700 (2m/70cm/23cm)</li>
+                    <li>IC-705 (portable all-band)</li>
+                    <li>FT-991A (HF+VHF+UHF)</li>
+                    <li>TS-2000 (older but capable)</li>
+                </ul>
+            </div>
+            <div class="equip-card">
+                <h4>📡 Antennas</h4>
+                <ul>
+                    <li>Yagi (most common)</li>
+                    <li>Long yagi for EME</li>
+                    <li>Loop yagi</li>
+                    <li>Horizontal polarization!</li>
+                </ul>
+            </div>
+            <div class="equip-card">
+                <h4>🔊 Preamp (LNA)</h4>
+                <ul>
+                    <li>Tower-mounted preferred</li>
+                    <li>Low noise figure (0.3-0.5 dB)</li>
+                    <li>Helps weak signals</li>
+                    <li>SSB Electronics, DX Engineering</li>
+                </ul>
+            </div>
+            <div class="equip-card">
+                <h4>🔧 Extras</h4>
+                <ul>
+                    <li>Rotator (point antenna)</li>
+                    <li>Coax: Low loss (LMR-400+)</li>
+                    <li>Power: 50-100W typical</li>
+                    <li>Sequencer (for preamp)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Antenna Gain</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Antenna Type</th><th>Gain (2m)</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Vertical (ground plane)</td><td>~0 dBd</td><td>FM only, not weak signal</td></tr>
+                <tr><td>Small yagi (3-5 el)</td><td>6-9 dBd</td><td>Portable, rovers</td></tr>
+                <tr><td>Medium yagi (7-11 el)</td><td>10-13 dBd</td><td>General weak signal</td></tr>
+                <tr><td>Long yagi (13-17 el)</td><td>14-16 dBd</td><td>Serious DX, EME</td></tr>
+                <tr><td>Stacked yagis</td><td>+3 dB per doubling</td><td>EME, contests</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Polarization Matters!</strong> Weak signal VHF uses <strong>horizontal polarization</strong>. A vertical antenna can't work horizontal stations effectively (20+ dB loss!). Mount your yagi with elements horizontal.
+        </div>
+
+        <h2 id="operating">Operating Practices</h2>
+        
+        <h3>Calling CQ</h3>
+        <div class="diagram">
+    SSB WEAK SIGNAL CQ
+    
+    "CQ CQ CQ, this is Victor Alpha Two Oscar Papa Sierra,
+     grid Foxtrot November Three Five, CQ"
+    
+    Or shorter:
+    "CQ VA2OPS FN35"
+    
+    Listen for reply, then move off calling frequency for QSO
+        </div>
+
+        <h3>Standard Exchange</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Information</th><th>Example</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Callsign</strong></td><td>VA2OPS</td><td>Use phonetics if needed</td></tr>
+                <tr><td><strong>Grid Square</strong></td><td>FN35</td><td>4 or 6 character</td></tr>
+                <tr><td><strong>Signal Report</strong></td><td>55, 57, 59</td><td>Honest reports help!</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Operating Tips</h3>
+        <ul>
+            <li><strong>Move off calling frequency!</strong> - After contact, QSY to another frequency</li>
+            <li><strong>Give honest reports</strong> - "59" isn't always honest; use full scale</li>
+            <li><strong>Grid squares are essential</strong> - Everyone exchanges grids</li>
+            <li><strong>Listen for beacons</strong> - Indicates band open</li>
+            <li><strong>Use low power first</strong> - Don't splatter with 100W on quiet band</li>
+            <li><strong>Watch propagation forecasts</strong> - Plan operations around openings</li>
+        </ul>
+
+        <h2 id="digital">Digital Modes</h2>
+        
+        <h3>WSJT-X Modes for VHF</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Mode</th><th>Best For</th><th>Sensitivity</th><th>Cycle Time</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>FT8</strong></td>
+                    <td>General weak signal, tropo</td>
+                    <td>-20 dB</td>
+                    <td>15 sec</td>
+                </tr>
+                <tr>
+                    <td><strong>FT4</strong></td>
+                    <td>Faster FT8, contests</td>
+                    <td>-17 dB</td>
+                    <td>7.5 sec</td>
+                </tr>
+                <tr>
+                    <td><strong>MSK144</strong></td>
+                    <td>Meteor scatter</td>
+                    <td>-8 dB</td>
+                    <td>15 sec</td>
+                </tr>
+                <tr>
+                    <td><strong>JT65</strong></td>
+                    <td>EME, extreme DX</td>
+                    <td>-25 dB</td>
+                    <td>60 sec</td>
+                </tr>
+                <tr>
+                    <td><strong>Q65</strong></td>
+                    <td>EME, fast fading</td>
+                    <td>-26 dB</td>
+                    <td>30/60 sec</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Meteor Scatter with MSK144:</strong> During major meteor showers (Perseids in August, Geminids in December), activity is high. Point beams toward each other and let MSK144 catch the bursts!
+        </div>
+
+        <h2 id="contests">Contests &amp; Awards</h2>
+        
+        <h3>Major VHF Contests</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Contest</th><th>When</th><th>Exchange</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ARRL January VHF</td><td>3rd weekend January</td><td>Grid square</td></tr>
+                <tr><td>ARRL June VHF</td><td>2nd weekend June</td><td>Grid square</td></tr>
+                <tr><td>CQ WW VHF</td><td>3rd weekend July</td><td>Grid square</td></tr>
+                <tr><td>ARRL September VHF</td><td>2nd weekend September</td><td>Grid square</td></tr>
+                <tr><td>ARRL EME Contest</td><td>Multiple weekends</td><td>Grid/Signal</td></tr>
+            </tbody>
+        </table>
+
+        <h3>VUCC Award</h3>
+        <p><strong>VHF/UHF Century Club</strong> - Work and confirm 100 grid squares on a band:</p>
+        <ul>
+            <li>50 MHz: 100 grids for basic</li>
+            <li>144 MHz: 100 grids for basic</li>
+            <li>432 MHz: 100 grids</li>
+            <li>Higher bands: 50 grids (harder!)</li>
+            <li>Endorsements for additional grids</li>
+        </ul>
+
+        <h2>Resources</h2>
+        <ul>
+            <li><strong>DX Maps</strong> - dxmaps.com (real-time VHF propagation)</li>
+            <li><strong>PSK Reporter</strong> - pskreporter.info (FT8 spots)</li>
+            <li><strong>Ping Jockey</strong> - pingJockey.net (meteor scatter scheduling)</li>
+            <li><strong>MMMonVHF</strong> - mmmonvhf.de (propagation, activity)</li>
+            <li><strong>William Hepburn</strong> - dxinfocentre.com (tropo forecasts)</li>
+        </ul>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="antenna-theory.html">Antenna Theory Basics</a></li>
+            <li><a href="satellite-operations.html">Satellite Operations</a></li>
+            <li><a href="space-weather.html">Space Weather</a></li>
+            <li><a href="contest-operating.html">Contest Operating Basics</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL VHF Manual, VHF/UHF DX Book</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFI Troubleshooting - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .rfi-card {
+            background: #fff5f5;
+            border: 2px solid #fc8181;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .rfi-card h3 {
+            margin-top: 0;
+            color: #c53030;
+            border-bottom: 2px solid #feb2b2;
+            padding-bottom: 8px;
+        }
+        .solution-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .solution-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .config-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .checklist {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .checklist h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .source-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .source-card h4 {
+            margin-top: 0;
+            color: #c53030;
+        }
+        .source-card .symptoms {
+            font-size: 0.9em;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        RFI Troubleshooting
+    </nav>
+    
+    <article>
+        <h1>RFI Troubleshooting</h1>
+        
+        <section class="summary">
+            <p>Guide to finding and eliminating Radio Frequency Interference (RFI). Whether you're causing interference or receiving it, learn systematic approaches to identify sources and implement solutions.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#types">Types of RFI</a></li>
+                <li><a href="#sources">Common Sources</a></li>
+                <li><a href="#hunting">Hunting RFI</a></li>
+                <li><a href="#causing">RFI You're Causing</a></li>
+                <li><a href="#receiving">RFI You're Receiving</a></li>
+                <li><a href="#solutions">Solutions &amp; Filters</a></li>
+                <li><a href="#ferrites">Ferrite Chokes</a></li>
+                <li><a href="#grounding">Grounding for RFI</a></li>
+                <li><a href="#neighbors">Dealing with Neighbors</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="types">Types of RFI</h2>
+        
+        <h3>Two Directions</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Type</th><th>Description</th><th>Your Responsibility</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>TVI/BCI (You → Them)</strong></td>
+                    <td>Your transmissions interfere with neighbor's devices</td>
+                    <td>Help fix it (good neighbor policy)</td>
+                </tr>
+                <tr>
+                    <td><strong>RFI (Them → You)</strong></td>
+                    <td>External sources interfere with your reception</td>
+                    <td>Find and eliminate source</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Interference Mechanisms</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Mechanism</th><th>Description</th><th>Solution Approach</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Conducted</strong></td>
+                    <td>Travels on wires (power, coax, cables)</td>
+                    <td>Filters, chokes on cables</td>
+                </tr>
+                <tr>
+                    <td><strong>Radiated</strong></td>
+                    <td>Travels through air as RF</td>
+                    <td>Distance, shielding, filtering</td>
+                </tr>
+                <tr>
+                    <td><strong>Common Mode</strong></td>
+                    <td>RF on outside of coax shield</td>
+                    <td>Chokes at antenna feedpoint</td>
+                </tr>
+                <tr>
+                    <td><strong>Fundamental Overload</strong></td>
+                    <td>Strong signal overloads receiver frontend</td>
+                    <td>Attenuator, better filtering</td>
+                </tr>
+                <tr>
+                    <td><strong>Harmonic</strong></td>
+                    <td>Transmitter harmonics on other frequencies</td>
+                    <td>Low-pass filter on TX</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="sources">Common Sources</h2>
+        
+        <div class="source-grid">
+            <div class="source-card">
+                <h4>⚡ Switching Power Supplies</h4>
+                <p class="symptoms">Broadband hash, every few kHz</p>
+                <ul>
+                    <li>LED light bulbs</li>
+                    <li>Phone chargers</li>
+                    <li>Computer PSUs</li>
+                    <li>TV power supplies</li>
+                </ul>
+            </div>
+            <div class="source-card">
+                <h4>💡 LED Lighting</h4>
+                <p class="symptoms">Buzzing, wideband noise</p>
+                <ul>
+                    <li>Cheap LED bulbs</li>
+                    <li>LED strips</li>
+                    <li>Dimmers with LEDs</li>
+                    <li>Solar garden lights</li>
+                </ul>
+            </div>
+            <div class="source-card">
+                <h4>🔌 Power Line</h4>
+                <p class="symptoms">Buzzing/arcing, raspy sound</p>
+                <ul>
+                    <li>Loose connections</li>
+                    <li>Arcing insulators</li>
+                    <li>Failing transformers</li>
+                    <li>Dirty/corroded hardware</li>
+                </ul>
+            </div>
+            <div class="source-card">
+                <h4>📺 Electronics</h4>
+                <p class="symptoms">Various patterns</p>
+                <ul>
+                    <li>Plasma TVs</li>
+                    <li>Computer monitors</li>
+                    <li>Ethernet/HDMI</li>
+                    <li>USB 3.0 devices</li>
+                </ul>
+            </div>
+            <div class="source-card">
+                <h4>🌡️ Thermostats/Motors</h4>
+                <p class="symptoms">Clicking, buzzing, periodic</p>
+                <ul>
+                    <li>Touch lamp dimmers</li>
+                    <li>HVAC systems</li>
+                    <li>Aquarium pumps</li>
+                    <li>Electric fences</li>
+                </ul>
+            </div>
+            <div class="source-card">
+                <h4>☀️ Solar Systems</h4>
+                <p class="symptoms">Broadband during daylight</p>
+                <ul>
+                    <li>Solar inverters</li>
+                    <li>Charge controllers</li>
+                    <li>Optimizers</li>
+                    <li>DC wiring</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="hunting">Hunting RFI</h2>
+        
+        <div class="checklist">
+            <h4>🔍 RFI Hunting Toolkit</h4>
+            <ul>
+                <li>☐ Portable AM radio (cheap pocket radio works!)</li>
+                <li>☐ HF receiver with S-meter</li>
+                <li>☐ Small loop antenna (directional)</li>
+                <li>☐ Notebook to document patterns</li>
+                <li>☐ Ferrite snap-on chokes (for testing)</li>
+                <li>☐ Extension cord (to isolate circuits)</li>
+            </ul>
+        </div>
+
+        <h3>Systematic Approach</h3>
+        <ol>
+            <li><strong>Characterize the noise</strong>
+                <ul>
+                    <li>What does it sound like? (buzz, hash, clicks, raspy)</li>
+                    <li>What frequencies affected?</li>
+                    <li>Continuous or intermittent?</li>
+                    <li>Time pattern? (day/night, specific times)</li>
+                </ul>
+            </li>
+            <li><strong>Is it in your house?</strong>
+                <ul>
+                    <li>Kill main breaker - noise gone? It's yours.</li>
+                    <li>Turn off breakers one by one</li>
+                    <li>Unplug devices on problem circuit</li>
+                </ul>
+            </li>
+            <li><strong>Locate with portable receiver</strong>
+                <ul>
+                    <li>AM radio, tune to quiet spot</li>
+                    <li>Walk around, signal strength increases near source</li>
+                    <li>Use small loop for direction finding</li>
+                </ul>
+            </li>
+            <li><strong>Confirm the source</strong>
+                <ul>
+                    <li>Unplug suspected device</li>
+                    <li>Noise stops? Found it!</li>
+                    <li>Document for solution planning</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="tip">
+            <strong>The Main Breaker Test:</strong> Turn off your main breaker. If noise disappears, the source is in your house. If noise remains, it's external (neighbor, power line, etc.).
+        </div>
+
+        <h2 id="causing">RFI You're Causing</h2>
+        
+        <div class="rfi-card">
+            <h3>🔊 Symptoms You're Causing RFI</h3>
+            <ul>
+                <li>Neighbor's TV/stereo has interference when you transmit</li>
+                <li>Garage door opens when you key up</li>
+                <li>Baby monitor, phone, speaker system picks up your voice</li>
+                <li>Your own computers/devices affected</li>
+            </ul>
+        </div>
+
+        <h3>Common Causes</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Cause</th><th>Solution</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>RF on feedline</strong></td>
+                    <td>Choke balun at feedpoint, ferrites on coax</td>
+                </tr>
+                <tr>
+                    <td><strong>Harmonics</strong></td>
+                    <td>Low-pass filter on transmitter output</td>
+                </tr>
+                <tr>
+                    <td><strong>Fundamental overload</strong></td>
+                    <td>High-pass filter at affected device</td>
+                </tr>
+                <tr>
+                    <td><strong>Poor station ground</strong></td>
+                    <td>Improve grounding system</td>
+                </tr>
+                <tr>
+                    <td><strong>RF in shack</strong></td>
+                    <td>Ferrites on all cables leaving shack</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="diagram">
+    COMMON MODE CURRENT ON COAX
+    
+    ┌─────────────────────────────────────────────┐
+    │           ANTENNA                            │
+    └─────────────────┬───────────────────────────┘
+                      │
+         ┌────────────┴────────────┐
+         │         FEEDPOINT       │
+         │    ═══════╪═══════      │  ← RF goes down INSIDE coax (good)
+         │           │             │  ← RF also goes down OUTSIDE shield (bad!)
+         └───────────┼─────────────┘
+                     │
+    ════════════════╪════════════════  COAX
+                     │
+         ┌───────────┴─────────────┐
+         │        RADIO            │  ← Common mode RF enters shack
+         │    Gets into cables     │  ← Radiates from power, audio, USB cables
+         └─────────────────────────┘
+    
+    SOLUTION: Choke balun at feedpoint blocks common mode!
+        </div>
+
+        <h2 id="receiving">RFI You're Receiving</h2>
+        
+        <div class="rfi-card">
+            <h3>📻 Symptoms of External RFI</h3>
+            <ul>
+                <li>High noise floor (S5-S9 when nothing on frequency)</li>
+                <li>Buzzing, rasping, or hash across bands</li>
+                <li>Noise that varies with time of day</li>
+                <li>Birdies (carriers) on specific frequencies</li>
+                <li>Weak signals buried in noise</li>
+            </ul>
+        </div>
+
+        <h3>Signature Sounds</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Sound</th><th>Likely Source</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Steady buzz (60/120 Hz)</td><td>Power supply, lighting dimmer</td></tr>
+                <tr><td>Raspy, varying</td><td>Arcing (power line, motor brushes)</td></tr>
+                <tr><td>Wideband hash</td><td>Switching power supply, LED</td></tr>
+                <tr><td>Clicking/popping</td><td>Thermostat, relay, electric fence</td></tr>
+                <tr><td>Carriers (birdies)</td><td>Oscillator, clock, computer</td></tr>
+                <tr><td>Periodic bursts</td><td>Timed device, irrigation controller</td></tr>
+                <tr><td>Broadband roar (daytime)</td><td>Solar inverter</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="solutions">Solutions &amp; Filters</h2>
+        
+        <div class="solution-box">
+            <h4>🛠️ Solution Categories</h4>
+            <table class="config-table">
+                <thead>
+                    <tr><th>Problem</th><th>Solution</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>RF on power lines</td><td>AC line filter at device/panel</td></tr>
+                    <tr><td>RF on coax (common mode)</td><td>Choke balun at feedpoint</td></tr>
+                    <tr><td>Harmonics from TX</td><td>Low-pass filter after transmitter</td></tr>
+                    <tr><td>Fundamental overload</td><td>High-pass filter at victim device</td></tr>
+                    <tr><td>RF on data cables</td><td>Ferrite chokes on cables</td></tr>
+                    <tr><td>Conducted noise</td><td>Isolation transformer</td></tr>
+                    <tr><td>Radiated noise</td><td>Shielding, distance, filtering</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Filter Types</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Filter</th><th>Application</th><th>Where</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Low-pass</strong></td>
+                    <td>Blocks frequencies above cutoff</td>
+                    <td>TX output (blocks harmonics)</td>
+                </tr>
+                <tr>
+                    <td><strong>High-pass</strong></td>
+                    <td>Blocks frequencies below cutoff</td>
+                    <td>TV input (blocks HF)</td>
+                </tr>
+                <tr>
+                    <td><strong>Band-pass</strong></td>
+                    <td>Passes only one band</td>
+                    <td>Receiver input (contest)</td>
+                </tr>
+                <tr>
+                    <td><strong>Band-reject (Notch)</strong></td>
+                    <td>Blocks specific frequency</td>
+                    <td>Remove specific interference</td>
+                </tr>
+                <tr>
+                    <td><strong>AC Line Filter</strong></td>
+                    <td>Blocks RF on power lines</td>
+                    <td>Equipment power input</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="ferrites">Ferrite Chokes</h2>
+        
+        <div class="solution-box">
+            <h4>🧲 Ferrite Magic</h4>
+            <p>Ferrites are your best friend for RFI! They add impedance to common-mode currents while passing differential (wanted) signals.</p>
+        </div>
+
+        <h3>Ferrite Selection</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Mix</th><th>Frequency Range</th><th>Best Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>#31</strong></td><td>1-300 MHz</td><td>HF and VHF, most common</td></tr>
+                <tr><td><strong>#43</strong></td><td>25-300 MHz</td><td>VHF, upper HF</td></tr>
+                <tr><td><strong>#77</strong></td><td>0.5-50 MHz</td><td>Lower HF, broadcast</td></tr>
+                <tr><td><strong>#61</strong></td><td>10-500 MHz</td><td>VHF/UHF</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Application Methods</h3>
+        <div class="diagram">
+    FERRITE CHOKE METHODS
+    
+    1. SNAP-ON (Quick, removable)
+       ╔═══════════╗
+       ║  ┌─────┐  ║
+       ║  │cable│  ║  ← Snap ferrite around cable
+       ║  └─────┘  ║
+       ╚═══════════╝
+    
+    2. WOUND CHOKE (More effective)
+       ╔═════════════════╗
+       ║ ┌──┐   ┌──┐     ║
+       ║ │  │   │  │     ║  ← Wind 4-6 turns through toroid
+       ║ │  └───┘  │     ║
+       ║ └─────────┘     ║
+       ╚═════════════════╝
+    
+    3. STACKED SNAP-ONS (More impedance)
+       ╔═══╗ ╔═══╗ ╔═══╗
+       ║ │ ║ ║ │ ║ ║ │ ║  ← Multiple snap-ons in series
+       ╚═══╝ ╚═══╝ ╚═══╝
+        </div>
+
+        <div class="tip">
+            <strong>More Turns = More Impedance:</strong> A cable wound 5 turns through a toroid has 25× the impedance of a single pass (impedance increases as turns squared).
+        </div>
+
+        <h2 id="grounding">Grounding for RFI</h2>
+        
+        <p>Good grounding helps prevent both causing and receiving RFI:</p>
+        
+        <ul>
+            <li><strong>Single Point Ground</strong> - All equipment grounds to one point</li>
+            <li><strong>Short ground leads</strong> - Long wires are antennas at RF!</li>
+            <li><strong>Bond everything</strong> - Eliminate ground loops</li>
+            <li><strong>Coax shield grounded</strong> - At antenna AND at entry point</li>
+        </ul>
+
+        <div class="note">
+            <strong>See also:</strong> <a href="grounding-lightning.html">Grounding &amp; Lightning Safety</a> for complete grounding guidance.
+        </div>
+
+        <h2 id="neighbors">Dealing with Neighbors</h2>
+        
+        <h3>If Your Signal Causes Interference</h3>
+        <ol>
+            <li><strong>Be proactive</strong> - Introduce yourself before problems arise</li>
+            <li><strong>Stay calm and friendly</strong> - You need their cooperation</li>
+            <li><strong>Offer to help</strong> - Fix the problem at their end</li>
+            <li><strong>Provide filters</strong> - High-pass filter for TV usually solves it</li>
+            <li><strong>Document everything</strong> - Times, frequencies, what you tried</li>
+            <li><strong>Know the rules</strong> - Most consumer devices aren't protected from interference</li>
+        </ol>
+
+        <h3>If Neighbor's Device Causes RFI</h3>
+        <ol>
+            <li><strong>Identify the source</strong> - Be certain before approaching</li>
+            <li><strong>Approach politely</strong> - "I'm having trouble with my radio..."</li>
+            <li><strong>Offer solutions</strong> - Ferrite chokes are cheap and easy</li>
+            <li><strong>If uncooperative</strong> - Contact utility (power line) or FCC/ISED</li>
+        </ol>
+
+        <div class="warning">
+            <strong>Power Line Noise:</strong> If RFI is from utility equipment (arcing, bad insulator), report it to your power company. They're required to fix it. Document with recordings if possible.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="grounding-lightning.html">Grounding &amp; Lightning Safety</a></li>
+            <li><a href="antenna-theory.html">Antenna Theory Basics</a></li>
+            <li><a href="coax-connectors.html">Coax &amp; Connectors Reference</a></li>
+            <li><a href="troubleshooting.html">General Troubleshooting Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL RFI Book, K9YC's RFI resources</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

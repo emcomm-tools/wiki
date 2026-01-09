@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery &amp; Charging Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .battery-card {
+            background: #f7fafc;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .battery-card h3 {
+            margin-top: 0;
+            color: #276749;
+            border-bottom: 2px solid #9ae6b4;
+            padding-bottom: 8px;
+        }
+        .battery-card .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .battery-card .spec {
+            background: #c6f6d5;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .battery-card .spec strong {
+            display: block;
+            color: #22543d;
+        }
+        .formula-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .formula-box .formula {
+            color: #68d391;
+            font-size: 1.2em;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .comparison-table .good { background: #c6f6d5; }
+        .comparison-table .fair { background: #fefcbf; }
+        .comparison-table .poor { background: #fed7d7; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .calc-example {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .calc-example h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #4a5568;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#emcomm">EmComm</a> &gt; 
+        Battery &amp; Charging Guide
+    </nav>
+    
+    <article>
+        <h1>Battery &amp; Charging Guide</h1>
+        
+        <section class="summary">
+            <p>Complete guide to batteries for portable and emergency ham radio operations. Understand battery types, capacity calculations, charging methods, and best practices for reliable portable power.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#basics">Battery Basics</a></li>
+                <li><a href="#types">Battery Types</a></li>
+                <li><a href="#sizing">Sizing Your Battery</a></li>
+                <li><a href="#lifepo4">LiFePO4 Deep Dive</a></li>
+                <li><a href="#charging">Charging Methods</a></li>
+                <li><a href="#solar">Solar Charging</a></li>
+                <li><a href="#safety">Safety Considerations</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="basics">Battery Basics</h2>
+        
+        <div class="formula-box">
+<span class="formula">Key Terms:</span>
+
+<strong>Voltage (V)</strong>     = Electrical "pressure" - must match your radio
+<strong>Capacity (Ah)</strong>   = How much charge it holds (Amp-hours)
+<strong>Watt-hours (Wh)</strong> = Total energy = Voltage × Amp-hours
+<strong>C-Rate</strong>          = Charge/discharge rate relative to capacity
+                      1C = full capacity in 1 hour
+                      0.5C = full capacity in 2 hours
+        </div>
+
+        <h3>Voltage Requirements</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Radio Type</th><th>Nominal Voltage</th><th>Acceptable Range</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>HF Transceiver (100W)</td><td>13.8V</td><td>12.0V - 15.0V</td></tr>
+                <tr><td>VHF/UHF Mobile</td><td>13.8V</td><td>12.0V - 15.0V</td></tr>
+                <tr><td>Handheld (HT)</td><td>7.4V typical</td><td>Varies by model</td></tr>
+                <tr><td>QRP Radio</td><td>12V or 13.8V</td><td>Often wider tolerance</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="types">Battery Types</h2>
+        
+        <div class="battery-card">
+            <h3>🔋 LiFePO4 (Lithium Iron Phosphate)</h3>
+            <p>The gold standard for portable ham radio. Safe, long-lasting, lightweight.</p>
+            <div class="specs">
+                <div class="spec"><strong>Nominal</strong>12.8V (4S)</div>
+                <div class="spec"><strong>Cycles</strong>2000-5000</div>
+                <div class="spec"><strong>Weight</strong>~1/3 of SLA</div>
+                <div class="spec"><strong>Self-Discharge</strong>Very Low</div>
+            </div>
+            <h4>Pros</h4>
+            <ul>
+                <li>Very safe chemistry - no thermal runaway</li>
+                <li>Flat discharge curve - steady voltage</li>
+                <li>Extremely long cycle life</li>
+                <li>Lightweight</li>
+                <li>Fast charging capable</li>
+            </ul>
+            <h4>Cons</h4>
+            <ul>
+                <li>Higher initial cost (but best $/cycle)</li>
+                <li>Reduced capacity in extreme cold</li>
+                <li>Requires compatible charger</li>
+            </ul>
+        </div>
+
+        <div class="battery-card">
+            <h3>🔋 SLA/AGM (Sealed Lead Acid)</h3>
+            <p>Traditional, affordable, readily available. Heavy but reliable.</p>
+            <div class="specs">
+                <div class="spec"><strong>Nominal</strong>12.0V</div>
+                <div class="spec"><strong>Cycles</strong>300-500</div>
+                <div class="spec"><strong>Weight</strong>Heavy</div>
+                <div class="spec"><strong>Cost</strong>Lowest</div>
+            </div>
+            <h4>Pros</h4>
+            <ul>
+                <li>Low cost</li>
+                <li>Available everywhere</li>
+                <li>Simple charging</li>
+                <li>Works in cold weather</li>
+            </ul>
+            <h4>Cons</h4>
+            <ul>
+                <li>Heavy!</li>
+                <li>Shorter cycle life</li>
+                <li>Voltage sags under load</li>
+                <li>Should only discharge to 50%</li>
+            </ul>
+        </div>
+
+        <div class="battery-card">
+            <h3>🔋 Li-Ion (Lithium Ion)</h3>
+            <p>Common in power stations and some packs. Good energy density.</p>
+            <div class="specs">
+                <div class="spec"><strong>Nominal</strong>11.1V (3S) / 14.8V (4S)</div>
+                <div class="spec"><strong>Cycles</strong>500-1000</div>
+                <div class="spec"><strong>Weight</strong>Light</div>
+                <div class="spec"><strong>Energy</strong>Highest density</div>
+            </div>
+            <h4>Caution</h4>
+            <ul>
+                <li>More sensitive to abuse than LiFePO4</li>
+                <li>Can be dangerous if damaged or overcharged</li>
+                <li>Voltage may not match 13.8V radios (check specs!)</li>
+            </ul>
+        </div>
+
+        <h3>Battery Type Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>LiFePO4</th>
+                    <th>Li-Ion</th>
+                    <th>SLA/AGM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Weight (20Ah)</strong></td>
+                    <td class="good">~5 lbs</td>
+                    <td class="good">~4 lbs</td>
+                    <td class="poor">~15 lbs</td>
+                </tr>
+                <tr>
+                    <td><strong>Cycle Life</strong></td>
+                    <td class="good">2000-5000</td>
+                    <td class="fair">500-1000</td>
+                    <td class="poor">300-500</td>
+                </tr>
+                <tr>
+                    <td><strong>Usable Capacity</strong></td>
+                    <td class="good">80-100%</td>
+                    <td class="good">80-90%</td>
+                    <td class="poor">50%</td>
+                </tr>
+                <tr>
+                    <td><strong>Safety</strong></td>
+                    <td class="good">Excellent</td>
+                    <td class="fair">Good (w/BMS)</td>
+                    <td class="good">Excellent</td>
+                </tr>
+                <tr>
+                    <td><strong>Initial Cost</strong></td>
+                    <td class="fair">$$$</td>
+                    <td class="fair">$$</td>
+                    <td class="good">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Cost per Cycle</strong></td>
+                    <td class="good">Lowest</td>
+                    <td class="fair">Medium</td>
+                    <td class="poor">Highest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="sizing">Sizing Your Battery</h2>
+        
+        <div class="formula-box">
+<span class="formula">Runtime = Battery Capacity (Ah) ÷ Average Current Draw (A)</span>
+
+<span class="formula">Required Capacity = Runtime (hours) × Average Current (A) × Safety Factor</span>
+        </div>
+
+        <h3>Typical Radio Current Draw</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Radio/Mode</th><th>Receive (A)</th><th>Transmit (A)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>HT (5W)</td><td>0.1 - 0.3</td><td>1.5 - 2.0</td></tr>
+                <tr><td>Mobile VHF (50W)</td><td>0.5 - 1.0</td><td>10 - 12</td></tr>
+                <tr><td>HF QRP (5W)</td><td>0.3 - 0.5</td><td>1.5 - 2.5</td></tr>
+                <tr><td>HF 100W SSB</td><td>1.5 - 2.5</td><td>20 - 23</td></tr>
+                <tr><td>HF 100W Digital (FT8)</td><td>1.5 - 2.5</td><td>18 - 20 (constant)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="calc-example">
+            <h4>📊 Example: POTA Activation</h4>
+            <p><strong>Scenario:</strong> 4-hour activation with IC-705 (10W SSB)</p>
+            <ul>
+                <li>Receive current: 0.5A</li>
+                <li>Transmit current: 3A</li>
+                <li>Duty cycle: 30% TX, 70% RX</li>
+            </ul>
+            <p><strong>Calculation:</strong></p>
+            <ul>
+                <li>Average current = (0.3 × 3A) + (0.7 × 0.5A) = 0.9 + 0.35 = <strong>1.25A</strong></li>
+                <li>Required capacity = 4 hours × 1.25A × 1.2 (safety) = <strong>6 Ah</strong></li>
+            </ul>
+            <p>A 9Ah LiFePO4 battery would give comfortable margin!</p>
+        </div>
+
+        <div class="calc-example">
+            <h4>📊 Example: Field Day (24 hours)</h4>
+            <p><strong>Scenario:</strong> 100W HF station, heavy operation</p>
+            <ul>
+                <li>Receive current: 2A</li>
+                <li>Transmit current: 20A</li>
+                <li>Duty cycle: 40% TX (contest pace)</li>
+            </ul>
+            <p><strong>Calculation:</strong></p>
+            <ul>
+                <li>Average current = (0.4 × 20A) + (0.6 × 2A) = 8 + 1.2 = <strong>9.2A</strong></li>
+                <li>Required capacity = 24 hours × 9.2A = <strong>221 Ah!</strong></li>
+            </ul>
+            <p>You'll need multiple batteries, generator, or solar!</p>
+        </div>
+
+        <h2 id="lifepo4">LiFePO4 Deep Dive</h2>
+        
+        <div class="diagram">
+    LiFePO4 DISCHARGE CURVE (12V nominal)
+    
+    Voltage
+    14.6V ┤ ████  ← Fully charged (don't exceed!)
+    14.0V ┤ ████
+    13.4V ┤ ████████████████████████  ← Flat plateau (most of capacity)
+    13.2V ┤ ████████████████████████
+    13.0V ┤ ████████████████████████
+    12.8V ┤ ████████████████████
+    12.0V ┤ ████
+    10.0V ┤ █  ← Cutoff (BMS will disconnect)
+          └────────────────────────────────
+              0%                      100%
+                      Capacity
+    
+    The flat curve means steady voltage until nearly empty!
+        </div>
+
+        <h3>LiFePO4 Specifications</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Parameter</th><th>Value</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Nominal voltage (4S)</td><td>12.8V</td><td>Works great for 13.8V radios</td></tr>
+                <tr><td>Full charge</td><td>14.4-14.6V</td><td>Don't exceed!</td></tr>
+                <tr><td>Storage voltage</td><td>13.2-13.4V</td><td>~50% SOC ideal</td></tr>
+                <tr><td>Low cutoff</td><td>10.0V</td><td>BMS protects against this</td></tr>
+                <tr><td>Charge temp range</td><td>0°C to 45°C</td><td>Don't charge below freezing!</td></tr>
+                <tr><td>Discharge temp range</td><td>-20°C to 60°C</td><td>Reduced capacity when cold</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Cold Weather Charging:</strong> Never charge LiFePO4 below 0°C (32°F)! It causes permanent damage. Discharge is OK in cold, but capacity will be reduced. Warm the battery before charging.
+        </div>
+
+        <h2 id="charging">Charging Methods</h2>
+        
+        <h3>Charger Types</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Charger</th><th>Chemistry</th><th>Features</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>LiFePO4 Specific</strong></td>
+                    <td>LiFePO4 only</td>
+                    <td>Correct 14.4-14.6V cutoff, CC/CV</td>
+                </tr>
+                <tr>
+                    <td><strong>Smart/Multi-Chemistry</strong></td>
+                    <td>Multiple</td>
+                    <td>Selectable profiles, most flexible</td>
+                </tr>
+                <tr>
+                    <td><strong>SLA/AGM Charger</strong></td>
+                    <td>Lead Acid</td>
+                    <td>14.4V float - works for LiFePO4!</td>
+                </tr>
+                <tr>
+                    <td><strong>MPPT Solar Controller</strong></td>
+                    <td>Selectable</td>
+                    <td>Must have LiFePO4 setting</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>SLA Chargers for LiFePO4:</strong> Many AGM chargers with 14.4V float voltage work fine for LiFePO4! Avoid chargers with "desulfation" or high-voltage equalization modes.
+        </div>
+
+        <h3>Charge Rates</h3>
+        <ul>
+            <li><strong>Slow (0.1C):</strong> Gentlest, longest battery life</li>
+            <li><strong>Normal (0.2-0.5C):</strong> Typical home charging</li>
+            <li><strong>Fast (1C):</strong> Quick top-up, more stress on battery</li>
+            <li><strong>Example:</strong> 20Ah battery at 0.5C = 10A charge rate</li>
+        </ul>
+
+        <h2 id="solar">Solar Charging</h2>
+        
+        <div class="diagram">
+    SOLAR CHARGING SYSTEM
+    
+    ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+    │ Solar Panel │────►│    MPPT      │────►│   Battery   │
+    │  (18-24V)   │     │ Controller   │     │  (LiFePO4)  │
+    └─────────────┘     │  LiFePO4     │     └──────┬──────┘
+                        │  Setting!    │            │
+                        └──────────────┘            ▼
+                                              ┌─────────────┐
+                                              │    Radio    │
+                                              └─────────────┘
+        </div>
+
+        <h3>Solar Panel Sizing</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Panel Watts</th><th>Realistic Output</th><th>Good For</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>20-30W</td><td>1-2A</td><td>HT trickle, small QRP</td></tr>
+                <tr><td>50-60W</td><td>3-4A</td><td>QRP station, light HF</td></tr>
+                <tr><td>100W</td><td>5-7A</td><td>Moderate HF use</td></tr>
+                <tr><td>200W+</td><td>10-14A</td><td>100W station, heavy use</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Reality Check:</strong> Solar panel wattage is rated at ideal conditions. Expect 50-70% of rated power in real-world use. A 100W panel might produce 50-70W typically.
+        </div>
+
+        <h2 id="safety">Safety Considerations</h2>
+        
+        <div class="warning">
+            <strong>Battery Safety Rules</strong>
+            <ul>
+                <li>Never short-circuit battery terminals</li>
+                <li>Use appropriate fuses (as close to battery as possible)</li>
+                <li>Don't mix battery types or ages</li>
+                <li>Don't charge damaged or swollen batteries</li>
+                <li>Store in fireproof container if concerned</li>
+                <li>Transport in approved containers (LiFePO4 generally safe)</li>
+            </ul>
+        </div>
+
+        <h3>Fuse Sizing</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Load</th><th>Fuse Size</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>HT / QRP (5W)</td><td>5A</td><td>At battery</td></tr>
+                <tr><td>Mobile (50W)</td><td>15A</td><td></td></tr>
+                <tr><td>HF 100W</td><td>30A</td><td>25-30A typical</td></tr>
+                <tr><td>Main battery lead</td><td>Based on max load</td><td>Slow-blow for inrush</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="recommendations">Recommendations</h2>
+        
+        <h3>By Use Case</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Use Case</th><th>Battery Type</th><th>Capacity</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>HT extended ops</td><td>LiFePO4 or extra HT batteries</td><td>3-6 Ah</td></tr>
+                <tr><td>QRP portable (POTA)</td><td>LiFePO4</td><td>6-12 Ah</td></tr>
+                <tr><td>100W portable (few hours)</td><td>LiFePO4</td><td>20-30 Ah</td></tr>
+                <tr><td>Field Day station</td><td>LiFePO4 + solar or generator</td><td>100+ Ah</td></tr>
+                <tr><td>EmComm go-kit</td><td>LiFePO4</td><td>20-50 Ah</td></tr>
+                <tr><td>Home backup</td><td>LiFePO4 or deep-cycle AGM</td><td>100+ Ah</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Popular Brands</h3>
+        <ul>
+            <li><strong>Bioenno:</strong> Ham radio favorite, excellent quality</li>
+            <li><strong>Dakota Lithium:</strong> Rugged, good warranty</li>
+            <li><strong>Battleborn:</strong> Premium, great support</li>
+            <li><strong>Ampere Time/LiTime:</strong> Good value</li>
+            <li><strong>SOK/Epoch:</strong> Budget-friendly</li>
+            <li><strong>DIY (EVE/CATL cells):</strong> Cheapest $/Ah if you build</li>
+        </ul>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="off-grid-power.html">Off-Grid Power Solutions</a></li>
+            <li><a href="go-kit-checklist.html">Go-Kit Checklist</a></li>
+            <li><a href="hf-portable.html">HF Portable Operating</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: Battery University, manufacturer specifications</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

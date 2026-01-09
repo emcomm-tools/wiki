@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest Operating Basics - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .contest-card {
+            background: #f7fafc;
+            border: 2px solid #e53e3e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .contest-card h3 {
+            margin-top: 0;
+            color: #c53030;
+            border-bottom: 2px solid #feb2b2;
+            padding-bottom: 8px;
+        }
+        .exchange-box {
+            background: #2d3748;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .exchange-box .cq { color: #f6ad55; }
+        .exchange-box .call { color: #63b3ed; }
+        .exchange-box .exch { color: #68d391; }
+        .exchange-box .confirm { color: #fc8181; }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .config-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .strategy-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .strategy-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .calendar-table th, .calendar-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .calendar-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .calendar-table .major {
+            background: #fed7d7;
+            font-weight: bold;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .ref-card h4 {
+            margin-top: 0;
+            color: #c53030;
+            border-bottom: 2px solid #feb2b2;
+            padding-bottom: 5px;
+        }
+        .score-formula {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .score-formula .formula {
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Contest Operating Basics
+    </nav>
+    
+    <article>
+        <h1>Contest Operating Basics</h1>
+        
+        <section class="summary">
+            <p>Introduction to amateur radio contesting - the "Sport of Radio." Learn contest basics, exchanges, strategies, and how to get started in this exciting aspect of ham radio.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#what">What is Contesting?</a></li>
+                <li><a href="#why">Why Contest?</a></li>
+                <li><a href="#types">Types of Contests</a></li>
+                <li><a href="#exchange">The Exchange</a></li>
+                <li><a href="#operating">Operating Techniques</a></li>
+                <li><a href="#logging">Contest Logging</a></li>
+                <li><a href="#strategy">Basic Strategy</a></li>
+                <li><a href="#calendar">Major Contests</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="what">What is Contesting?</h2>
+        
+        <p><strong>Contesting</strong> (also called "radiosport") is competitive amateur radio - making as many contacts as possible within a defined time period. It's like a radio marathon!</p>
+
+        <div class="score-formula">
+            <span class="formula">Score = QSO Points × Multipliers</span>
+            <p style="font-size: 0.8em; margin: 10px 0 0 0;">More contacts + More multipliers = Higher score!</p>
+        </div>
+
+        <h3>Basic Concept</h3>
+        <ul>
+            <li><strong>Time-limited</strong> - Usually 24-48 hours</li>
+            <li><strong>Exchange information</strong> - Signal report + something else</li>
+            <li><strong>Log everything</strong> - Accurate logging is critical</li>
+            <li><strong>Multipliers</strong> - States, countries, zones boost your score</li>
+            <li><strong>Categories</strong> - Single-op, multi-op, QRP, assisted, etc.</li>
+        </ul>
+
+        <h2 id="why">Why Contest?</h2>
+        
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>🎯 Improve Skills</h4>
+                <ul>
+                    <li>Faster operating</li>
+                    <li>Better ears (copy weak signals)</li>
+                    <li>Efficient logging</li>
+                    <li>Pileup management</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>📻 Test Equipment</h4>
+                <ul>
+                    <li>Find station weaknesses</li>
+                    <li>Antenna comparisons</li>
+                    <li>Stress test everything</li>
+                    <li>Justify new gear!</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>🌍 Work DX</h4>
+                <ul>
+                    <li>Rare stations active</li>
+                    <li>New countries for DXCC</li>
+                    <li>Everyone is on the air</li>
+                    <li>Great propagation check</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>🏆 Competition</h4>
+                <ul>
+                    <li>Challenge yourself</li>
+                    <li>Beat last year's score</li>
+                    <li>Club competition</li>
+                    <li>Certificates/plaques</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="types">Types of Contests</h2>
+        
+        <table class="config-table">
+            <thead>
+                <tr><th>Type</th><th>Exchange</th><th>Examples</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>DX Contest</strong></td>
+                    <td>RST + Zone or RST + Power</td>
+                    <td>CQ WW, CQ WPX, ARRL DX</td>
+                </tr>
+                <tr>
+                    <td><strong>State QSO Party</strong></td>
+                    <td>RST + State/County</td>
+                    <td>California QSO Party, Texas QSO Party</td>
+                </tr>
+                <tr>
+                    <td><strong>Field Day</strong></td>
+                    <td>Category + Section</td>
+                    <td>ARRL Field Day, Winter Field Day</td>
+                </tr>
+                <tr>
+                    <td><strong>Sweepstakes</strong></td>
+                    <td>Serial + Precedence + Call + Check + Section</td>
+                    <td>ARRL Sweepstakes</td>
+                </tr>
+                <tr>
+                    <td><strong>Sprint</strong></td>
+                    <td>Varies (short contests)</td>
+                    <td>NA Sprint, NCJ Sprints</td>
+                </tr>
+                <tr>
+                    <td><strong>VHF Contest</strong></td>
+                    <td>Grid square</td>
+                    <td>ARRL VHF, CQ VHF</td>
+                </tr>
+                <tr>
+                    <td><strong>RTTY/Digital</strong></td>
+                    <td>RST + Zone/State</td>
+                    <td>CQ WW RTTY, ARRL RTTY Roundup</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="exchange">The Exchange</h2>
+        
+        <p>Each contest has a specific <strong>exchange</strong> - the information you must send and receive for a valid contact.</p>
+
+        <div class="contest-card">
+            <h3>Example: CQ World Wide DX Contest</h3>
+            <p><strong>Exchange:</strong> RST + CQ Zone</p>
+            <div class="exchange-box">
+<span class="cq">CQ CONTEST VA2OPS</span>
+<span class="call">VA2OPS W1ABC</span>
+<span class="exch">W1ABC 59 05</span>        ← You send RST 59, Zone 05
+<span class="exch">59 05</span>                 ← He sends RST 59, Zone 05
+<span class="confirm">TU VA2OPS</span>           ← Thanks, done, next!
+            </div>
+        </div>
+
+        <div class="contest-card">
+            <h3>Example: ARRL Field Day</h3>
+            <p><strong>Exchange:</strong> Category + ARRL Section</p>
+            <div class="exchange-box">
+<span class="cq">CQ FIELD DAY VA2OPS</span>
+<span class="call">VA2OPS W1ABC</span>
+<span class="exch">W1ABC 2A CT</span>         ← You send 2A (2 transmitters, club), CT section
+<span class="exch">3A WMA</span>               ← He sends 3A, Western MA
+<span class="confirm">TU QRZ VA2OPS</span>       ← Thanks, QRZ = next caller
+            </div>
+        </div>
+
+        <div class="contest-card">
+            <h3>Example: State QSO Party</h3>
+            <p><strong>Exchange:</strong> RST + State/Province or County (if in-state)</p>
+            <div class="exchange-box">
+<span class="cq">CQ PAQP VA2OPS</span>      ← CQ Pennsylvania QSO Party
+<span class="call">VA2OPS K3ABC</span>
+<span class="exch">K3ABC 59 QC</span>         ← You send RST + Quebec
+<span class="exch">59 CHESTER</span>          ← In-state station sends county
+<span class="confirm">TU</span>
+            </div>
+        </div>
+
+        <h2 id="operating">Operating Techniques</h2>
+        
+        <h3>CQ-ing (Running)</h3>
+        <p>Call CQ on a clear frequency and let stations come to you:</p>
+        <div class="exchange-box">
+<span class="cq">CQ CONTEST CQ CONTEST VA2OPS VA2OPS CONTEST</span>
+[Listen]
+<span class="call">W1ABC</span>
+<span class="exch">W1ABC 59 05</span>
+<span class="exch">59 05</span>
+<span class="confirm">TU VA2OPS QRZ</span>       ← "QRZ" invites next caller
+        </div>
+
+        <h3>Search & Pounce (S&P)</h3>
+        <p>Tune across the band and answer stations calling CQ:</p>
+        <ul>
+            <li>Good for beginners - less pressure</li>
+            <li>Hear the exchange before you call</li>
+            <li>Can cherry-pick multipliers</li>
+            <li>Slower rate than running</li>
+        </ul>
+
+        <div class="strategy-box">
+            <h4>🎯 S&P Tips</h4>
+            <ul>
+                <li>Listen to one or two complete QSOs first</li>
+                <li>Know the exchange before you call</li>
+                <li>Give your call once, clearly</li>
+                <li>Be ready with your exchange</li>
+                <li>If not heard, wait and try again</li>
+            </ul>
+        </div>
+
+        <h3>Contest Abbreviations</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Abbrev</th><th>Meaning</th><th>Abbrev</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>TU</strong></td><td>Thank you</td><td><strong>QRZ</strong></td><td>Who's calling?</td></tr>
+                <tr><td><strong>AGN</strong></td><td>Again</td><td><strong>?</strong></td><td>Say again/repeat</td></tr>
+                <tr><td><strong>NR</strong></td><td>Number</td><td><strong>CFM</strong></td><td>Confirm</td></tr>
+                <tr><td><strong>R</strong></td><td>Roger/received</td><td><strong>QSO B4</strong></td><td>Worked before (dupe)</td></tr>
+                <tr><td><strong>QRL?</strong></td><td>Is freq busy?</td><td><strong>QSY</strong></td><td>Change frequency</td></tr>
+                <tr><td><strong>TEST</strong></td><td>Contest</td><td><strong>CQ TEST</strong></td><td>Contest CQ</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="logging">Contest Logging</h2>
+        
+        <div class="warning">
+            <strong>Use Contest Logging Software!</strong> Don't try to contest with a general logger. Contest software is optimized for speed, dupe checking, and score calculation.
+        </div>
+
+        <h3>Popular Contest Loggers</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Software</th><th>Platform</th><th>Cost</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>N1MM Logger+</strong></td>
+                    <td>Windows</td>
+                    <td>Free</td>
+                    <td>Industry standard, full featured</td>
+                </tr>
+                <tr>
+                    <td><strong>N3FJP</strong></td>
+                    <td>Windows</td>
+                    <td>$</td>
+                    <td>Very user friendly</td>
+                </tr>
+                <tr>
+                    <td><strong>WriteLog</strong></td>
+                    <td>Windows</td>
+                    <td>$$</td>
+                    <td>Professional grade</td>
+                </tr>
+                <tr>
+                    <td><strong>SkookumLogger</strong></td>
+                    <td>macOS</td>
+                    <td>Free</td>
+                    <td>Mac native</td>
+                </tr>
+                <tr>
+                    <td><strong>TLF</strong></td>
+                    <td>Linux</td>
+                    <td>Free</td>
+                    <td>Command line, fast</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Cabrillo Format</h3>
+        <p>Contest logs are submitted in <strong>Cabrillo</strong> format - a standardized plain-text format. Your logging software generates this automatically.</p>
+
+        <h2 id="strategy">Basic Strategy</h2>
+        
+        <div class="strategy-box">
+            <h4>📈 Maximize Your Score</h4>
+            <ol>
+                <li><strong>Multipliers are gold</strong> - New states/countries multiply your whole score</li>
+                <li><strong>Rate matters</strong> - More QSOs = more points</li>
+                <li><strong>Run when you can</strong> - Higher rate than S&P</li>
+                <li><strong>S&P for multipliers</strong> - Hunt for new mults between runs</li>
+                <li><strong>Work the openings</strong> - Be on when propagation peaks</li>
+                <li><strong>Don't waste time</strong> - Move on from hopeless pileups</li>
+            </ol>
+        </div>
+
+        <h3>Band Strategy</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Time</th><th>Best Bands</th><th>Strategy</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Sunrise</td><td>40m, 20m</td><td>Gray line, DX opportunity</td></tr>
+                <tr><td>Morning</td><td>20m, 15m</td><td>High bands opening</td></tr>
+                <tr><td>Midday</td><td>15m, 10m</td><td>High bands peak (if open)</td></tr>
+                <tr><td>Afternoon</td><td>20m, 15m</td><td>Riding the grayline west</td></tr>
+                <tr><td>Evening</td><td>40m, 20m</td><td>Low bands improving</td></tr>
+                <tr><td>Night</td><td>80m, 40m</td><td>Low band prime time</td></tr>
+                <tr><td>Late night</td><td>160m, 80m</td><td>Top band, serious DX</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="calendar">Major Contests</h2>
+        
+        <table class="calendar-table">
+            <thead>
+                <tr><th>Contest</th><th>When</th><th>Mode</th><th>Exchange</th></tr>
+            </thead>
+            <tbody>
+                <tr class="major">
+                    <td><strong>CQ WW DX CW</strong></td>
+                    <td>Last weekend Nov</td>
+                    <td>CW</td>
+                    <td>RST + CQ Zone</td>
+                </tr>
+                <tr class="major">
+                    <td><strong>CQ WW DX SSB</strong></td>
+                    <td>Last weekend Oct</td>
+                    <td>SSB</td>
+                    <td>RST + CQ Zone</td>
+                </tr>
+                <tr class="major">
+                    <td><strong>ARRL DX CW</strong></td>
+                    <td>3rd weekend Feb</td>
+                    <td>CW</td>
+                    <td>RST + State/Province or Power</td>
+                </tr>
+                <tr class="major">
+                    <td><strong>ARRL DX SSB</strong></td>
+                    <td>1st weekend Mar</td>
+                    <td>SSB</td>
+                    <td>RST + State/Province or Power</td>
+                </tr>
+                <tr>
+                    <td><strong>CQ WPX SSB</strong></td>
+                    <td>Last weekend Mar</td>
+                    <td>SSB</td>
+                    <td>RST + Serial</td>
+                </tr>
+                <tr>
+                    <td><strong>CQ WPX CW</strong></td>
+                    <td>Last weekend May</td>
+                    <td>CW</td>
+                    <td>RST + Serial</td>
+                </tr>
+                <tr class="major">
+                    <td><strong>ARRL Field Day</strong></td>
+                    <td>4th weekend Jun</td>
+                    <td>All</td>
+                    <td>Category + Section</td>
+                </tr>
+                <tr>
+                    <td><strong>IARU HF Championship</strong></td>
+                    <td>2nd weekend Jul</td>
+                    <td>CW/SSB</td>
+                    <td>RST + Zone or HQ</td>
+                </tr>
+                <tr>
+                    <td><strong>ARRL Sweepstakes CW</strong></td>
+                    <td>1st weekend Nov</td>
+                    <td>CW</td>
+                    <td>Nr + Prec + Call + Check + Sec</td>
+                </tr>
+                <tr>
+                    <td><strong>ARRL Sweepstakes SSB</strong></td>
+                    <td>3rd weekend Nov</td>
+                    <td>SSB</td>
+                    <td>Nr + Prec + Call + Check + Sec</td>
+                </tr>
+                <tr>
+                    <td><strong>ARRL 10 Meter</strong></td>
+                    <td>2nd weekend Dec</td>
+                    <td>CW/SSB</td>
+                    <td>RST + State/Province or Serial</td>
+                </tr>
+                <tr>
+                    <td><strong>CQ WW RTTY</strong></td>
+                    <td>Last weekend Sep</td>
+                    <td>RTTY</td>
+                    <td>RST + CQ Zone</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="getting-started">Getting Started</h2>
+        
+        <h3>Your First Contest</h3>
+        <ol>
+            <li><strong>Pick a beginner-friendly contest</strong> - State QSO Party, Field Day</li>
+            <li><strong>Read the rules!</strong> - Know the exchange before starting</li>
+            <li><strong>Install logging software</strong> - N1MM Logger+ is free</li>
+            <li><strong>Configure your entry category</strong> - Single-op, your power level</li>
+            <li><strong>Start with Search & Pounce</strong> - Less pressure</li>
+            <li><strong>Don't worry about score</strong> - Just have fun and learn</li>
+            <li><strong>Submit your log</strong> - Even if only 10 QSOs!</li>
+        </ol>
+
+        <div class="tip">
+            <strong>Beginner Tip:</strong> Start with a State QSO Party. They're shorter (usually 12-24 hours), have simpler exchanges, and operators are friendly to newcomers. Everyone wants to work you for multiplier credit!
+        </div>
+
+        <h3>Contest Entry Categories</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Category</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Single-Op All Band</strong></td><td>One operator, all bands</td></tr>
+                <tr><td><strong>Single-Op Single Band</strong></td><td>One operator, one band only</td></tr>
+                <tr><td><strong>Single-Op Assisted</strong></td><td>May use DX cluster/skimmer</td></tr>
+                <tr><td><strong>Multi-Op Single TX</strong></td><td>Multiple ops, one transmitter</td></tr>
+                <tr><td><strong>Multi-Op Multi TX</strong></td><td>Multiple ops and transmitters</td></tr>
+                <tr><td><strong>QRP</strong></td><td>5 watts or less</td></tr>
+                <tr><td><strong>Low Power</strong></td><td>Usually 100W or 150W max</td></tr>
+                <tr><td><strong>High Power</strong></td><td>Full legal limit</td></tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="logging-qsl.html">Log Keeping &amp; QSL Cards</a></li>
+            <li><a href="cw-reference.html">CW Reference</a></li>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="hf-propagation.html">HF Propagation Basics</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Contest Branch, CQ Magazine, contest rules</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

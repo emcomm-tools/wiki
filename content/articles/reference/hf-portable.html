@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HF Portable Operating - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .program-card {
+            background: #f7fafc;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .program-card h3 {
+            margin-top: 0;
+            color: #276749;
+            border-bottom: 2px solid #9ae6b4;
+            padding-bottom: 8px;
+        }
+        .program-card .logo {
+            font-size: 2em;
+            float: right;
+            margin-left: 10px;
+        }
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .gear-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .gear-card h4 {
+            margin-top: 0;
+            color: #2c5282;
+        }
+        .checklist {
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .checklist h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .config-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .antenna-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .antenna-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .comparison-table .good { background: #c6f6d5; }
+        .comparison-table .fair { background: #fefcbf; }
+        .comparison-table .poor { background: #fed7d7; }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        HF Portable Operating
+    </nav>
+    
+    <article>
+        <h1>HF Portable Operating</h1>
+        
+        <section class="summary">
+            <p>Complete guide to HF portable operations including POTA (Parks on the Air), SOTA (Summits on the Air), and general field operating. Learn equipment choices, antenna strategies, and techniques for successful activations.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#programs">POTA, SOTA &amp; Other Programs</a></li>
+                <li><a href="#radios">Portable Radio Choices</a></li>
+                <li><a href="#antennas">Portable Antennas</a></li>
+                <li><a href="#power">Power Solutions</a></li>
+                <li><a href="#setup">Site Setup</a></li>
+                <li><a href="#operating">Operating Tips</a></li>
+                <li><a href="#logging">Logging &amp; Spotting</a></li>
+                <li><a href="#packing">Packing List</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="programs">POTA, SOTA &amp; Other Programs</h2>
+        
+        <div class="program-card">
+            <span class="logo">🌲</span>
+            <h3>POTA - Parks on the Air</h3>
+            <p>Activate parks, forests, and public lands. Most popular portable program!</p>
+            <ul>
+                <li><strong>Minimum QSOs:</strong> 10 for valid activation</li>
+                <li><strong>Modes:</strong> Any - SSB, CW, FT8, etc.</li>
+                <li><strong>Bands:</strong> Any amateur band</li>
+                <li><strong>Website:</strong> pota.app</li>
+                <li><strong>Logging:</strong> ADIF upload to POTA site</li>
+            </ul>
+            <h4>Park Types</h4>
+            <ul>
+                <li>National Parks</li>
+                <li>State/Provincial Parks</li>
+                <li>National Forests</li>
+                <li>Wildlife Refuges</li>
+                <li>Historic Sites</li>
+            </ul>
+        </div>
+
+        <div class="program-card">
+            <span class="logo">⛰️</span>
+            <h3>SOTA - Summits on the Air</h3>
+            <p>Activate mountain summits. Points based on summit height!</p>
+            <ul>
+                <li><strong>Minimum QSOs:</strong> 4 for valid activation</li>
+                <li><strong>Activation Zone:</strong> Within 25m vertical of summit</li>
+                <li><strong>No motorized access:</strong> Must hike/climb</li>
+                <li><strong>Website:</strong> sota.org.uk / sotawatch.sota.org.uk</li>
+                <li><strong>Power:</strong> Must be portable (battery/solar)</li>
+            </ul>
+            <h4>Points</h4>
+            <ul>
+                <li>1 point: Lowest valid summits</li>
+                <li>10 points: High, prominent peaks</li>
+                <li>Winter bonus: Extra points Dec-Mar (North America)</li>
+            </ul>
+        </div>
+
+        <div class="program-card">
+            <span class="logo">🏝️</span>
+            <h3>IOTA - Islands on the Air</h3>
+            <p>Activate islands worldwide. Highly sought-after by DXers!</p>
+            <ul>
+                <li><strong>Groups:</strong> Islands grouped by reference (NA-XXX)</li>
+                <li><strong>Popular:</strong> Rare islands draw pileups</li>
+                <li><strong>Website:</strong> iota-world.org</li>
+            </ul>
+        </div>
+
+        <div class="program-card">
+            <span class="logo">🏠</span>
+            <h3>Other Programs</h3>
+            <ul>
+                <li><strong>WWFF:</strong> World Wide Flora & Fauna</li>
+                <li><strong>BOTA:</strong> Beaches on the Air</li>
+                <li><strong>COTA:</strong> Castles/Counties on the Air</li>
+                <li><strong>LOTA:</strong> Lighthouses on the Air</li>
+                <li><strong>GMA:</strong> Global Mountain Activity</li>
+            </ul>
+        </div>
+
+        <h2 id="radios">Portable Radio Choices</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Radio</th>
+                    <th>Power</th>
+                    <th>Weight</th>
+                    <th>Bands</th>
+                    <th>Price</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Elecraft KX2</strong></td>
+                    <td>10W</td>
+                    <td class="good">0.4 kg</td>
+                    <td>80-10m</td>
+                    <td>$$$</td>
+                    <td>SOTA, backpacking</td>
+                </tr>
+                <tr>
+                    <td><strong>Elecraft KX3</strong></td>
+                    <td>15W</td>
+                    <td class="good">0.7 kg</td>
+                    <td>160-6m</td>
+                    <td>$$$$</td>
+                    <td>Premium portable</td>
+                </tr>
+                <tr>
+                    <td><strong>Icom IC-705</strong></td>
+                    <td>10W</td>
+                    <td class="good">1.1 kg</td>
+                    <td>HF-70cm</td>
+                    <td>$$$</td>
+                    <td>All-mode, D-STAR</td>
+                </tr>
+                <tr>
+                    <td><strong>Yaesu FT-818</strong></td>
+                    <td>6W</td>
+                    <td class="good">1.0 kg</td>
+                    <td>160-70cm</td>
+                    <td>$$</td>
+                    <td>Budget all-band</td>
+                </tr>
+                <tr>
+                    <td><strong>Xiegu G90</strong></td>
+                    <td>20W</td>
+                    <td class="fair">1.3 kg</td>
+                    <td>80-10m</td>
+                    <td>$</td>
+                    <td>Budget HF</td>
+                </tr>
+                <tr>
+                    <td><strong>Xiegu X6100</strong></td>
+                    <td>10W</td>
+                    <td class="good">0.8 kg</td>
+                    <td>80-6m</td>
+                    <td>$$</td>
+                    <td>SDR portable</td>
+                </tr>
+                <tr>
+                    <td><strong>Lab599 TX-500</strong></td>
+                    <td>10W</td>
+                    <td class="good">0.8 kg</td>
+                    <td>160-6m</td>
+                    <td>$$</td>
+                    <td>Rugged</td>
+                </tr>
+                <tr>
+                    <td><strong>Icom IC-7300</strong></td>
+                    <td>100W</td>
+                    <td class="poor">4.2 kg</td>
+                    <td>160-6m</td>
+                    <td>$$</td>
+                    <td>Car/campsite</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="antennas">Portable Antennas</h2>
+        
+        <div class="antenna-box">
+            <h4>🎣 End-Fed Half-Wave (EFHW)</h4>
+            <p>Most popular portable HF antenna. One support point, easy setup.</p>
+            <ul>
+                <li><strong>Length:</strong> Half wavelength (e.g., 20m = 10m wire)</li>
+                <li><strong>Matching:</strong> 49:1 unun transformer</li>
+                <li><strong>Multi-band:</strong> Works on harmonics (40/20/10m)</li>
+                <li><strong>Setup:</strong> Sloper, inverted-V, or horizontal</li>
+                <li><strong>Pros:</strong> Simple, one feedpoint, no radials</li>
+                <li><strong>Cons:</strong> RF on feedline, needs choke</li>
+            </ul>
+        </div>
+
+        <div class="antenna-box">
+            <h4>🔗 Linked Dipole</h4>
+            <p>Resonant dipole with plugs to change bands.</p>
+            <ul>
+                <li><strong>Design:</strong> Full-size dipole with links for band change</li>
+                <li><strong>Efficiency:</strong> Excellent (no lossy matching)</li>
+                <li><strong>Setup:</strong> Needs center support + two ends</li>
+                <li><strong>Pros:</strong> Most efficient, no tuner needed</li>
+                <li><strong>Cons:</strong> Band change requires adjustment</li>
+            </ul>
+        </div>
+
+        <div class="antenna-box">
+            <h4>🎋 Vertical with Radials</h4>
+            <p>Ground-mounted or elevated vertical.</p>
+            <ul>
+                <li><strong>Types:</strong> Telescoping whip, loaded, trapped</li>
+                <li><strong>Radials:</strong> 2-4 elevated, or more ground radials</li>
+                <li><strong>Pros:</strong> Low angle (DX), omni-directional</li>
+                <li><strong>Cons:</strong> Needs counterpoise, setup time</li>
+            </ul>
+        </div>
+
+        <div class="antenna-box">
+            <h4>🔁 Magnetic Loop</h4>
+            <p>Small, efficient loop for restricted spaces.</p>
+            <ul>
+                <li><strong>Size:</strong> Typically 3-4 feet diameter</li>
+                <li><strong>Tuning:</strong> Narrow bandwidth, must retune</li>
+                <li><strong>Pros:</strong> Quiet RX, small footprint, stealth</li>
+                <li><strong>Cons:</strong> Narrow bandwidth, expensive, fragile</li>
+            </ul>
+        </div>
+
+        <h3>Antenna Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Antenna</th>
+                    <th>Setup Time</th>
+                    <th>Efficiency</th>
+                    <th>Size/Weight</th>
+                    <th>Multi-Band</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>EFHW</strong></td>
+                    <td class="good">5-10 min</td>
+                    <td class="good">Good</td>
+                    <td class="good">Light</td>
+                    <td class="good">Yes</td>
+                </tr>
+                <tr>
+                    <td><strong>Linked Dipole</strong></td>
+                    <td class="fair">10-15 min</td>
+                    <td class="good">Best</td>
+                    <td class="fair">Medium</td>
+                    <td class="fair">With links</td>
+                </tr>
+                <tr>
+                    <td><strong>Vertical</strong></td>
+                    <td class="fair">10-20 min</td>
+                    <td class="fair">Good</td>
+                    <td class="fair">Medium</td>
+                    <td class="good">Yes</td>
+                </tr>
+                <tr>
+                    <td><strong>Mag Loop</strong></td>
+                    <td class="good">2-5 min</td>
+                    <td class="fair">Fair</td>
+                    <td class="poor">Bulky</td>
+                    <td class="good">Yes</td>
+                </tr>
+                <tr>
+                    <td><strong>Random Wire</strong></td>
+                    <td class="good">5 min</td>
+                    <td class="poor">Variable</td>
+                    <td class="good">Light</td>
+                    <td class="good">Yes (tuner)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Antenna Supports</h3>
+        <ul>
+            <li><strong>Telescoping mast:</strong> Fiberglass fishing poles (Jackite, SOTAbeams)</li>
+            <li><strong>Trees:</strong> Throw line/weight to hang wire</li>
+            <li><strong>Tripod:</strong> Camera tripod for vertical base</li>
+            <li><strong>Vehicle:</strong> Mount to car with mag-mount or drive-on</li>
+            <li><strong>Hiking poles:</strong> Improvised mast</li>
+        </ul>
+
+        <h2 id="power">Power Solutions</h2>
+        
+        <table class="config-table">
+            <thead>
+                <tr><th>Use Case</th><th>Recommended Power</th><th>Weight</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>SOTA (hiking)</td><td>LiFePO4 4.5-6Ah</td><td>~0.5-0.8 kg</td></tr>
+                <tr><td>POTA (drive-up)</td><td>LiFePO4 9-20Ah</td><td>~1-3 kg</td></tr>
+                <tr><td>Day activation (QRP)</td><td>LiFePO4 6-9Ah</td><td>~0.8-1.2 kg</td></tr>
+                <tr><td>Multi-day camping</td><td>20-50Ah + solar</td><td>~3-6 kg</td></tr>
+                <tr><td>100W field station</td><td>30-50Ah + generator backup</td><td>Heavy</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>See also:</strong> <a href="battery-charging.html">Battery &amp; Charging Guide</a> for complete power information.
+        </div>
+
+        <h2 id="setup">Site Setup</h2>
+        
+        <div class="diagram">
+    IDEAL PORTABLE SITE
+    
+                        🌲 Tree (antenna support)
+                         ╲
+                          ╲ Wire antenna (sloper)
+                           ╲
+                            ╲
+    ┌──────────────────────────●  Feedpoint
+    │   Operating Position      
+    │  ┌───────┐  ┌───────┐    
+    │  │ Radio │  │Battery│    
+    │  └───────┘  └───────┘    
+    │     ▲                    
+    │   Table/pad              ← Shade if possible
+    │     👤 You               ← Comfortable seat
+    └──────────────────────────
+    
+    Goals:
+    ✓ Antenna as high as possible
+    ✓ Clear takeoff direction for target area
+    ✓ Shade and comfort (you'll be there hours)
+    ✓ Minimal RF in operating position
+        </div>
+
+        <h3>Site Selection Tips</h3>
+        <ul>
+            <li><strong>Elevation helps</strong> - Higher = better signal</li>
+            <li><strong>Clear horizons</strong> - Especially toward population centers</li>
+            <li><strong>Trees for supports</strong> - But not blocking too much</li>
+            <li><strong>Shade</strong> - Summer sun is brutal on operator and gear</li>
+            <li><strong>Away from RFI</strong> - Distance from power lines, buildings</li>
+            <li><strong>Comfort</strong> - Good seat, flat ground, wind shelter</li>
+        </ul>
+
+        <h2 id="operating">Operating Tips</h2>
+        
+        <h3>Getting Spotted</h3>
+        <ul>
+            <li><strong>Self-spot:</strong> Use POTA app or SOTA spotting</li>
+            <li><strong>Include frequency, mode, and park/summit</strong></li>
+            <li><strong>Hunters will find you!</strong> - Spots bring pileups</li>
+        </ul>
+
+        <h3>Pileup Management</h3>
+        <ul>
+            <li><strong>Work by call area:</strong> "Sevens only" then "Eights"</li>
+            <li><strong>Work by suffix:</strong> "Stations ending in Alpha"</li>
+            <li><strong>Keep it moving:</strong> Short exchanges, fast logging</li>
+            <li><strong>Stay calm:</strong> Pileups are fun but can be hectic!</li>
+        </ul>
+
+        <h3>Band Selection</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Time</th><th>Best Bands</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Morning</td><td>40m, 20m</td><td>40m still open, 20m opening</td></tr>
+                <tr><td>Midday</td><td>20m, 17m, 15m</td><td>High bands peak</td></tr>
+                <tr><td>Afternoon</td><td>20m, 40m</td><td>20m fading, 40m improving</td></tr>
+                <tr><td>Evening</td><td>40m, 80m</td><td>Low bands best</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>SSB vs FT8:</strong> SSB pileups are more fun and faster for high QSO counts. FT8 works when SSB is slow but takes longer per QSO. Mix modes for best results!
+        </div>
+
+        <h2 id="logging">Logging &amp; Spotting</h2>
+        
+        <h3>Logging Apps</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>App</th><th>Platform</th><th>Best For</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>HAMRS</strong></td><td>Win/Mac/Linux/iOS/Android</td><td>POTA, simple and fast</td></tr>
+                <tr><td><strong>VK port-a-log</strong></td><td>Android</td><td>SOTA</td></tr>
+                <tr><td><strong>Outd Log</strong></td><td>iOS</td><td>POTA/SOTA</td></tr>
+                <tr><td><strong>N3FJP ACLog</strong></td><td>Windows</td><td>General portable</td></tr>
+                <tr><td><strong>FLE (Fast Log Entry)</strong></td><td>Text format</td><td>SOTA (post-hoc)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Spotting Yourself</h3>
+        <ul>
+            <li><strong>POTA:</strong> pota.app → Spots → Self-spot</li>
+            <li><strong>SOTA:</strong> SOTAwatch → Login → Post spot</li>
+            <li><strong>Apps:</strong> HAMRS, POTA app can self-spot</li>
+        </ul>
+
+        <h2 id="packing">Packing List</h2>
+        
+        <div class="checklist">
+            <h4>📋 Essential Gear</h4>
+            <ul>
+                <li>☐ Radio (charged/tested)</li>
+                <li>☐ Battery (charged)</li>
+                <li>☐ Antenna + feedline</li>
+                <li>☐ Antenna supports (mast, rope, stakes)</li>
+                <li>☐ Headphones</li>
+                <li>☐ Logging device (phone/tablet/paper)</li>
+                <li>☐ Key/paddle (for CW)</li>
+                <li>☐ Tuner (if antenna needs it)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>📋 Support Items</h4>
+            <ul>
+                <li>☐ Chair/seat pad</li>
+                <li>☐ Table/clipboard</li>
+                <li>☐ Sunshade/umbrella</li>
+                <li>☐ Bug spray</li>
+                <li>☐ Sunscreen</li>
+                <li>☐ Water/snacks</li>
+                <li>☐ First aid kit</li>
+                <li>☐ Phone (for spotting/maps)</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <h4>📋 Backup/Extras</h4>
+            <ul>
+                <li>☐ Extra battery</li>
+                <li>☐ Extra coax/adapters</li>
+                <li>☐ Multi-tool</li>
+                <li>☐ Electrical tape</li>
+                <li>☐ Paper log backup</li>
+                <li>☐ Pen/pencil</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>Before leaving home:</strong> Test EVERYTHING assembled together. Charge all batteries. Check antenna SWR. Confirm logging app works. Nothing worse than getting to a beautiful summit and finding a dead battery or broken connector!
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="battery-charging.html">Battery &amp; Charging Guide</a></li>
+            <li><a href="go-kit-checklist.html">Go-Kit Checklist</a></li>
+            <li><a href="logging-qsl.html">Log Keeping &amp; QSL Cards</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: POTA, SOTA, portable operating guides</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
