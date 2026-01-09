@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Weather &amp; Propagation Reports - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .index-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .index-card h3 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 8px;
+        }
+        .scale-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .scale-table th, .scale-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .scale-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .scale-table .excellent { background: #48bb78; color: white; }
+        .scale-table .good { background: #68d391; }
+        .scale-table .fair { background: #faf089; }
+        .scale-table .poor { background: #fc8181; }
+        .scale-table .bad { background: #c53030; color: white; }
+        .report-example {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+        .report-example .label { color: #63b3ed; }
+        .report-example .value { color: #f6ad55; font-weight: bold; }
+        .report-example .good { color: #68d391; }
+        .report-example .warning { color: #faf089; }
+        .report-example .bad { color: #fc8181; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .noaa-scale {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .noaa-scale th, .noaa-scale td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .noaa-scale th {
+            background: #4a5568;
+            color: white;
+        }
+        .noaa-scale .g1 { background: #fefcbf; }
+        .noaa-scale .g2 { background: #fbd38d; }
+        .noaa-scale .g3 { background: #fc8181; }
+        .noaa-scale .g4 { background: #e53e3e; color: white; }
+        .noaa-scale .g5 { background: #822727; color: white; }
+        .noaa-scale .r1 { background: #fefcbf; }
+        .noaa-scale .r2 { background: #fbd38d; }
+        .noaa-scale .r3 { background: #fc8181; }
+        .noaa-scale .r4 { background: #e53e3e; color: white; }
+        .noaa-scale .r5 { background: #822727; color: white; }
+        .formula-box {
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .resource-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .resource-card h4 {
+            margin-top: 0;
+            color: #2c5282;
+        }
+        .resource-card a {
+            color: #3182ce;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .ref-box {
+            background: #ebf8ff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .ref-box .index {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .ref-box .range {
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Space Weather &amp; Propagation Reports
+    </nav>
+    
+    <article>
+        <h1>Space Weather &amp; Propagation Reports</h1>
+        
+        <section class="summary">
+            <p>Complete guide to understanding space weather reports and solar indices. Learn what SFI, A-index, K-index, and other numbers mean for HF propagation, and how to interpret the data for better operating decisions.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Why Space Weather Matters</a></li>
+                <li><a href="#sfi">Solar Flux Index (SFI)</a></li>
+                <li><a href="#ssn">Sunspot Number (SSN)</a></li>
+                <li><a href="#kindex">K-Index</a></li>
+                <li><a href="#aindex">A-Index</a></li>
+                <li><a href="#xray">X-Ray Flux &amp; Solar Flares</a></li>
+                <li><a href="#gscale">Geomagnetic Storms (G-Scale)</a></li>
+                <li><a href="#rscale">Radio Blackouts (R-Scale)</a></li>
+                <li><a href="#proton">Proton Events (S-Scale)</a></li>
+                <li><a href="#reading">Reading a Full Report</a></li>
+                <li><a href="#resources">Resources &amp; Tools</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">Why Space Weather Matters</h2>
+        
+        <p>The sun drives HF propagation. Solar activity ionizes Earth's atmosphere, creating the layers that reflect radio waves. Understanding solar indices helps you:</p>
+        
+        <ul>
+            <li><strong>Predict band conditions</strong> - Know which bands will be open</li>
+            <li><strong>Plan operations</strong> - Schedule contacts when conditions favor your path</li>
+            <li><strong>Troubleshoot</strong> - Understand why bands are dead or noisy</li>
+            <li><strong>EmComm planning</strong> - Know if HF will be reliable</li>
+        </ul>
+
+        <h3>Quick Reference - Good vs. Bad</h3>
+        <div class="quick-ref">
+            <div class="ref-box">
+                <div class="index">SFI</div>
+                <div class="range">Higher = Better<br>100+ is good</div>
+            </div>
+            <div class="ref-box">
+                <div class="index">SSN</div>
+                <div class="range">Higher = Better<br>More sunspots = more ionization</div>
+            </div>
+            <div class="ref-box">
+                <div class="index">K-Index</div>
+                <div class="range">Lower = Better<br>0-2 is quiet</div>
+            </div>
+            <div class="ref-box">
+                <div class="index">A-Index</div>
+                <div class="range">Lower = Better<br>&lt;10 is quiet</div>
+            </div>
+        </div>
+
+        <h2 id="sfi">Solar Flux Index (SFI)</h2>
+        
+        <div class="index-card">
+            <h3>☀️ Solar Flux Index (10.7 cm Flux)</h3>
+            <p>Measures solar radio emissions at 2800 MHz (10.7 cm wavelength). Higher values indicate more solar activity and better ionization for HF propagation.</p>
+            
+            <table class="scale-table">
+                <thead>
+                    <tr><th>SFI Value</th><th>Conditions</th><th>Effect on HF</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="bad"><td>&lt; 70</td><td>Very Low</td><td>Low bands only (40m-80m), high bands dead</td></tr>
+                    <tr class="poor"><td>70 - 90</td><td>Low</td><td>Low/mid bands, high bands marginal</td></tr>
+                    <tr class="fair"><td>90 - 120</td><td>Moderate</td><td>Most bands usable, 15m opening</td></tr>
+                    <tr class="good"><td>120 - 150</td><td>Good</td><td>Excellent propagation, 10m-12m opening</td></tr>
+                    <tr class="excellent"><td>&gt; 150</td><td>Excellent</td><td>All bands open, worldwide DX on 10m</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Key Points</h4>
+            <ul>
+                <li>Measured daily in Penticton, BC, Canada</li>
+                <li>Range: ~65 (solar minimum) to 300+ (solar maximum)</li>
+                <li>Higher SFI = Higher MUF (Maximum Usable Frequency)</li>
+                <li>Takes weeks/months to change significantly</li>
+            </ul>
+        </div>
+
+        <h2 id="ssn">Sunspot Number (SSN)</h2>
+        
+        <div class="index-card">
+            <h3>🌑 Sunspot Number</h3>
+            <p>Count of visible sunspots on the sun. Correlates with solar activity and ionization.</p>
+            
+            <table class="scale-table">
+                <thead>
+                    <tr><th>SSN</th><th>Cycle Phase</th><th>Propagation</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="poor"><td>0 - 20</td><td>Solar Minimum</td><td>Low bands only</td></tr>
+                    <tr class="fair"><td>20 - 80</td><td>Rising/Declining</td><td>Mid bands, some high band openings</td></tr>
+                    <tr class="good"><td>80 - 150</td><td>Active</td><td>Good conditions most bands</td></tr>
+                    <tr class="excellent"><td>&gt; 150</td><td>Solar Maximum</td><td>Excellent, 10m/6m wide open</td></tr>
+                </tbody>
+            </table>
+            
+            <ul>
+                <li>11-year solar cycle from minimum to minimum</li>
+                <li>SSN and SFI generally track together</li>
+                <li>Current cycle: Solar Cycle 25 (began Dec 2019)</li>
+            </ul>
+        </div>
+
+        <h2 id="kindex">K-Index</h2>
+        
+        <div class="index-card">
+            <h3>🧭 K-Index (Planetary Kp)</h3>
+            <p>Measures geomagnetic disturbance over 3-hour periods. Lower is better for HF!</p>
+            
+            <table class="scale-table">
+                <thead>
+                    <tr><th>K-Index</th><th>Condition</th><th>HF Effect</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="excellent"><td>0</td><td>Inactive</td><td>Best conditions</td></tr>
+                    <tr class="good"><td>1</td><td>Very Quiet</td><td>Excellent</td></tr>
+                    <tr class="good"><td>2</td><td>Quiet</td><td>Very good</td></tr>
+                    <tr class="fair"><td>3</td><td>Unsettled</td><td>Good, some degradation</td></tr>
+                    <tr class="fair"><td>4</td><td>Active</td><td>Fair, noticeable degradation</td></tr>
+                    <tr class="poor"><td>5</td><td>Minor Storm (G1)</td><td>Degraded, especially polar paths</td></tr>
+                    <tr class="poor"><td>6</td><td>Moderate Storm (G2)</td><td>Poor, auroral absorption</td></tr>
+                    <tr class="bad"><td>7</td><td>Strong Storm (G3)</td><td>Very poor</td></tr>
+                    <tr class="bad"><td>8</td><td>Severe Storm (G4)</td><td>Major disruption</td></tr>
+                    <tr class="bad"><td>9</td><td>Extreme Storm (G5)</td><td>HF blackout possible</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Key Points</h4>
+            <ul>
+                <li>Updated every 3 hours (8 readings per day)</li>
+                <li>Quasi-logarithmic scale (each step is ~2x)</li>
+                <li>K ≥ 4 generally means degraded propagation</li>
+                <li>High-latitude paths affected first</li>
+                <li>Aurora can occur at K ≥ 5 (good for VHF!)</li>
+            </ul>
+        </div>
+
+        <div class="tip">
+            <strong>K-Index Timing:</strong> Effects lag behind solar events. A CME hitting Earth causes K-index to spike 1-3 days after the flare. Watch for rising K after major solar events.
+        </div>
+
+        <h2 id="aindex">A-Index</h2>
+        
+        <div class="index-card">
+            <h3>📊 A-Index (Planetary Ap)</h3>
+            <p>Daily average of geomagnetic activity, derived from K-index readings. Provides a single daily number.</p>
+            
+            <table class="scale-table">
+                <thead>
+                    <tr><th>A-Index</th><th>Condition</th><th>HF Effect</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="excellent"><td>0 - 7</td><td>Quiet</td><td>Excellent propagation</td></tr>
+                    <tr class="good"><td>8 - 15</td><td>Unsettled</td><td>Good conditions</td></tr>
+                    <tr class="fair"><td>16 - 29</td><td>Active</td><td>Fair, some degradation</td></tr>
+                    <tr class="poor"><td>30 - 49</td><td>Minor Storm</td><td>Poor conditions</td></tr>
+                    <tr class="poor"><td>50 - 99</td><td>Major Storm</td><td>Very poor</td></tr>
+                    <tr class="bad"><td>100 - 400</td><td>Severe Storm</td><td>Severe disruption</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>K to A Conversion</h4>
+            <div class="formula-box">
+K:  0   1   2   3    4    5    6    7     8     9
+A:  0   3   7  15   27   48   80  140   240   400
+            </div>
+        </div>
+
+        <h2 id="xray">X-Ray Flux &amp; Solar Flares</h2>
+        
+        <div class="index-card">
+            <h3>💥 Solar Flare Classification</h3>
+            <p>Solar flares are classified by their X-ray intensity. Larger flares can cause immediate HF blackouts on the sunlit side of Earth.</p>
+            
+            <table class="scale-table">
+                <thead>
+                    <tr><th>Class</th><th>X-Ray Flux (W/m²)</th><th>HF Effect</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="good"><td>A</td><td>&lt; 10⁻⁷</td><td>None - background level</td></tr>
+                    <tr class="good"><td>B</td><td>10⁻⁷ to 10⁻⁶</td><td>None - minor activity</td></tr>
+                    <tr class="fair"><td>C</td><td>10⁻⁶ to 10⁻⁵</td><td>Minimal - small flares</td></tr>
+                    <tr class="poor"><td>M</td><td>10⁻⁵ to 10⁻⁴</td><td>Moderate - brief HF degradation</td></tr>
+                    <tr class="bad"><td>X</td><td>&gt; 10⁻⁴</td><td>Severe - HF blackout (R2-R5)</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Flare Numbering</h4>
+            <ul>
+                <li>Number after letter indicates intensity within class</li>
+                <li>Example: M5.2 is stronger than M1.0</li>
+                <li>X-class flares: X1, X2... X10+ (extreme)</li>
+                <li>Effects are immediate (speed of light)</li>
+                <li>Only affects dayside of Earth</li>
+            </ul>
+        </div>
+
+        <h2 id="gscale">Geomagnetic Storms (G-Scale)</h2>
+        
+        <p>NOAA's Geomagnetic Storm scale rates disturbances from G1 (minor) to G5 (extreme):</p>
+        
+        <table class="noaa-scale">
+            <thead>
+                <tr><th>Scale</th><th>Kp</th><th>Description</th><th>HF Radio Effect</th><th>Other Effects</th></tr>
+            </thead>
+            <tbody>
+                <tr class="g1">
+                    <td><strong>G1</strong></td>
+                    <td>5</td>
+                    <td>Minor</td>
+                    <td>Weak or minor degradation of HF at high latitudes</td>
+                    <td>Aurora visible at high latitudes</td>
+                </tr>
+                <tr class="g2">
+                    <td><strong>G2</strong></td>
+                    <td>6</td>
+                    <td>Moderate</td>
+                    <td>HF propagation can fade at higher latitudes</td>
+                    <td>Aurora visible at 55° latitude</td>
+                </tr>
+                <tr class="g3">
+                    <td><strong>G3</strong></td>
+                    <td>7</td>
+                    <td>Strong</td>
+                    <td>Intermittent HF problems, degraded GPS</td>
+                    <td>Aurora at 50° latitude, voltage irregularities</td>
+                </tr>
+                <tr class="g4">
+                    <td><strong>G4</strong></td>
+                    <td>8</td>
+                    <td>Severe</td>
+                    <td>HF propagation sporadic, GPS degraded hours</td>
+                    <td>Aurora at 45° latitude, power systems affected</td>
+                </tr>
+                <tr class="g5">
+                    <td><strong>G5</strong></td>
+                    <td>9</td>
+                    <td>Extreme</td>
+                    <td>HF completely unavailable for 1-2 days</td>
+                    <td>Aurora at 40° latitude, widespread power issues</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="rscale">Radio Blackouts (R-Scale)</h2>
+        
+        <p>NOAA's Radio Blackout scale rates solar flare effects on HF:</p>
+        
+        <table class="noaa-scale">
+            <thead>
+                <tr><th>Scale</th><th>Flare</th><th>Description</th><th>HF Effect</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+                <tr class="r1">
+                    <td><strong>R1</strong></td>
+                    <td>M1</td>
+                    <td>Minor</td>
+                    <td>Weak or minor degradation of HF on sunlit side</td>
+                    <td>~1 hour</td>
+                </tr>
+                <tr class="r2">
+                    <td><strong>R2</strong></td>
+                    <td>M5</td>
+                    <td>Moderate</td>
+                    <td>Limited blackout of HF on sunlit side</td>
+                    <td>Tens of minutes</td>
+                </tr>
+                <tr class="r3">
+                    <td><strong>R3</strong></td>
+                    <td>X1</td>
+                    <td>Strong</td>
+                    <td>Wide area HF blackout on sunlit side</td>
+                    <td>~1 hour</td>
+                </tr>
+                <tr class="r4">
+                    <td><strong>R4</strong></td>
+                    <td>X10</td>
+                    <td>Severe</td>
+                    <td>HF blackout on most of sunlit side</td>
+                    <td>1-2 hours</td>
+                </tr>
+                <tr class="r5">
+                    <td><strong>R5</strong></td>
+                    <td>X20</td>
+                    <td>Extreme</td>
+                    <td>Complete HF blackout on sunlit side</td>
+                    <td>Several hours</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Immediate vs. Delayed:</strong> R-scale (flare) effects are immediate (8 minutes after flare). G-scale (storm) effects are delayed 1-3 days (CME travel time to Earth).
+        </div>
+
+        <h2 id="proton">Proton Events (S-Scale)</h2>
+        
+        <p>Solar Radiation Storms from energetic protons:</p>
+        
+        <table class="noaa-scale">
+            <thead>
+                <tr><th>Scale</th><th>Flux (pfu)</th><th>Description</th><th>HF Effect</th></tr>
+            </thead>
+            <tbody>
+                <tr class="r1">
+                    <td><strong>S1</strong></td>
+                    <td>10</td>
+                    <td>Minor</td>
+                    <td>Minor impacts on HF in polar regions</td>
+                </tr>
+                <tr class="r2">
+                    <td><strong>S2</strong></td>
+                    <td>100</td>
+                    <td>Moderate</td>
+                    <td>Infrequent effects on HF in polar regions</td>
+                </tr>
+                <tr class="r3">
+                    <td><strong>S3</strong></td>
+                    <td>1,000</td>
+                    <td>Strong</td>
+                    <td>Degraded HF propagation in polar regions</td>
+                </tr>
+                <tr class="r4">
+                    <td><strong>S4</strong></td>
+                    <td>10,000</td>
+                    <td>Severe</td>
+                    <td>Blackout of HF in polar regions, errors at other latitudes</td>
+                </tr>
+                <tr class="r5">
+                    <td><strong>S5</strong></td>
+                    <td>100,000</td>
+                    <td>Extreme</td>
+                    <td>Complete blackout of HF in polar regions for days</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="reading">Reading a Full Report</h2>
+        
+        <h3>Sample Space Weather Report</h3>
+        <div class="report-example">
+<span class="label">Solar Flux Index (SFI):</span>     <span class="value good">156</span>  ← Excellent! High bands should be open
+<span class="label">Sunspot Number (SSN):</span>       <span class="value good">142</span>  ← High activity, good ionization
+<span class="label">A-Index:</span>                    <span class="value good">5</span>    ← Very quiet, stable conditions
+<span class="label">K-Index:</span>                    <span class="value good">1</span>    ← Quiet geomagnetic field
+<span class="label">X-Ray Background:</span>          <span class="value good">B4.2</span> ← Low, no flare activity
+<span class="label">Planetary K (Kp):</span>          <span class="value good">1</span>    ← Quiet
+<span class="label">Electron Flux:</span>             <span class="value good">Normal</span>
+<span class="label">Proton Flux:</span>               <span class="value good">Normal</span>
+
+<span class="label">Conditions:</span> <span class="good">EXCELLENT</span>
+All HF bands should be in good shape. High bands (10m, 12m, 15m) 
+likely open. Low noise, stable propagation expected.
+        </div>
+
+        <h3>Interpreting the Numbers</h3>
+        <div class="report-example">
+<span class="label">Reading a Disturbed Report:</span>
+
+<span class="label">Solar Flux Index (SFI):</span>     <span class="value fair">95</span>   ← Moderate, mid-bands OK
+<span class="label">Sunspot Number (SSN):</span>       <span class="value fair">67</span>   ← Moderate activity
+<span class="label">A-Index:</span>                    <span class="value bad">48</span>   ← Storm! Poor conditions
+<span class="label">K-Index:</span>                    <span class="value bad">6</span>    ← G2 Geomagnetic Storm
+<span class="label">X-Ray Background:</span>          <span class="value warning">M2.1</span> ← Active, flare in progress
+<span class="label">Planetary K (Kp):</span>          <span class="value bad">6</span>    ← Moderate storm
+
+<span class="label">Conditions:</span> <span class="bad">POOR</span>
+HF propagation degraded, especially on polar paths.
+High bands likely affected. Expect fading and noise.
+Aurora possible at mid-latitudes (VHF opportunity!).
+        </div>
+
+        <h3>Quick Interpretation Guide</h3>
+        <table class="scale-table">
+            <thead>
+                <tr><th>Look At</th><th>Want High</th><th>Want Low</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>SFI</td><td class="good">✓ Higher = more ionization</td><td></td></tr>
+                <tr><td>SSN</td><td class="good">✓ Higher = more activity</td><td></td></tr>
+                <tr><td>K-Index</td><td></td><td class="good">✓ Lower = quieter</td></tr>
+                <tr><td>A-Index</td><td></td><td class="good">✓ Lower = quieter</td></tr>
+                <tr><td>X-Ray</td><td></td><td class="good">✓ Lower class = no flares</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>High SFI + High K = Confusing!</strong> Sometimes you have good solar flux (high SFI) but disturbed conditions (high K). The K-index "wins" - geomagnetic storms disrupt propagation regardless of how much solar flux there is.
+        </div>
+
+        <h2 id="resources">Resources &amp; Tools</h2>
+        
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h4>📻 WWV/WWVH</h4>
+                <p>Broadcast at 18 minutes past each hour on 2.5, 5, 10, 15, 20 MHz</p>
+                <p>Solar-terrestrial indices and forecast</p>
+            </div>
+            <div class="resource-card">
+                <h4>🌐 Space Weather Sites</h4>
+                <ul>
+                    <li><a href="https://www.spaceweather.com">spaceweather.com</a></li>
+                    <li><a href="https://www.swpc.noaa.gov">NOAA SWPC</a></li>
+                    <li><a href="https://www.solarham.net">SolarHam.net</a></li>
+                    <li><a href="https://www.hamqsl.com/solar.html">HamQSL Solar</a></li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h4>📊 Propagation Tools</h4>
+                <ul>
+                    <li><a href="https://www.voacap.com/hf/">VOACAP Online</a></li>
+                    <li><a href="https://www.dxheat.com">DX Heat Map</a></li>
+                    <li><a href="https://pskreporter.info">PSK Reporter</a></li>
+                    <li><a href="http://wsprnet.org">WSPRnet</a></li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h4>📱 Mobile Apps</h4>
+                <ul>
+                    <li>HamClock</li>
+                    <li>Space Weather Live</li>
+                    <li>Solar Monitor</li>
+                    <li>NOAA Space Weather</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>N0NBH Solar Banners</h3>
+        <p>The popular solar-terrestrial data banners by Paul Herrman N0NBH are widely used on ham radio websites. They show current SFI, SSN, A, K, and band condition predictions in a compact graphical format.</p>
+
+        <h2>Quick Reference Summary</h2>
+        
+        <table class="scale-table">
+            <thead>
+                <tr><th>Index</th><th>Good</th><th>Fair</th><th>Poor</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SFI</strong></td>
+                    <td class="good">&gt; 120</td>
+                    <td class="fair">90-120</td>
+                    <td class="poor">&lt; 90</td>
+                </tr>
+                <tr>
+                    <td><strong>SSN</strong></td>
+                    <td class="good">&gt; 80</td>
+                    <td class="fair">40-80</td>
+                    <td class="poor">&lt; 40</td>
+                </tr>
+                <tr>
+                    <td><strong>A-Index</strong></td>
+                    <td class="good">&lt; 10</td>
+                    <td class="fair">10-25</td>
+                    <td class="poor">&gt; 25</td>
+                </tr>
+                <tr>
+                    <td><strong>K-Index</strong></td>
+                    <td class="good">0-2</td>
+                    <td class="fair">3-4</td>
+                    <td class="poor">≥ 5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="hf-propagation.html">HF Propagation Basics</a></li>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="../emcomm/net-operations.html">Net Operations Guide</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: NOAA Space Weather Prediction Center, ARRL, NASA</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

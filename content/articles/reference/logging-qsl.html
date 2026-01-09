@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Keeping &amp; QSL Cards - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .log-example {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .log-example table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .log-example th, .log-example td {
+            border: 1px solid #a0aec0;
+            padding: 8px;
+            text-align: center;
+        }
+        .log-example th {
+            background: #4a5568;
+            color: white;
+        }
+        .qsl-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .qsl-card h3 {
+            margin-top: 0;
+            font-size: 2em;
+        }
+        .qsl-card .info {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .config-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .software-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .software-card h4 {
+            margin-top: 0;
+            color: #2c5282;
+        }
+        .software-card .platform {
+            font-size: 0.85em;
+            color: #718096;
+        }
+        .award-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .award-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Log Keeping &amp; QSL Cards
+    </nav>
+    
+    <article>
+        <h1>Log Keeping &amp; QSL Cards</h1>
+        
+        <section class="summary">
+            <p>Guide to logging your amateur radio contacts and the QSL card tradition. Learn why we log, what information to record, logging software options, and how QSL cards work.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#why-log">Why Keep a Log?</a></li>
+                <li><a href="#what-log">What to Log</a></li>
+                <li><a href="#paper">Paper Logging</a></li>
+                <li><a href="#software">Logging Software</a></li>
+                <li><a href="#adif">ADIF Format</a></li>
+                <li><a href="#qsl">QSL Cards</a></li>
+                <li><a href="#lotw">Logbook of The World (LoTW)</a></li>
+                <li><a href="#eqsl">eQSL &amp; Other Services</a></li>
+                <li><a href="#awards">Awards &amp; Certificates</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="why-log">Why Keep a Log?</h2>
+        
+        <ul>
+            <li><strong>Legal requirement (some countries)</strong> - Canada and some others require logs</li>
+            <li><strong>Award tracking</strong> - DXCC, WAS, VUCC need confirmed contacts</li>
+            <li><strong>Personal record</strong> - Remember your QSOs over the years</li>
+            <li><strong>Performance analysis</strong> - What bands/modes work best for you?</li>
+            <li><strong>QSL management</strong> - Track sent/received cards</li>
+            <li><strong>Contest scoring</strong> - Contests require accurate logs</li>
+            <li><strong>Duplicate checking</strong> - Know if you've worked someone before</li>
+        </ul>
+
+        <div class="note">
+            <strong>Canada (ISED):</strong> Canadian amateurs ARE required to keep a log of all transmissions. The log must be retained for at least one year.
+        </div>
+
+        <h2 id="what-log">What to Log</h2>
+        
+        <h3>Essential Information</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Field</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Date</strong></td><td>Date of QSO (UTC preferred)</td><td>2026-01-09</td></tr>
+                <tr><td><strong>Time</strong></td><td>Start time (UTC)</td><td>1435</td></tr>
+                <tr><td><strong>Callsign</strong></td><td>Station worked</td><td>W1ABC</td></tr>
+                <tr><td><strong>Frequency/Band</strong></td><td>Operating frequency or band</td><td>14.250 MHz / 20m</td></tr>
+                <tr><td><strong>Mode</strong></td><td>Operating mode</td><td>SSB, CW, FT8, etc.</td></tr>
+                <tr><td><strong>RST Sent</strong></td><td>Signal report you gave</td><td>59 / 599</td></tr>
+                <tr><td><strong>RST Received</strong></td><td>Signal report they gave you</td><td>57 / 579</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Optional But Useful</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Field</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Name</strong></td><td>Operator's name</td><td>John</td></tr>
+                <tr><td><strong>QTH</strong></td><td>Location</td><td>Boston, MA</td></tr>
+                <tr><td><strong>Grid</strong></td><td>Maidenhead grid square</td><td>FN42</td></tr>
+                <tr><td><strong>Power</strong></td><td>Your TX power</td><td>100W</td></tr>
+                <tr><td><strong>Antenna</strong></td><td>Antenna used</td><td>Dipole</td></tr>
+                <tr><td><strong>Notes</strong></td><td>Any comments</td><td>First VE QSO!</td></tr>
+                <tr><td><strong>QSL Sent</strong></td><td>QSL card status</td><td>Y/N/R (requested)</td></tr>
+                <tr><td><strong>QSL Rcvd</strong></td><td>QSL received status</td><td>Y/N</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="paper">Paper Logging</h2>
+        
+        <p>Traditional paper logs still work! Great for portable/field ops or as backup.</p>
+
+        <div class="log-example">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time (UTC)</th>
+                        <th>Callsign</th>
+                        <th>Freq</th>
+                        <th>Mode</th>
+                        <th>RST S/R</th>
+                        <th>Name/QTH</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/09</td>
+                        <td>1435</td>
+                        <td>W1ABC</td>
+                        <td>14.250</td>
+                        <td>SSB</td>
+                        <td>59/57</td>
+                        <td>John, Boston</td>
+                        <td>FB QSO</td>
+                    </tr>
+                    <tr>
+                        <td>01/09</td>
+                        <td>1502</td>
+                        <td>VE3XYZ</td>
+                        <td>7.185</td>
+                        <td>SSB</td>
+                        <td>59/59</td>
+                        <td>Mike, Toronto</td>
+                        <td>ARES net</td>
+                    </tr>
+                    <tr>
+                        <td>01/09</td>
+                        <td>1545</td>
+                        <td>G4ABC</td>
+                        <td>14.074</td>
+                        <td>FT8</td>
+                        <td>-12/-08</td>
+                        <td>—</td>
+                        <td>First G!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip">
+            <strong>UTC Time:</strong> Always log in UTC (Coordinated Universal Time, same as GMT/Zulu). This avoids confusion with time zones and daylight saving. Your radio probably has a UTC clock setting.
+        </div>
+
+        <h2 id="software">Logging Software</h2>
+        
+        <div class="software-grid">
+            <div class="software-card">
+                <h4>CQRLOG</h4>
+                <p class="platform">Linux (Free)</p>
+                <ul>
+                    <li>Full-featured logger</li>
+                    <li>DX cluster integration</li>
+                    <li>LoTW/eQSL sync</li>
+                    <li>Great for Linux users</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>Log4OM</h4>
+                <p class="platform">Windows (Free)</p>
+                <ul>
+                    <li>Very full-featured</li>
+                    <li>Award tracking</li>
+                    <li>Radio control</li>
+                    <li>LoTW integration</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>N1MM Logger+</h4>
+                <p class="platform">Windows (Free)</p>
+                <ul>
+                    <li>Contest focused</li>
+                    <li>Industry standard</li>
+                    <li>CW/voice keying</li>
+                    <li>Supports all major contests</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>Ham Radio Deluxe</h4>
+                <p class="platform">Windows (Paid)</p>
+                <ul>
+                    <li>Complete suite</li>
+                    <li>Rig control + logging</li>
+                    <li>Digital modes</li>
+                    <li>Satellite tracking</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>MacLoggerDX</h4>
+                <p class="platform">macOS (Paid)</p>
+                <ul>
+                    <li>Mac-native</li>
+                    <li>Full featured</li>
+                    <li>DX spotting</li>
+                    <li>Award tracking</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>Cloudlog</h4>
+                <p class="platform">Web (Free/Self-host)</p>
+                <ul>
+                    <li>Web-based</li>
+                    <li>Access anywhere</li>
+                    <li>Multi-station</li>
+                    <li>Open source</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>QRZ Logbook</h4>
+                <p class="platform">Web (Free tier)</p>
+                <ul>
+                    <li>Online logging</li>
+                    <li>Ties to QRZ.com</li>
+                    <li>Simple interface</li>
+                    <li>LoTW sync (paid)</li>
+                </ul>
+            </div>
+            <div class="software-card">
+                <h4>HAMRS</h4>
+                <p class="platform">All platforms (Free)</p>
+                <ul>
+                    <li>POTA/SOTA focused</li>
+                    <li>Simple, fast</li>
+                    <li>ADIF export</li>
+                    <li>Works offline</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="adif">ADIF Format</h2>
+        
+        <div class="note">
+            <strong>ADIF (Amateur Data Interchange Format)</strong> is the standard format for exchanging log data between programs. Almost all logging software can import/export ADIF.
+        </div>
+
+        <h3>Sample ADIF Record</h3>
+        <div class="diagram">
+&lt;CALL:5&gt;W1ABC 
+&lt;QSO_DATE:8&gt;20260109 
+&lt;TIME_ON:4&gt;1435 
+&lt;BAND:3&gt;20M 
+&lt;FREQ:8&gt;14.25000 
+&lt;MODE:3&gt;SSB 
+&lt;RST_SENT:2&gt;59 
+&lt;RST_RCVD:2&gt;57 
+&lt;NAME:4&gt;John 
+&lt;QTH:6&gt;Boston 
+&lt;GRIDSQUARE:4&gt;FN42 
+&lt;EOR&gt;
+        </div>
+
+        <h2 id="qsl">QSL Cards</h2>
+        
+        <div class="qsl-card">
+            <h3>VA2OPS</h3>
+            <div class="info">
+                <strong>Confirming QSO with W1ABC</strong><br>
+                Date: 2026-01-09 | Time: 1435 UTC<br>
+                Band: 20m | Mode: SSB | RST: 59<br>
+                PSE QSL TNX 73
+            </div>
+            <p>Sylvain Deguire • Granby, QC, Canada • FN35</p>
+        </div>
+
+        <p><strong>QSL</strong> means "I confirm receipt" in Q-code. QSL cards are postcards confirming amateur radio contacts - a tradition dating back to the 1920s!</p>
+
+        <h3>QSL Card Elements</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Element</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Callsign</strong></td><td>Your call, prominently displayed</td></tr>
+                <tr><td><strong>To/Confirming</strong></td><td>Callsign you worked</td></tr>
+                <tr><td><strong>Date &amp; Time</strong></td><td>UTC date and time of QSO</td></tr>
+                <tr><td><strong>Band/Frequency</strong></td><td>Operating band or exact frequency</td></tr>
+                <tr><td><strong>Mode</strong></td><td>SSB, CW, FT8, etc.</td></tr>
+                <tr><td><strong>RST</strong></td><td>Signal report sent</td></tr>
+                <tr><td><strong>QTH</strong></td><td>Your location</td></tr>
+                <tr><td><strong>Grid Square</strong></td><td>Maidenhead locator</td></tr>
+                <tr><td><strong>PSE/TNX QSL</strong></td><td>"Please QSL" or "Thanks for QSL"</td></tr>
+            </tbody>
+        </table>
+
+        <h3>QSL Methods</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Method</th><th>Description</th><th>Cost</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Direct</strong></td>
+                    <td>Mail directly to station with SASE/$$</td>
+                    <td>$2-5 per card</td>
+                </tr>
+                <tr>
+                    <td><strong>Bureau</strong></td>
+                    <td>Through QSL bureau system (batch mail)</td>
+                    <td>Low (~postage)</td>
+                </tr>
+                <tr>
+                    <td><strong>LoTW</strong></td>
+                    <td>Electronic confirmation (ARRL)</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>eQSL</strong></td>
+                    <td>Electronic QSL images</td>
+                    <td>Free tier available</td>
+                </tr>
+                <tr>
+                    <td><strong>QRZ Logbook</strong></td>
+                    <td>Confirmation via QRZ.com</td>
+                    <td>Free</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>QSL Bureau System</h3>
+        <div class="diagram">
+    HOW THE BUREAU WORKS
+    
+    You (VA2OPS)                              W1ABC
+         │                                      │
+         │ Cards sorted by                      │
+         │ call prefix                          │
+         ▼                                      ▼
+    ┌─────────────┐                      ┌─────────────┐
+    │ RAC Outgoing│  ──── Bulk Mail ───► │ ARRL Bureau │
+    │   Bureau    │                      │  (W1 area)  │
+    └─────────────┘                      └─────────────┘
+                                               │
+                                               ▼
+                                         Forwards to
+                                         W1ABC's SASE
+    
+    Slower (months!) but much cheaper than direct mail
+        </div>
+
+        <h2 id="lotw">Logbook of The World (LoTW)</h2>
+        
+        <div class="note">
+            <strong>LoTW</strong> is ARRL's electronic QSL system. It's the gold standard for award credit (DXCC, WAS, VUCC). Free to use!
+        </div>
+
+        <h3>Getting Started with LoTW</h3>
+        <ol>
+            <li><strong>Request certificate</strong> - arrl.org/lotw, verify identity</li>
+            <li><strong>Install TQSL</strong> - Software to sign and upload logs</li>
+            <li><strong>Configure callsign certificate</strong> - Links to your license</li>
+            <li><strong>Sign your log</strong> - TQSL digitally signs ADIF file</li>
+            <li><strong>Upload to LoTW</strong> - Through TQSL or logging software</li>
+            <li><strong>Check for matches</strong> - When both stations upload, it's confirmed!</li>
+        </ol>
+
+        <h3>LoTW Key Points</h3>
+        <ul>
+            <li>Both stations must upload for confirmation</li>
+            <li>Accepted for ARRL awards (DXCC, WAS, VUCC)</li>
+            <li>Cryptographically signed - very trustworthy</li>
+            <li>No physical cards needed</li>
+            <li>Widely used - many DX stations upload</li>
+        </ul>
+
+        <h2 id="eqsl">eQSL &amp; Other Services</h2>
+        
+        <h3>eQSL.cc</h3>
+        <ul>
+            <li>Free electronic QSL with card images</li>
+            <li>Design custom QSL card graphics</li>
+            <li>Authenticity Guaranteed (AG) status for awards</li>
+            <li>Not accepted for ARRL DXCC</li>
+            <li>Good for collecting QSL images</li>
+        </ul>
+
+        <h3>QRZ Logbook</h3>
+        <ul>
+            <li>Free online logging at qrz.com</li>
+            <li>Confirmation system between users</li>
+            <li>LoTW sync with subscription</li>
+            <li>Good for casual logging</li>
+        </ul>
+
+        <h3>Club Log</h3>
+        <ul>
+            <li>DX-focused logging and statistics</li>
+            <li>DXCC leaderboards</li>
+            <li>OQRS (Online QSL Request System)</li>
+            <li>Many DXpeditions use Club Log for QSLs</li>
+        </ul>
+
+        <h2 id="awards">Awards &amp; Certificates</h2>
+        
+        <div class="award-box">
+            <h4>🏆 Popular Awards</h4>
+            <table class="config-table">
+                <thead>
+                    <tr><th>Award</th><th>Requirement</th><th>QSL Needed</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DXCC</strong></td>
+                        <td>100 countries confirmed</td>
+                        <td>LoTW or card</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WAS</strong></td>
+                        <td>All 50 US states confirmed</td>
+                        <td>LoTW or card</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WAC</strong></td>
+                        <td>All 6 continents</td>
+                        <td>Card or LoTW</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VUCC</strong></td>
+                        <td>VHF/UHF Century Club (100+ grids)</td>
+                        <td>LoTW or card</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WAZ</strong></td>
+                        <td>All 40 CQ zones</td>
+                        <td>Card</td>
+                    </tr>
+                    <tr>
+                        <td><strong>POTA</strong></td>
+                        <td>Parks On The Air activator/hunter</td>
+                        <td>None (log upload)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SOTA</strong></td>
+                        <td>Summits On The Air</td>
+                        <td>None (log upload)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Best Practices</h2>
+        
+        <ul>
+            <li><strong>Log immediately</strong> - Don't rely on memory</li>
+            <li><strong>Use UTC</strong> - Avoids time zone confusion</li>
+            <li><strong>Backup your log</strong> - ADIF export regularly</li>
+            <li><strong>Upload to LoTW</strong> - Even if you also send cards</li>
+            <li><strong>Keep paper backup</strong> - For field ops or computer failures</li>
+            <li><strong>Accurate data</strong> - Wrong time/date means no confirmation</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Contest Logging:</strong> During contests, use dedicated contest software (N1MM, N3FJP) - it's optimized for speed and includes multiplier tracking, dupe checking, and Cabrillo export.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="ham-radio-math.html">Ham Radio Math</a> (Grid squares)</li>
+            <li><a href="phonetic-alphabet.html">Phonetic Alphabet</a></li>
+            <li><a href="cw-reference.html">CW Reference</a> (RST)</li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL, RAC, LoTW documentation</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

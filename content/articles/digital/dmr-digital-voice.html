@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMR &amp; Digital Voice Basics - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .mode-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .mode-card h3 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 8px;
+        }
+        .mode-card .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .mode-card .spec {
+            background: #ebf8ff;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .mode-card .spec strong {
+            display: block;
+            color: #2c5282;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .network-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .network-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ref-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .ref-card h4 {
+            margin-top: 0;
+            color: #2c5282;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital">Digital Modes</a> &gt; 
+        DMR &amp; Digital Voice Basics
+    </nav>
+    
+    <article>
+        <h1>DMR &amp; Digital Voice Basics</h1>
+        
+        <section class="summary">
+            <p>Introduction to digital voice modes in amateur radio: DMR, D-STAR, and System Fusion. Understand the basics of each system, their networks, and how to get started.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Digital Voice Overview</a></li>
+                <li><a href="#dmr">DMR (Digital Mobile Radio)</a></li>
+                <li><a href="#dstar">D-STAR</a></li>
+                <li><a href="#fusion">Yaesu System Fusion</a></li>
+                <li><a href="#comparison">Mode Comparison</a></li>
+                <li><a href="#networks">Networks &amp; Linking</a></li>
+                <li><a href="#hotspots">Hotspots</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">Digital Voice Overview</h2>
+        
+        <p>Digital voice modes encode your voice into digital data, transmit it, and decode it at the receiver. Advantages over analog FM:</p>
+        
+        <ul>
+            <li><strong>Better audio quality</strong> - Consistent audio until signal is lost</li>
+            <li><strong>No static/noise</strong> - Digital is either decoded or not</li>
+            <li><strong>More efficient</strong> - Multiple conversations in same bandwidth (DMR)</li>
+            <li><strong>Data capabilities</strong> - Text messaging, GPS, telemetry</li>
+            <li><strong>Internet linking</strong> - Worldwide connectivity via reflectors/talkgroups</li>
+        </ul>
+
+        <div class="diagram">
+    DIGITAL VOICE BASIC FLOW
+    
+    Your Voice → Microphone → VOCODER → Digital Data → Modulation → RF
+                              (AMBE/IMBE)
+    
+    RF → Demodulation → Digital Data → VOCODER → Speaker → Audio
+                                       (decode)
+        </div>
+
+        <h3>VOCODER (Voice Coder)</h3>
+        <p>All three major digital voice modes use a <strong>vocoder</strong> chip to compress voice:</p>
+        <ul>
+            <li><strong>AMBE+2</strong> - Used by DMR and D-STAR (DVSI chip)</li>
+            <li><strong>IMBE</strong> - Used by P25 (public safety)</li>
+            <li><strong>C4FM</strong> - Yaesu's implementation (also uses AMBE)</li>
+        </ul>
+
+        <h2 id="dmr">DMR (Digital Mobile Radio)</h2>
+        
+        <div class="mode-card">
+            <h3>📻 DMR - Digital Mobile Radio</h3>
+            <p>Originally a commercial standard (ETSI), now widely adopted by amateurs. Most popular digital voice mode due to affordable radios.</p>
+            
+            <div class="specs">
+                <div class="spec"><strong>Standard</strong>ETSI TS 102 361</div>
+                <div class="spec"><strong>Bandwidth</strong>12.5 kHz</div>
+                <div class="spec"><strong>Time Slots</strong>2 per channel</div>
+                <div class="spec"><strong>Vocoder</strong>AMBE+2</div>
+            </div>
+        </div>
+
+        <h3>DMR Key Concepts</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Term</th><th>What It Is</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Time Slot (TS)</strong></td>
+                    <td>DMR uses TDMA - 2 conversations on 1 frequency. TS1 and TS2.</td>
+                </tr>
+                <tr>
+                    <td><strong>Color Code (CC)</strong></td>
+                    <td>Like CTCSS for DMR. Must match repeater (usually 1).</td>
+                </tr>
+                <tr>
+                    <td><strong>Talk Group (TG)</strong></td>
+                    <td>Virtual "channel" - group of users. Like a room to join.</td>
+                </tr>
+                <tr>
+                    <td><strong>DMR ID</strong></td>
+                    <td>Your unique ID number. Register at radioid.net</td>
+                </tr>
+                <tr>
+                    <td><strong>Private Call</strong></td>
+                    <td>Direct call to specific DMR ID (like a phone call).</td>
+                </tr>
+                <tr>
+                    <td><strong>Codeplug</strong></td>
+                    <td>Radio configuration file with all channels, TGs, contacts.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Common Talk Groups</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>TG</th><th>Name</th><th>Coverage</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>91</td><td>Worldwide</td><td>All linked repeaters globally</td></tr>
+                <tr><td>93</td><td>North America</td><td>NA repeaters</td></tr>
+                <tr><td>310</td><td>TAC 310</td><td>General chat</td></tr>
+                <tr><td>311</td><td>TAC 311</td><td>General chat</td></tr>
+                <tr><td>3021</td><td>Midwest</td><td>US regional</td></tr>
+                <tr><td>3023</td><td>Northeast</td><td>US regional</td></tr>
+                <tr><td>302</td><td>Canada</td><td>All Canada</td></tr>
+                <tr><td>3100</td><td>DX</td><td>International DX</td></tr>
+                <tr><td>9</td><td>Local</td><td>Repeater local only</td></tr>
+                <tr><td>9990</td><td>Parrot</td><td>Echo test (hear yourself)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Getting a DMR ID:</strong> Register free at <a href="https://radioid.net">radioid.net</a>. You'll receive a 7-digit ID tied to your callsign. Program this into your radio.
+        </div>
+
+        <h3>DMR Networks</h3>
+        <div class="network-box">
+            <h4>🌐 Major DMR Networks</h4>
+            <ul>
+                <li><strong>Brandmeister</strong> - Largest worldwide network, most flexible</li>
+                <li><strong>TGIF</strong> - "The Group Is Fun" - simplified, chat-focused</li>
+                <li><strong>DMR-MARC</strong> - Motorola Amateur Radio Club network</li>
+                <li><strong>DMR+</strong> - European-originated network</li>
+            </ul>
+        </div>
+
+        <h2 id="dstar">D-STAR</h2>
+        
+        <div class="mode-card">
+            <h3>⭐ D-STAR (Digital Smart Technologies for Amateur Radio)</h3>
+            <p>Developed by JARL (Japan), first amateur-specific digital voice mode. Primarily Icom equipment.</p>
+            
+            <div class="specs">
+                <div class="spec"><strong>Developer</strong>JARL/Icom</div>
+                <div class="spec"><strong>Data Rate</strong>4.8 kbps voice</div>
+                <div class="spec"><strong>Bandwidth</strong>6.25 kHz</div>
+                <div class="spec"><strong>Vocoder</strong>AMBE</div>
+            </div>
+        </div>
+
+        <h3>D-STAR Key Concepts</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Term</th><th>What It Is</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>MY Call</strong></td>
+                    <td>Your callsign (up to 8 chars)</td>
+                </tr>
+                <tr>
+                    <td><strong>UR Call</strong></td>
+                    <td>Destination - CQCQCQ for general, or specific call/reflector</td>
+                </tr>
+                <tr>
+                    <td><strong>RPT1</strong></td>
+                    <td>Repeater you're accessing (with module letter)</td>
+                </tr>
+                <tr>
+                    <td><strong>RPT2</strong></td>
+                    <td>Gateway callsign (usually repeater call + G)</td>
+                </tr>
+                <tr>
+                    <td><strong>Reflector</strong></td>
+                    <td>Linking system - REF, XRF, DCS, XLX</td>
+                </tr>
+                <tr>
+                    <td><strong>Module</strong></td>
+                    <td>A, B, or C - different ports on a repeater</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>D-STAR Routing</h3>
+        <div class="diagram">
+    D-STAR CALL ROUTING FIELDS
+    
+    MY: VA2OPS      ← Your callsign
+    UR: CQCQCQ      ← Destination (CQ = anyone, or specific call)
+    R1: VE2RMR B    ← Local repeater + module
+    R2: VE2RMR G    ← Gateway
+    
+    To link to reflector:
+    UR: REF001CL    ← Link to REF001 module C
+    UR: _______U    ← Unlink (7 spaces + U)
+        </div>
+
+        <h2 id="fusion">Yaesu System Fusion</h2>
+        
+        <div class="mode-card">
+            <h3>🔷 System Fusion (C4FM)</h3>
+            <p>Yaesu's digital voice system. Simpler to use - automatic mode detection, less configuration needed.</p>
+            
+            <div class="specs">
+                <div class="spec"><strong>Developer</strong>Yaesu</div>
+                <div class="spec"><strong>Modes</strong>DN, VW, Data</div>
+                <div class="spec"><strong>Bandwidth</strong>12.5 kHz</div>
+                <div class="spec"><strong>Feature</strong>Auto Mode Select (AMS)</div>
+            </div>
+        </div>
+
+        <h3>Fusion Modes</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Mode</th><th>Full Name</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>DN</strong></td>
+                    <td>Digital Narrow</td>
+                    <td>Voice + slow data (GPS, messaging)</td>
+                </tr>
+                <tr>
+                    <td><strong>VW</strong></td>
+                    <td>Voice Wide</td>
+                    <td>Higher quality voice, no data</td>
+                </tr>
+                <tr>
+                    <td><strong>FR</strong></td>
+                    <td>Fusion Repeat</td>
+                    <td>Mixed analog/digital</td>
+                </tr>
+                <tr>
+                    <td><strong>AMS</strong></td>
+                    <td>Auto Mode Select</td>
+                    <td>Repeater auto-detects incoming mode</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Wires-X</h3>
+        <p><strong>Wires-X</strong> is Yaesu's internet linking system for Fusion:</p>
+        <ul>
+            <li><strong>Rooms</strong> - Like talk groups, places to gather</li>
+            <li><strong>Nodes</strong> - Repeaters or hotspots on the network</li>
+            <li><strong>Connect via radio</strong> - Search and connect from your HT</li>
+            <li><strong>News stations</strong> - Store-and-forward messaging</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Fusion Simplicity:</strong> Unlike DMR, you don't need a "codeplug" or ID registration. Just program the frequency and go - the radio figures out the rest!
+        </div>
+
+        <h2 id="comparison">Mode Comparison</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>DMR</th>
+                    <th>D-STAR</th>
+                    <th>System Fusion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Origin</strong></td>
+                    <td>Commercial (ETSI)</td>
+                    <td>Amateur (JARL)</td>
+                    <td>Amateur (Yaesu)</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Mfr</strong></td>
+                    <td>Many (TYT, Anytone, etc.)</td>
+                    <td>Icom</td>
+                    <td>Yaesu</td>
+                </tr>
+                <tr>
+                    <td><strong>Radio Cost</strong></td>
+                    <td>$$ (lowest)</td>
+                    <td>$$$ (higher)</td>
+                    <td>$$$ (mid-high)</td>
+                </tr>
+                <tr>
+                    <td><strong>Complexity</strong></td>
+                    <td>High (codeplugs)</td>
+                    <td>Medium (routing)</td>
+                    <td>Low (AMS)</td>
+                </tr>
+                <tr>
+                    <td><strong>ID Required</strong></td>
+                    <td>Yes (radioid.net)</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><strong>Time Slots</strong></td>
+                    <td>2 (TDMA)</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><strong>Analog Compatible</strong></td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Yes (AMS)</td>
+                </tr>
+                <tr>
+                    <td><strong>Network</strong></td>
+                    <td>Brandmeister, TGIF</td>
+                    <td>REF, XLX, DCS</td>
+                    <td>Wires-X, YSF</td>
+                </tr>
+                <tr>
+                    <td><strong>Repeater Coverage</strong></td>
+                    <td>Growing fast</td>
+                    <td>Established</td>
+                    <td>Good</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="networks">Networks &amp; Linking</h2>
+        
+        <p>All digital voice modes support internet linking, connecting repeaters and hotspots worldwide:</p>
+
+        <div class="quick-ref">
+            <div class="ref-card">
+                <h4>DMR Networks</h4>
+                <ul>
+                    <li><strong>Brandmeister</strong> - brandmeister.network</li>
+                    <li><strong>TGIF</strong> - tgif.network</li>
+                    <li><strong>FreeDMR</strong> - freedmr.uk</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>D-STAR Reflectors</h4>
+                <ul>
+                    <li><strong>REF</strong> - Original reflectors</li>
+                    <li><strong>XRF</strong> - X-Reflectors</li>
+                    <li><strong>DCS</strong> - Digital Call Server</li>
+                    <li><strong>XLX</strong> - Multi-protocol</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>Fusion/C4FM</h4>
+                <ul>
+                    <li><strong>Wires-X</strong> - Yaesu official</li>
+                    <li><strong>YSF</strong> - YSF Reflectors</li>
+                    <li><strong>FCS</strong> - Fusion Connect</li>
+                </ul>
+            </div>
+            <div class="ref-card">
+                <h4>Cross-Mode</h4>
+                <ul>
+                    <li><strong>XLX</strong> - Links DMR/D-STAR/Fusion</li>
+                    <li><strong>Brandmeister</strong> - Some cross-mode</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="hotspots">Hotspots</h2>
+        
+        <div class="mode-card">
+            <h3>📡 What's a Hotspot?</h3>
+            <p>A personal, low-power digital gateway. Connects your radio to digital networks via your internet connection.</p>
+        </div>
+
+        <div class="diagram">
+    HOTSPOT OPERATION
+    
+    📻 Your Radio ──RF──► 📡 Hotspot ──Internet──► 🌐 Network
+        (DMR/DStar/         (Pi-Star,                (Brandmeister,
+         Fusion)             MMDVM)                   REF, Wires-X)
+    
+    Hotspot = Low power (~10mW), short range (same room/house)
+    Allows digital voice without local repeater coverage!
+        </div>
+
+        <h3>Popular Hotspot Hardware</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Device</th><th>Modes</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>MMDVM Hotspot</strong></td>
+                    <td>DMR, D-STAR, Fusion, P25, NXDN</td>
+                    <td>Most common, uses Pi-Star</td>
+                </tr>
+                <tr>
+                    <td><strong>Zumspot</strong></td>
+                    <td>All modes</td>
+                    <td>Raspberry Pi Zero based</td>
+                </tr>
+                <tr>
+                    <td><strong>SharkRF OpenSpot</strong></td>
+                    <td>All modes</td>
+                    <td>Standalone, no Pi needed</td>
+                </tr>
+                <tr>
+                    <td><strong>DVMega</strong></td>
+                    <td>All modes</td>
+                    <td>Single or dual band</td>
+                </tr>
+                <tr>
+                    <td><strong>Jumbospot</strong></td>
+                    <td>All modes</td>
+                    <td>Budget option</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Pi-Star</h3>
+        <p><strong>Pi-Star</strong> is the most popular hotspot software, running on Raspberry Pi:</p>
+        <ul>
+            <li>Web-based configuration</li>
+            <li>Supports all digital modes</li>
+            <li>Dashboard shows activity</li>
+            <li>Free and open source</li>
+            <li>Auto-updates</li>
+        </ul>
+
+        <h2 id="getting-started">Getting Started</h2>
+        
+        <h3>DMR Quick Start</h3>
+        <ol>
+            <li><strong>Get a DMR ID</strong> - Register at radioid.net</li>
+            <li><strong>Get a radio</strong> - TYT, Anytone, Radioddity popular choices</li>
+            <li><strong>Get/create a codeplug</strong> - Configuration for your area</li>
+            <li><strong>Program the radio</strong> - Use CPS (Customer Programming Software)</li>
+            <li><strong>Find local repeaters</strong> - Or set up a hotspot</li>
+            <li><strong>Start on TG 9990</strong> - Parrot/echo to test your setup</li>
+            <li><strong>Try TG 91 or local TGs</strong> - Make contacts!</li>
+        </ol>
+
+        <h3>D-STAR Quick Start</h3>
+        <ol>
+            <li><strong>Get a D-STAR radio</strong> - Icom ID-52, ID-51, IC-705, etc.</li>
+            <li><strong>Program MY callsign</strong> - Your call in MY field</li>
+            <li><strong>Find local repeater</strong> - Program RPT1 and RPT2</li>
+            <li><strong>Set UR to CQCQCQ</strong> - For general calling</li>
+            <li><strong>Register at gateway</strong> - Some require registration</li>
+            <li><strong>Connect to reflector</strong> - Set UR to link command</li>
+        </ol>
+
+        <h3>Fusion Quick Start</h3>
+        <ol>
+            <li><strong>Get a Fusion radio</strong> - Yaesu FT-70D, FT-5D, FTM-300, etc.</li>
+            <li><strong>Program repeater frequency</strong> - Like analog FM</li>
+            <li><strong>Set mode to AUTO</strong> - AMS handles the rest</li>
+            <li><strong>Key up and talk!</strong> - That's it, really</li>
+            <li><strong>For Wires-X</strong> - Use DX button to search rooms</li>
+        </ol>
+
+        <div class="warning">
+            <strong>Listen First!</strong> Digital voice has the same courtesy rules as analog. Listen before transmitting, don't "kerchunk" repeaters, and be patient - there's often a delay on linked systems.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="repeater-etiquette.html">Repeater Etiquette</a></li>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="../emcomm/simplex-operations.html">Simplex Operations</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL, Brandmeister, Pi-Star documentation</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

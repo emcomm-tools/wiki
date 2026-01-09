@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Operations Introduction - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .sat-card {
+            background: #f7fafc;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .sat-card h3 {
+            margin-top: 0;
+            color: #5a67d8;
+            border-bottom: 2px solid #c3dafe;
+            padding-bottom: 8px;
+        }
+        .sat-card .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .sat-card .spec {
+            background: #ebf4ff;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .sat-card .spec strong {
+            display: block;
+            color: #434190;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .freq-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .freq-table .fm { background: #c6f6d5; }
+        .freq-table .linear { background: #bee3f8; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .config-table th, .config-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .config-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .orbit-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .orbit-box h4 {
+            margin-top: 0;
+            color: #276749;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .equip-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .equip-card h4 {
+            margin-top: 0;
+            color: #2c5282;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 5px;
+        }
+        .pass-diagram {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#reference">Reference</a> &gt; 
+        Satellite Operations Introduction
+    </nav>
+    
+    <article>
+        <h1>Satellite Operations Introduction</h1>
+        
+        <section class="summary">
+            <p>Getting started with amateur radio satellites. Learn about FM and linear transponder satellites, tracking, equipment needs, and making your first satellite QSO.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">What Are Amateur Satellites?</a></li>
+                <li><a href="#types">Types of Satellites</a></li>
+                <li><a href="#orbits">Orbits &amp; Passes</a></li>
+                <li><a href="#doppler">Doppler Shift</a></li>
+                <li><a href="#satellites">Active Satellites</a></li>
+                <li><a href="#equipment">Equipment Needed</a></li>
+                <li><a href="#tracking">Tracking Software</a></li>
+                <li><a href="#operating">Operating Procedures</a></li>
+                <li><a href="#first-qso">Your First Satellite QSO</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">What Are Amateur Satellites?</h2>
+        
+        <p>Amateur radio satellites (often called "OSCAR" - Orbiting Satellite Carrying Amateur Radio) are satellites built and operated by amateur radio operators for amateur communications. They typically carry:</p>
+        
+        <ul>
+            <li><strong>FM Repeaters</strong> - Simple cross-band repeaters in space</li>
+            <li><strong>Linear Transponders</strong> - Translate a segment of spectrum</li>
+            <li><strong>Digital Payloads</strong> - Digipeaters, store-and-forward</li>
+            <li><strong>Beacons</strong> - Telemetry and propagation experiments</li>
+        </ul>
+
+        <div class="diagram">
+    SATELLITE QSO BASICS
+    
+                        🛰️ Satellite
+                       /           \
+            Uplink    /             \   Downlink
+           (You TX)  /               \  (You RX)
+                    /                 \
+                   📻                  📻
+                You (TX 70cm)        You (RX 2m)
+                
+    You transmit UP on one band, receive DOWN on another
+        </div>
+
+        <h2 id="types">Types of Satellites</h2>
+        
+        <div class="sat-card">
+            <h3>📻 FM Satellites (Easy Mode)</h3>
+            <p>Cross-band FM repeaters in orbit. Easiest way to start!</p>
+            <div class="specs">
+                <div class="spec"><strong>Mode</strong>FM Voice</div>
+                <div class="spec"><strong>Equipment</strong>Dual-band HT</div>
+                <div class="spec"><strong>Difficulty</strong>Beginner</div>
+            </div>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Work like a repeater - one signal at a time</li>
+                <li>Can work with a handheld radio and small antenna</li>
+                <li>Very popular, can be crowded during passes</li>
+                <li>Short QSOs (callsign, grid, signal report)</li>
+            </ul>
+        </div>
+
+        <div class="sat-card">
+            <h3>📊 Linear Transponder Satellites</h3>
+            <p>Translate an entire band segment - multiple QSOs simultaneously.</p>
+            <div class="specs">
+                <div class="spec"><strong>Mode</strong>SSB/CW</div>
+                <div class="spec"><strong>Equipment</strong>All-mode radio + yagi</div>
+                <div class="spec"><strong>Difficulty</strong>Intermediate</div>
+            </div>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Multiple simultaneous QSOs possible</li>
+                <li>Use SSB or CW (low power!)</li>
+                <li>More room for everyone</li>
+                <li>Inverting transponders flip sideband</li>
+                <li>Requires more precise tracking</li>
+            </ul>
+        </div>
+
+        <h2 id="orbits">Orbits &amp; Passes</h2>
+        
+        <div class="orbit-box">
+            <h4>🌍 LEO (Low Earth Orbit)</h4>
+            <p>Most amateur satellites orbit at 400-800 km altitude:</p>
+            <ul>
+                <li><strong>Period:</strong> ~90-100 minutes per orbit</li>
+                <li><strong>Pass duration:</strong> 5-15 minutes visible</li>
+                <li><strong>Passes per day:</strong> 4-6 usable passes typical</li>
+                <li><strong>Footprint:</strong> ~4000-5000 km diameter</li>
+            </ul>
+        </div>
+
+        <div class="pass-diagram">
+        SATELLITE PASS GEOMETRY
+        
+              MAX ELEVATION
+                  ★ ← Satellite at highest point
+                 /|\
+                / | \
+               /  |  \
+              /   |   \
+        AOS →★    |    ★← LOS
+             ↑    |    ↑
+           Rise  You   Set
+           
+    AOS = Acquisition of Signal (satellite rises)
+    LOS = Loss of Signal (satellite sets)
+    Higher max elevation = longer pass, stronger signals
+        </div>
+
+        <h3>Pass Quality</h3>
+        <table class="config-table">
+            <thead>
+                <tr><th>Max Elevation</th><th>Quality</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>&gt; 60°</td><td>Excellent</td><td>Overhead pass, longest duration</td></tr>
+                <tr><td>30° - 60°</td><td>Good</td><td>Solid pass, good for QSOs</td></tr>
+                <tr><td>15° - 30°</td><td>Fair</td><td>Shorter pass, more path loss</td></tr>
+                <tr><td>&lt; 15°</td><td>Poor</td><td>Low pass, signals weak, skip if possible</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="doppler">Doppler Shift</h2>
+        
+        <p>Satellites move at ~27,000 km/h! This causes <strong>Doppler shift</strong> - the frequency changes as the satellite approaches and recedes.</p>
+
+        <div class="diagram">
+    DOPPLER SHIFT DURING PASS
+    
+    AOS (Rising)         Overhead         LOS (Setting)
+    ←── Approaching ───►│◄─── Receding ────►
+    
+    Frequency appears:   HIGHER → NOMINAL → LOWER
+    
+    On 2m (145 MHz): ~±3 kHz shift
+    On 70cm (435 MHz): ~±10 kHz shift
+    
+    Compensate by tuning your receiver!
+        </div>
+
+        <div class="tip">
+            <strong>Doppler Rule of Thumb:</strong> For FM sats, tune your DOWNLINK receiver during the pass - start high, end low. Most tracking software shows the corrected frequency.
+        </div>
+
+        <h2 id="satellites">Active Satellites</h2>
+        
+        <h3>FM Satellites (Beginner-Friendly)</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Satellite</th><th>Uplink</th><th>Downlink</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr class="fm">
+                    <td><strong>SO-50</strong></td>
+                    <td>145.850 (67.0 Hz)</td>
+                    <td>436.795</td>
+                    <td>Oldest active, needs PL tone to activate</td>
+                </tr>
+                <tr class="fm">
+                    <td><strong>ISS (ARISS)</strong></td>
+                    <td>145.990</td>
+                    <td>145.800</td>
+                    <td>Cross-band repeater when active</td>
+                </tr>
+                <tr class="fm">
+                    <td><strong>PO-101 (Diwata-2)</strong></td>
+                    <td>145.900</td>
+                    <td>437.500</td>
+                    <td>APRS digipeater</td>
+                </tr>
+                <tr class="fm">
+                    <td><strong>IO-117 (GreenCube)</strong></td>
+                    <td>435.310</td>
+                    <td>435.310</td>
+                    <td>Digipeater</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Linear Transponder Satellites</h3>
+        <table class="freq-table">
+            <thead>
+                <tr><th>Satellite</th><th>Uplink</th><th>Downlink</th><th>Mode</th></tr>
+            </thead>
+            <tbody>
+                <tr class="linear">
+                    <td><strong>RS-44</strong></td>
+                    <td>145.935-145.995</td>
+                    <td>435.610-435.670</td>
+                    <td>SSB/CW (inverting)</td>
+                </tr>
+                <tr class="linear">
+                    <td><strong>AO-7</strong></td>
+                    <td>145.850-145.950</td>
+                    <td>29.400-29.500</td>
+                    <td>Mode A (when illuminated)</td>
+                </tr>
+                <tr class="linear">
+                    <td><strong>FO-29</strong></td>
+                    <td>145.900-146.000</td>
+                    <td>435.800-435.900</td>
+                    <td>SSB/CW (inverting)</td>
+                </tr>
+                <tr class="linear">
+                    <td><strong>QO-100 (Es'hail-2)</strong></td>
+                    <td>2400.050-2400.300</td>
+                    <td>10489.550-10489.800</td>
+                    <td>GEO! 24/7 coverage</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Satellite Status Changes:</strong> Satellites can fail, go into safe mode, or be activated. Check AMSAT status page for current info: <a href="https://www.amsat.org/status/">amsat.org/status</a>
+        </div>
+
+        <h2 id="equipment">Equipment Needed</h2>
+        
+        <div class="equipment-grid">
+            <div class="equip-card">
+                <h4>🔰 Beginner (FM Sats)</h4>
+                <ul>
+                    <li>Dual-band HT (5W+)</li>
+                    <li>Dual-band antenna (Arrow, Elk)</li>
+                    <li>Full duplex helpful but not required</li>
+                </ul>
+                <p><strong>Cost:</strong> $150-400</p>
+            </div>
+            <div class="equip-card">
+                <h4>📡 Intermediate</h4>
+                <ul>
+                    <li>All-mode transceiver</li>
+                    <li>Yagi antennas (2m + 70cm)</li>
+                    <li>Antenna rotator (AZ/EL)</li>
+                    <li>Full duplex capability</li>
+                </ul>
+                <p><strong>Cost:</strong> $500-2000</p>
+            </div>
+            <div class="equip-card">
+                <h4>🚀 Advanced</h4>
+                <ul>
+                    <li>Satellite-specific transceiver (IC-9700)</li>
+                    <li>High-gain crossed yagis</li>
+                    <li>Computer-controlled rotator</li>
+                    <li>SDR for Doppler</li>
+                </ul>
+                <p><strong>Cost:</strong> $2000+</p>
+            </div>
+        </div>
+
+        <h3>Essential: The Arrow Antenna</h3>
+        <p>The <strong>Arrow II</strong> (or similar) is the go-to antenna for portable FM satellite work:</p>
+        <ul>
+            <li>Handheld dual-band yagi (3el 2m / 7el 70cm)</li>
+            <li>Built-in diplexer for single feedline</li>
+            <li>Lightweight, breaks down for transport</li>
+            <li>Point at satellite and track manually</li>
+        </ul>
+
+        <h2 id="tracking">Tracking Software</h2>
+        
+        <p>You need to know when and where satellites will pass:</p>
+
+        <table class="config-table">
+            <thead>
+                <tr><th>Platform</th><th>Software</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Windows</td>
+                    <td>SatPC32, Orbitron, GPredict</td>
+                    <td>SatPC32 popular for radio control</td>
+                </tr>
+                <tr>
+                    <td>Linux</td>
+                    <td>GPredict</td>
+                    <td>Excellent free tracker</td>
+                </tr>
+                <tr>
+                    <td>Mac</td>
+                    <td>GPredict, MacDoppler</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Android</td>
+                    <td>ISS Detector, Heavens-Above, AmsatDroid</td>
+                    <td>Great for field portable</td>
+                </tr>
+                <tr>
+                    <td>iOS</td>
+                    <td>Satellite Tracker, ISS Spotter</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Web</td>
+                    <td>N2YO.com, Heavens-Above.com</td>
+                    <td>No install needed</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>TLE (Two-Line Elements)</h3>
+        <p>Tracking software needs orbital data called <strong>TLE</strong> or <strong>Keplerian elements</strong>:</p>
+        <ul>
+            <li>Update TLEs regularly (weekly minimum)</li>
+            <li>AMSAT provides amateur satellite TLEs</li>
+            <li>CelesTrak is another good source</li>
+            <li>Outdated TLEs = incorrect pass predictions</li>
+        </ul>
+
+        <h2 id="operating">Operating Procedures</h2>
+        
+        <h3>FM Satellite Etiquette</h3>
+        <ul>
+            <li><strong>Keep it SHORT</strong> - Callsign, grid, signal report only</li>
+            <li><strong>Listen first</strong> - Don't call over ongoing QSOs</li>
+            <li><strong>Low power</strong> - 5W is usually plenty</li>
+            <li><strong>Don't kerchunk</strong> - Always ID when you transmit</li>
+            <li><strong>Share the pass</strong> - One QSO, then let others in</li>
+            <li><strong>Full duplex helps</strong> - Hear yourself, know you're hitting it</li>
+        </ul>
+
+        <h3>Linear Transponder Etiquette</h3>
+        <ul>
+            <li><strong>Very low power</strong> - Start with 5-10W, often less needed</li>
+            <li><strong>Find your own downlink first</strong> - Before calling CQ</li>
+            <li><strong>Don't be an "alligator"</strong> - All mouth, no ears</li>
+            <li><strong>Use LSB on inverting transponders</strong> - Comes out USB</li>
+            <li><strong>Spread out</strong> - Don't all pile on same frequency</li>
+        </ul>
+
+        <div class="warning">
+            <strong>DON'T OVER-POWER!</strong> Satellites have very sensitive receivers. Running too much power causes AGC compression that affects everyone. Start with minimum power - you can always increase.
+        </div>
+
+        <h2 id="first-qso">Your First Satellite QSO</h2>
+        
+        <h3>Step-by-Step (FM Satellite)</h3>
+        <ol>
+            <li><strong>Check satellite status</strong> - Verify it's operational</li>
+            <li><strong>Find a good pass</strong> - 30°+ max elevation</li>
+            <li><strong>Program frequencies</strong> - Uplink and downlink</li>
+            <li><strong>Set CTCSS if needed</strong> - SO-50 needs 67.0 Hz</li>
+            <li><strong>Go outside</strong> - Clear view of sky</li>
+            <li><strong>Aim antenna at AOS point</strong> - Where satellite rises</li>
+            <li><strong>Listen on downlink</strong> - Tune for Doppler</li>
+            <li><strong>When you hear activity:</strong>
+                <ul>
+                    <li>Wait for a gap</li>
+                    <li>"VA2OPS FN35"</li>
+                    <li>Listen for response</li>
+                </ul>
+            </li>
+            <li><strong>Complete QSO:</strong> Exchange callsigns, grids, reports</li>
+            <li><strong>Log it!</strong> - Note satellite, time, grid worked</li>
+        </ol>
+
+        <div class="tip">
+            <strong>First Timer Tip:</strong> Try listening-only on your first few passes. Learn how QSOs sound, practice tracking, get comfortable before transmitting.
+        </div>
+
+        <h3>Sample FM Satellite QSO</h3>
+        <div class="diagram">
+    VA2OPS: "VA2OPS FN35"
+    W1ABC:  "VA2OPS W1ABC FN42"
+    VA2OPS: "W1ABC 59 FN35"
+    W1ABC:  "59 FN42 73"
+    VA2OPS: "73"
+    
+    Total time: ~15 seconds. That's normal!
+        </div>
+
+        <h2>Resources</h2>
+        <ul>
+            <li><strong>AMSAT</strong> - amsat.org (satellite status, TLEs, news)</li>
+            <li><strong>AMSAT-NA</strong> - amsat.org (North American chapter)</li>
+            <li><strong>N2YO</strong> - n2yo.com (real-time tracking)</li>
+            <li><strong>Heavens-Above</strong> - heavens-above.com (pass predictions)</li>
+            <li><strong>ARISS</strong> - ariss.org (ISS amateur radio)</li>
+        </ul>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="band-plan.html">Band Plan Quick Reference</a></li>
+            <li><a href="antenna-theory.html">Antenna Theory Basics</a></li>
+            <li><a href="logging-qsl.html">Log Keeping &amp; QSL Cards</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: AMSAT, ARRL Satellite Handbook</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

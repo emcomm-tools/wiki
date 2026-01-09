@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fldigi Digital Modes Guide - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .mode-card {
+            background: #f7fafc;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .mode-card h3 {
+            margin-top: 0;
+            color: #2b6cb0;
+            border-bottom: 2px solid #bee3f8;
+            padding-bottom: 8px;
+        }
+        .mode-card .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .mode-card .spec {
+            background: #ebf8ff;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .mode-card .spec strong {
+            display: block;
+            color: #2c5282;
+        }
+        .freq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .freq-table th, .freq-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .freq-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .freq-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .freq-table .primary {
+            background: #c6f6d5;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .comparison-table .good { background: #c6f6d5; }
+        .comparison-table .fair { background: #fefcbf; }
+        .comparison-table .poor { background: #fed7d7; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .waterfall-example {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .settings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .settings-table th, .settings-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .settings-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .quick-pick {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .pick-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .pick-card h4 {
+            margin: 0 0 10px 0;
+            color: #2c5282;
+        }
+        .pick-card .use {
+            font-size: 0.9em;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#digital">Digital Modes</a> &gt; 
+        Fldigi Digital Modes Guide
+    </nav>
+    
+    <article>
+        <h1>Fldigi Digital Modes Guide</h1>
+        
+        <section class="summary">
+            <p>Comprehensive guide to digital modes supported by Fldigi. From the popular PSK31 to robust MFSK and Olivia modes - understand when and how to use each mode for optimal communications.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Digital Modes Overview</a></li>
+                <li><a href="#psk">PSK Modes (PSK31, PSK63, PSK125)</a></li>
+                <li><a href="#rtty">RTTY</a></li>
+                <li><a href="#mfsk">MFSK Modes</a></li>
+                <li><a href="#olivia">Olivia</a></li>
+                <li><a href="#contestia">Contestia</a></li>
+                <li><a href="#thor">Thor</a></li>
+                <li><a href="#domino">DominoEX</a></li>
+                <li><a href="#mt63">MT63</a></li>
+                <li><a href="#other">Other Modes</a></li>
+                <li><a href="#frequencies">Operating Frequencies</a></li>
+                <li><a href="#comparison">Mode Comparison</a></li>
+                <li><a href="#choosing">Choosing the Right Mode</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="overview">Digital Modes Overview</h2>
+        
+        <p>Fldigi (Fast Light Digital) supports dozens of digital modes. Each mode has different characteristics for speed, bandwidth, and weak-signal performance. Understanding these helps you choose the right mode for conditions.</p>
+
+        <h3>Key Characteristics</h3>
+        <table class="settings-table">
+            <thead>
+                <tr><th>Characteristic</th><th>What It Means</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bandwidth</strong></td>
+                    <td>How wide the signal is (Hz). Narrower = less interference, wider = faster/more robust</td>
+                </tr>
+                <tr>
+                    <td><strong>Speed</strong></td>
+                    <td>Characters per second or WPM. Faster modes need stronger signals</td>
+                </tr>
+                <tr>
+                    <td><strong>Error Correction (FEC)</strong></td>
+                    <td>Forward Error Correction - mode can fix errors without retransmission</td>
+                </tr>
+                <tr>
+                    <td><strong>Interleaving</strong></td>
+                    <td>Spreads data over time - helps with fading but adds latency</td>
+                </tr>
+                <tr>
+                    <td><strong>Sensitivity</strong></td>
+                    <td>How weak a signal can be decoded (dB below noise)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="psk">PSK Modes</h2>
+        
+        <div class="mode-card">
+            <h3>PSK31 - The Classic</h3>
+            <p>Phase Shift Keying at 31.25 baud. The most popular HF digital mode for casual keyboard-to-keyboard chat.</p>
+            <div class="specs">
+                <div class="spec"><strong>Speed</strong>~50 WPM</div>
+                <div class="spec"><strong>Bandwidth</strong>31 Hz</div>
+                <div class="spec"><strong>FEC</strong>None (BPSK) / Yes (QPSK)</div>
+                <div class="spec"><strong>Sensitivity</strong>-10 dB SNR</div>
+            </div>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Very narrow bandwidth - many signals fit in small spectrum</li>
+                <li>Good weak signal performance</li>
+                <li>Typing speed matches transmission - real-time chat</li>
+                <li>Susceptible to QSB (fading) and QRM</li>
+                <li>Varicode encoding - common letters sent faster</li>
+            </ul>
+            <h4>Variants</h4>
+            <ul>
+                <li><strong>BPSK31</strong> - Standard, no error correction</li>
+                <li><strong>QPSK31</strong> - With FEC, better for marginal conditions</li>
+            </ul>
+        </div>
+
+        <div class="mode-card">
+            <h3>PSK63 / PSK125 / PSK250</h3>
+            <p>Faster PSK variants for better conditions.</p>
+            <div class="specs">
+                <div class="spec"><strong>PSK63</strong>~100 WPM, 63 Hz</div>
+                <div class="spec"><strong>PSK125</strong>~200 WPM, 125 Hz</div>
+                <div class="spec"><strong>PSK250</strong>~400 WPM, 250 Hz</div>
+            </div>
+            <ul>
+                <li>Use when signals are strong</li>
+                <li>Good for nets with lots of traffic</li>
+                <li>Less popular - fewer stations to contact</li>
+            </ul>
+        </div>
+
+        <div class="waterfall-example">
+PSK31 WATERFALL APPEARANCE
+
+Frequency ──────────────────────────────────►
+         │  ▓▓    ▓▓▓   ▓▓      ▓▓▓  ▓▓
+         │  ▓▓    ▓▓▓   ▓▓      ▓▓▓  ▓▓
+Time     │  ▓▓    ▓▓▓   ▓▓      ▓▓▓  ▓▓
+  │      │  ▓▓    ▓▓▓   ▓▓      ▓▓▓  ▓▓
+  ▼      │  ▓▓    ▓▓▓   ▓▓      ▓▓▓  ▓▓
+         
+Very narrow vertical lines - each is one PSK31 signal
+Click on signal to decode
+        </div>
+
+        <div class="tip">
+            <strong>PSK31 Tip:</strong> Keep your ALC meter showing NO deflection. PSK is very sensitive to over-driving - even a little ALC action creates splatter that interferes with nearby signals.
+        </div>
+
+        <h2 id="rtty">RTTY (Radioteletype)</h2>
+        
+        <div class="mode-card">
+            <h3>RTTY - The Original</h3>
+            <p>Frequency Shift Keying, dating back to the 1930s. Still popular for contests!</p>
+            <div class="specs">
+                <div class="spec"><strong>Speed</strong>45.45 baud (~60 WPM)</div>
+                <div class="spec"><strong>Shift</strong>170 Hz (standard)</div>
+                <div class="spec"><strong>Bandwidth</strong>~250 Hz</div>
+                <div class="spec"><strong>FEC</strong>None</div>
+            </div>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Two tones: Mark and Space (FSK)</li>
+                <li>5-bit Baudot code - UPPERCASE only, limited characters</li>
+                <li>Very popular for contesting (RTTY Roundup, etc.)</li>
+                <li>Tolerant of slight mistuning</li>
+                <li>No error correction - characters can be garbled</li>
+            </ul>
+            <h4>Settings</h4>
+            <ul>
+                <li><strong>Shift:</strong> 170 Hz (amateur standard)</li>
+                <li><strong>Baud:</strong> 45.45 (standard) or 75</li>
+                <li><strong>Polarity:</strong> Normal or Reverse (try both if garbled)</li>
+            </ul>
+        </div>
+
+        <div class="waterfall-example">
+RTTY WATERFALL APPEARANCE
+
+         │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         │      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         │          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         │      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+         
+Two "rails" shifting back and forth
+170 Hz apart (mark and space)
+        </div>
+
+        <h2 id="mfsk">MFSK Modes</h2>
+        
+        <div class="mode-card">
+            <h3>MFSK (Multi-Frequency Shift Keying)</h3>
+            <p>Uses multiple tones for better performance than simple FSK.</p>
+            
+            <h4>MFSK16</h4>
+            <div class="specs">
+                <div class="spec"><strong>Speed</strong>~42 WPM</div>
+                <div class="spec"><strong>Bandwidth</strong>316 Hz</div>
+                <div class="spec"><strong>FEC</strong>Yes</div>
+                <div class="spec"><strong>Sensitivity</strong>-13 dB SNR</div>
+            </div>
+            <ul>
+                <li>16 tones, good weak signal mode</li>
+                <li>Built-in FEC for error correction</li>
+                <li>Good for HF weak signal work</li>
+            </ul>
+
+            <h4>MFSK32 / MFSK64 / MFSK128</h4>
+            <ul>
+                <li><strong>MFSK32:</strong> ~63 WPM, 500 Hz - faster, needs better signal</li>
+                <li><strong>MFSK64:</strong> ~120 WPM, 1000 Hz - much faster</li>
+                <li><strong>MFSK128:</strong> ~240 WPM, 2000 Hz - very fast, good conditions only</li>
+            </ul>
+        </div>
+
+        <h2 id="olivia">Olivia</h2>
+        
+        <div class="mode-card">
+            <h3>Olivia - The Weak Signal Champion</h3>
+            <p>MFSK mode optimized for extremely weak and difficult conditions. Excellent for EmComm!</p>
+            <div class="specs">
+                <div class="spec"><strong>Popular</strong>8/250, 16/500, 32/1000</div>
+                <div class="spec"><strong>FEC</strong>Yes (strong)</div>
+                <div class="spec"><strong>Interleaving</strong>Yes</div>
+                <div class="spec"><strong>Sensitivity</strong>-14 to -18 dB SNR</div>
+            </div>
+            <h4>Naming Convention: Tones/Bandwidth</h4>
+            <ul>
+                <li><strong>Olivia 8/250:</strong> 8 tones, 250 Hz bandwidth - ~12 WPM</li>
+                <li><strong>Olivia 8/500:</strong> 8 tones, 500 Hz - ~24 WPM</li>
+                <li><strong>Olivia 16/500:</strong> 16 tones, 500 Hz - ~31 WPM</li>
+                <li><strong>Olivia 16/1000:</strong> 16 tones, 1000 Hz - ~47 WPM</li>
+                <li><strong>Olivia 32/1000:</strong> 32 tones, 1000 Hz - ~63 WPM</li>
+            </ul>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Outstanding weak signal performance</li>
+                <li>Very tolerant of QRM and QSB</li>
+                <li>Long interleaving adds ~3 second latency</li>
+                <li>Both stations must use same Olivia variant!</li>
+                <li>Popular for EmComm and DX</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>EmComm Recommendation:</strong> Olivia 8/500 or 16/500 are excellent choices for emergency communications - robust enough for poor conditions, fast enough to be practical.
+        </div>
+
+        <h2 id="contestia">Contestia</h2>
+        
+        <div class="mode-card">
+            <h3>Contestia - Fast Olivia</h3>
+            <p>Similar to Olivia but with shorter interleaving - less latency, slightly less robust.</p>
+            <div class="specs">
+                <div class="spec"><strong>Popular</strong>8/250, 16/500, 32/1000</div>
+                <div class="spec"><strong>FEC</strong>Yes</div>
+                <div class="spec"><strong>Latency</strong>~1 second (vs 3 for Olivia)</div>
+            </div>
+            <ul>
+                <li>Good compromise: faster than Olivia, more robust than PSK</li>
+                <li>Same tone/bandwidth options as Olivia</li>
+                <li>Better for conversational use (less delay)</li>
+            </ul>
+        </div>
+
+        <h2 id="thor">Thor</h2>
+        
+        <div class="mode-card">
+            <h3>Thor - IFK+ Mode</h3>
+            <p>Incremental Frequency Keying Plus - self-synchronizing, doesn't need preamble.</p>
+            <div class="specs">
+                <div class="spec"><strong>Variants</strong>Thor 4, 8, 11, 16, 22, 25, 50, 100</div>
+                <div class="spec"><strong>FEC</strong>Yes</div>
+                <div class="spec"><strong>Sync</strong>Self-synchronizing</div>
+            </div>
+            <h4>Popular Variants</h4>
+            <ul>
+                <li><strong>Thor 11:</strong> ~11 WPM, excellent weak signal</li>
+                <li><strong>Thor 16:</strong> ~22 WPM, good balance</li>
+                <li><strong>Thor 22:</strong> ~31 WPM, faster</li>
+                <li><strong>Thor 50:</strong> ~68 WPM, faster yet</li>
+            </ul>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>No preamble needed - decodes immediately</li>
+                <li>Good for short transmissions</li>
+                <li>Tolerant of Doppler (good for meteor scatter)</li>
+                <li>FEC with soft-decision decoding</li>
+            </ul>
+        </div>
+
+        <h2 id="domino">DominoEX</h2>
+        
+        <div class="mode-card">
+            <h3>DominoEX - IFK Mode</h3>
+            <p>Incremental Frequency Keying - similar to Thor but different implementation.</p>
+            <div class="specs">
+                <div class="spec"><strong>Variants</strong>DomEX 4, 5, 8, 11, 16, 22, 44, 88</div>
+                <div class="spec"><strong>FEC</strong>Optional (DomEX FEC variants)</div>
+            </div>
+            <ul>
+                <li><strong>DominoEX 11:</strong> Good weak signal, ~20 WPM</li>
+                <li><strong>DominoEX 22:</strong> Faster, ~40 WPM</li>
+                <li>Fast synchronization</li>
+                <li>Nibble-based encoding</li>
+            </ul>
+        </div>
+
+        <h2 id="mt63">MT63</h2>
+        
+        <div class="mode-card">
+            <h3>MT63 - Wideband Robust</h3>
+            <p>64-tone mode designed for HF keyboard chat in poor conditions.</p>
+            <div class="specs">
+                <div class="spec"><strong>Bandwidth</strong>500, 1000, or 2000 Hz</div>
+                <div class="spec"><strong>Speed</strong>~100 WPM (1000 Hz)</div>
+                <div class="spec"><strong>FEC</strong>Yes (strong)</div>
+                <div class="spec"><strong>Interleaving</strong>Long or Short</div>
+            </div>
+            <h4>Characteristics</h4>
+            <ul>
+                <li>Very robust against interference</li>
+                <li>Wide bandwidth allows data to survive selective fading</li>
+                <li>Long interleaving version more robust but ~10 sec latency</li>
+                <li>Short interleaving ~2 sec latency, less robust</li>
+                <li>Not compatible with contest situations (too wide)</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>MT63 Width:</strong> At 1000 Hz or 2000 Hz, MT63 is VERY wide. Use only when clear spectrum is available. Not appropriate for crowded band conditions.
+        </div>
+
+        <h2 id="other">Other Modes</h2>
+        
+        <h3>NBEMS Modes (Narrow Band Emergency Messaging)</h3>
+        <table class="settings-table">
+            <thead>
+                <tr><th>Mode</th><th>Use</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>8PSK</strong></td>
+                    <td>File transfer</td>
+                    <td>8-phase PSK, used by flamp for files</td>
+                </tr>
+                <tr>
+                    <td><strong>PSKR</strong></td>
+                    <td>Robust PSK</td>
+                    <td>PSK with FEC</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Other Useful Modes</h3>
+        <table class="settings-table">
+            <thead>
+                <tr><th>Mode</th><th>Characteristics</th><th>Best For</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>HELL (Hellschreiber)</strong></td>
+                    <td>Facsimile-like, visual decoding</td>
+                    <td>Weak signal, nostalgia</td>
+                </tr>
+                <tr>
+                    <td><strong>THROB</strong></td>
+                    <td>9 tones, 72 Hz, slow</td>
+                    <td>Very weak signals</td>
+                </tr>
+                <tr>
+                    <td><strong>JT65</strong></td>
+                    <td>Structured, very weak signal</td>
+                    <td>EME, extreme DX (use WSJT-X)</td>
+                </tr>
+                <tr>
+                    <td><strong>CW</strong></td>
+                    <td>Fldigi can decode CW</td>
+                    <td>Learning/practice</td>
+                </tr>
+                <tr>
+                    <td><strong>WEFAX</strong></td>
+                    <td>Weather facsimile</td>
+                    <td>Receiving weather maps</td>
+                </tr>
+                <tr>
+                    <td><strong>NAVTEX</strong></td>
+                    <td>Maritime safety</td>
+                    <td>Receiving maritime info</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="frequencies">Operating Frequencies</h2>
+        
+        <table class="freq-table">
+            <thead>
+                <tr><th>Band</th><th>PSK31</th><th>RTTY</th><th>MFSK/Olivia</th><th>Data (General)</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>80m</td>
+                    <td class="primary">3.580</td>
+                    <td>3.580-3.600</td>
+                    <td>3.583</td>
+                    <td>3.580-3.620</td>
+                </tr>
+                <tr>
+                    <td>40m</td>
+                    <td class="primary">7.070</td>
+                    <td>7.080-7.100</td>
+                    <td>7.073</td>
+                    <td>7.070-7.125</td>
+                </tr>
+                <tr>
+                    <td>30m</td>
+                    <td>10.142</td>
+                    <td>10.140-10.150</td>
+                    <td>10.143</td>
+                    <td>10.140-10.150</td>
+                </tr>
+                <tr>
+                    <td>20m</td>
+                    <td class="primary">14.070</td>
+                    <td>14.080-14.100</td>
+                    <td>14.073</td>
+                    <td>14.070-14.112</td>
+                </tr>
+                <tr>
+                    <td>17m</td>
+                    <td>18.100</td>
+                    <td>18.100-18.110</td>
+                    <td>18.103</td>
+                    <td>18.100-18.110</td>
+                </tr>
+                <tr>
+                    <td>15m</td>
+                    <td class="primary">21.070</td>
+                    <td>21.080-21.100</td>
+                    <td>21.073</td>
+                    <td>21.070-21.110</td>
+                </tr>
+                <tr>
+                    <td>12m</td>
+                    <td>24.920</td>
+                    <td>24.920-24.930</td>
+                    <td>24.923</td>
+                    <td>24.920-24.930</td>
+                </tr>
+                <tr>
+                    <td>10m</td>
+                    <td>28.120</td>
+                    <td>28.080-28.100</td>
+                    <td>28.123</td>
+                    <td>28.070-28.150</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="comparison">Mode Comparison</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Mode</th>
+                    <th>Speed</th>
+                    <th>Bandwidth</th>
+                    <th>Weak Sig</th>
+                    <th>QRM Resist</th>
+                    <th>FEC</th>
+                    <th>Popularity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PSK31</strong></td>
+                    <td>~50 WPM</td>
+                    <td>31 Hz</td>
+                    <td class="fair">Fair</td>
+                    <td class="poor">Poor</td>
+                    <td>No*</td>
+                    <td class="good">High</td>
+                </tr>
+                <tr>
+                    <td><strong>RTTY</strong></td>
+                    <td>~60 WPM</td>
+                    <td>250 Hz</td>
+                    <td class="fair">Fair</td>
+                    <td class="fair">Fair</td>
+                    <td>No</td>
+                    <td class="good">High</td>
+                </tr>
+                <tr>
+                    <td><strong>MFSK16</strong></td>
+                    <td>~42 WPM</td>
+                    <td>316 Hz</td>
+                    <td class="good">Good</td>
+                    <td class="good">Good</td>
+                    <td>Yes</td>
+                    <td class="fair">Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>Olivia 16/500</strong></td>
+                    <td>~31 WPM</td>
+                    <td>500 Hz</td>
+                    <td class="good">Excellent</td>
+                    <td class="good">Excellent</td>
+                    <td>Yes</td>
+                    <td class="fair">Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>Contestia 16/500</strong></td>
+                    <td>~40 WPM</td>
+                    <td>500 Hz</td>
+                    <td class="good">Very Good</td>
+                    <td class="good">Very Good</td>
+                    <td>Yes</td>
+                    <td class="fair">Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>Thor 16</strong></td>
+                    <td>~22 WPM</td>
+                    <td>400 Hz</td>
+                    <td class="good">Good</td>
+                    <td class="good">Good</td>
+                    <td>Yes</td>
+                    <td class="poor">Low</td>
+                </tr>
+                <tr>
+                    <td><strong>MT63/1000</strong></td>
+                    <td>~100 WPM</td>
+                    <td>1000 Hz</td>
+                    <td class="good">Excellent</td>
+                    <td class="good">Excellent</td>
+                    <td>Yes</td>
+                    <td class="poor">Low</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>*QPSK31 has FEC</em></p>
+
+        <h2 id="choosing">Choosing the Right Mode</h2>
+        
+        <div class="quick-pick">
+            <div class="pick-card">
+                <h4>🗣️ Casual Chat</h4>
+                <p><strong>PSK31</strong></p>
+                <p class="use">Most popular, everyone uses it</p>
+            </div>
+            <div class="pick-card">
+                <h4>🏆 Contesting</h4>
+                <p><strong>RTTY</strong></p>
+                <p class="use">Fast, established contests</p>
+            </div>
+            <div class="pick-card">
+                <h4>📉 Weak Signal</h4>
+                <p><strong>Olivia 8/500</strong></p>
+                <p class="use">Excellent weak signal performance</p>
+            </div>
+            <div class="pick-card">
+                <h4>🚨 EmComm</h4>
+                <p><strong>Olivia 16/500</strong></p>
+                <p class="use">Robust, good speed</p>
+            </div>
+            <div class="pick-card">
+                <h4>⚡ Fast & Robust</h4>
+                <p><strong>MT63/1000</strong></p>
+                <p class="use">When bandwidth available</p>
+            </div>
+            <div class="pick-card">
+                <h4>🌍 General Purpose</h4>
+                <p><strong>MFSK16</strong></p>
+                <p class="use">Good balance of all factors</p>
+            </div>
+        </div>
+
+        <h3>Decision Guide</h3>
+        <table class="settings-table">
+            <thead>
+                <tr><th>Condition</th><th>Best Choice</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Band crowded, signals OK</td>
+                    <td>PSK31</td>
+                    <td>Narrow, popular</td>
+                </tr>
+                <tr>
+                    <td>Band crowded, signals weak</td>
+                    <td>Olivia 8/250</td>
+                    <td>Robust, still narrow</td>
+                </tr>
+                <tr>
+                    <td>Band clear, signals weak</td>
+                    <td>Olivia 16/500</td>
+                    <td>Wider = more robust</td>
+                </tr>
+                <tr>
+                    <td>Band clear, need speed</td>
+                    <td>MT63/1000 or MFSK64</td>
+                    <td>Fast, robust</td>
+                </tr>
+                <tr>
+                    <td>Heavy QRM/QRN</td>
+                    <td>Olivia or MT63</td>
+                    <td>FEC + interleaving</td>
+                </tr>
+                <tr>
+                    <td>Short messages</td>
+                    <td>Thor</td>
+                    <td>No preamble needed</td>
+                </tr>
+                <tr>
+                    <td>Maximum compatibility</td>
+                    <td>PSK31 or RTTY</td>
+                    <td>Everyone has them</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>NBEMS for EmComm:</strong> For formal EmComm messaging with forms, use <strong>flmsg</strong> with <strong>flamp</strong> for file transfer. These use robust modes like 8PSK and Olivia to reliably transfer ICS forms and other documents.
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="js8call-operations.html">JS8Call Operations</a></li>
+            <li><a href="winlink-setup.html">Winlink Setup Guide</a></li>
+            <li><a href="../radios/radio-digital-settings.html">Radio Digital Settings</a></li>
+            <li><a href="hf-propagation.html">HF Propagation</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: Fldigi documentation, ARRL digital modes references</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>

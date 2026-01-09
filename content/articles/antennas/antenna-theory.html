@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antenna Theory Basics - Ham Radio Encyclopedia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .concept-card {
+            background: #f7fafc;
+            border: 2px solid #ed8936;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .concept-card h3 {
+            margin-top: 0;
+            color: #c05621;
+            border-bottom: 2px solid #fbd38d;
+            padding-bottom: 8px;
+        }
+        .formula-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .formula-box .formula {
+            color: #68d391;
+            font-size: 1.2em;
+        }
+        .formula-box .note {
+            color: #a0aec0;
+            font-size: 0.9em;
+        }
+        .diagram {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.4;
+        }
+        .swr-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .swr-table th, .swr-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .swr-table th {
+            background: #2d3748;
+            color: white;
+        }
+        .swr-table .excellent { background: #48bb78; color: white; }
+        .swr-table .good { background: #68d391; }
+        .swr-table .fair { background: #faf089; }
+        .swr-table .poor { background: #fc8181; }
+        .swr-table .bad { background: #c53030; color: white; }
+        .tip {
+            background: #fefcbf;
+            border-left: 4px solid #ecc94b;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fed7d7;
+            border-left: 4px solid #c53030;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #4a5568;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .pattern-box {
+            display: inline-block;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            vertical-align: top;
+        }
+        .pattern-box h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+        .math-example {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .math-example h4 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> &gt; 
+        <a href="../index.html#antennas">Antennas</a> &gt; 
+        Antenna Theory Basics
+    </nav>
+    
+    <article>
+        <h1>Antenna Theory Basics</h1>
+        
+        <section class="summary">
+            <p>Understanding fundamental antenna concepts: wavelength, impedance, SWR, gain, and radiation patterns. The knowledge you need to select, build, and tune antennas effectively.</p>
+        </section>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#wavelength">Wavelength &amp; Frequency</a></li>
+                <li><a href="#impedance">Impedance</a></li>
+                <li><a href="#swr">SWR (Standing Wave Ratio)</a></li>
+                <li><a href="#resonance">Resonance</a></li>
+                <li><a href="#gain">Gain &amp; dB</a></li>
+                <li><a href="#patterns">Radiation Patterns</a></li>
+                <li><a href="#polarization">Polarization</a></li>
+                <li><a href="#feedlines">Feedlines &amp; Loss</a></li>
+                <li><a href="#matching">Matching &amp; Tuners</a></li>
+                <li><a href="#practical">Practical Considerations</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="wavelength">Wavelength &amp; Frequency</h2>
+        
+        <div class="concept-card">
+            <h3>📏 Wavelength (λ)</h3>
+            <p>The physical length of one complete radio wave cycle. Antenna dimensions are based on wavelength.</p>
+        </div>
+
+        <div class="formula-box">
+<span class="formula">λ (meters) = 300 / f (MHz)</span>
+
+<span class="note">Where:</span>
+  λ = wavelength in meters
+  f = frequency in MHz
+  300 = speed of light (approximately 300,000,000 m/s)
+        </div>
+
+        <div class="math-example">
+            <h4>Example Calculations</h4>
+            <ul>
+                <li><strong>40m band (7 MHz):</strong> 300 ÷ 7 = 42.86 meters</li>
+                <li><strong>20m band (14 MHz):</strong> 300 ÷ 14 = 21.43 meters</li>
+                <li><strong>2m band (146 MHz):</strong> 300 ÷ 146 = 2.05 meters</li>
+                <li><strong>70cm band (440 MHz):</strong> 300 ÷ 440 = 0.68 meters</li>
+            </ul>
+        </div>
+
+        <h3>Common Antenna Lengths</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Antenna Type</th><th>Length</th><th>Formula (feet)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Half-wave dipole</td><td>½λ</td><td>468 ÷ f(MHz)</td></tr>
+                <tr><td>Quarter-wave vertical</td><td>¼λ</td><td>234 ÷ f(MHz)</td></tr>
+                <tr><td>5/8 wave vertical</td><td>⅝λ</td><td>585 ÷ f(MHz)</td></tr>
+                <tr><td>Full wavelength loop</td><td>1λ</td><td>1005 ÷ f(MHz)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>Why 468 instead of 492?</strong> The "velocity factor" of wire in air is about 0.95. Radio waves travel slightly slower along a wire than in free space, so antennas are physically shorter than the calculated free-space wavelength.
+        </div>
+
+        <h2 id="impedance">Impedance</h2>
+        
+        <div class="concept-card">
+            <h3>⚡ Impedance (Z)</h3>
+            <p>The total opposition to current flow in an AC circuit. Measured in ohms (Ω). Combines resistance and reactance.</p>
+        </div>
+
+        <div class="formula-box">
+<span class="formula">Z = R + jX</span>
+
+<span class="note">Where:</span>
+  Z = Impedance (ohms)
+  R = Resistance (ohms) - real power dissipation
+  X = Reactance (ohms) - stored energy (inductive +, capacitive -)
+  j = imaginary unit
+        </div>
+
+        <h3>Key Impedance Values</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Item</th><th>Impedance</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Half-wave dipole (center-fed)</td><td>~73Ω</td><td>In free space</td></tr>
+                <tr><td>Quarter-wave vertical</td><td>~36Ω</td><td>Over perfect ground</td></tr>
+                <tr><td>Folded dipole</td><td>~300Ω</td><td>4× regular dipole</td></tr>
+                <tr><td>Coax cable (common)</td><td>50Ω or 75Ω</td><td>50Ω for transmitting</td></tr>
+                <tr><td>Ladder line</td><td>300Ω or 450Ω</td><td>Low loss, needs tuner</td></tr>
+                <tr><td>Most ham transceivers</td><td>50Ω</td><td>Designed for 50Ω load</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>Why 50Ω?</strong> It's a compromise between the impedance for minimum loss (~77Ω) and maximum power handling (~30Ω). Most amateur equipment standardized on 50Ω.
+        </div>
+
+        <h2 id="swr">SWR (Standing Wave Ratio)</h2>
+        
+        <div class="concept-card">
+            <h3>📊 Standing Wave Ratio</h3>
+            <p>Measures how well the antenna impedance matches the feedline/transmitter. Lower is better!</p>
+        </div>
+
+        <div class="diagram">
+    WHAT SWR TELLS YOU
+    
+    Power from TX ──────────────────────► Antenna
+                                              │
+    If mismatch, some power reflects back ◄───┘
+    
+    SWR 1:1 = Perfect match, no reflection
+    SWR 2:1 = 11% power reflected
+    SWR 3:1 = 25% power reflected
+    SWR ∞:1 = Complete mismatch (open/short)
+        </div>
+
+        <h3>SWR Interpretation</h3>
+        <table class="swr-table">
+            <thead>
+                <tr><th>SWR</th><th>Rating</th><th>Power Loss</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+                <tr class="excellent"><td>1.0:1</td><td>Perfect</td><td>0%</td><td>Ideal (rarely achieved)</td></tr>
+                <tr class="good"><td>1.5:1</td><td>Excellent</td><td>4%</td><td>No action needed</td></tr>
+                <tr class="good"><td>2.0:1</td><td>Good</td><td>11%</td><td>Acceptable</td></tr>
+                <tr class="fair"><td>3.0:1</td><td>Fair</td><td>25%</td><td>Consider tuning</td></tr>
+                <tr class="poor"><td>5.0:1</td><td>Poor</td><td>44%</td><td>Needs attention</td></tr>
+                <tr class="bad"><td>&gt;10:1</td><td>Bad</td><td>&gt;67%</td><td>Problem exists!</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>High SWR can damage transmitters!</strong> Most modern radios reduce power automatically (foldback) when SWR exceeds 2:1 or 3:1 to protect the finals. Fix the antenna, don't just add power.
+        </div>
+
+        <h2 id="resonance">Resonance</h2>
+        
+        <div class="concept-card">
+            <h3>🎯 Resonance</h3>
+            <p>When an antenna's inductive and capacitive reactances cancel out, leaving only resistance. The antenna is most efficient at its resonant frequency.</p>
+        </div>
+
+        <div class="diagram">
+    ANTENNA REACTANCE vs FREQUENCY
+    
+         +X (Inductive)
+           │     
+           │    ╱
+           │   ╱
+           │  ╱
+    ───────┼─●──────────────── Frequency
+           │  ╲
+           │   ╲   Resonant frequency
+           │    ╲  (X = 0)
+         -X (Capacitive)
+         
+    Below resonance: Antenna appears capacitive (too short)
+    At resonance: Pure resistance
+    Above resonance: Antenna appears inductive (too long)
+        </div>
+
+        <h3>Tuning for Resonance</h3>
+        <ul>
+            <li><strong>Antenna too long:</strong> Resonant frequency too LOW, trim the ends</li>
+            <li><strong>Antenna too short:</strong> Resonant frequency too HIGH, add length</li>
+            <li><strong>SWR dip:</strong> Lowest SWR occurs at resonance (if impedance matches)</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Always cut long!</strong> When building antennas, start a few percent longer than calculated. It's easy to trim wire shorter; adding length is harder!
+        </div>
+
+        <h2 id="gain">Gain &amp; dB</h2>
+        
+        <div class="concept-card">
+            <h3>📈 Antenna Gain</h3>
+            <p>How much an antenna concentrates energy in a particular direction compared to a reference antenna. Measured in decibels (dB).</p>
+        </div>
+
+        <h3>Gain References</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Unit</th><th>Reference</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>dBi</strong></td><td>Isotropic radiator</td><td>Theoretical point source</td></tr>
+                <tr><td><strong>dBd</strong></td><td>Half-wave dipole</td><td>Practical reference</td></tr>
+            </tbody>
+        </table>
+
+        <div class="formula-box">
+<span class="formula">dBi = dBd + 2.15</span>
+
+<span class="note">A dipole has 2.15 dBi gain over isotropic</span>
+<span class="note">Beware: Some manufacturers inflate specs using dBi!</span>
+        </div>
+
+        <h3>Typical Antenna Gains</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Antenna</th><th>Gain (dBd)</th><th>Gain (dBi)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Isotropic</td><td>-2.15</td><td>0</td></tr>
+                <tr><td>Dipole</td><td>0</td><td>2.15</td></tr>
+                <tr><td>Ground plane vertical</td><td>0</td><td>2.15</td></tr>
+                <tr><td>5/8 wave vertical</td><td>~3</td><td>~5</td></tr>
+                <tr><td>3-element Yagi</td><td>~6</td><td>~8</td></tr>
+                <tr><td>5-element Yagi</td><td>~9</td><td>~11</td></tr>
+                <tr><td>Small loop (mag loop)</td><td>-1 to -2</td><td>0 to 1</td></tr>
+            </tbody>
+        </table>
+
+        <h3>dB Quick Reference</h3>
+        <div class="formula-box">
+<span class="formula">Power Ratios:</span>
+  +3 dB = 2× power
+  +6 dB = 4× power  
+  +10 dB = 10× power
+  
+  -3 dB = ½ power
+  -6 dB = ¼ power
+  -10 dB = 1/10 power
+        </div>
+
+        <h2 id="patterns">Radiation Patterns</h2>
+        
+        <div class="concept-card">
+            <h3>📡 Radiation Pattern</h3>
+            <p>A 3D representation of how an antenna radiates energy in different directions. Usually shown as 2D slices (azimuth and elevation).</p>
+        </div>
+
+        <div class="diagram">
+    DIPOLE RADIATION PATTERN (Top View - Azimuth)
+    
+                    Maximum radiation
+                         │
+            ┌────────────┼────────────┐
+           ╱              │              ╲
+          ╱               │               ╲
+         │    ┌───────────┼───────────┐    │
+         │   ╱            │            ╲   │
+         │  │      ●──────┼──────●      │  │  ← Wire (null off ends)
+         │   ╲            │            ╱   │
+         │    └───────────┼───────────┘    │
+          ╲               │               ╱
+           ╲              │              ╱
+            └────────────┼────────────┘
+                         │
+                    Maximum radiation
+    
+    Dipole: Figure-8 pattern, maximum broadside to wire
+        </div>
+
+        <h3>Pattern Types</h3>
+        <div style="margin: 20px 0;">
+            <div class="pattern-box">
+                <h4>Omnidirectional</h4>
+                <p>Equal in all horizontal directions</p>
+                <p><em>Vertical, ground plane</em></p>
+            </div>
+            <div class="pattern-box">
+                <h4>Bidirectional</h4>
+                <p>Two main lobes, opposite directions</p>
+                <p><em>Dipole, loop</em></p>
+            </div>
+            <div class="pattern-box">
+                <h4>Directional</h4>
+                <p>One main lobe, focused direction</p>
+                <p><em>Yagi, quad, dish</em></p>
+            </div>
+        </div>
+
+        <h2 id="polarization">Polarization</h2>
+        
+        <div class="concept-card">
+            <h3>↕️ Polarization</h3>
+            <p>The orientation of the electric field in a radio wave. Antennas work best when polarization matches.</p>
+        </div>
+
+        <h3>Types of Polarization</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Type</th><th>Antenna Orientation</th><th>Common Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Vertical</strong></td><td>Antenna element vertical</td><td>Mobile, FM repeaters, DX</td></tr>
+                <tr><td><strong>Horizontal</strong></td><td>Antenna element horizontal</td><td>HF, SSB, weak signal VHF</td></tr>
+                <tr><td><strong>Circular</strong></td><td>Rotating field</td><td>Satellites (RHCP/LHCP)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>Cross-polarization loss:</strong> If one station is vertical and the other horizontal, expect ~20 dB loss! On VHF/UHF, this matters a lot.
+        </div>
+
+        <h2 id="feedlines">Feedlines &amp; Loss</h2>
+        
+        <h3>Common Feedline Types</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Type</th><th>Impedance</th><th>Loss</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>RG-58</td><td>50Ω</td><td>High</td><td>Short runs, low power</td></tr>
+                <tr><td>RG-8X</td><td>50Ω</td><td>Medium</td><td>General purpose</td></tr>
+                <tr><td>RG-213</td><td>50Ω</td><td>Medium-Low</td><td>HF, moderate runs</td></tr>
+                <tr><td>LMR-400</td><td>50Ω</td><td>Low</td><td>VHF/UHF, long runs</td></tr>
+                <tr><td>Hardline</td><td>50Ω</td><td>Very Low</td><td>Commercial, towers</td></tr>
+                <tr><td>300Ω Ladder</td><td>300Ω</td><td>Very Low</td><td>Balanced antennas, needs tuner</td></tr>
+                <tr><td>450Ω Window</td><td>450Ω</td><td>Very Low</td><td>Balanced antennas, needs tuner</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip">
+            <strong>VHF/UHF Loss:</strong> Feedline loss increases dramatically with frequency. On 70cm, poor coax can lose half your power! Use low-loss coax for VHF and above.
+        </div>
+
+        <h2 id="matching">Matching &amp; Tuners</h2>
+        
+        <div class="concept-card">
+            <h3>🔧 Antenna Tuners (ATU)</h3>
+            <p>Transforms the impedance presented by antenna+feedline to 50Ω for your transmitter. Doesn't actually "tune" the antenna!</p>
+        </div>
+
+        <div class="diagram">
+    WHAT A TUNER DOES
+    
+    Transmitter ──► Tuner ──► Feedline ──► Antenna
+       50Ω          │            │
+                    │            │
+              Transforms      High SWR
+              impedance       may still
+              to 50Ω          exist here!
+                    
+    The tuner makes the TX happy, but feedline loss remains.
+        </div>
+
+        <h3>When to Use a Tuner</h3>
+        <ul>
+            <li>Multi-band antenna (dipole, doublet, end-fed)</li>
+            <li>Using antenna outside its resonant frequency</li>
+            <li>Random wire antennas</li>
+            <li>Ladder line fed antennas</li>
+        </ul>
+
+        <h2 id="practical">Practical Considerations</h2>
+        
+        <h3>Height Matters!</h3>
+        <ul>
+            <li><strong>Higher = better</strong> for most antennas</li>
+            <li>At ½λ height, dipole has maximum low-angle radiation (DX)</li>
+            <li>Lower heights favor higher angles (NVIS)</li>
+            <li>Verticals need good ground/radial systems</li>
+        </ul>
+
+        <h3>Ground Effects</h3>
+        <ul>
+            <li>Real ground is not perfect - affects patterns and impedance</li>
+            <li>Radials improve vertical antenna efficiency</li>
+            <li>Horizontal antennas less affected by poor ground</li>
+            <li>Salt water is best "ground" for verticals</li>
+        </ul>
+
+        <h3>Antenna Modeling</h3>
+        <p>Software like <strong>EZNEC</strong>, <strong>4NEC2</strong>, and <strong>MMANA-GAL</strong> can model antenna patterns, impedance, and gain before building.</p>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="field-antennas.html">Field Expedient Antennas</a></li>
+            <li><a href="../reference/coax-connectors.html">Coax &amp; Connectors Reference</a></li>
+            <li><a href="../reference/ham-radio-math.html">Ham Radio Math</a></li>
+        </ul>
+
+        <footer class="attribution">
+            <p>Reference: ARRL Antenna Book, ARRL Handbook</p>
+            <p>Compiled for the EmComm-Tools Ham Radio Encyclopedia</p>
+        </footer>
+    </article>
+    
+    <nav class="bottom-nav">
+        <a href="../index.html">← Back to Index</a>
+    </nav>
+</body>
+</html>
